@@ -156,6 +156,11 @@ function EntryBody({
             <div className="rounded-lg border border-edge bg-ink/[0.02] p-3">
               <div className="text-[11px] font-semibold text-muted uppercase">Ingles (nota)</div>
               <div className="mt-1 text-base font-medium text-ink">{entry.en}</div>
+              {entry.pronunciation && (
+                <div className="mt-1 text-xs text-muted">
+                  Se pronuncia <span className="font-medium text-ink">{entry.pronunciation}</span>
+                </div>
+              )}
               <div className="mt-2">
                 <CopyChip label="Copiar EN" value={entry.en} onCopy={onCopy} />
               </div>

@@ -20,6 +20,7 @@ export const dictionarySchema = baseSchema.extend({
   type: z.literal('dictionary'),
   en: z.string().min(1),
   es: z.string().min(1),
+  pronunciation: z.string().optional(),
   colloquial: z.array(z.string().min(1)).optional(),
   note: z.string().optional(),
 });

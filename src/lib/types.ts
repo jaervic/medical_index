@@ -27,6 +27,8 @@ export interface DictionaryEntry extends BaseEntry {
   en: string;
   /** Equivalente en espanol. */
   es: string;
+  /** Como se pronuncia el termino en ingles (respelling en texto). */
+  pronunciation?: string;
   /** Como lo dice el paciente en la calle (p. ej. "presion alta"). */
   colloquial?: string[];
   note?: string;

@@ -17,4 +17,11 @@ describe('validacion de datos (Zod)', () => {
     const ids = ENTRIES.map((entry) => entry.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
+
+  it('todo termino de diccionario trae su pronunciacion en ingles', () => {
+    const sinPronunciacion = ENTRIES.filter(
+      (entry) => entry.type === 'dictionary' && !entry.pronunciation,
+    ).map((entry) => entry.id);
+    expect(sinPronunciacion).toEqual([]);
+  });
 });

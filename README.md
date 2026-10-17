@@ -14,7 +14,8 @@ sin perder tiempo navegando menus.
 - **Ranking con criterio**: primero coincidencia exacta de acronimo/titulo, luego sinonimos,
   y desempate por **frecency** (lo que mas usas y mas reciente sube).
 - **Tarjetas por tipo**:
-  - _Diccionario_: termino exacto EN/ES, como lo dice el paciente, nota clinica.
+  - _Diccionario_: termino exacto EN/ES, **pronunciacion en ingles** (p. ej. `hy-per-TEN-shun`),
+    como lo dice el paciente, nota clinica.
   - _Ruta eCW_: breadcrumb de clics (`Chart › Hub › Referrals › New ...`) copiable.
   - _Protocolo_: pasos numerados y advertencias.
   - _Acronimo_: significado y traduccion.
