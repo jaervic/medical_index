@@ -1,0 +1,123 @@
+[
+  {
+    "id": "acr-uti",
+    "type": "acronym",
+    "title": "UTI",
+    "expansion": "Urinary Tract Infection",
+    "translation": "Infeccion de vias urinarias",
+    "keywords": ["urinary tract infection", "infeccion urinaria", "orina"],
+    "tags": ["urologia", "agudo"],
+    "note": "Usa mayusculas en la nota: UTI.",
+    "reviewedAt": "2026-01-15"
+  },
+  {
+    "id": "acr-sob",
+    "type": "acronym",
+    "title": "SOB",
+    "expansion": "Shortness of Breath",
+    "translation": "Falta de aire / disnea",
+    "keywords": ["dyspnea", "falta de aire", "breathing"],
+    "tags": ["respiratorio", "bandera-roja"],
+    "reviewedAt": "2026-02-01"
+  },
+  {
+    "id": "acr-htn",
+    "type": "acronym",
+    "title": "HTN",
+    "expansion": "Hypertension",
+    "translation": "Hipertension arterial",
+    "keywords": ["presion alta", "blood pressure"],
+    "tags": ["cardiovascular"],
+    "reviewedAt": "2026-01-15"
+  },
+  {
+    "id": "acr-dm",
+    "type": "acronym",
+    "title": "DM",
+    "expansion": "Diabetes Mellitus",
+    "translation": "Diabetes mellitus",
+    "keywords": ["azucar", "diabetes"],
+    "tags": ["endocrino"],
+    "reviewedAt": "2026-01-15"
+  },
+  {
+    "id": "acr-uri",
+    "type": "acronym",
+    "title": "URI",
+    "expansion": "Upper Respiratory Infection",
+    "translation": "Infeccion de vias respiratorias altas",
+    "keywords": ["gripe", "resfriado", "cold"],
+    "tags": ["respiratorio"],
+    "reviewedAt": "2026-02-01"
+  },
+  {
+    "id": "acr-ed",
+    "type": "acronym",
+    "title": "ED",
+    "expansion": "Emergency Department",
+    "translation": "Departamento de emergencias / sala de urgencias",
+    "keywords": ["ER", "emergency room", "urgencias", "sala de emergencia"],
+    "tags": ["administrativo"],
+    "reviewedAt": "2026-01-10"
+  },
+  {
+    "id": "acr-pcp",
+    "type": "acronym",
+    "title": "PCP",
+    "expansion": "Primary Care Physician / Provider",
+    "translation": "Medico de atencion primaria",
+    "keywords": ["primary care", "medico de cabecera", "proveedor"],
+    "tags": ["administrativo"],
+    "reviewedAt": "2026-01-10"
+  },
+  {
+    "id": "acr-npo",
+    "type": "acronym",
+    "title": "NPO",
+    "expansion": "Nil Per Os (nothing by mouth)",
+    "translation": "Nada por via oral / en ayunas",
+    "keywords": ["nothing by mouth", "ayuno", "no comer"],
+    "tags": ["procedimientos"],
+    "reviewedAt": "2026-01-10"
+  },
+  {
+    "id": "acr-prn",
+    "type": "acronym",
+    "title": "PRN",
+    "expansion": "Pro Re Nata (as needed)",
+    "translation": "Segun sea necesario / si es necesario",
+    "keywords": ["as needed", "si es necesario"],
+    "tags": ["farmacia"],
+    "reviewedAt": "2026-01-10"
+  },
+  {
+    "id": "acr-bid",
+    "type": "acronym",
+    "title": "BID / TID / QID",
+    "expansion": "Twice / three times / four times daily",
+    "translation": "Dos / tres / cuatro veces al dia",
+    "keywords": ["twice daily", "three times daily", "four times daily", "cada 12 horas"],
+    "tags": ["farmacia"],
+    "reviewedAt": "2026-01-10"
+  },
+  {
+    "id": "acr-ecw",
+    "type": "acronym",
+    "title": "eCW",
+    "expansion": "eClinicalWorks",
+    "translation": "Expediente electronico (EHR) que usamos en la clinica",
+    "keywords": ["eclinicalworks", "ehr", "expediente electronico"],
+    "tags": ["eCW", "administrativo"],
+    "reviewedAt": "2026-01-10"
+  },
+  {
+    "id": "acr-rx",
+    "type": "acronym",
+    "title": "Rx",
+    "expansion": "Prescription / Treatment",
+    "translation": "Receta / tratamiento",
+    "keywords": ["prescription", "receta", "tratamiento"],
+    "tags": ["farmacia"],
+    "reviewedAt": "2026-01-10"
+  }
+]

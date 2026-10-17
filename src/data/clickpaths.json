@@ -1,0 +1,83 @@
+[
+  {
+    "id": "cp-referral",
+    "type": "clickpath",
+    "title": "Ruta de clics: Crear un Referral",
+    "module": "eCW",
+    "path": ["Chart", "Hub", "Referrals", "New", "Seleccionar Especialidad", "Asignar a RN"],
+    "keywords": ["referral", "referir", "especialista", "referido", "derivar"],
+    "tags": ["eCW", "referrals", "administrativo"],
+    "notes": "Asignar siempre a la RN para autorizacion antes de enviar al especialista.",
+    "reviewedAt": "2026-02-10"
+  },
+  {
+    "id": "cp-refill",
+    "type": "clickpath",
+    "title": "Ruta de clics: Resurtido de medicamento",
+    "module": "eCW",
+    "path": [
+      "Chart",
+      "Hub",
+      "Prescriptions",
+      "Refill Request",
+      "Seleccionar Farmacia",
+      "Revisar dosis",
+      "Enviar a PCP"
+    ],
+    "keywords": ["refill", "resurtido", "resurtir", "renovar receta", "recetas"],
+    "tags": ["eCW", "farmacia", "administrativo"],
+    "notes": "Si el medicamento es controlado, NO surtir por telefono: requiere visita.",
+    "reviewedAt": "2026-02-10"
+  },
+  {
+    "id": "cp-telephone-encounter",
+    "type": "clickpath",
+    "title": "Ruta de clics: Documentar Telephone Encounter",
+    "module": "eCW",
+    "path": [
+      "Chart",
+      "Hub",
+      "Encounters",
+      "New",
+      "Telephone",
+      "Motivo de llamada",
+      "Notas",
+      "Sign & Save"
+    ],
+    "keywords": ["telephone encounter", "llamada", "telefono", "documentar llamada"],
+    "tags": ["eCW", "documentacion"],
+    "notes": "Registrar SIEMPRE la llamada: tiempo, motivo, indicaciones dadas y firma del RN.",
+    "reviewedAt": "2026-02-10"
+  },
+  {
+    "id": "cp-order-labs",
+    "type": "clickpath",
+    "title": "Ruta de clics: Ordenar laboratorios",
+    "module": "eCW",
+    "path": ["Chart", "Hub", "Orders", "New Orders", "Labs", "Seleccionar panel", "Guardar orden"],
+    "keywords": ["labs", "laboratorios", "analisis", "blood work", "ordenar labs"],
+    "tags": ["eCW", "ordenes"],
+    "notes": "Confirmar si el paciente debe ir en ayunas (NPO) antes de dar la orden.",
+    "reviewedAt": "2026-02-10"
+  },
+  {
+    "id": "cp-office-visit",
+    "type": "clickpath",
+    "title": "Ruta de clics: Documentar visita de oficina",
+    "module": "eCW",
+    "path": ["Chart", "Hub", "Encounters", "New", "Office Visit", "Motivo / HPI", "Sign & Save"],
+    "keywords": ["office visit", "visita", "soap note", "nota"],
+    "tags": ["eCW", "documentacion"],
+    "reviewedAt": "2026-02-10"
+  },
+  {
+    "id": "cp-patient-reminder",
+    "type": "clickpath",
+    "title": "Ruta de clics: Recordatorio de cita al paciente",
+    "module": "eCW",
+    "path": ["Hub", "Scheduler", "Appointments", "Seleccionar cita", "Patient Reminder", "Enviar"],
+    "keywords": ["recordatorio", "reminder", "cita", "appointment", "confirmar cita"],
+    "tags": ["eCW", "scheduling"],
+    "reviewedAt": "2026-02-10"
+  }
+]

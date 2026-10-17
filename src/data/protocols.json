@@ -1,0 +1,76 @@
+[
+  {
+    "id": "proto-uti-triage",
+    "type": "protocol",
+    "title": "Protocolo: Triage telefonico de UTI",
+    "appliesTo": "Paciente reporta ardor/escozor al orinar, urgencia urinaria o frecuencia.",
+    "steps": [
+      "Preguntar sintomas: disuria, frecuencia, urgencia, hematuria, dolor lumbar.",
+      "Descartar banderas rojas: fiebre > 100.4 F, dolor en flanco, vomito, embarazo.",
+      "Si hay banderas rojas, escalar al PCP de inmediato o referir a ED.",
+      "Si es no complicado, documentar Telephone Encounter y solicitar U/A (uroanalisis).",
+      "Registrar indicaciones dadas y firma del RN."
+    ],
+    "warnings": [
+      "Embarazo + sintomas urinarios = evaluacion el mismo dia.",
+      "Hombre con UTI sintomatica suele considerarse complicada."
+    ],
+    "keywords": ["UTI", "infeccion urinaria", "disuria", "ardor al orinar", "orina"],
+    "tags": ["triage", "urologia"],
+    "reviewedAt": "2026-02-05"
+  },
+  {
+    "id": "proto-refill-policy",
+    "type": "protocol",
+    "title": "Protocolo: Politica de resurtidos",
+    "appliesTo": "Cualquier solicitud de resurtido de medicamento por telefono.",
+    "steps": [
+      "Verificar que el paciente tenga una visita con el PCP en los ultimos 6-12 meses.",
+      "Confirmar nombre del medicamento, dosis y farmacia.",
+      "Confirmar que no sea medicamento controlado (si lo es, requiere visita).",
+      "Documentar Telephone Encounter con el motivo y las indicaciones.",
+      "Enviar la solicitud al PCP para aprobacion (Ruta: Prescriptions > Refill Request)."
+    ],
+    "warnings": [
+      "Nunca surtir controlados (p. ej. opioides, benzodiacepinas) por telefono.",
+      "Ante duda, dejar para revision del PCP en lugar de aprobar."
+    ],
+    "keywords": ["resurtido", "refill", "receta", "medicamento", "controlado"],
+    "tags": ["farmacia", "administrativo"],
+    "reviewedAt": "2026-02-10"
+  },
+  {
+    "id": "proto-uri-telephone",
+    "type": "protocol",
+    "title": "Protocolo: Manejo telefonico de URI",
+    "appliesTo": "Paciente con sintomas de resfriado sin dificultad respiratoria.",
+    "steps": [
+      "Confirmar que no hay falta de aire, dolor toracico ni fiebre alta persistente.",
+      "Recomendar hidratacion, descanso y manejo sintomatico.",
+      "Explicar que es viral y que los antibioticos no ayudan.",
+      "Indicar signos de alarma por los que debe buscar atencion.",
+      "Documentar Telephone Encounter."
+    ],
+    "warnings": ["Falta de aire o saturacion baja = escalar de inmediato."],
+    "keywords": ["URI", "resfriado", "gripe", "cold", "telefono"],
+    "tags": ["triage", "respiratorio"],
+    "reviewedAt": "2026-02-01"
+  },
+  {
+    "id": "proto-hypertension-red-flags",
+    "type": "protocol",
+    "title": "Protocolo: Banderas rojas en presion alta",
+    "appliesTo": "Paciente que llama porque detecto su presion elevada en casa.",
+    "steps": [
+      "Preguntar la cifra exacta y si hay sintomas acompanantes.",
+      "Buscar banderas rojas: dolor de pecho, falta de aire, dolor de cabeza severo, vision borrosa.",
+      "Si hay banderas rojas, indicar ir a ED o llamar a 911.",
+      "Si esta asintomatico y la cifra no es critica, aconsejar rechequeo en reposo y avisar al PCP.",
+      "Documentar Telephone Encounter con la cifra y las indicaciones."
+    ],
+    "warnings": ["Sintomas neurologicos o cardiacos = emergencia, no esperar."],
+    "keywords": ["presion alta", "HTN", "hipertension", "blood pressure", "crisis"],
+    "tags": ["triage", "cardiovascular"],
+    "reviewedAt": "2026-02-05"
+  }
+]

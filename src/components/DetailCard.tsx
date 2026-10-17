@@ -1,0 +1,234 @@
+import { Copy, Star } from 'lucide-react';
+import type { ReactNode } from 'react';
+import type { Entry } from '@/lib/types';
+import { ClickPath } from './ClickPath';
+import { TypeBadge } from './TypeBadge';
+
+interface CopyChipProps {
+  label: string;
+  value: string;
+  onCopy: (text: string, label?: string) => void;
+}
+
+function CopyChip({ label, value, onCopy }: CopyChipProps) {
+  return (
+    <button
+      type="button"
+      onClick={() => onCopy(value, label)}
+      className="inline-flex items-center gap-1.5 rounded-md bg-ink/5 px-2 py-1 text-xs font-medium text-ink ring-1 ring-inset ring-edge transition hover:bg-accent hover:text-accent-ink hover:ring-accent"
+    >
+      <Copy size={12} />
+      {label}
+    </button>
+  );
+}
+
+function Field({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div>
+      <div className="text-[11px] font-semibold tracking-wide text-muted uppercase">{label}</div>
+      <div className="mt-1.5">{children}</div>
+    </div>
+  );
+}
+
+function Placeholder() {
+  return (
+    <div className="flex h-full items-center justify-center px-8 text-center">
+      <p className="max-w-xs text-sm text-muted">
+        Escribe para buscar. Presiona{' '}
+        <kbd className="rounded bg-ink/5 px-1.5 py-0.5 ring-1 ring-edge">↑</kbd>{' '}
+        <kbd className="rounded bg-ink/5 px-1.5 py-0.5 ring-1 ring-edge">↓</kbd> para navegar y{' '}
+        <kbd className="rounded bg-ink/5 px-1.5 py-0.5 ring-1 ring-edge">Enter</kbd> para copiar.
+      </p>
+    </div>
+  );
+}
+
+interface DetailCardProps {
+  entry: Entry | null;
+  isFavorite: boolean;
+  onToggleFavorite: (id: string) => void;
+  onCopy: (text: string, label?: string) => void;
+}
+
+export function DetailCard({ entry, isFavorite, onToggleFavorite, onCopy }: DetailCardProps) {
+  if (!entry) return <Placeholder />;
+
+  return (
+    <div className="flex h-full flex-col">
+      <header className="flex items-start justify-between gap-3 border-b border-edge px-5 py-4">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2">
+            <TypeBadge type={entry.type} />
+            {entry.reviewedAt && (
+              <span className="text-[11px] text-muted">Revisado {entry.reviewedAt}</span>
+            )}
+          </div>
+          <h2 className="mt-2 text-lg leading-tight font-semibold text-ink">{entry.title}</h2>
+        </div>
+        <button
+          type="button"
+          aria-label={isFavorite ? 'Quitar de fijados' : 'Fijar'}
+          aria-pressed={isFavorite}
+          onClick={() => onToggleFavorite(entry.id)}
+          className={`shrink-0 rounded-md p-2 transition ${
+            isFavorite ? 'text-amber-400' : 'text-muted hover:text-amber-400'
+          }`}
+        >
+          <Star size={17} fill={isFavorite ? 'currentColor' : 'none'} />
+        </button>
+      </header>
+
+      <div className="flex-1 space-y-5 overflow-y-auto px-5 py-4">
+        <EntryBody entry={entry} onCopy={onCopy} />
+        {entry.keywords && entry.keywords.length > 0 && (
+          <Field label="Tambien se busca como">
+            <div className="flex flex-wrap gap-1.5">
+              {entry.keywords.map((keyword) => (
+                <span
+                  key={keyword}
+                  className="rounded-md bg-ink/5 px-2 py-0.5 text-xs text-muted ring-1 ring-inset ring-edge"
+                >
+                  {keyword}
+                </span>
+              ))}
+            </div>
+          </Field>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function EntryBody({
+  entry,
+  onCopy,
+}: {
+  entry: Entry;
+  onCopy: (text: string, label?: string) => void;
+}) {
+  switch (entry.type) {
+    case 'dictionary':
+      return (
+        <>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="rounded-lg border border-edge bg-ink/[0.02] p-3">
+              <div className="text-[11px] font-semibold text-muted uppercase">Ingles (nota)</div>
+              <div className="mt-1 text-base font-medium text-ink">{entry.en}</div>
+              <div className="mt-2">
+                <CopyChip label="Copiar EN" value={entry.en} onCopy={onCopy} />
+              </div>
+            </div>
+            <div className="rounded-lg border border-edge bg-ink/[0.02] p-3">
+              <div className="text-[11px] font-semibold text-muted uppercase">Espanol</div>
+              <div className="mt-1 text-base font-medium text-ink">{entry.es}</div>
+              <div className="mt-2">
+                <CopyChip label="Copiar ES" value={entry.es} onCopy={onCopy} />
+              </div>
+            </div>
+          </div>
+
+          {entry.colloquial && entry.colloquial.length > 0 && (
+            <Field label="Como lo dice el paciente">
+              <div className="flex flex-wrap gap-1.5">
+                {entry.colloquial.map((phrase) => (
+                  <button
+                    key={phrase}
+                    type="button"
+                    onClick={() => onCopy(phrase, 'Copiado')}
+                    className="rounded-full bg-amber-500/12 px-2.5 py-1 text-xs text-amber-700 ring-1 ring-inset ring-amber-500/25 transition hover:bg-amber-500/20 dark:text-amber-300"
+                  >
+                    “{phrase}”
+                  </button>
+                ))}
+              </div>
+            </Field>
+          )}
+
+          {entry.note && <Note>{entry.note}</Note>}
+        </>
+      );
+
+    case 'clickpath':
+      return (
+        <>
+          <Field label={`Ruta en ${entry.module}`}>
+            <ClickPath path={entry.path} />
+          </Field>
+          <CopyChip label="Copiar ruta completa" value={entry.path.join(' > ')} onCopy={onCopy} />
+          {entry.notes && <Note>{entry.notes}</Note>}
+        </>
+      );
+
+    case 'protocol':
+      return (
+        <>
+          {entry.appliesTo && (
+            <Field label="Aplica cuando">
+              <p className="text-sm text-ink">{entry.appliesTo}</p>
+            </Field>
+          )}
+          <Field label="Pasos">
+            <ol className="space-y-2">
+              {entry.steps.map((step, index) => (
+                <li key={step} className="flex gap-3 text-sm text-ink">
+                  <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-[11px] font-semibold text-accent">
+                    {index + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </Field>
+          <CopyChip
+            label="Copiar pasos"
+            value={entry.steps.map((step, index) => `${index + 1}. ${step}`).join('\n')}
+            onCopy={onCopy}
+          />
+          {entry.warnings && entry.warnings.length > 0 && (
+            <Field label="Advertencias">
+              <ul className="space-y-1.5">
+                {entry.warnings.map((warning) => (
+                  <li key={warning} className="flex gap-2 text-sm text-rose-600 dark:text-rose-300">
+                    <span aria-hidden>•</span>
+                    <span>{warning}</span>
+                  </li>
+                ))}
+              </ul>
+            </Field>
+          )}
+        </>
+      );
+
+    case 'acronym':
+      return (
+        <>
+          <Field label="Significado (EN)">
+            <div className="flex items-center gap-2">
+              <span className="text-base font-medium text-ink">{entry.expansion}</span>
+              <CopyChip
+                label="Copiar"
+                value={`${entry.title} — ${entry.expansion}`}
+                onCopy={onCopy}
+              />
+            </div>
+          </Field>
+          {entry.translation && (
+            <Field label="En espanol">
+              <p className="text-sm text-ink">{entry.translation}</p>
+            </Field>
+          )}
+          {entry.note && <Note>{entry.note}</Note>}
+        </>
+      );
+  }
+}
+
+function Note({ children }: { children: ReactNode }) {
+  return (
+    <div className="rounded-lg border border-edge bg-ink/[0.02] p-3 text-sm text-muted">
+      {children}
+    </div>
+  );
+}

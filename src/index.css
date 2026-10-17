@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Tokens de tema. La app es dark-first (turnos, luz baja) pero el toggle
+ * cambia las variables, asi que los componentes no repiten variantes dark:.
+ */
+:root {
+  --surface: #f1f2f4;
+  --panel: #ffffff;
+  --ink: #14171a;
+  --muted: #6b7280;
+  --edge: #e4e6eb;
+  --accent: #047857;
+  --accent-ink: #ffffff;
+}
+
+.dark {
+  --surface: #0a0a0a;
+  --panel: #141414;
+  --ink: #f5f5f5;
+  --muted: #9ca3af;
+  --edge: #262626;
+  --accent: #34d399;
+  --accent-ink: #062017;
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-edge: var(--edge);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--edge) transparent;
+}
+
+@keyframes meddex-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.meddex-toast {
+  animation: meddex-toast-in 0.16s ease-out;
+}

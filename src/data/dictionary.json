@@ -1,0 +1,108 @@
+[
+  {
+    "id": "hypertension-htn",
+    "type": "dictionary",
+    "title": "Hypertension (HTN)",
+    "en": "Hypertension",
+    "es": "Hipertension arterial",
+    "colloquial": ["presion alta", "tension alta", "la presion", "azucar", "se me sube la presion"],
+    "keywords": ["high blood pressure", "HTN", "blood pressure", "elevated BP"],
+    "tags": ["cardiovascular", "cronico"],
+    "note": "En la nota usa 'Hypertension (HTN)'. Evita 'high blood pressure' como diagnostico formal.",
+    "reviewedAt": "2026-01-15"
+  },
+  {
+    "id": "diabetes-mellitus",
+    "type": "dictionary",
+    "title": "Diabetes Mellitus (DM)",
+    "en": "Diabetes Mellitus",
+    "es": "Diabetes mellitus",
+    "colloquial": ["azucar en la sangre", "tengo azucar", "diabetes"],
+    "keywords": ["DM", "DM2", "type 2 diabetes", "glucose", "sugar"],
+    "tags": ["endocrino", "cronico"],
+    "note": "Especifica el tipo: DM2 (tipo 2) es lo mas comun en esta poblacion.",
+    "reviewedAt": "2026-01-15"
+  },
+  {
+    "id": "upper-respiratory-infection",
+    "type": "dictionary",
+    "title": "Upper Respiratory Infection (URI)",
+    "en": "Upper Respiratory Infection",
+    "es": "Infeccion de vias respiratorias altas",
+    "colloquial": ["gripe", "resfriado", "catarro", "estoy engripado"],
+    "keywords": ["URI", "common cold", "cold", "flu-like"],
+    "tags": ["respiratorio", "agudo"],
+    "note": "Distingue URI (viral) de Influenza. Si hay fiebre alta y mialgias, considera Influenza.",
+    "reviewedAt": "2026-02-01"
+  },
+  {
+    "id": "shortness-of-breath",
+    "type": "dictionary",
+    "title": "Shortness of Breath (SOB / Dyspnea)",
+    "en": "Shortness of Breath",
+    "es": "Disnea / falta de aire",
+    "colloquial": ["falta de aire", "no puedo respirar", "me ahogo", "me falta el aire"],
+    "keywords": ["SOB", "dyspnea", "breathing difficulty"],
+    "tags": ["respiratorio", "bandera-roja"],
+    "note": "SIEMPRE bandera roja en triage telefonico: puede requerir evaluacion presencial o 911.",
+    "reviewedAt": "2026-02-01"
+  },
+  {
+    "id": "sore-throat",
+    "type": "dictionary",
+    "title": "Sore Throat (Pharyngitis)",
+    "en": "Pharyngitis",
+    "es": "Faringitis / dolor de garganta",
+    "colloquial": ["dolor de garganta", "me duele la garganta"],
+    "keywords": ["sore throat", "pharyngitis", "strep"],
+    "tags": ["respiratorio", "agudo"],
+    "reviewedAt": "2026-01-20"
+  },
+  {
+    "id": "asthma",
+    "type": "dictionary",
+    "title": "Asthma (Reactive Airway Disease)",
+    "en": "Asthma",
+    "es": "Asma",
+    "colloquial": ["asma", "silbido en el pecho", "no me pasa el aire"],
+    "keywords": ["asthma", "wheezing", "reactive airway", "inhaler", "albuterol"],
+    "tags": ["respiratorio", "cronico"],
+    "note": "Si el paciente reporta crisis asmatica con dificultad para hablar, indicar ED o 911.",
+    "reviewedAt": "2026-02-01"
+  },
+  {
+    "id": "headache",
+    "type": "dictionary",
+    "title": "Headache (Cephalgia)",
+    "en": "Headache",
+    "es": "Cefalea / dolor de cabeza",
+    "colloquial": ["dolor de cabeza", "me duele la cabeza", "migrana"],
+    "keywords": ["cephalgia", "migraine", "migrana"],
+    "tags": ["neurologico"],
+    "reviewedAt": "2026-01-20"
+  },
+  {
+    "id": "medication-refill",
+    "type": "dictionary",
+    "title": "Medication Refill",
+    "en": "Medication Refill",
+    "es": "Resurtido de medicamento",
+    "colloquial": ["resurtido", "renovar receta", "necesito mi medicina", "refill"],
+    "keywords": ["refill", "prescription renewal", "renew Rx", "resurtir"],
+    "tags": ["farmacia", "administrativo"],
+    "note": "Confirmar: medicamento, dosis, farmacia y si el paciente tiene visita reciente con el PCP.",
+    "reviewedAt": "2026-02-10"
+  },
+  {
+    "id": "dizziness",
+    "type": "dictionary",
+    "title": "Dizziness (Vertigo)",
+    "en": "Dizziness",
+    "es": "Mareo / vertigo",
+    "colloquial": ["mareo", "me marea", "ando mareado", "vahido"],
+    "keywords": ["vertigo", "lightheaded", "presyncope"],
+    "tags": ["neurologico", "bandera-roja"],
+    "note": "Filtrar banderas rojas: sincope, deficit focal, dolor toracico.",
+    "reviewedAt": "2026-01-28"
+  }
+]

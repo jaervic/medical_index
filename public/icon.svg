@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Meddex">
+  <rect width="512" height="512" rx="112" fill="#0a0a0a" />
+  <g fill="none" stroke="#34d399" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="228" cy="228" r="128" />
+    <line x1="322" y1="322" x2="416" y2="416" />
+  </g>
+  <g fill="#34d399">
+    <rect x="205" y="171" width="46" height="114" rx="10" />
+    <rect x="171" y="205" width="114" height="46" rx="10" />
+  </g>
+</svg>
