@@ -39,9 +39,7 @@ describe('busqueda fuzzy y ranking', () => {
   });
 
   it('encuentra contenido de flujo administrativo', () => {
-    expect(ids('prior auth')).toEqual(
-      expect.arrayContaining(['proto-prior-auth']),
-    );
+    expect(ids('prior auth')).toEqual(expect.arrayContaining(['proto-prior-auth']));
   });
 
   it('genera el texto de copiado correcto por tipo', () => {

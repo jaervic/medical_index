@@ -28,9 +28,9 @@ Actualmente incluye **128 entradas**: 53 acronimos, 36 terminos de diccionario, 
 16 protocolos. Se fundamentaron en fuentes publicas:
 
 - **Acronimos y vocabulario clinico**: listas de abreviaturas de uso comun (NCI/SEER, MedicAlert).
-- **Rutas de eCW**: guias de entrenamiento de eClinicalWorks (panel DRTLA, *Treatment screen*,
-  FUTURE ORDERS, *Outgoing Referral*, inmunizaciones en 2 pasos, registro de paciente nuevo).
-- **Protocolos (AWV)**: guia de la CMS/Medicare para la *Annual Wellness Visit* (G0438/G0439).
+- **Rutas de eCW**: guias de entrenamiento de eClinicalWorks (panel DRTLA, _Treatment screen_,
+  FUTURE ORDERS, _Outgoing Referral_, inmunizaciones en 2 pasos, registro de paciente nuevo).
+- **Protocolos (AWV)**: guia de la CMS/Medicare para la _Annual Wellness Visit_ (G0438/G0439).
 - **Triage telefonico**: banderas rojas de dolor toracico, disnea, fiebre y dolor abdominal
   (guias AHA/ACC, WHO prehospital protocols, ESI handbook, protocolos de triage telefonico).
 
