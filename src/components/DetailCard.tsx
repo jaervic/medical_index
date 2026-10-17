@@ -1,5 +1,6 @@
 import { Copy, Pencil, Star } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { isRedFlag } from '@/lib/entryFlags';
 import { primaryCopyText } from '@/lib/search';
 import { sourceFile, sourceUrl } from '@/lib/source';
 import type { Entry } from '@/lib/types';
@@ -41,6 +42,7 @@ export interface DetailCardProps {
   onToggleFavorite: (id: string) => void;
   onCopy: (text: string, label?: string) => void;
   onTagClick: (tag: string) => void;
+  onKeywordClick: (keyword: string) => void;
 }
 
 export function DetailCard({
@@ -50,6 +52,7 @@ export function DetailCard({
   onToggleFavorite,
   onCopy,
   onTagClick,
+  onKeywordClick,
 }: DetailCardProps) {
   const tags = entry.tags ?? [];
 
@@ -59,6 +62,12 @@ export function DetailCard({
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <TypeBadge type={entry.type} />
+            {isRedFlag(entry) && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-rose-500/10 px-2 py-0.5 text-[11px] font-medium text-rose-600 ring-1 ring-inset ring-rose-500/25 dark:text-rose-300">
+                <span aria-hidden className="size-1.5 rounded-full bg-rose-500" />
+                Bandera roja
+              </span>
+            )}
             {entry.reviewedAt && (
               <span className="text-[11px] text-muted">Revisado {entry.reviewedAt}</span>
             )}
@@ -106,7 +115,7 @@ export function DetailCard({
                 <button
                   key={keyword}
                   type="button"
-                  onClick={() => onTagClick(keyword)}
+                  onClick={() => onKeywordClick(keyword)}
                   className="rounded-md bg-ink/5 px-2 py-0.5 text-xs text-muted ring-1 ring-inset ring-edge transition hover:text-ink"
                 >
                   {keyword}

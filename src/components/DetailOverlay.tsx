@@ -1,6 +1,8 @@
 import { X } from 'lucide-react';
-import { useEffect, useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import { ENTRIES } from '@/data';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { useScrollLock } from '@/hooks/useScrollLock';
 import { findRelated } from '@/lib/related';
 import type { Entry } from '@/lib/types';
 import { CrisisBanner } from './CrisisBanner';
@@ -14,6 +16,7 @@ interface DetailOverlayProps {
   onToggleFavorite: (id: string) => void;
   onCopy: (text: string, label?: string) => void;
   onTagClick: (tag: string) => void;
+  onKeywordClick: (keyword: string) => void;
   onPick: (entry: Entry) => void;
   onClose: () => void;
 }
@@ -26,16 +29,13 @@ export function DetailOverlay({
   onToggleFavorite,
   onCopy,
   onTagClick,
+  onKeywordClick,
   onPick,
   onClose,
 }: DetailOverlayProps) {
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [onClose]);
+  const ref = useRef<HTMLDivElement>(null);
+  useFocusTrap(ref, onClose);
+  useScrollLock();
 
   const related = useMemo(() => findRelated(entry, ENTRIES, 5).map((item) => item.entry), [entry]);
 
@@ -48,7 +48,9 @@ export function DetailOverlay({
       onClick={onClose}
     >
       <div
-        className="flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl border border-edge bg-panel shadow-2xl sm:max-h-[85vh] sm:rounded-2xl"
+        ref={ref}
+        tabIndex={-1}
+        className="flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-2xl border border-edge bg-panel shadow-2xl outline-none sm:max-h-[85vh] sm:rounded-2xl"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="relative flex min-h-0 flex-1 flex-col">
@@ -67,6 +69,7 @@ export function DetailOverlay({
             onToggleFavorite={onToggleFavorite}
             onCopy={onCopy}
             onTagClick={onTagClick}
+            onKeywordClick={onKeywordClick}
           />
         </div>
 

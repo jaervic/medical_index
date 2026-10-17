@@ -26,7 +26,14 @@ sin perder tiempo navegando menus.
 - **Estado vacio util**: atajos, mas usados, fijados y **linea de crisis 988** siempre a la vista.
 - **Panel colapsable** con `Ctrl/Cmd + B`: si lo ocultas, `Enter` abre la tarjeta a pantalla
   completa (tambien en movil) y `Esc` la cierra.
-- **Fijados y recientes**, filtros por categoria, **tema claro/oscuro** (oscuro por defecto).
+- **Busqueda con filtros**: `type:protocol`, `tag:salud-mental` o `#triage`; el texto que coincide se
+  **resalta** y las entradas de **bandera roja** se marcan con un punto rojo.
+- **Estado en la URL** (`?q=`, `?type=`, `#id`): refresca o comparte un enlace sin perder el contexto.
+- **Ayuda de atajos** con `?`; `Esc` limpia la busqueda; `Ctrl/Cmd + B` alterna el panel.
+- **Tema** claro, oscuro o **segun el sistema**.
+- **Fijados y recientes**, filtros por categoria y busqueda tolerante a errores.
+- **Accesibilidad**: navegacion completa por teclado, foco visible, dialogos con trampa de foco,
+  regiones `aria-live` para anunciar resultados y respeto a `prefers-reduced-motion`.
 - **PWA instalable y offline**: ponla en su propia ventana en tu monitor secundario.
 
 ## Contenido y fuentes

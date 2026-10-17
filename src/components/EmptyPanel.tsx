@@ -1,6 +1,8 @@
 import { Star, TrendingUp } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { useModifierKey } from '@/hooks/useModifierKey';
 import type { Entry } from '@/lib/types';
+import { ShortcutList } from './ShortcutList';
 import { TypeBadge } from './TypeBadge';
 
 interface EmptyPanelProps {
@@ -8,24 +10,6 @@ interface EmptyPanelProps {
   topUsed: Entry[];
   favorites: Entry[];
   onPick: (entry: Entry) => void;
-}
-
-function Shortcut({ keys, label }: { keys: string[]; label: string }) {
-  return (
-    <li className="flex items-center justify-between gap-3 py-1">
-      <span className="text-xs text-muted">{label}</span>
-      <span className="flex items-center gap-1">
-        {keys.map((key) => (
-          <kbd
-            key={key}
-            className="rounded border border-edge bg-ink/5 px-1.5 py-0.5 font-sans text-[10px] text-muted"
-          >
-            {key}
-          </kbd>
-        ))}
-      </span>
-    </li>
-  );
 }
 
 function MiniList({
@@ -65,6 +49,8 @@ function MiniList({
 }
 
 export function EmptyPanel({ total, topUsed, favorites, onPick }: EmptyPanelProps) {
+  const modifier = useModifierKey();
+
   return (
     <div className="flex h-full flex-col gap-5 overflow-y-auto p-5">
       <div>
@@ -74,22 +60,21 @@ export function EmptyPanel({ total, topUsed, favorites, onPick }: EmptyPanelProp
         </p>
       </div>
 
-      <ul className="divide-y divide-edge rounded-lg border border-edge px-3 py-1.5">
-        <Shortcut keys={['↑', '↓']} label="Navegar resultados" />
-        <Shortcut keys={['↵']} label="Copiar el termino seleccionado" />
-        <Shortcut keys={['/']} label="Enfocar el buscador" />
-        <Shortcut keys={['⌘', 'K']} label="Enfocar desde cualquier lugar" />
-        <Shortcut keys={['⌘', 'B']} label="Mostrar u ocultar este panel" />
-      </ul>
+      <ShortcutList modifier={modifier} />
 
       <MiniList
         heading="Mas usados"
-        icon={<TrendingUp size={13} />}
+        icon={<TrendingUp size={13} aria-hidden />}
         entries={topUsed}
         onPick={onPick}
       />
 
-      <MiniList heading="Fijados" icon={<Star size={13} />} entries={favorites} onPick={onPick} />
+      <MiniList
+        heading="Fijados"
+        icon={<Star size={13} aria-hidden />}
+        entries={favorites}
+        onPick={onPick}
+      />
     </div>
   );
 }

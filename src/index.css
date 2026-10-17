@@ -63,6 +63,22 @@ body {
   scrollbar-color: var(--edge) transparent;
 }
 
+/* Foco visible y consistente para navegacion por teclado. */
+:where(a, button, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 @keyframes meddex-toast-in {
   from {
     opacity: 0;

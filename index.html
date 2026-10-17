@@ -12,6 +12,23 @@
     <title>Meddex</title>
   </head>
   <body>
+    <script>
+      // Aplica el tema antes de React para evitar el flash (FOUC).
+      (function () {
+        try {
+          var stored = JSON.parse(localStorage.getItem('meddex:theme'));
+          var theme =
+            stored === 'dark' || stored === 'light' || stored === 'system' ? stored : 'dark';
+          var dark =
+            theme === 'dark' ||
+            (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (error) {
+          /* sin localStorage: se queda el tema por defecto */
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

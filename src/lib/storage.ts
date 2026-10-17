@@ -13,7 +13,7 @@ export const STORAGE_KEYS = {
   panelCollapsed: `${NS}:panel-collapsed`,
 } as const;
 
-export type Theme = 'dark' | 'light';
+export type Theme = 'dark' | 'light' | 'system';
 
 export interface FrecencyRecord {
   count: number;

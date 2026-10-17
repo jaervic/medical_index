@@ -1,9 +1,5 @@
 import { useEffect, type RefObject } from 'react';
-
-function isTypingTarget(target: EventTarget | null): boolean {
-  if (!(target instanceof HTMLElement)) return false;
-  return target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
-}
+import { isTypingTarget } from '@/lib/dom';
 
 /**
  * Enfoca el buscador desde cualquier parte con Ctrl/Cmd+K, o con "/" cuando no

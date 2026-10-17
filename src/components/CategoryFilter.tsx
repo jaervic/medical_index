@@ -1,5 +1,4 @@
-import type { EntryType } from '@/lib/types';
-import { ENTRY_TYPE_LABEL } from '@/lib/types';
+import { ENTRY_TYPE_LABEL, type EntryType } from '@/lib/types';
 
 const FILTERS: Array<{ value: EntryType | 'all'; label: string }> = [
   { value: 'all', label: 'Todo' },
@@ -16,13 +15,14 @@ interface CategoryFilterProps {
 
 export function CategoryFilter({ value, onChange }: CategoryFilterProps) {
   return (
-    <div className="flex flex-wrap gap-1.5">
+    <div role="group" aria-label="Filtrar por categoria" className="flex flex-wrap gap-1.5">
       {FILTERS.map((filter) => {
         const active = filter.value === value;
         return (
           <button
             key={filter.value}
             type="button"
+            aria-pressed={active}
             onClick={() => onChange(filter.value)}
             className={`rounded-full px-2.5 py-1 text-xs font-medium transition ${
               active

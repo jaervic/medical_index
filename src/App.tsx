@@ -1,11 +1,22 @@
 import { Command } from 'cmdk';
-import { Moon, PanelRightClose, PanelRightOpen, Search, Sun, X } from 'lucide-react';
-import { useMemo, useRef, useState } from 'react';
+import {
+  HelpCircle,
+  Monitor,
+  Moon,
+  PanelRightClose,
+  PanelRightOpen,
+  Search,
+  Sun,
+  X,
+} from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { ActiveFilters } from '@/components/ActiveFilters';
 import { CategoryFilter } from '@/components/CategoryFilter';
 import { CrisisBanner } from '@/components/CrisisBanner';
 import { DetailCard } from '@/components/DetailCard';
 import { DetailOverlay } from '@/components/DetailOverlay';
 import { EmptyPanel } from '@/components/EmptyPanel';
+import { HelpOverlay } from '@/components/HelpOverlay';
 import { RelatedEntries } from '@/components/RelatedEntries';
 import { ResultItem } from '@/components/ResultItem';
 import { StatusBar } from '@/components/StatusBar';
@@ -17,13 +28,20 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { usePanel } from '@/hooks/usePanel';
 import { useSearch } from '@/hooks/useSearch';
 import { useTheme } from '@/hooks/useTheme';
+import { useUrlState } from '@/hooks/useUrlState';
 import { useUsage } from '@/hooks/useUsage';
+import { isTypingTarget } from '@/lib/dom';
+import { buildHome } from '@/lib/home';
+import { parseQuery, removeTagToken, removeTypeToken } from '@/lib/queryFilters';
 import { findRelated } from '@/lib/related';
 import { primaryCopyText } from '@/lib/search';
 import { frecencyValue } from '@/lib/storage';
 import type { Entry, EntryType } from '@/lib/types';
 
 const byId = new Map(ENTRIES.map((entry) => [entry.id, entry]));
+
+/** Tope de entradas mostradas en la vista inicial (evita volcar 200+ filas). */
+const HOME_LIMIT = 50;
 
 const GROUP_CLASS =
   'px-1 pb-2 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-muted [&_[cmdk-group-heading]]:uppercase';
@@ -33,37 +51,68 @@ const LIST_BASE =
 const LIST_EXPANDED = `${LIST_BASE} lg:w-[440px] lg:shrink-0 xl:w-[500px]`;
 const LIST_COLLAPSED = `${LIST_BASE} lg:mx-auto lg:max-w-3xl`;
 
+function readInitialState() {
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get('type');
+  return {
+    q: params.get('q') ?? '',
+    type: type as EntryType | null,
+    id: window.location.hash.replace(/^#/, ''),
+  };
+}
+
 export default function App() {
-  const [query, setQuery] = useState('');
-  const [typeFilter, setTypeFilter] = useState<EntryType | 'all'>('all');
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const initial = useMemo(() => readInitialState(), []);
+  const [query, setQuery] = useState(initial.q);
+  const [typeFilter, setTypeFilter] = useState<EntryType | 'all'>(initial.type ?? 'all');
+  const [selectedId, setSelectedId] = useState<string | null>(initial.id || null);
   const [overlayId, setOverlayId] = useState<string | null>(null);
+  const [helpOpen, setHelpOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { theme, toggle: toggleTheme } = useTheme();
+  const { theme, cycle: cycleTheme } = useTheme();
   const { collapsed, toggle: togglePanel } = usePanel();
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const { favorites, recents, frecencyMap, toggleFavorite, registerUse } = useUsage();
   const { message, copy } = useCopy();
   useFocusHotkey(inputRef);
 
-  const results = useSearch(query, frecencyMap, typeFilter);
-  const isSearching = query.trim().length > 0;
+  const parsed = useMemo(() => parseQuery(query), [query]);
+  const activeTags = parsed.tags;
+  const effectiveType: EntryType | 'all' = parsed.type ?? typeFilter;
+  const isSearching = parsed.text.length > 0;
+  const browsingTags = !isSearching && activeTags.length > 0;
   const panelVisible = isDesktop && !collapsed;
 
-  const home = useMemo(() => {
-    const isVisible = (entry: Entry | undefined): entry is Entry =>
-      Boolean(entry) && (typeFilter === 'all' || entry!.type === typeFilter);
+  const results = useSearch(parsed.text, frecencyMap, effectiveType);
+  const tagFiltered = useMemo(
+    () =>
+      activeTags.length === 0
+        ? results
+        : results.filter((item) =>
+            activeTags.every((tag) =>
+              (item.entry.tags ?? []).some((value) => value.toLowerCase() === tag),
+            ),
+          ),
+    [results, activeTags],
+  );
 
-    const favoriteEntries = favorites.map((id) => byId.get(id)).filter(isVisible);
-    const recentEntries = recents.map((id) => byId.get(id)).filter(isVisible);
-    const seen = new Set([...favorites, ...recents]);
-    const rest = ENTRIES.filter(
-      (entry) => !seen.has(entry.id) && (typeFilter === 'all' || entry.type === typeFilter),
-    );
+  const browseResults = useMemo(() => {
+    if (!browsingTags) return [] as Entry[];
+    return ENTRIES.filter(
+      (entry) =>
+        (effectiveType === 'all' || entry.type === effectiveType) &&
+        activeTags.every((tag) => (entry.tags ?? []).some((value) => value.toLowerCase() === tag)),
+    )
+      .map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
+      .sort((a, b) => b.value - a.value || a.entry.title.localeCompare(b.entry.title))
+      .map((item) => item.entry);
+  }, [browsingTags, effectiveType, activeTags, frecencyMap]);
 
-    return { favoriteEntries, recentEntries, rest };
-  }, [favorites, recents, typeFilter]);
+  const home = useMemo(
+    () => buildHome(ENTRIES, favorites, recents, effectiveType),
+    [favorites, recents, effectiveType],
+  );
 
   const topUsed = useMemo(
     () =>
@@ -75,12 +124,29 @@ export default function App() {
     [frecencyMap],
   );
 
-  const favoriteEntries = useMemo(
-    () => favorites.map((id) => byId.get(id)).filter((entry): entry is Entry => Boolean(entry)),
-    [favorites],
-  );
+  const restShown = useMemo(() => home.rest.slice(0, HOME_LIMIT), [home]);
+  const restRemaining = home.rest.length - restShown.length;
 
-  const selected = selectedId ? (byId.get(selectedId) ?? null) : null;
+  // Ids visibles en el orden en que se muestran.
+  const orderedIds = useMemo(() => {
+    if (isSearching) return tagFiltered.map((item) => item.entry.id);
+    if (browsingTags) return browseResults.map((entry) => entry.id);
+    return [...home.favorites, ...home.recents, ...restShown].map((entry) => entry.id);
+  }, [isSearching, tagFiltered, browsingTags, browseResults, home, restShown]);
+
+  /*
+   * Seleccion activa derivada (sin efectos): al buscar o filtrar por etiqueta se
+   * previsualiza el primer resultado; la seleccion se descarta si deja de existir.
+   * Es la que alimenta el `value` controlado de cmdk y la tarjeta de detalle.
+   */
+  const activeId =
+    selectedId && orderedIds.includes(selectedId)
+      ? selectedId
+      : isSearching || browsingTags
+        ? (orderedIds[0] ?? null)
+        : null;
+
+  const selected = activeId ? (byId.get(activeId) ?? null) : null;
   const overlayEntry = overlayId ? (byId.get(overlayId) ?? null) : null;
 
   const related = useMemo(
@@ -89,6 +155,25 @@ export default function App() {
   );
 
   const useCount = selected ? (frecencyMap[selected.id]?.count ?? 0) : 0;
+
+  useUrlState(query, typeFilter, activeId);
+
+  // Atajos globales: Esc limpia la busqueda, ? abre la ayuda.
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        if (overlayId || helpOpen) return; // el dialogo lo maneja
+        if (query) setQuery('');
+        return;
+      }
+      if (event.key === '?' && !isTypingTarget(event.target)) {
+        event.preventDefault();
+        setHelpOpen(true);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [overlayId, helpOpen, query]);
 
   /** Enter/clic en la lista: copia si el panel esta visible, si no abre la tarjeta. */
   const handleSelect = (entry: Entry) => {
@@ -107,25 +192,37 @@ export default function App() {
   };
 
   const handleTagClick = (tag: string) => {
-    setQuery(tag);
+    setQuery(`#${tag.toLowerCase()}`);
     inputRef.current?.focus();
   };
 
+  const handleKeywordClick = (keyword: string) => {
+    setQuery(keyword);
+    inputRef.current?.focus();
+  };
+
+  const handleTypeChange = (value: EntryType | 'all') => {
+    setTypeFilter(value);
+    if (parsed.type) setQuery(removeTypeToken(query));
+  };
+
   const renderItem = (entry: Entry) => (
-    <ResultItem
-      key={entry.id}
-      entry={entry}
-      isFavorite={favorites.includes(entry.id)}
-      onToggleFavorite={toggleFavorite}
-      onSelect={handleSelect}
-    />
+    <ResultItem key={entry.id} entry={entry} query={parsed.text} onSelect={handleSelect} />
   );
 
-  const hasHomeShortcuts = home.favoriteEntries.length > 0 || home.recentEntries.length > 0;
+  const hasHomeShortcuts = home.favorites.length > 0 || home.recents.length > 0;
+  const resultCount = isSearching
+    ? tagFiltered.length
+    : browsingTags
+      ? browseResults.length
+      : home.favorites.length + home.recents.length + home.rest.length;
+
+  const themeLabel = theme === 'dark' ? 'oscuro' : theme === 'light' ? 'claro' : 'segun el sistema';
+  const ThemeIcon = theme === 'dark' ? Sun : theme === 'light' ? Moon : Monitor;
 
   return (
     <div className="flex h-full flex-col">
-      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-3 overflow-hidden p-3 sm:p-5 2xl:max-w-[1400px]">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-3 overflow-hidden p-3 sm:p-5 2xl:max-w-[1400px]">
         <header className="flex items-center justify-between gap-4 px-1">
           <div className="flex items-baseline gap-2">
             <span className="text-base font-semibold text-ink">Meddex</span>
@@ -134,6 +231,14 @@ export default function App() {
             </span>
           </div>
           <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={() => setHelpOpen(true)}
+              aria-label="Atajos de teclado"
+              className="rounded-md p-2 text-muted transition hover:bg-ink/5 hover:text-ink"
+            >
+              <HelpCircle size={17} />
+            </button>
             <button
               type="button"
               onClick={togglePanel}
@@ -145,11 +250,11 @@ export default function App() {
             </button>
             <button
               type="button"
-              onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+              onClick={cycleTheme}
+              aria-label={`Tema ${themeLabel}. Cambiar tema`}
               className="rounded-md p-2 text-muted transition hover:bg-ink/5 hover:text-ink"
             >
-              {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+              <ThemeIcon size={17} />
             </button>
           </div>
         </header>
@@ -159,18 +264,20 @@ export default function App() {
             shouldFilter={false}
             loop
             label="Buscador de protocolos y acronimos"
+            value={activeId ?? ''}
             onValueChange={setSelectedId}
             className={collapsed ? LIST_COLLAPSED : LIST_EXPANDED}
           >
-            <div className="flex items-center gap-2.5 border-b border-edge px-4">
-              <Search size={18} className="shrink-0 text-muted" />
+            <div className="flex items-center gap-2.5 border-b border-edge px-4 has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-accent/50 has-[input:focus-visible]:ring-inset">
+              <Search size={18} aria-hidden className="shrink-0 text-muted" />
               <Command.Input
                 ref={inputRef}
                 value={query}
                 onValueChange={setQuery}
                 autoFocus
                 spellCheck={false}
-                placeholder="Busca UTI, refill, presion alta, PHQ-9..."
+                aria-label="Buscar en protocolos, acronimos y diccionario"
+                placeholder="Busca UTI, refill, PHQ-9, tag:triage, #eCW..."
                 className="h-14 w-full bg-transparent text-base text-ink outline-none placeholder:text-muted"
               />
               {query.length > 0 && (
@@ -188,8 +295,21 @@ export default function App() {
               )}
             </div>
 
-            <div className="border-b border-edge px-3 py-2">
-              <CategoryFilter value={typeFilter} onChange={setTypeFilter} />
+            <div className="flex flex-col gap-2 border-b border-edge px-3 py-2">
+              <CategoryFilter value={effectiveType} onChange={handleTypeChange} />
+              <ActiveFilters
+                type={parsed.type}
+                tags={activeTags}
+                onRemoveType={() => {
+                  setQuery(removeTypeToken(query));
+                  setTypeFilter('all');
+                }}
+                onRemoveTag={(tag) => setQuery(removeTagToken(query, tag))}
+              />
+            </div>
+
+            <div aria-live="polite" className="sr-only">
+              {isSearching || browsingTags ? `${resultCount} resultados` : ''}
             </div>
 
             <Command.List className="min-h-0 flex-1 overflow-y-auto p-1.5">
@@ -198,25 +318,34 @@ export default function App() {
               </Command.Empty>
 
               {isSearching ? (
-                results.map((item) => renderItem(item.entry))
+                tagFiltered.map((item) => renderItem(item.entry))
+              ) : browsingTags ? (
+                <Command.Group heading={`#${activeTags.join(' #')}`} className={GROUP_CLASS}>
+                  {browseResults.map(renderItem)}
+                </Command.Group>
               ) : (
                 <>
-                  {home.favoriteEntries.length > 0 && (
+                  {home.favorites.length > 0 && (
                     <Command.Group heading="Fijados" className={GROUP_CLASS}>
-                      {home.favoriteEntries.map(renderItem)}
+                      {home.favorites.map(renderItem)}
                     </Command.Group>
                   )}
-                  {home.recentEntries.length > 0 && (
+                  {home.recents.length > 0 && (
                     <Command.Group heading="Recientes" className={GROUP_CLASS}>
-                      {home.recentEntries.map(renderItem)}
+                      {home.recents.map(renderItem)}
                     </Command.Group>
                   )}
                   <Command.Group
                     heading={hasHomeShortcuts ? 'Todo lo demas' : 'Todo'}
                     className={GROUP_CLASS}
                   >
-                    {home.rest.map(renderItem)}
+                    {restShown.map(renderItem)}
                   </Command.Group>
+                  {restRemaining > 0 && (
+                    <p className="px-3 pb-2 text-center text-[11px] text-muted">
+                      {restRemaining} entradas mas · escribe para filtrar
+                    </p>
+                  )}
                 </>
               )}
             </Command.List>
@@ -233,12 +362,13 @@ export default function App() {
                     onToggleFavorite={toggleFavorite}
                     onCopy={copy}
                     onTagClick={handleTagClick}
+                    onKeywordClick={handleKeywordClick}
                   />
                 ) : (
                   <EmptyPanel
                     total={ENTRIES.length}
                     topUsed={topUsed}
-                    favorites={favoriteEntries}
+                    favorites={home.favorites}
                     onPick={handlePick}
                   />
                 )}
@@ -262,7 +392,7 @@ export default function App() {
             </aside>
           )}
         </div>
-      </div>
+      </main>
 
       <StatusBar />
       <Toast message={message} />
@@ -275,10 +405,13 @@ export default function App() {
           onToggleFavorite={toggleFavorite}
           onCopy={copy}
           onTagClick={handleTagClick}
+          onKeywordClick={handleKeywordClick}
           onPick={handlePick}
           onClose={() => setOverlayId(null)}
         />
       )}
+
+      {helpOpen && <HelpOverlay onClose={() => setHelpOpen(false)} />}
     </div>
   );
 }

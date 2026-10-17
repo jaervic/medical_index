@@ -1,6 +1,8 @@
 import { Command } from 'cmdk';
-import { BookOpen, LetterText, ListChecks, MousePointerClick, Star } from 'lucide-react';
+import { BookOpen, LetterText, ListChecks, MousePointerClick } from 'lucide-react';
+import { isRedFlag } from '@/lib/entryFlags';
 import type { Entry } from '@/lib/types';
+import { Highlight } from './Highlight';
 import { TypeBadge } from './TypeBadge';
 
 const ICONS = {
@@ -25,12 +27,11 @@ function subtitle(entry: Entry): string {
 
 interface ResultItemProps {
   entry: Entry;
-  isFavorite: boolean;
-  onToggleFavorite: (id: string) => void;
+  query: string;
   onSelect: (entry: Entry) => void;
 }
 
-export function ResultItem({ entry, isFavorite, onToggleFavorite, onSelect }: ResultItemProps) {
+export function ResultItem({ entry, query, onSelect }: ResultItemProps) {
   const Icon = ICONS[entry.type];
 
   return (
@@ -39,35 +40,31 @@ export function ResultItem({ entry, isFavorite, onToggleFavorite, onSelect }: Re
       onSelect={() => onSelect(entry)}
       className="group flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 data-[selected=true]:bg-ink/[0.06] dark:data-[selected=true]:bg-white/[0.07]"
     >
-      <span className="mt-0.5 shrink-0 text-muted group-data-[selected=true]:text-accent">
+      <span
+        aria-hidden
+        className="mt-0.5 shrink-0 text-muted group-data-[selected=true]:text-accent"
+      >
         <Icon size={17} strokeWidth={2} />
       </span>
 
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-2">
-          <span className="truncate text-sm font-medium text-ink">{entry.title}</span>
+          {isRedFlag(entry) && (
+            <span
+              aria-hidden
+              title="Bandera roja"
+              className="size-1.5 shrink-0 rounded-full bg-rose-500"
+            />
+          )}
+          <span className="truncate text-sm font-medium text-ink">
+            <Highlight text={entry.title} query={query} />
+          </span>
           <TypeBadge type={entry.type} />
         </span>
-        <span className="mt-0.5 block truncate text-xs text-muted">{subtitle(entry)}</span>
+        <span className="mt-0.5 block truncate text-xs text-muted">
+          <Highlight text={subtitle(entry)} query={query} />
+        </span>
       </span>
-
-      <button
-        type="button"
-        aria-label={isFavorite ? 'Quitar de fijados' : 'Fijar'}
-        aria-pressed={isFavorite}
-        onPointerDown={(event) => event.stopPropagation()}
-        onClick={(event) => {
-          event.stopPropagation();
-          onToggleFavorite(entry.id);
-        }}
-        className={`shrink-0 rounded-md p-1.5 transition ${
-          isFavorite
-            ? 'text-amber-400'
-            : 'text-muted/60 opacity-0 hover:text-amber-400 group-hover:opacity-100'
-        }`}
-      >
-        <Star size={15} fill={isFavorite ? 'currentColor' : 'none'} />
-      </button>
     </Command.Item>
   );
 }
