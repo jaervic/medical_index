@@ -3,6 +3,8 @@
     "id": "proto-uti-triage",
     "type": "protocol",
     "title": "Protocolo: Triage telefonico de UTI",
+    "enTitle": "Telephone Triage for UTI",
+    "pronunciation": "TEL-uh-fohn TRY-ij for U-T-I",
     "appliesTo": "Paciente reporta ardor/escozor al orinar, urgencia urinaria o frecuencia.",
     "steps": [
       "Preguntar sintomas: disuria, frecuencia, urgencia, hematuria, dolor lumbar.",
@@ -23,6 +25,8 @@
     "id": "proto-refill-policy",
     "type": "protocol",
     "title": "Protocolo: Politica de resurtidos",
+    "enTitle": "Medication Refill Policy",
+    "pronunciation": "med-i-KAY-shun REE-fil POL-i-see",
     "appliesTo": "Cualquier solicitud de resurtido de medicamento por telefono.",
     "steps": [
       "Verificar que el paciente tenga una visita con el PCP en los ultimos 6-12 meses.",
@@ -43,6 +47,8 @@
     "id": "proto-uri-telephone",
     "type": "protocol",
     "title": "Protocolo: Manejo telefonico de URI",
+    "enTitle": "Telephone Management of URI",
+    "pronunciation": "TEL-uh-fohn MAN-ij-munt of U-R-I",
     "appliesTo": "Paciente con sintomas de resfriado sin dificultad respiratoria.",
     "steps": [
       "Confirmar que no hay falta de aire, dolor toracico ni fiebre alta persistente.",
@@ -60,6 +66,8 @@
     "id": "proto-hypertension-red-flags",
     "type": "protocol",
     "title": "Protocolo: Banderas rojas en presion alta",
+    "enTitle": "Hypertension Red Flags",
+    "pronunciation": "hy-per-TEN-shun RED flags",
     "appliesTo": "Paciente que llama porque detecto su presion elevada en casa.",
     "steps": [
       "Preguntar la cifra exacta y si hay sintomas acompanantes.",
@@ -77,6 +85,8 @@
     "id": "proto-chest-pain",
     "type": "protocol",
     "title": "Protocolo: Dolor toracico por telefono (posible evento cardiaco)",
+    "enTitle": "Chest Pain (Possible Cardiac Event)",
+    "pronunciation": "chest payn (KAR-dee-ak i-VENT)",
     "appliesTo": "Paciente que llama refiriendo dolor, presion u opresion en el pecho.",
     "steps": [
       "Asumir posible sindrome coronario agudo hasta descartarlo.",
@@ -98,6 +108,8 @@
     "id": "proto-dyspnea",
     "type": "protocol",
     "title": "Protocolo: Dificultad para respirar (disnea)",
+    "enTitle": "Shortness of Breath (Dyspnea)",
+    "pronunciation": "SHORT-nis uv breth (disp-NEE-uh)",
     "appliesTo": "Paciente que llama con falta de aire de inicio reciente o empeoramiento.",
     "steps": [
       "Preguntar si puede hablar en frases completas (marcador de gravedad).",
@@ -118,6 +130,8 @@
     "id": "proto-fever-adult",
     "type": "protocol",
     "title": "Protocolo: Fiebre en el adulto (triage telefonico)",
+    "enTitle": "Fever in Adults",
+    "pronunciation": "FEE-ver in AD-ults",
     "appliesTo": "Paciente adulto que reporta temperatura elevada.",
     "steps": [
       "Confirmar la temperatura y como la midio (> 100.4 F / 38 C es fiebre).",
@@ -139,6 +153,8 @@
     "id": "proto-fever-infant",
     "type": "protocol",
     "title": "Protocolo: Fiebre en bebes y ninos (banderas rojas)",
+    "enTitle": "Fever in Infants and Children (Red Flags)",
+    "pronunciation": "FEE-ver in IN-funts and CHIL-dren",
     "appliesTo": "Llama un padre o cuidador por fiebre en un menor.",
     "steps": [
       "Confirmar edad exacta y temperatura (> 100.4 F / 38 C).",
@@ -160,6 +176,8 @@
     "id": "proto-abdominal-pain",
     "type": "protocol",
     "title": "Protocolo: Dolor abdominal por telefono",
+    "enTitle": "Abdominal Pain",
+    "pronunciation": "ab-DOM-i-nul payn",
     "appliesTo": "Paciente que llama por dolor de estomago o abdominal.",
     "steps": [
       "Preguntar localizacion, inicio, relacion con la comida y caracter del dolor.",
@@ -181,6 +199,8 @@
     "id": "proto-anaphylaxis",
     "type": "protocol",
     "title": "Protocolo: Reaccion alergica grave (anafilaxia)",
+    "enTitle": "Anaphylaxis (Severe Allergic Reaction)",
+    "pronunciation": "an-uh-fi-LAK-sis (si-VEER uh-LUR-jik ree-AK-shun)",
     "appliesTo": "Paciente con ronchas o hinchazon tras exposicion a un alergeno.",
     "steps": [
       "Preguntar por hinchazon de labios, lengua o garganta y dificultad para respirar.",
@@ -202,6 +222,8 @@
     "id": "proto-hypoglycemia",
     "type": "protocol",
     "title": "Protocolo: Azucar bajo (hipoglucemia)",
+    "enTitle": "Hypoglycemia (Low Blood Sugar)",
+    "pronunciation": "hy-poh-gly-SEE-mee-uh",
     "appliesTo": "Paciente diabetico con temblor, sudor, confusion o glucometria baja.",
     "steps": [
       "Preguntar la glucometria si la tiene y los sintomas (temblor, sudor, hambre, confusion).",
@@ -222,6 +244,8 @@
     "id": "proto-head-injury",
     "type": "protocol",
     "title": "Protocolo: Golpe en la cabeza (banderas rojas)",
+    "enTitle": "Head Injury (Red Flags)",
+    "pronunciation": "hed IN-juh-ree",
     "appliesTo": "Paciente que sufrio un golpe o caida en la cabeza.",
     "steps": [
       "Preguntar como fue el golpe y si hubo perdida de conocimiento o vomito.",
@@ -243,6 +267,8 @@
     "id": "proto-back-pain-red-flags",
     "type": "protocol",
     "title": "Protocolo: Banderas rojas en dolor de espalda",
+    "enTitle": "Low Back Pain Red Flags",
+    "pronunciation": "loh bak payn RED flags",
     "appliesTo": "Paciente que llama por dolor lumbar.",
     "steps": [
       "Preguntar inicio (subito tras esfuerzo vs progresivo) y si hay sintomas en las piernas.",
@@ -264,6 +290,8 @@
     "id": "proto-labs-followup",
     "type": "protocol",
     "title": "Protocolo: Seguimiento de resultados de laboratorio",
+    "enTitle": "Lab Result Follow-up",
+    "pronunciation": "lab ri-ZULT FOL-oh-up",
     "appliesTo": "Llego un resultado de lab y hay que cerrar el circuito con el paciente.",
     "steps": [
       "Revisar resultados pendientes en el panel DRTLA (clip rosado = electronico).",
@@ -284,6 +312,8 @@
     "id": "proto-prior-auth",
     "type": "protocol",
     "title": "Protocolo: Prior Authorization (pre-autorizacion)",
+    "enTitle": "Prior Authorization",
+    "pronunciation": "PRY-or aw-thor-i-ZAY-shun",
     "appliesTo": "Un servicio, estudio o medicamento requiere aprobacion de la aseguradora.",
     "steps": [
       "Verificar si el plan exige pre-autorizacion para el servicio/medicamento.",
@@ -305,6 +335,8 @@
     "id": "proto-awv",
     "type": "protocol",
     "title": "Protocolo: Annual Wellness Visit (Medicare)",
+    "enTitle": "Annual Wellness Visit",
+    "pronunciation": "AN-yoo-ul WEL-nis VIZ-it",
     "appliesTo": "Paciente Medicare elegible para su visita anual de bienestar.",
     "steps": [
       "Confirmar elegibilidad (una AWV cada 12 meses; primera vez = G0438).",
@@ -327,6 +359,8 @@
     "id": "proto-depression-screening",
     "type": "protocol",
     "title": "Protocolo: Cribado y manejo de depresion",
+    "enTitle": "Depression Screening and Management",
+    "pronunciation": "di-PRESH-un SKREEN-ing and MAN-ij-munt",
     "appliesTo": "Todo paciente adulto, al menos una vez al ano y ante sospecha clinica.",
     "steps": [
       "Aplicar PHQ-2 (0-6). Si es >= 3, aplicar PHQ-9 completo.",
@@ -348,6 +382,8 @@
     "id": "proto-suicide-risk",
     "type": "protocol",
     "title": "Protocolo: Evaluacion de riesgo suicida (C-SSRS)",
+    "enTitle": "Suicide Risk Assessment",
+    "pronunciation": "SOO-i-syd risk uh-SES-munt",
     "appliesTo": "Paciente con PHQ-9 item 9 positivo, o cualquier mencion de muerte o autolesion.",
     "steps": [
       "Preguntar de forma directa y sin juicio: NO aumenta el riesgo de suicidio.",
@@ -370,6 +406,8 @@
     "id": "proto-anxiety-screening",
     "type": "protocol",
     "title": "Protocolo: Cribado de ansiedad (GAD-7)",
+    "enTitle": "Anxiety Screening",
+    "pronunciation": "ang-ZY-uh-tee SKREEN-ing",
     "appliesTo": "Paciente con sintomas de ansiedad o como cribado en la visita anual.",
     "steps": [
       "Aplicar GAD-2 (0-6). Si es >= 3, aplicar el GAD-7 completo.",
@@ -391,6 +429,8 @@
     "id": "proto-alcohol-sbirt",
     "type": "protocol",
     "title": "Protocolo: SBIRT de alcohol (AUDIT-C)",
+    "enTitle": "Alcohol Screening and Brief Intervention",
+    "pronunciation": "AL-kuh-hol SKREEN-ing and breef in-ter-VEN-shun",
     "appliesTo": "Todo adulto; USPSTF recomienda cribar a todos los adultos.",
     "steps": [
       "Aplicar AUDIT-C (3 preguntas, 0-12).",
@@ -412,6 +452,8 @@
     "id": "proto-substance-sbirt",
     "type": "protocol",
     "title": "Protocolo: SBIRT de sustancias (DAST-10)",
+    "enTitle": "Substance Use Screening and Brief Intervention",
+    "pronunciation": "SUB-stuns yoos SKREEN-ing and breef in-ter-VEN-shun",
     "appliesTo": "Paciente con sospecha de consumo de drogas o como cribado.",
     "steps": [
       "Aplicar DAST-10 y preguntar por el tipo de sustancia y la frecuencia.",
@@ -433,6 +475,8 @@
     "id": "proto-bipolar-screening",
     "type": "protocol",
     "title": "Protocolo: Cribado de bipolaridad antes de antidepresivos (MDQ)",
+    "enTitle": "Bipolar Screening Before Antidepressants",
+    "pronunciation": "by-POH-lar SKREEN-ing bi-FOR an-tee-di-PRES-unts",
     "appliesTo": "Paciente con depresion en quien se piensa iniciar un antidepresivo.",
     "steps": [
       "Aplicar el MDQ (Mood Disorder Questionnaire).",
@@ -453,6 +497,8 @@
     "id": "proto-panic-triage",
     "type": "protocol",
     "title": "Protocolo: Triage de un ataque de panico",
+    "enTitle": "Panic Attack Triage",
+    "pronunciation": "PAN-ik uh-TAK TRY-ij",
     "appliesTo": "Paciente con crisis de ansiedad, palpitaciones o sensacion de muerte inminente.",
     "steps": [
       "Tratar como posible causa organica hasta descartarla: ECG, glucosa, saturacion y signos vitales.",
@@ -474,6 +520,8 @@
     "id": "proto-psychosis-mania-triage",
     "type": "protocol",
     "title": "Protocolo: Triage de psicosis o mania",
+    "enTitle": "Psychosis and Mania Triage",
+    "pronunciation": "sy-KOH-sis and MAY-nee-uh TRY-ij",
     "appliesTo": "Paciente con alucinaciones, delirios, habla desorganizada o mania.",
     "steps": [
       "Evaluar seguridad: riesgo de dano a si mismo o a otros.",
@@ -495,6 +543,8 @@
     "id": "proto-ssri-followup",
     "type": "protocol",
     "title": "Protocolo: Seguimiento de un SSRI/SNRI",
+    "enTitle": "SSRI / SNRI Follow-up",
+    "pronunciation": "FOL-oh-up",
     "appliesTo": "Paciente que inicio o cambio de antidepresivo.",
     "steps": [
       "Reagendar seguimiento en 2-4 semanas tras iniciar o cambiar la dosis.",
@@ -516,6 +566,8 @@
     "id": "proto-withdrawal-safety",
     "type": "protocol",
     "title": "Protocolo: Seguridad en abstinencia a alcohol o sedantes",
+    "enTitle": "Alcohol and Sedative Withdrawal Safety",
+    "pronunciation": "AL-kuh-hol and SED-uh-tiv with-DRAW-ul SAYF-tee",
     "appliesTo": "Paciente que suspende o reduce alcohol, benzodiacepinas o barbituricos.",
     "steps": [
       "Evaluar la ultima ingesta y los sintomas (temblor, sudor, ansiedad, nausea).",
@@ -537,6 +589,8 @@
     "id": "proto-ipv-screening",
     "type": "protocol",
     "title": "Protocolo: Cribado de violencia de pareja (IPV)",
+    "enTitle": "Intimate Partner Violence Screening",
+    "pronunciation": "IN-ti-mit PART-ner VY-uh-luns SKREEN-ing",
     "appliesTo": "Cribado de rutina y ante signos de alarma en la exploracion.",
     "steps": [
       "Preguntar a SOLAS y sin la pareja presente (ni acompanante).",
@@ -558,6 +612,8 @@
     "id": "proto-bh-referral",
     "type": "protocol",
     "title": "Protocolo: Referencia a salud conductual (warm handoff)",
+    "enTitle": "Behavioral Health Referral (Warm Handoff)",
+    "pronunciation": "bee-HAYV-yer-ul helth ri-FUR-ul (warm HAND-of)",
     "appliesTo": "Paciente con cribado positivo que requiere atencion de salud mental.",
     "steps": [
       "Aplicar y documentar el cribado (PHQ-9, GAD-7, C-SSRS).",
@@ -586,6 +642,8 @@
     "id": "proto-grief-vs-depression",
     "type": "protocol",
     "title": "Protocolo: Distinguir duelo de depresion",
+    "enTitle": "Grief vs Depression",
+    "pronunciation": "greef ver-sus di-PRESH-un",
     "appliesTo": "Paciente reciente de una perdida que presenta sintomas depresivos.",
     "steps": [
       "Explorar el tipo de perdida y el tiempo transcurrido.",
@@ -607,6 +665,8 @@
     "id": "proto-crisis-988",
     "type": "protocol",
     "title": "Protocolo: Respuesta a una crisis de salud mental",
+    "enTitle": "Mental Health Crisis Response",
+    "pronunciation": "MEN-tul helth KRY-sis ri-SPONS",
     "appliesTo": "Paciente en crisis con riesgo de dano, agitacion severa o descompensacion.",
     "steps": [
       "Garantizar la seguridad de todos: pedir ayuda si es necesario.",

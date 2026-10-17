@@ -17,7 +17,8 @@ sin perder tiempo navegando menus.
   - _Diccionario_: termino exacto EN/ES, **pronunciacion en ingles** (p. ej. `hy-per-TEN-shun`),
     como lo dice el paciente, nota clinica.
   - _Ruta eCW_: breadcrumb de clics (`Chart › Hub › Referrals › New ...`) copiable.
-  - _Protocolo_: pasos numerados y advertencias.
+  - _Protocolo_: nombre del procedimiento en ingles con su **pronunciacion**, pasos numerados y
+    advertencias.
   - _Acronimo_: significado y traduccion.
 - **Copiar a la nota** con `Enter` o botones por campo.
 - **Panel de detalle** que previsualiza el resultado resaltado mientras navegas; incluye **entradas

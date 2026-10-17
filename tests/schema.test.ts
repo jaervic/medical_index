@@ -24,4 +24,11 @@ describe('validacion de datos (Zod)', () => {
     ).map((entry) => entry.id);
     expect(sinPronunciacion).toEqual([]);
   });
+
+  it('todo protocolo trae nombre en ingles y su pronunciacion', () => {
+    const incompletos = ENTRIES.filter(
+      (entry) => entry.type === 'protocol' && (!entry.enTitle || !entry.pronunciation),
+    ).map((entry) => entry.id);
+    expect(incompletos).toEqual([]);
+  });
 });

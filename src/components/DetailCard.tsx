@@ -209,6 +209,19 @@ function EntryBody({
     case 'protocol':
       return (
         <>
+          {entry.enTitle && (
+            <Field label="En ingles">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-base font-medium text-ink">{entry.enTitle}</span>
+                <CopyChip label="Copiar EN" value={entry.enTitle} onCopy={onCopy} />
+              </div>
+              {entry.pronunciation && (
+                <div className="mt-1 text-xs text-muted">
+                  Se pronuncia <span className="font-medium text-ink">{entry.pronunciation}</span>
+                </div>
+              )}
+            </Field>
+          )}
           {entry.appliesTo && (
             <Field label="Aplica cuando">
               <p className="text-sm text-ink">{entry.appliesTo}</p>

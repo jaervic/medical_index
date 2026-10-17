@@ -34,6 +34,8 @@ export const clickPathSchema = baseSchema.extend({
 
 export const protocolSchema = baseSchema.extend({
   type: z.literal('protocol'),
+  enTitle: z.string().min(1).optional(),
+  pronunciation: z.string().optional(),
   steps: z.array(z.string().min(1)).min(1),
   appliesTo: z.string().optional(),
   warnings: z.array(z.string().min(1)).optional(),

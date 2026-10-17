@@ -45,6 +45,10 @@ export interface ClickPathEntry extends BaseEntry {
 
 export interface ProtocolEntry extends BaseEntry {
   type: 'protocol';
+  /** Nombre del protocolo en ingles (para la nota). */
+  enTitle?: string;
+  /** Como se pronuncia el nombre en ingles (respelling en texto). */
+  pronunciation?: string;
   /** Pasos ordenados. */
   steps: string[];
   /** Cuando aplica. */
