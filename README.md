@@ -24,8 +24,8 @@ sin perder tiempo navegando menus.
 
 ## Contenido y fuentes
 
-Actualmente incluye **128 entradas**: 53 acronimos, 36 terminos de diccionario, 23 rutas de eCW y
-16 protocolos. Se fundamentaron en fuentes publicas:
+Actualmente incluye **207 entradas**: 87 acronimos, 59 terminos de diccionario, 31 rutas de eCW y
+30 protocolos, con un **enfoque fuerte en salud mental**. Se fundamentaron en fuentes publicas:
 
 - **Acronimos y vocabulario clinico**: listas de abreviaturas de uso comun (NCI/SEER, MedicAlert).
 - **Rutas de eCW**: guias de entrenamiento de eClinicalWorks (panel DRTLA, _Treatment screen_,
@@ -33,10 +33,14 @@ Actualmente incluye **128 entradas**: 53 acronimos, 36 terminos de diccionario, 
 - **Protocolos (AWV)**: guia de la CMS/Medicare para la _Annual Wellness Visit_ (G0438/G0439).
 - **Triage telefonico**: banderas rojas de dolor toracico, disnea, fiebre y dolor abdominal
   (guias AHA/ACC, WHO prehospital protocols, ESI handbook, protocolos de triage telefonico).
+- **Salud mental**: escalas y protocolos validados — PHQ-2/PHQ-9, GAD-2/GAD-7, PHQ-4, C-SSRS,
+  AUDIT-C, DAST-10, MDQ, PC-PTSD, EPDS — junto con SBIRT (USPSTF/NIAAA), lineas de crisis (988)
+  y referencia a salud conductual.
 
 > Aviso: las rutas de clics de eCW **dependen de la configuracion de cada clinica**. Verificalas
 > contra tu version antes de confiar en ellas. El contenido es de referencia general y no
-> sustituye el juicio clinico ni los protocolos locales.
+> sustituye el juicio clinico ni los protocolos locales. Las escalas deben usarlas personas
+> capacitadas; el C-SSRS y la evaluacion del riesgo suicida requieren entrenamiento.
 
 ## Stack
 

@@ -558,5 +558,371 @@
     "tags": ["eCW", "administrativo"],
     "note": "Resumen que se comparte con otro proveedor o se imprime para el paciente.",
     "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-phq2",
+    "type": "acronym",
+    "title": "PHQ-2",
+    "expansion": "Patient Health Questionnaire-2",
+    "translation": "Cribado ultra-breve de depresion (2 preguntas)",
+    "keywords": ["PHQ2", "depresion", "cribado", "screening", "animo"],
+    "tags": ["salud-mental", "cribado"],
+    "note": "Rango 0-6. Positivo con >= 3: aplicar el PHQ-9 completo.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-phq9",
+    "type": "acronym",
+    "title": "PHQ-9",
+    "expansion": "Patient Health Questionnaire-9",
+    "translation": "Cuestionario de salud del paciente (depresion)",
+    "keywords": ["PHQ9", "depresion", "depression", "severidad", "animo"],
+    "tags": ["salud-mental", "cribado"],
+    "note": "Rango 0-27. Cortes 5 / 10 / 15 / 20 = leve / moderado / moderadamente grave / grave. Con >= 10 la sensibilidad y especificidad son ~88%. El item 9 explora ideacion suicida: SIEMPRE darle seguimiento.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-gad2",
+    "type": "acronym",
+    "title": "GAD-2",
+    "expansion": "Generalized Anxiety Disorder-2",
+    "translation": "Cribado ultra-breve de ansiedad (2 preguntas)",
+    "keywords": ["GAD2", "ansiedad", "cribado", "anxiety"],
+    "tags": ["salud-mental", "cribado"],
+    "note": "Rango 0-6. Positivo con >= 3: aplicar el GAD-7 completo.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-gad7",
+    "type": "acronym",
+    "title": "GAD-7",
+    "expansion": "Generalized Anxiety Disorder-7",
+    "translation": "Escala de trastorno de ansiedad generalizada",
+    "keywords": ["GAD7", "ansiedad", "anxiety", "severidad", "nervios"],
+    "tags": ["salud-mental", "cribado"],
+    "note": "Rango 0-21. Cortes 5 / 10 / 15 = leve / moderado / grave. Un puntaje >= 10 sugiere TAG.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-phq4",
+    "type": "acronym",
+    "title": "PHQ-4",
+    "expansion": "Patient Health Questionnaire-4 (PHQ-2 + GAD-2)",
+    "translation": "Cribado combinado de depresion y ansiedad",
+    "keywords": ["PHQ4", "ansiedad", "depresion", "cribado combinado"],
+    "tags": ["salud-mental", "cribado"],
+    "note": "Rango 0-12. Combina PHQ-2 y GAD-2; sirve como medida rapida de malestar general.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-cssrs",
+    "type": "acronym",
+    "title": "C-SSRS",
+    "expansion": "Columbia-Suicide Severity Rating Scale",
+    "translation": "Escala Columbia de severidad del riesgo suicida",
+    "keywords": ["CSSRS", "riesgo suicida", "suicidio", "screening", "ideacion"],
+    "tags": ["salud-mental", "crisis", "bandera-roja"],
+    "note": "6 preguntas. Si hay pensamiento de hacerse dano (Q2-Q3) -> referir a salud mental; Q4-Q5 (intencion o plan) -> consulta de salud mental y precauciones de seguridad; Q6 (conducta) en los ultimos 3 meses -> ayuda inmediata: 988/911 y NO dejarlo solo.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-auditc",
+    "type": "acronym",
+    "title": "AUDIT-C",
+    "expansion": "Alcohol Use Disorders Identification Test-Consumption",
+    "translation": "Cribado de consumo de riesgo de alcohol (3 preguntas)",
+    "keywords": ["AUDIT", "alcohol", "SBIRT", "consumo", "tomo mucho"],
+    "tags": ["salud-mental", "adicciones", "cribado"],
+    "note": "Rango 0-12. Positivo con >= 4 en hombres y >= 3 en mujeres. El CAGE ya no se recomienda.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-dast10",
+    "type": "acronym",
+    "title": "DAST-10",
+    "expansion": "Drug Abuse Screening Test-10",
+    "translation": "Cuestionario de cribado de consumo de drogas",
+    "keywords": ["DAST", "drogas", "adiccion", "sustancias", "consumo"],
+    "tags": ["salud-mental", "adicciones", "cribado"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-mdq",
+    "type": "acronym",
+    "title": "MDQ",
+    "expansion": "Mood Disorder Questionnaire",
+    "translation": "Cuestionario de trastorno del animo (bipolaridad)",
+    "keywords": ["MDQ", "bipolar", "bipolaridad", "mania", "animo"],
+    "tags": ["salud-mental", "cribado"],
+    "note": "Se usa para descartar trastorno bipolar ANTES de iniciar un antidepresivo.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-sbqr",
+    "type": "acronym",
+    "title": "SBQ-R",
+    "expansion": "Suicidal Behaviors Questionnaire-Revised",
+    "translation": "Cuestionario revisado de conductas suicidas",
+    "keywords": ["SBQ", "suicidio", "conducta suicida", "riesgo"],
+    "tags": ["salud-mental", "crisis"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-pcptsd",
+    "type": "acronym",
+    "title": "PC-PTSD",
+    "expansion": "Primary Care PTSD Screen",
+    "translation": "Cribado breve de estres postraumatico en atencion primaria",
+    "keywords": ["PTSD", "trauma", "estres postraumatico", "cribado"],
+    "tags": ["salud-mental", "cribado"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-epds",
+    "type": "acronym",
+    "title": "EPDS",
+    "expansion": "Edinburgh Postnatal Depression Scale",
+    "translation": "Escala de depresion posparto de Edimburgo",
+    "keywords": ["posparto", "depresion posparto", "perinatal", "embarazo"],
+    "tags": ["salud-mental", "perinatal", "cribado"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-moca",
+    "type": "acronym",
+    "title": "MoCA",
+    "expansion": "Montreal Cognitive Assessment",
+    "translation": "Evaluacion cognitiva de Montreal",
+    "keywords": ["cognitivo", "demencia", "memoria", "MOCA"],
+    "tags": ["salud-mental", "cognitivo"],
+    "note": "Cribado de deterioro cognitivo; util en deterioro funcional o sospecha de demencia.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-mmse",
+    "type": "acronym",
+    "title": "MMSE",
+    "expansion": "Mini-Mental State Examination",
+    "translation": "Mini-examen del estado mental",
+    "keywords": ["cognitivo", "minimental", "demencia", "memoria"],
+    "tags": ["salud-mental", "cognitivo"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-ybocs",
+    "type": "acronym",
+    "title": "Y-BOCS",
+    "expansion": "Yale-Brown Obsessive Compulsive Scale",
+    "translation": "Escala de severidad del trastorno obsesivo-compulsivo",
+    "keywords": ["TOC", "OCD", "obsesiones", "compulsiones", "severidad"],
+    "tags": ["salud-mental"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-aims",
+    "type": "acronym",
+    "title": "AIMS",
+    "expansion": "Abnormal Involuntary Movement Scale",
+    "translation": "Escala de movimientos involuntarios anormales",
+    "keywords": ["AIMS", "discinesia tardia", "antipsicoticos", "movimientos"],
+    "tags": ["salud-mental", "farmacia"],
+    "note": "Se aplica de forma periodica a pacientes con antipsicoticos para detectar discinesia tardia.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-ssri",
+    "type": "acronym",
+    "title": "SSRI / ISRS",
+    "expansion": "Selective Serotonin Reuptake Inhibitor",
+    "translation": "Inhibidor selectivo de la recaptura de serotonina",
+    "keywords": ["ISRS", "serotonina", "fluoxetina", "sertralina", "antidepresivo"],
+    "tags": ["salud-mental", "farmacia"],
+    "note": "Primera linea en depresion y ansiedad (p. ej. sertralina, fluoxetina). Vigilar sindrome serotoninergico si se combinan.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-snri",
+    "type": "acronym",
+    "title": "SNRI / IRSN",
+    "expansion": "Serotonin-Norepinephrine Reuptake Inhibitor",
+    "translation": "Inhibidor de la recaptura de serotonina y noradrenalina",
+    "keywords": ["IRSN", "venlafaxina", "duloxetina", "antidepresivo", "dolor neuropatico"],
+    "tags": ["salud-mental", "farmacia"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-ndri",
+    "type": "acronym",
+    "title": "NDRI",
+    "expansion": "Norepinephrine-Dopamine Reuptake Inhibitor",
+    "translation": "Inhibidor de la recaptura de noradrenalina y dopamina",
+    "keywords": ["bupropion", "wellbutrin", "antidepresivo", "dejar de fumar"],
+    "tags": ["salud-mental", "farmacia"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-tca",
+    "type": "acronym",
+    "title": "TCA",
+    "expansion": "Tricyclic Antidepressant",
+    "translation": "Antidepresivo triciclico",
+    "keywords": ["triciclico", "amitriptilina", "antidepresivo"],
+    "tags": ["salud-mental", "farmacia"],
+    "note": "Riesgo en sobredosis; vigilar efectos anticolinergicos y cardiacos.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-maoi",
+    "type": "acronym",
+    "title": "MAOI / IMAO",
+    "expansion": "Monoamine Oxidase Inhibitor",
+    "translation": "Inhibidor de la monoaminooxidasa",
+    "keywords": ["IMAO", "tranilcipromina", "antidepresivo"],
+    "tags": ["salud-mental", "farmacia"],
+    "note": "Requiere dieta baja en tiramina y vigilancia de interacciones (crisis hipertensiva).",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-bzd",
+    "type": "acronym",
+    "title": "BZD",
+    "expansion": "Benzodiazepine",
+    "translation": "Benzodiacepina",
+    "keywords": ["benzodiacepina", "clonazepam", "lorazepam", "alprazolam", "ansiolitico"],
+    "tags": ["salud-mental", "farmacia", "bandera-roja"],
+    "note": "Riesgo de dependencia y abstinencia. NO combinar con opioides (depresion respiratoria). La mayoria requiere visita para resurtir.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-cbt",
+    "type": "acronym",
+    "title": "CBT / TCC",
+    "expansion": "Cognitive Behavioral Therapy",
+    "translation": "Terapia cognitivo-conductual",
+    "keywords": ["TCC", "terapia", "psicoterapia", "cognitivo conductual"],
+    "tags": ["salud-mental", "tratamiento"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-dbt",
+    "type": "acronym",
+    "title": "DBT / TDC",
+    "expansion": "Dialectical Behavior Therapy",
+    "translation": "Terapia dialettico-conductual",
+    "keywords": ["TDC", "terapia", "borderline", "desregulacion emocional"],
+    "tags": ["salud-mental", "tratamiento"],
+    "note": "De eleccion en desregulacion emocional y riesgo suicida cronico.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-ect",
+    "type": "acronym",
+    "title": "ECT / TEC",
+    "expansion": "Electroconvulsive Therapy",
+    "translation": "Terapia electroconvulsiva",
+    "keywords": ["TEC", "electroconvulsiva", "depresion resistente"],
+    "tags": ["salud-mental", "tratamiento"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-tms",
+    "type": "acronym",
+    "title": "TMS / EMT",
+    "expansion": "Transcranial Magnetic Stimulation",
+    "translation": "Estimulacion magnetica transcraneal",
+    "keywords": ["EMT", "estimulacion magnetica", "depresion resistente"],
+    "tags": ["salud-mental", "tratamiento"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-bhi",
+    "type": "acronym",
+    "title": "BH / BHI",
+    "expansion": "Behavioral Health / Behavioral Health Integration",
+    "translation": "Salud conductual / integracion de salud conductual",
+    "keywords": [
+      "BH",
+      "BHI",
+      "salud conductual",
+      "salud mental",
+      "integracion",
+      "collaborative care"
+    ],
+    "tags": ["salud-mental", "administrativo"],
+    "note": "Modelo de cuidado colaborativo: el PCP y el equipo de salud conductual comparten el plan.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-sud",
+    "type": "acronym",
+    "title": "SUD / AUD",
+    "expansion": "Substance Use Disorder / Alcohol Use Disorder",
+    "translation": "Trastorno por consumo de sustancias / de alcohol",
+    "keywords": ["SUD", "AUD", "adiccion", "sustancias", "alcoholismo"],
+    "tags": ["salud-mental", "adicciones"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-si-hi",
+    "type": "acronym",
+    "title": "SI / HI",
+    "expansion": "Suicidal Ideation / Homicidal Ideation",
+    "translation": "Ideacion suicida / ideacion homicida",
+    "keywords": ["SI", "HI", "ideacion suicida", "ideacion homicida", "riesgo"],
+    "tags": ["salud-mental", "crisis", "bandera-roja"],
+    "note": "Cualquiera de las dos, con intencion o plan, es una emergencia: 988/911.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-ptsd",
+    "type": "acronym",
+    "title": "PTSD / TEPT",
+    "expansion": "Post-Traumatic Stress Disorder",
+    "translation": "Trastorno de estres postraumatico",
+    "keywords": ["TEPT", "trauma", "pesadillas", "flashbacks", "estres postraumatico"],
+    "tags": ["salud-mental"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-ocd",
+    "type": "acronym",
+    "title": "OCD / TOC",
+    "expansion": "Obsessive-Compulsive Disorder",
+    "translation": "Trastorno obsesivo-compulsivo",
+    "keywords": ["TOC", "obsesiones", "compulsiones", "obsesivo compulsivo"],
+    "tags": ["salud-mental"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-adhd",
+    "type": "acronym",
+    "title": "ADHD / TDAH",
+    "expansion": "Attention-Deficit/Hyperactivity Disorder",
+    "translation": "Trastorno por deficit de atencion e hiperactividad",
+    "keywords": ["TDAH", "deficit de atencion", "hiperactividad", "concentracion"],
+    "tags": ["salud-mental"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-988",
+    "type": "acronym",
+    "title": "988",
+    "expansion": "988 Suicide & Crisis Lifeline",
+    "translation": "Linea de crisis y prevencion del suicidio (EE. UU.), llamada o texto al 988",
+    "keywords": ["988", "crisis", "suicidio", "linea de ayuda", "hotline"],
+    "tags": ["salud-mental", "crisis"],
+    "note": "Disponible 24/7 en espanol e ingles. En peligro inmediato: 911.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "acr-mbc",
+    "type": "acronym",
+    "title": "MBC",
+    "expansion": "Measurement-Based Care",
+    "translation": "Atencion basada en mediciones (escalas seriadas)",
+    "keywords": ["MBC", "escalas", "seguimiento", "PHQ-9 seriado", "medicion"],
+    "tags": ["salud-mental", "documentacion"],
+    "note": "Repetir la misma escala en cada consulta para medir respuesta al tratamiento.",
+    "reviewedAt": "2026-02-20"
   }
 ]

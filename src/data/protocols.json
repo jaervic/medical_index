@@ -322,5 +322,306 @@
     "keywords": ["AWV", "visita anual", "wellness", "medicare", "HRA", "prevencion", "G0438"],
     "tags": ["preventivo", "medicare"],
     "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-depression-screening",
+    "type": "protocol",
+    "title": "Protocolo: Cribado y manejo de depresion",
+    "appliesTo": "Todo paciente adulto, al menos una vez al ano y ante sospecha clinica.",
+    "steps": [
+      "Aplicar PHQ-2 (0-6). Si es >= 3, aplicar PHQ-9 completo.",
+      "Interpretar PHQ-9 (0-27): 5/10/15/20 = leve / moderado / moderadamente grave / grave.",
+      "Revisar SIEMPRE el item 9 (ideacion suicida): si es positivo, activar el protocolo de riesgo suicida.",
+      "Si hay PHQ-9 >= 10, plantear plan de tratamiento (terapia, farmacoterapia o ambos) segun preferencia del paciente.",
+      "Evaluar funcionalidad y deseo de tratamiento, no solo el puntaje.",
+      "Repetir el PHQ-9 en cada seguimiento (atencion basada en mediciones)."
+    ],
+    "warnings": [
+      "PHQ-9 >= 10 tiene ~88% de sensibilidad y especificidad para depresion mayor.",
+      "Si hay sintomas de mania o antecedente bipolar, NO iniciar antidepresivo sin valorar MDQ."
+    ],
+    "keywords": ["depresion", "PHQ-9", "PHQ-2", "cribado", "screening", "animo"],
+    "tags": ["salud-mental", "cribado"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-suicide-risk",
+    "type": "protocol",
+    "title": "Protocolo: Evaluacion de riesgo suicida (C-SSRS)",
+    "appliesTo": "Paciente con PHQ-9 item 9 positivo, o cualquier mencion de muerte o autolesion.",
+    "steps": [
+      "Preguntar de forma directa y sin juicio: NO aumenta el riesgo de suicidio.",
+      "Aplicar C-SSRS. Q1-Q2 (deseo de morir / pensamiento): referir a salud mental.",
+      "Q3 (como lo haria): referir a salud mental el mismo dia.",
+      "Q4-Q5 (intencion o plan): consulta de salud mental + precauciones de seguridad.",
+      "Q6 (conducta) en los ultimos 3 meses: ayuda inmediata.",
+      "En alto riesgo: llamar o textear al 988, o 911 / ED; permanecer con el paciente hasta la evaluacion.",
+      "Restringir el acceso a medios (medicamentos, armas) y elaborar un plan de seguridad."
+    ],
+    "warnings": [
+      "No dejar solo a un paciente con intencion o plan activo.",
+      "988 es la linea de crisis 24/7 (llamada o texto), disponible en espanol e ingles."
+    ],
+    "keywords": ["suicidio", "riesgo suicida", "C-SSRS", "988", "crisis", "ideacion"],
+    "tags": ["salud-mental", "crisis", "bandera-roja"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-anxiety-screening",
+    "type": "protocol",
+    "title": "Protocolo: Cribado de ansiedad (GAD-7)",
+    "appliesTo": "Paciente con sintomas de ansiedad o como cribado en la visita anual.",
+    "steps": [
+      "Aplicar GAD-2 (0-6). Si es >= 3, aplicar el GAD-7 completo.",
+      "Interpretar el GAD-7 (0-21): 5/10/15 = leve / moderado / grave.",
+      "Descartar causas medicas: hipertiroidismo, arritmia, cafeina, medicamentos, consumo de sustancias.",
+      "Descartar comorbilidad con depresion (PHQ-9) y con bipolaridad (MDQ) antes de tratar.",
+      "Plan segun severidad: terapia (TCC), farmacoterapia (SSRI/SNRI) o ambas.",
+      "Repetir el GAD-7 para medir respuesta."
+    ],
+    "warnings": [
+      "GAD-7 >= 10 sugiere trastorno de ansiedad generalizada.",
+      "No usar benzodiacepinas de forma cronica como tratamiento de primera linea."
+    ],
+    "keywords": ["ansiedad", "GAD-7", "GAD-2", "TAG", "cribado", "nervios"],
+    "tags": ["salud-mental", "cribado"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-alcohol-sbirt",
+    "type": "protocol",
+    "title": "Protocolo: SBIRT de alcohol (AUDIT-C)",
+    "appliesTo": "Todo adulto; USPSTF recomienda cribar a todos los adultos.",
+    "steps": [
+      "Aplicar AUDIT-C (3 preguntas, 0-12).",
+      "Positivo: >= 4 en hombres y >= 3 en mujeres.",
+      "Intervencion breve (5 A's / FLO): retroalimentar, escuchar y ofrecer opciones.",
+      "Preguntar si el paciente desea reducir, dejar o no cambiar el consumo.",
+      "Ofrecer plan de cambio y seguimiento; referir a tratamiento si hay dependencia.",
+      "Documentar el puntaje, la intervencion y el plan."
+    ],
+    "warnings": [
+      "El CAGE ya no se recomienda (baja sensibilidad).",
+      "En embarazo, un puntaje > 0 ya es positivo: no hay nivel seguro."
+    ],
+    "keywords": ["alcohol", "AUDIT-C", "SBIRT", "consumo", "adiccion", "cribado"],
+    "tags": ["salud-mental", "adicciones", "cribado"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-substance-sbirt",
+    "type": "protocol",
+    "title": "Protocolo: SBIRT de sustancias (DAST-10)",
+    "appliesTo": "Paciente con sospecha de consumo de drogas o como cribado.",
+    "steps": [
+      "Aplicar DAST-10 y preguntar por el tipo de sustancia y la frecuencia.",
+      "Evaluar riesgo de abstinencia (alcohol, opioides, benzodiacepinas): puede ser peligrosa.",
+      "Intervencion breve sin juicio; explorar motivacion para el cambio.",
+      "Ofrecer referir a tratamiento por adicciones segun el nivel de riesgo.",
+      "Ofrecer recursos de reduccion de dano y naloxona si hay uso de opioides.",
+      "Documentar y dar seguimiento."
+    ],
+    "warnings": [
+      "La abstinencia a alcohol y benzodiacepinas puede causar convulsiones: no suspender en seco.",
+      "Uso de opioides + sedantes = alto riesgo de sobredosis respiratoria."
+    ],
+    "keywords": ["drogas", "DAST-10", "SBIRT", "consumo", "opioides", "adiccion"],
+    "tags": ["salud-mental", "adicciones", "cribado"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-bipolar-screening",
+    "type": "protocol",
+    "title": "Protocolo: Cribado de bipolaridad antes de antidepresivos (MDQ)",
+    "appliesTo": "Paciente con depresion en quien se piensa iniciar un antidepresivo.",
+    "steps": [
+      "Aplicar el MDQ (Mood Disorder Questionnaire).",
+      "Preguntar por episodios de animo elevado/irritable con aumento de energia o de sueno reducido.",
+      "Preguntar por antecedente familiar de bipolaridad y por respuestas previas a antidepresivos (viraje).",
+      "Si el MDQ es positivo, derivar a salud mental antes de iniciar el antidepresivo.",
+      "Registrar el resultado en la nota."
+    ],
+    "warnings": [
+      "Un antidepresivo en un paciente bipolar puede desencadenar mania o ciclado rapido.",
+      "Confusion diagnostica frecuente: la depresion bipolar se trata distinto."
+    ],
+    "keywords": ["bipolar", "MDQ", "mania", "antidepresivo", "cribado"],
+    "tags": ["salud-mental", "farmacia"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-panic-triage",
+    "type": "protocol",
+    "title": "Protocolo: Triage de un ataque de panico",
+    "appliesTo": "Paciente con crisis de ansiedad, palpitaciones o sensacion de muerte inminente.",
+    "steps": [
+      "Tratar como posible causa organica hasta descartarla: ECG, glucosa, saturacion y signos vitales.",
+      "Descartar banderas rojas cardiacas: dolor toracico opresivo, irradiacion, diaforesis.",
+      "Descartar causas metabolicas: hipertiroidismo, hipoglucemia, cafeina o estimulantes.",
+      "Si se confirma panico, tranquilizar y ensenar respiracion diafragmatica.",
+      "Plan: TCC y/o SSRI; evitar benzodiacepinas de uso cronico.",
+      "Documentar y ofrecer seguimiento."
+    ],
+    "warnings": [
+      "Nunca atribuyas por defecto un dolor toracico a 'nervios' sin descartar causa cardiaca.",
+      "Sintomas de panico y de sindrome coronario se superponen."
+    ],
+    "keywords": ["panico", "ataque de panico", "ansiedad", "palpitaciones", "crisis"],
+    "tags": ["salud-mental", "triage", "ansiedad"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-psychosis-mania-triage",
+    "type": "protocol",
+    "title": "Protocolo: Triage de psicosis o mania",
+    "appliesTo": "Paciente con alucinaciones, delirios, habla desorganizada o mania.",
+    "steps": [
+      "Evaluar seguridad: riesgo de dano a si mismo o a otros.",
+      "Preguntar por consumo de sustancias y por inicio/duracion de los sintomas.",
+      "Descartar causas medicas: infeccion, delirium, hipoglucemia, medicamentos.",
+      "Si hay riesgo, inicio reciente o agitacion: referir a ED o salud mental de forma urgente.",
+      "Si es estable y conocido: contactar a salud mental y coordinar el plan.",
+      "Documentar hallazgos y plan; no dejar solo al paciente si hay riesgo."
+    ],
+    "warnings": [
+      "Psicosis de inicio reciente en un adulto mayor: pensar en causa organica.",
+      "El delirium es una emergencia medica, no psiquiatrica primaria."
+    ],
+    "keywords": ["psicosis", "mania", "alucinaciones", "delirios", "agitacion", "urgente"],
+    "tags": ["salud-mental", "triage", "bandera-roja"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-ssri-followup",
+    "type": "protocol",
+    "title": "Protocolo: Seguimiento de un SSRI/SNRI",
+    "appliesTo": "Paciente que inicio o cambio de antidepresivo.",
+    "steps": [
+      "Reagendar seguimiento en 2-4 semanas tras iniciar o cambiar la dosis.",
+      "Repetir PHQ-9 y GAD-7 para medir respuesta.",
+      "Preguntar por efectos adversos (nausea, insomnio, disfuncion sexual, agitacion).",
+      "Avisar que el efecto completo tarda 4-6 semanas y que no se suspenda de golpe.",
+      "Vigilar el aumento de ideacion suicida al inicio, sobre todo en jovenes.",
+      "Documentar el cambio de plan."
+    ],
+    "warnings": [
+      "Sindrome serotoninergico: agitacion, temblor, sudor, fiebre, hiperreflexia. Suspender y buscar atencion.",
+      "No suspender bruscamente: riesgo de sindrome de discontinuacion."
+    ],
+    "keywords": ["SSRI", "ISRS", "antidepresivo", "seguimiento", "serotonina"],
+    "tags": ["salud-mental", "farmacia"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-withdrawal-safety",
+    "type": "protocol",
+    "title": "Protocolo: Seguridad en abstinencia a alcohol o sedantes",
+    "appliesTo": "Paciente que suspende o reduce alcohol, benzodiacepinas o barbituricos.",
+    "steps": [
+      "Evaluar la ultima ingesta y los sintomas (temblor, sudor, ansiedad, nausea).",
+      "Preguntar por convulsiones o delirium previos en abstinencias pasadas.",
+      "Descartar banderas rojas: convulsion, confusion, alucinaciones, fiebre, taquicardia marcada.",
+      "Con banderas rojas: referir a ED; la abstinencia grave es una emergencia medica.",
+      "Nunca suspender de golpe sedantes o alcohol sin un plan medico supervisado.",
+      "Documentar y coordinar el plan de manejo."
+    ],
+    "warnings": [
+      "El delirium tremens tiene mortalidad sin tratamiento.",
+      "Un paciente con antecedente de convulsion por abstinencia requiere manejo escalado."
+    ],
+    "keywords": ["abstinencia", "withdrawal", "alcohol", "benzodiacepina", "delirium tremens"],
+    "tags": ["salud-mental", "adicciones", "bandera-roja"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-ipv-screening",
+    "type": "protocol",
+    "title": "Protocolo: Cribado de violencia de pareja (IPV)",
+    "appliesTo": "Cribado de rutina y ante signos de alarma en la exploracion.",
+    "steps": [
+      "Preguntar a SOLAS y sin la pareja presente (ni acompanante).",
+      "Usar una pregunta directa y confidencial: 'Se siente segura en su casa o con su pareja?'.",
+      "Si es positiva, validar sin juzgar y preguntar por el riesgo actual de seguridad.",
+      "Ofrecer recursos (linea de crisis, refugio) y un plan de seguridad.",
+      "Documentar con cuidado; preguntar si es seguro registrar la informacion en el expediente.",
+      "Ofrecer seguimiento y cobertura de salud mental."
+    ],
+    "warnings": [
+      "Nunca preguntar frente a la pareja o acompanantes.",
+      "Respetar la autonomia de la persona; no la presiones a dejar la relacion."
+    ],
+    "keywords": ["violencia", "IPV", "pareja", "abuso", "domestica", "seguridad"],
+    "tags": ["salud-mental", "social", "cribado"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-bh-referral",
+    "type": "protocol",
+    "title": "Protocolo: Referencia a salud conductual (warm handoff)",
+    "appliesTo": "Paciente con cribado positivo que requiere atencion de salud mental.",
+    "steps": [
+      "Aplicar y documentar el cribado (PHQ-9, GAD-7, C-SSRS).",
+      "Explicar el resultado y normalizar la atencion de salud mental.",
+      "Hacer una presentacion en caliente (warm handoff): presentar al paciente con el equipo de BH cuando sea posible.",
+      "Ofrecer opciones: BH interno, psiquiatria, terapia externa o telesalud.",
+      "Confirmar que el paciente logro el contacto y dar seguimiento activo.",
+      "Documentar la referencia y el plan de seguimiento."
+    ],
+    "warnings": [
+      "El seguimiento es parte del cuidado: confirma que el paciente fue atendido.",
+      "Si hay riesgo suicida u homicida, no esperes una cita programada: activa crisis."
+    ],
+    "keywords": [
+      "salud conductual",
+      "referral",
+      "warm handoff",
+      "BH",
+      "psiquiatria",
+      "seguimiento"
+    ],
+    "tags": ["salud-mental", "administrativo"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-grief-vs-depression",
+    "type": "protocol",
+    "title": "Protocolo: Distinguir duelo de depresion",
+    "appliesTo": "Paciente reciente de una perdida que presenta sintomas depresivos.",
+    "steps": [
+      "Explorar el tipo de perdida y el tiempo transcurrido.",
+      "Diferenciar: en el duelo la autoestima suele conservarse y el dolor viene en oleadas ligadas a la perdida.",
+      "En la depresion hay animo bajo persistente, anhedonia global, culpa y desesperanza generalizadas.",
+      "Evaluar siempre el riesgo suicida (C-SSRS), incluso en duelo.",
+      "Ofrecer apoyo, seguimiento y, si hay criterios de depresion mayor, tratamiento.",
+      "Si el duelo es incapacitante y persiste > 12 meses, considerar duelo prolongado."
+    ],
+    "warnings": [
+      "El duelo no excluye la depresion: pueden coexistir.",
+      "El riesgo suicida puede aparecer en cualquiera de los dos."
+    ],
+    "keywords": ["duelo", "grief", "depresion", "luto", "perdida"],
+    "tags": ["salud-mental"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "proto-crisis-988",
+    "type": "protocol",
+    "title": "Protocolo: Respuesta a una crisis de salud mental",
+    "appliesTo": "Paciente en crisis con riesgo de dano, agitacion severa o descompensacion.",
+    "steps": [
+      "Garantizar la seguridad de todos: pedir ayuda si es necesario.",
+      "Evaluar el riesgo de dano a si mismo o a otros (SI/HI).",
+      "Si hay intencion, plan o conducta: llamar o textear al 988, o 911 / ED.",
+      "Permanecer con el paciente hasta que sea evaluado; no dejarlo solo.",
+      "Reducir el acceso a medios (medicamentos, objetos cortantes, armas).",
+      "Documentar la evaluacion, las llamadas y el plan; dar seguimiento en 24-72 h."
+    ],
+    "warnings": [
+      "988: linea de crisis y prevencion del suicidio, 24/7, en espanol e ingles.",
+      "En peligro inmediato, la via es 911 o el servicio de urgencias."
+    ],
+    "keywords": ["crisis", "988", "suicidio", "emergencia", "salud mental", "911"],
+    "tags": ["salud-mental", "crisis", "bandera-roja"],
+    "reviewedAt": "2026-02-20"
   }
 ]

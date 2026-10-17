@@ -442,5 +442,366 @@
     "tags": ["endocrino"],
     "note": "Sed, orinar mucho, vision borrosa. Con nauseas/vomito y respiracion rapida: urgente.",
     "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "panic-attack",
+    "type": "dictionary",
+    "title": "Panic Attack (Panic Disorder)",
+    "en": "Panic Attack",
+    "es": "Ataque de panico / crisis de ansiedad",
+    "colloquial": [
+      "ataque de panico",
+      "me falta el aire",
+      "siento que me muero",
+      "el corazon se me acelera",
+      "crisis de nervios"
+    ],
+    "keywords": ["panic attack", "panic disorder", "ataque de panico", "crisis de ansiedad"],
+    "tags": ["salud-mental", "ansiedad"],
+    "note": "Antes de asumir panico, descarta causas cardiacas y metabolicas (ECG, glucosa, tiroides).",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "ataque-de-nervios",
+    "type": "dictionary",
+    "title": "Ataque de Nervios (sindrome cultural)",
+    "en": "Ataque de Nervios (cultural idiom of distress)",
+    "es": "Ataque de nervios",
+    "colloquial": [
+      "ataque de nervios",
+      "me pongo como loca",
+      "grito y lloro sin control",
+      "se me sube la sangre"
+    ],
+    "keywords": ["ataque de nervios", "cultural", "nervios", "descontrol", "latinos"],
+    "tags": ["salud-mental", "cultural"],
+    "note": "Expresion frecuente en poblaciones latinas; no es un diagnostico DSM. Explora los sintomas para ubicarlo (ansiedad, panico, duelo, trauma).",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "susto",
+    "type": "dictionary",
+    "title": "Susto / Espanto (sindrome cultural)",
+    "en": "Susto (folk illness)",
+    "es": "Susto / espanto",
+    "colloquial": ["susto", "espanto", "me asuste mucho", "se me fue el alma"],
+    "keywords": ["susto", "espanto", "folk", "cultural", "miedo"],
+    "tags": ["salud-mental", "cultural"],
+    "note": "En algunas culturas se atribuye a un susto fuerte. Escucha y evalua sintomas de ansiedad, sueno y animo sin descalificar.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "suicidal-ideation",
+    "type": "dictionary",
+    "title": "Suicidal Ideation (SI)",
+    "en": "Suicidal Ideation",
+    "es": "Ideacion suicida",
+    "colloquial": [
+      "ya no quiero vivir",
+      "quiero desaparecer",
+      "mejor no estar",
+      "quiero dormir y no despertar",
+      "no le veo sentido a nada"
+    ],
+    "keywords": ["suicidio", "suicidal", "ideacion suicida", "SI", "riesgo"],
+    "tags": ["salud-mental", "crisis", "bandera-roja"],
+    "note": "Preguntar directamente NO aumenta el riesgo. Usa C-SSRS. Si hay intencion o plan: 988/911 y no dejar solo al paciente.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "anhedonia",
+    "type": "dictionary",
+    "title": "Anhedonia",
+    "en": "Anhedonia",
+    "es": "Anhedonia / perdida de interes",
+    "colloquial": [
+      "ya no disfruto nada",
+      "no me da gusto nada",
+      "perdi el interes",
+      "nada me motiva"
+    ],
+    "keywords": ["anhedonia", "perdida de interes", "no disfruto", "desmotivacion"],
+    "tags": ["salud-mental", "depresion"],
+    "note": "Sintoma nuclear de depresion; pregunta por su duracion (>= 2 semanas).",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "mania",
+    "type": "dictionary",
+    "title": "Mania / Hypomania",
+    "en": "Mania / Hypomania",
+    "es": "Mania / hipomania",
+    "colloquial": [
+      "estoy acelerado",
+      "no duermo y tengo mucha energia",
+      "me siento invencible",
+      "gasto mucho dinero de repente"
+    ],
+    "keywords": ["mania", "hipomania", "bipolar", "euforia", "no duerme"],
+    "tags": ["salud-mental", "bandera-roja"],
+    "note": "Antes de un antidepresivo en depresion, descarta bipolaridad (MDQ): un antidepresivo puede desencadenar mania.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "psychosis",
+    "type": "dictionary",
+    "title": "Psychosis",
+    "en": "Psychosis",
+    "es": "Psicosis",
+    "colloquial": [
+      "escucho voces",
+      "veo cosas que no estan",
+      "sienten que me persiguen",
+      "me quieren hacer dano"
+    ],
+    "keywords": ["psicosis", "alucinaciones", "delirios", "esquizofrenia", "voces"],
+    "tags": ["salud-mental", "bandera-roja"],
+    "note": "Explora inicio, consumo de sustancias y riesgo de dano. Referir a salud mental de forma urgente si es de inicio reciente.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "ptsd",
+    "type": "dictionary",
+    "title": "Post-Traumatic Stress Disorder (PTSD / TEPT)",
+    "en": "Post-Traumatic Stress Disorder",
+    "es": "Trastorno de estres postraumatico",
+    "colloquial": [
+      "no puedo olvidar lo que paso",
+      "tengo pesadillas",
+      "me traumo facil",
+      "me da miedo recordarlo"
+    ],
+    "keywords": ["PTSD", "TEPT", "trauma", "pesadillas", "flashbacks"],
+    "tags": ["salud-mental"],
+    "note": "Criba con PC-PTSD; pregunta por hipervigilancia, evitacion y sintomas de reexperimentacion.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "grief",
+    "type": "dictionary",
+    "title": "Grief / Bereavement",
+    "en": "Grief",
+    "es": "Duelo / luto",
+    "colloquial": ["perdi a mi esposo", "no lo supero", "estoy de luto", "se me fue mi mama"],
+    "keywords": ["duelo", "luto", "grief", "bereavement", "perdida"],
+    "tags": ["salud-mental"],
+    "note": "El duelo normal puede parecerse a la depresion; distingue por autoestima conservada y capacidad de consuelo. Si persiste > 12 meses con deterioro, considera duelo prolongado.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "adhd",
+    "type": "dictionary",
+    "title": "ADHD (TDAH)",
+    "en": "Attention-Deficit/Hyperactivity Disorder",
+    "es": "Trastorno por deficit de atencion e hiperactividad",
+    "colloquial": [
+      "no me concentro",
+      "soy muy distraido",
+      "no termino nada",
+      "pierdo todo",
+      "soy muy inquieto"
+    ],
+    "keywords": ["ADHD", "TDAH", "atencion", "hiperactividad", "concentracion"],
+    "tags": ["salud-mental"],
+    "note": "Los sintomas deben iniciar en la infancia y causar deterioro en 2 o mas ambitos.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "bipolar-disorder",
+    "type": "dictionary",
+    "title": "Bipolar Disorder",
+    "en": "Bipolar Disorder",
+    "es": "Trastorno bipolar",
+    "colloquial": [
+      "ando muy arriba y luego muy abajo",
+      "cambios de animo fuertes",
+      "un dia feliz y al otro no puedo levantarme"
+    ],
+    "keywords": ["bipolar", "bipolaridad", "mania", "cambios de animo", "MDQ"],
+    "tags": ["salud-mental"],
+    "note": "Criba con MDQ antes de iniciar antidepresivos.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "ocd",
+    "type": "dictionary",
+    "title": "Obsessive-Compulsive Disorder (OCD / TOC)",
+    "en": "Obsessive-Compulsive Disorder",
+    "es": "Trastorno obsesivo-compulsivo",
+    "colloquial": [
+      "tengo pensamientos que no puedo quitarme",
+      "tengo que revisar todo",
+      "tengo que lavarme las manos muchas veces"
+    ],
+    "keywords": ["OCD", "TOC", "obsesiones", "compulsiones", "rituales"],
+    "tags": ["salud-mental"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "substance-use-disorder",
+    "type": "dictionary",
+    "title": "Substance Use Disorder (SUD)",
+    "en": "Substance Use Disorder",
+    "es": "Trastorno por consumo de sustancias",
+    "colloquial": [
+      "tomo mucho",
+      "ya no lo controlo",
+      "me drogo",
+      "necesito la sustancia para funcionar"
+    ],
+    "keywords": ["SUD", "adiccion", "droga", "sustancias", "consumo"],
+    "tags": ["salud-mental", "adicciones"],
+    "note": "Criba con AUDIT-C (alcohol) y DAST-10 (drogas); usa un enfoque sin juicio (SBIRT).",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "alcohol-withdrawal",
+    "type": "dictionary",
+    "title": "Alcohol Withdrawal",
+    "en": "Alcohol Withdrawal",
+    "es": "Sindrome de abstinencia al alcohol",
+    "colloquial": [
+      "me tiemblo cuando no tomo",
+      "sudo y tiemblo",
+      "por poco me da un ataque cuando deje de tomar"
+    ],
+    "keywords": ["abstinencia", "withdrawal", "temblor", "delirium tremens", "alcohol"],
+    "tags": ["salud-mental", "adicciones", "bandera-roja"],
+    "note": "La abstinencia puede causar convulsiones y delirium tremens: es una emergencia medica. No suspender el alcohol en seco sin plan.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "tobacco-use",
+    "type": "dictionary",
+    "title": "Tobacco Use / Smoking",
+    "en": "Tobacco Use Disorder",
+    "es": "Tabaquismo / consumo de tabaco",
+    "colloquial": ["fumo", "vapeo", "quiero dejar el cigarro", "fumo medio paquete al dia"],
+    "keywords": ["tabaco", "tobacco", "fumar", "vapeo", "nicotina", "dejar de fumar"],
+    "tags": ["salud-mental", "adicciones", "preventivo"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "craving",
+    "type": "dictionary",
+    "title": "Craving",
+    "en": "Craving",
+    "es": "Antojo / craving intenso",
+    "colloquial": [
+      "me dan unas ganas de tomar",
+      "antojo de la sustancia",
+      "no me lo puedo quitar de la cabeza"
+    ],
+    "keywords": ["craving", "antojo", "deseo de consumo", "sustancia"],
+    "tags": ["salud-mental", "adicciones"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "phobia",
+    "type": "dictionary",
+    "title": "Phobia",
+    "en": "Phobia",
+    "es": "Fobia",
+    "colloquial": [
+      "me da panico",
+      "me da miedo salir",
+      "no puedo estar en lugares cerrados",
+      "tengo miedo de hablar enfrente de gente"
+    ],
+    "keywords": ["fobia", "phobia", "miedo", "panico", "social"],
+    "tags": ["salud-mental", "ansiedad"],
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "loneliness",
+    "type": "dictionary",
+    "title": "Loneliness / Social Isolation",
+    "en": "Loneliness",
+    "es": "Soledad / aislamiento social",
+    "colloquial": [
+      "me siento solo",
+      "nadie me visita",
+      "no tengo con quien hablar",
+      "estoy aislado"
+    ],
+    "keywords": ["soledad", "aislamiento", "loneliness", "social"],
+    "tags": ["salud-mental", "social"],
+    "note": "Factor de riesgo para depresion y suicidio; preguntar por red de apoyo en cada cribado.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "intimate-partner-violence",
+    "type": "dictionary",
+    "title": "Intimate Partner Violence (IPV)",
+    "en": "Intimate Partner Violence",
+    "es": "Violencia de pareja",
+    "colloquial": [
+      "mi pareja me golpea",
+      "me amenaza",
+      "tengo miedo en mi casa",
+      "me controla el dinero"
+    ],
+    "keywords": ["violencia", "IPV", "abuso", "pareja", "domestica"],
+    "tags": ["salud-mental", "social", "bandera-roja"],
+    "note": "Preguntar SIEMPRE a solas y sin la pareja presente. Ofrece recursos y valora el riesgo de seguridad.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "irritability",
+    "type": "dictionary",
+    "title": "Irritability",
+    "en": "Irritability",
+    "es": "Irritabilidad / enojo",
+    "colloquial": ["ando de malas", "todo me molesta", "me enojo facil", "me da coraje todo"],
+    "keywords": ["irritabilidad", "enojo", "ira", "coraje", "irritable"],
+    "tags": ["salud-mental"],
+    "note": "Puede ser sintoma de depresion (sobre todo en hombres), ansiedad o mania.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "worthlessness",
+    "type": "dictionary",
+    "title": "Feelings of Worthlessness / Guilt",
+    "en": "Feelings of Worthlessness or Guilt",
+    "es": "Sentimientos de inutilidad o culpa",
+    "colloquial": ["me siento culpable", "no sirvo para nada", "soy una carga", "todo es mi culpa"],
+    "keywords": ["culpa", "inutilidad", "worthlessness", "guilt", "carga"],
+    "tags": ["salud-mental", "depresion"],
+    "note": "Sintoma de depresion; 'soy una carga' se asocia a mayor riesgo suicida.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "somatic-symptoms",
+    "type": "dictionary",
+    "title": "Somatic Symptoms (medically unexplained)",
+    "en": "Somatic Symptoms",
+    "es": "Sintomas somaticos",
+    "colloquial": [
+      "me duele todo",
+      "los estudios salen bien pero sigo mal",
+      "es el nerviosismo",
+      "dolor en el cuerpo"
+    ],
+    "keywords": ["somatico", "dolor", "sin causa", "nervios", "medically unexplained"],
+    "tags": ["salud-mental", "somatoformo"],
+    "note": "Frecuente en ansiedad, depresion y trauma. Valida el sintoma; no lo descartes como imaginario.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "sleep-hygiene",
+    "type": "dictionary",
+    "title": "Sleep Hygiene / Insomnia (CBT-I)",
+    "en": "Sleep Hygiene",
+    "es": "Higiene del sueno / insomnio",
+    "colloquial": [
+      "no duermo bien",
+      "me despierto a cada rato",
+      "me la paso despierto",
+      "no puedo dormir"
+    ],
+    "keywords": ["sueno", "insomnio", "higiene del sueno", "CBT-I", "dormir"],
+    "tags": ["salud-mental", "sueno"],
+    "note": "El tratamiento de primera linea del insomnio cronico es terapia cognitivo-conductual (CBT-I), no solo hipnoticos.",
+    "reviewedAt": "2026-02-20"
   }
 ]

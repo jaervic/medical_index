@@ -42,6 +42,25 @@ describe('busqueda fuzzy y ranking', () => {
     expect(ids('prior auth')).toEqual(expect.arrayContaining(['proto-prior-auth']));
   });
 
+  it('encuentra escalas de salud mental por sus siglas', () => {
+    expect(top('PHQ-9')).toBe('acr-phq9');
+    expect(top('C-SSRS')).toBe('acr-cssrs');
+    expect(top('AUDIT-C')).toBe('acr-auditc');
+    expect(top('988')).toBe('acr-988');
+  });
+
+  it('resuelve expresiones coloquiales de salud mental', () => {
+    expect(ids('ya no quiero vivir')).toContain('suicidal-ideation');
+    expect(ids('escucho voces')).toContain('psychosis');
+    expect(ids('me siento solo')).toContain('loneliness');
+    expect(ids('me tiemblo cuando no tomo')).toContain('alcohol-withdrawal');
+  });
+
+  it('activa protocolos criticos de crisis', () => {
+    expect(ids('riesgo suicida')).toContain('proto-suicide-risk');
+    expect(ids('violencia de pareja')).toContain('proto-ipv-screening');
+  });
+
   it('genera el texto de copiado correcto por tipo', () => {
     const dictionary = ENTRIES.find((entry) => entry.id === 'hypertension-htn');
     const clickpath = ENTRIES.find((entry) => entry.id === 'cp-referral');

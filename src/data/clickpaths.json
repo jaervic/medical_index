@@ -437,5 +437,163 @@
     "keywords": ["resumen", "CCD", "clinical summary", "imprimir", "compartir expediente"],
     "tags": ["eCW", "administrativo"],
     "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "cp-phq9-gad7",
+    "type": "clickpath",
+    "title": "Ruta de clics: Documentar PHQ-9 / GAD-7",
+    "module": "eCW",
+    "path": [
+      "Chart",
+      "Progress Note / Rooming",
+      "Assessments / Questionnaires",
+      "Seleccionar PHQ-9 (o GAD-7)",
+      "Capturar respuestas",
+      "Guardar (el puntaje se calcula solo)",
+      "Revisar puntaje y anotar el plan"
+    ],
+    "keywords": [
+      "PHQ-9",
+      "GAD-7",
+      "cuestionario",
+      "cribado",
+      "depresion",
+      "ansiedad",
+      "assessments"
+    ],
+    "tags": ["eCW", "salud-mental", "cribado"],
+    "notes": "Se puede enviar al paciente antes de la visita. Revisa el item 9 del PHQ-9 (riesgo suicida) y da seguimiento. Documenta la escala en cada visita (measurement-based care).",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "cp-cssrs",
+    "type": "clickpath",
+    "title": "Ruta de clics: Documentar C-SSRS (riesgo suicida)",
+    "module": "eCW",
+    "path": [
+      "Chart",
+      "Assessments / Questionnaires",
+      "C-SSRS Screener",
+      "Aplicar las 6 preguntas",
+      "Registrar respuestas",
+      "Alertar al proveedor si hay banderas altas (Q4-Q6)"
+    ],
+    "keywords": ["C-SSRS", "riesgo suicida", "suicidio", "screener", "crisis"],
+    "tags": ["eCW", "salud-mental", "crisis"],
+    "notes": "Ante Q4-Q5 (intencion o plan) o Q6 reciente: consulta de salud mental, precauciones de seguridad y 988/911 si hay riesgo inmediato.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "cp-bh-referral",
+    "type": "clickpath",
+    "title": "Ruta de clics: Referral a salud conductual",
+    "module": "eCW",
+    "path": [
+      "Chart",
+      "Hub",
+      "Referrals",
+      "New",
+      "Seleccionar Behavioral Health / Psiquiatria",
+      "Asignar a BH / RN",
+      "Adjuntar motivo y PHQ-9 / GAD-7",
+      "Guardar"
+    ],
+    "keywords": ["salud conductual", "BH", "psiquiatria", "referral", "salud mental", "referencia"],
+    "tags": ["eCW", "salud-mental", "referrals"],
+    "notes": "Adjunta el puntaje del cribado al referral para agilizar la valoracion. Haz warm handoff cuando puedas.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "cp-safety-plan",
+    "type": "clickpath",
+    "title": "Ruta de clics: Documentar un plan de seguridad",
+    "module": "eCW",
+    "path": [
+      "Chart",
+      "Patient Documents / Notes",
+      "Nuevo documento: Safety Plan",
+      "Listar senales de alarma y estrategias de afrontamiento",
+      "Contactos de apoyo y linea de crisis (988)",
+      "Firmar y guardar"
+    ],
+    "keywords": ["plan de seguridad", "safety plan", "crisis", "suicidio", "988"],
+    "tags": ["eCW", "salud-mental", "crisis"],
+    "notes": "El plan de seguridad debe incluir pasos concretos, contactos y restriccion de medios. Entregale una copia al paciente.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "cp-telehealth-bh",
+    "type": "clickpath",
+    "title": "Ruta de clics: Cita de telesalud de salud mental",
+    "module": "eCW",
+    "path": [
+      "Hub",
+      "Scheduler",
+      "New Appointment",
+      "Tipo: Telehealth / BH",
+      "Enviar enlace al paciente (healow)",
+      "Documentar en el Encounter y firmar"
+    ],
+    "keywords": ["telesalud", "telehealth", "videollamada", "salud mental", "healow"],
+    "tags": ["eCW", "salud-mental", "scheduling"],
+    "notes": "Confirma que el paciente tenga el enlace y un lugar privado. Verifica requisitos de telesalud del plan.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "cp-prior-auth-psych",
+    "type": "clickpath",
+    "title": "Ruta de clics: Prior auth de medicamento psiquiatrico",
+    "module": "eCW",
+    "path": [
+      "Chart",
+      "Hub",
+      "Prescriptions",
+      "Seleccionar medicamento",
+      "Verificar si requiere auth",
+      "Enviar solicitud",
+      "Actualizar estado"
+    ],
+    "keywords": ["prior auth", "psiquiatrico", "antipsicotico", "medicamento", "autorizacion"],
+    "tags": ["eCW", "salud-mental", "farmacia", "administrativo"],
+    "notes": "Muchos antipsicoticos y algunos antidepresivos requieren pre-autorizacion. Avisa al paciente de la demora antes del cambio.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "cp-social-work-consult",
+    "type": "clickpath",
+    "title": "Ruta de clics: Consulta a trabajo social",
+    "module": "eCW",
+    "path": [
+      "Chart",
+      "Hub",
+      "Referrals / Tasks",
+      "New Consult",
+      "Seleccionar Social Work / Case Management",
+      "Motivo (recursos, violencia, transporte)",
+      "Enviar"
+    ],
+    "keywords": ["trabajo social", "social work", "case management", "consulta", "recursos"],
+    "tags": ["eCW", "salud-mental", "administrativo"],
+    "notes": "Util para IPV, barreras de acceso, transporte o recursos comunitarios.",
+    "reviewedAt": "2026-02-20"
+  },
+  {
+    "id": "cp-crisis-documentation",
+    "type": "clickpath",
+    "title": "Ruta de clics: Documentar una crisis de salud mental",
+    "module": "eCW",
+    "path": [
+      "Chart",
+      "Hub",
+      "Telephone Encounter (o Encounter)",
+      "Motivo: crisis de salud mental",
+      "Documentar evaluacion, C-SSRS y plan",
+      "Registrar 988 y recursos dados",
+      "Sign & Save"
+    ],
+    "keywords": ["crisis", "documentar", "988", "salud mental", "telephone encounter"],
+    "tags": ["eCW", "salud-mental", "crisis"],
+    "notes": "Registra tiempo, riesgo evaluado, plan acordado y seguimiento. Si hubo llamada a 988/911, anotalo con hora.",
+    "reviewedAt": "2026-02-20"
   }
 ]
