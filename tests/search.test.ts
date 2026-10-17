@@ -27,6 +27,23 @@ describe('busqueda fuzzy y ranking', () => {
     expect(ids('resurtido')).toContain('proto-refill-policy');
   });
 
+  it('resuelve coloquialismos nuevos al termino clinico', () => {
+    expect(ids('me arde al orinar')).toContain('dysuria');
+    expect(ids('azucar alta')).toContain('hyperglycemia');
+    expect(ids('nariz tapada')).toContain('nasal-congestion');
+  });
+
+  it('encuentra acronimos clinicos por sus siglas', () => {
+    expect(top('CBC')).toBe('acr-cbc');
+    expect(ids('AWV')).toContain('acr-awv');
+  });
+
+  it('encuentra contenido de flujo administrativo', () => {
+    expect(ids('prior auth')).toEqual(
+      expect.arrayContaining(['proto-prior-auth']),
+    );
+  });
+
   it('genera el texto de copiado correcto por tipo', () => {
     const dictionary = ENTRIES.find((entry) => entry.id === 'hypertension-htn');
     const clickpath = ENTRIES.find((entry) => entry.id === 'cp-referral');

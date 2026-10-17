@@ -76,8 +76,9 @@
     "title": "NPO",
     "expansion": "Nil Per Os (nothing by mouth)",
     "translation": "Nada por via oral / en ayunas",
-    "keywords": ["nothing by mouth", "ayuno", "no comer"],
+    "keywords": ["nothing by mouth", "ayuno", "no comer", "fasting"],
     "tags": ["procedimientos"],
+    "note": "Antes de labs en ayunas: confirmar que el paciente no coma ni beba.",
     "reviewedAt": "2026-01-10"
   },
   {
@@ -96,7 +97,13 @@
     "title": "BID / TID / QID",
     "expansion": "Twice / three times / four times daily",
     "translation": "Dos / tres / cuatro veces al dia",
-    "keywords": ["twice daily", "three times daily", "four times daily", "cada 12 horas"],
+    "keywords": [
+      "twice daily",
+      "three times daily",
+      "four times daily",
+      "cada 12 horas",
+      "cada 8 horas"
+    ],
     "tags": ["farmacia"],
     "reviewedAt": "2026-01-10"
   },
@@ -119,5 +126,437 @@
     "keywords": ["prescription", "receta", "tratamiento"],
     "tags": ["farmacia"],
     "reviewedAt": "2026-01-10"
+  },
+  {
+    "id": "acr-bp",
+    "type": "acronym",
+    "title": "BP",
+    "expansion": "Blood Pressure",
+    "translation": "Presion arterial",
+    "keywords": ["blood pressure", "presion", "tension", "TA"],
+    "tags": ["signos-vitales", "cardiovascular"],
+    "note": "Se documenta como sistolica/diastolica (p. ej. 128/78).",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-hr",
+    "type": "acronym",
+    "title": "HR",
+    "expansion": "Heart Rate",
+    "translation": "Frecuencia cardiaca / pulso",
+    "keywords": ["pulse", "pulso", "heart rate", "FC"],
+    "tags": ["signos-vitales"],
+    "note": "Normal en reposo aprox. 60-100 lpm en el adulto.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-rr",
+    "type": "acronym",
+    "title": "RR",
+    "expansion": "Respiratory Rate",
+    "translation": "Frecuencia respiratoria",
+    "keywords": ["respiratory rate", "respiraciones", "FR"],
+    "tags": ["signos-vitales"],
+    "note": "Normal en reposo aprox. 12-20 rpm en el adulto.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-spo2",
+    "type": "acronym",
+    "title": "SpO2",
+    "expansion": "Peripheral Oxygen Saturation",
+    "translation": "Saturacion de oxigeno",
+    "keywords": ["oxygen saturation", "saturacion", "oximetro", "O2 sat", "pulse ox"],
+    "tags": ["signos-vitales", "bandera-roja"],
+    "note": "Normal aprox. 95-100%. Por debajo de 90% es bandera roja: escalar.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-temp",
+    "type": "acronym",
+    "title": "T / Temp",
+    "expansion": "Temperature",
+    "translation": "Temperatura",
+    "keywords": ["temperature", "temperatura", "fiebre", "fever"],
+    "tags": ["signos-vitales"],
+    "note": "Fiebre se define como > 38 C (100.4 F).",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-bmi",
+    "type": "acronym",
+    "title": "BMI",
+    "expansion": "Body Mass Index",
+    "translation": "Indice de masa corporal (IMC)",
+    "keywords": ["body mass index", "indice de masa corporal", "IMC", "peso", "obesidad"],
+    "tags": ["signos-vitales", "preventivo"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-cbc",
+    "type": "acronym",
+    "title": "CBC",
+    "expansion": "Complete Blood Count",
+    "translation": "Biometria hematica / conteo sanguineo completo",
+    "keywords": ["complete blood count", "biometria hematica", "hemograma", "BH"],
+    "tags": ["laboratorio"],
+    "note": "Incluye WBC, RBC, hemoglobina, hematocrito y plaquetas.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-bmp",
+    "type": "acronym",
+    "title": "BMP",
+    "expansion": "Basic Metabolic Panel",
+    "translation": "Panel metabolico basico",
+    "keywords": ["basic metabolic panel", "panel metabolico", "electrolitos", "quimica"],
+    "tags": ["laboratorio"],
+    "note": "Electrolitos, glucosa, BUN, creatinina y calcio.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-cmp",
+    "type": "acronym",
+    "title": "CMP",
+    "expansion": "Comprehensive Metabolic Panel",
+    "translation": "Panel metabolico completo",
+    "keywords": ["comprehensive metabolic panel", "panel metabolico completo", "funcion hepatica"],
+    "tags": ["laboratorio"],
+    "note": "BMP + enzimas hepaticas, proteinas, albumina y bilirrubina.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-a1c",
+    "type": "acronym",
+    "title": "A1c / HbA1c",
+    "expansion": "Hemoglobin A1c (glycated hemoglobin)",
+    "translation": "Hemoglobina glicosilada",
+    "keywords": ["hemoglobin a1c", "hemoglobina glicosilada", "glicada", "azucar promedio"],
+    "tags": ["laboratorio", "endocrino"],
+    "note": "Normal < 5.7%; prediabetes 5.7-6.4%; diabetes >= 6.5%.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-tsh",
+    "type": "acronym",
+    "title": "TSH",
+    "expansion": "Thyroid Stimulating Hormone",
+    "translation": "Hormona estimulante de la tiroides",
+    "keywords": ["thyroid", "tiroides", "hormona tiroidea"],
+    "tags": ["laboratorio", "endocrino"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-ua",
+    "type": "acronym",
+    "title": "U/A",
+    "expansion": "Urinalysis",
+    "translation": "Uroanalisis / examen de orina",
+    "keywords": ["urinalysis", "uroanalisis", "examen de orina", "UA"],
+    "tags": ["laboratorio", "urologia"],
+    "note": "Util en sospecha de UTI: busca leucocitos, nitritos y sangre.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-ekg",
+    "type": "acronym",
+    "title": "EKG / ECG",
+    "expansion": "Electrocardiogram",
+    "translation": "Electrocardiograma",
+    "keywords": ["electrocardiogram", "electrocardiograma", "ECG", "ritmo cardiaco"],
+    "tags": ["cardiovascular", "procedimientos"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-chf",
+    "type": "acronym",
+    "title": "CHF",
+    "expansion": "Congestive Heart Failure",
+    "translation": "Insuficiencia cardiaca congestiva",
+    "keywords": ["heart failure", "insuficiencia cardiaca", "falla cardiaca"],
+    "tags": ["cardiovascular", "cronico"],
+    "note": "Vigilar peso diario, edema, disnea y tolerancia al ejercicio.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-copd",
+    "type": "acronym",
+    "title": "COPD",
+    "expansion": "Chronic Obstructive Pulmonary Disease",
+    "translation": "Enfermedad pulmonar obstructiva cronica (EPOC)",
+    "keywords": ["EPOC", "pulmonary disease", "enfisema", "bronquitis cronica"],
+    "tags": ["respiratorio", "cronico"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-ckd",
+    "type": "acronym",
+    "title": "CKD",
+    "expansion": "Chronic Kidney Disease",
+    "translation": "Enfermedad renal cronica",
+    "keywords": ["renal", "kidney", "rinon", "creatinina"],
+    "tags": ["renal", "cronico"],
+    "note": "Vigilar creatinina, TFG y medicamentos nefrotoxicos.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-cad",
+    "type": "acronym",
+    "title": "CAD",
+    "expansion": "Coronary Artery Disease",
+    "translation": "Enfermedad arterial coronaria",
+    "keywords": ["coronary", "coronaria", "arterias del corazon"],
+    "tags": ["cardiovascular", "cronico"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-mi",
+    "type": "acronym",
+    "title": "MI",
+    "expansion": "Myocardial Infarction",
+    "translation": "Infarto al miocardio",
+    "keywords": ["heart attack", "infarto", "ataque cardiaco"],
+    "tags": ["cardiovascular", "bandera-roja"],
+    "note": "Emergencia. Dolor toracico + diaforesis/nausea/disnea = llamar 911.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-cva",
+    "type": "acronym",
+    "title": "CVA",
+    "expansion": "Cerebrovascular Accident (stroke)",
+    "translation": "Evento vascular cerebral / derrame",
+    "keywords": ["stroke", "derrame", "embolia cerebral", "ACV", "apoplejia"],
+    "tags": ["neurologico", "bandera-roja"],
+    "note": "Emergencia: 'tiempo es cerebro'. Debilidad facial, brazo o habla = 911.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-tia",
+    "type": "acronym",
+    "title": "TIA",
+    "expansion": "Transient Ischemic Attack",
+    "translation": "Ataque isquemico transitorio",
+    "keywords": ["transient ischemic attack", "isquemico transitorio", "mini derrame"],
+    "tags": ["neurologico", "bandera-roja"],
+    "note": "Sintomas que se resuelven solos: aun asi requiere evaluacion el mismo dia.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-dvt",
+    "type": "acronym",
+    "title": "DVT",
+    "expansion": "Deep Vein Thrombosis",
+    "translation": "Trombosis venosa profunda",
+    "keywords": ["thrombosis", "coagulo", "TVP", "pierna hinchada"],
+    "tags": ["vascular", "bandera-roja"],
+    "note": "Dolor/hinchazon en una pierna + disnea puede ser PE: emergencia.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-pe",
+    "type": "acronym",
+    "title": "PE",
+    "expansion": "Pulmonary Embolism",
+    "translation": "Embolia pulmonar",
+    "keywords": ["pulmonary embolism", "embolia pulmonar", "coagulo en el pulmon"],
+    "tags": ["respiratorio", "bandera-roja"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-gerd",
+    "type": "acronym",
+    "title": "GERD",
+    "expansion": "Gastroesophageal Reflux Disease",
+    "translation": "Enfermedad por reflujo gastroesofagico",
+    "keywords": ["reflujo", "agruras", "acidez", "heartburn", "ERGE"],
+    "tags": ["digestivo"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-osa",
+    "type": "acronym",
+    "title": "OSA",
+    "expansion": "Obstructive Sleep Apnea",
+    "translation": "Apnea obstructiva del sueno",
+    "keywords": ["apnea", "ronquidos", "sleep apnea", "deja de respirar dormido"],
+    "tags": ["respiratorio", "sueno"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-bph",
+    "type": "acronym",
+    "title": "BPH",
+    "expansion": "Benign Prostatic Hyperplasia",
+    "translation": "Hiperplasia prostatica benigna",
+    "keywords": ["prostata", "prostate", "orinar de noche", "nocturia"],
+    "tags": ["urologia"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-mdd",
+    "type": "acronym",
+    "title": "MDD",
+    "expansion": "Major Depressive Disorder",
+    "translation": "Trastorno depresivo mayor",
+    "keywords": ["depression", "depresion", "tristeza"],
+    "tags": ["salud-mental"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-gad",
+    "type": "acronym",
+    "title": "GAD",
+    "expansion": "Generalized Anxiety Disorder",
+    "translation": "Trastorno de ansiedad generalizada",
+    "keywords": ["anxiety", "ansiedad", "nervios"],
+    "tags": ["salud-mental"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-nkda",
+    "type": "acronym",
+    "title": "NKDA / NKA",
+    "expansion": "No Known Drug Allergies / No Known Allergies",
+    "translation": "Sin alergias conocidas a medicamentos / sin alergias conocidas",
+    "keywords": ["no known allergies", "sin alergias", "alergias"],
+    "tags": ["documentacion"],
+    "note": "Documenta NKDA solo tras preguntar; nunca lo asumas.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-po",
+    "type": "acronym",
+    "title": "PO",
+    "expansion": "Per Os (by mouth)",
+    "translation": "Via oral",
+    "keywords": ["by mouth", "via oral", "oral"],
+    "tags": ["farmacia"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-routes",
+    "type": "acronym",
+    "title": "IM / IV / SQ",
+    "expansion": "Intramuscular / Intravenous / Subcutaneous",
+    "translation": "Intramuscular / intravenoso / subcutaneo",
+    "keywords": ["intramuscular", "intravenoso", "subcutaneo", "inyeccion"],
+    "tags": ["farmacia", "procedimientos"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-hs",
+    "type": "acronym",
+    "title": "HS / AC / PC",
+    "expansion": "At bedtime / before meals / after meals",
+    "translation": "Al acostarse / antes de comer / despues de comer",
+    "keywords": ["at bedtime", "antes de comer", "despues de comer", "noche"],
+    "tags": ["farmacia"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-q4h",
+    "type": "acronym",
+    "title": "q4h / q6h / q8h",
+    "expansion": "Every 4 / 6 / 8 hours",
+    "translation": "Cada 4 / 6 / 8 horas",
+    "keywords": ["every hours", "cada horas", "q4", "q6", "q8"],
+    "tags": ["farmacia"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-wnl",
+    "type": "acronym",
+    "title": "WNL",
+    "expansion": "Within Normal Limits",
+    "translation": "Dentro de los limites normales",
+    "keywords": ["within normal limits", "normal", "limites normales"],
+    "tags": ["documentacion"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-dx",
+    "type": "acronym",
+    "title": "Dx / Tx / Hx",
+    "expansion": "Diagnosis / Treatment / History",
+    "translation": "Diagnostico / tratamiento / historia",
+    "keywords": ["diagnosis", "treatment", "history", "diagnostico", "historia"],
+    "tags": ["documentacion"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-hpi",
+    "type": "acronym",
+    "title": "CC / HPI",
+    "expansion": "Chief Complaint / History of Present Illness",
+    "translation": "Motivo de consulta / historia de la enfermedad actual",
+    "keywords": ["chief complaint", "present illness", "motivo de consulta", "padecimiento actual"],
+    "tags": ["documentacion"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-pmh",
+    "type": "acronym",
+    "title": "PMH / ROS",
+    "expansion": "Past Medical History / Review of Systems",
+    "translation": "Antecedentes medicos / interrogatorio por aparatos y sistemas",
+    "keywords": ["past medical history", "review of systems", "antecedentes", "interrogatorio"],
+    "tags": ["documentacion"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-hipaa",
+    "type": "acronym",
+    "title": "HIPAA",
+    "expansion": "Health Insurance Portability and Accountability Act",
+    "translation": "Ley de privacidad y seguridad de datos de salud (EE. UU.)",
+    "keywords": ["privacy", "privacidad", "confidencialidad", "PHI"],
+    "tags": ["administrativo", "legal"],
+    "note": "Nunca compartas PHI por canales no seguros. Verifica identidad antes de dar informacion.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-adls",
+    "type": "acronym",
+    "title": "ADLs",
+    "expansion": "Activities of Daily Living",
+    "translation": "Actividades de la vida diaria",
+    "keywords": ["activities of daily living", "actividades de la vida diaria", "funcionalidad"],
+    "tags": ["documentacion", "preventivo"],
+    "note": "Banarse, vestirse, comer, movilidad, ir al bano. Se evalua en la AWV.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-awv",
+    "type": "acronym",
+    "title": "AWV",
+    "expansion": "Annual Wellness Visit",
+    "translation": "Visita anual de bienestar (Medicare)",
+    "keywords": ["annual wellness visit", "visita anual", "wellness", "medicare", "G0438", "G0439"],
+    "tags": ["preventivo", "medicare"],
+    "note": "G0438 inicial (una vez) / G0439 subsecuente (cada 12 meses). Sin copago para el paciente.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-drtla",
+    "type": "acronym",
+    "title": "DRTLA",
+    "expansion": "Documents, Referrals, Telephone Encounters, Labs, Actions",
+    "translation": "Documentos, referencias, llamadas, labs y acciones",
+    "keywords": ["DRTLA", "documentos", "referrals", "labs", "telephone encounters"],
+    "tags": ["eCW"],
+    "note": "Pestana del panel derecho de la nota en eCW: resultados y ordenes sin salir del encuentro.",
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "acr-ccda",
+    "type": "acronym",
+    "title": "CCDA / CCD",
+    "expansion": "Consolidated Clinical Document Architecture / Continuity of Care Document",
+    "translation": "Resumen clinico interoperable del paciente",
+    "keywords": ["CCD", "CCDA", "resumen clinico", "continuity of care", "health summary"],
+    "tags": ["eCW", "administrativo"],
+    "note": "Resumen que se comparte con otro proveedor o se imprime para el paciente.",
+    "reviewedAt": "2026-02-15"
   }
 ]

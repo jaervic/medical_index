@@ -1,6 +1,6 @@
 # Meddex
 
-Segundo cerebro clinico: un *command palette* (estilo Spotlight / Raycast) para consultar
+Segundo cerebro clinico: un _command palette_ (estilo Spotlight / Raycast) para consultar
 **protocolos, rutas de clics de eCW, acronimos y un diccionario medico bilingue** en milisegundos,
 sin perder tiempo navegando menus.
 
@@ -21,6 +21,22 @@ sin perder tiempo navegando menus.
 - **Copiar a la nota** con `Enter` o botones por campo.
 - **Fijados y recientes**, filtros por categoria, **tema claro/oscuro** (oscuro por defecto).
 - **PWA instalable y offline**: ponla en su propia ventana en tu monitor secundario.
+
+## Contenido y fuentes
+
+Actualmente incluye **128 entradas**: 53 acronimos, 36 terminos de diccionario, 23 rutas de eCW y
+16 protocolos. Se fundamentaron en fuentes publicas:
+
+- **Acronimos y vocabulario clinico**: listas de abreviaturas de uso comun (NCI/SEER, MedicAlert).
+- **Rutas de eCW**: guias de entrenamiento de eClinicalWorks (panel DRTLA, *Treatment screen*,
+  FUTURE ORDERS, *Outgoing Referral*, inmunizaciones en 2 pasos, registro de paciente nuevo).
+- **Protocolos (AWV)**: guia de la CMS/Medicare para la *Annual Wellness Visit* (G0438/G0439).
+- **Triage telefonico**: banderas rojas de dolor toracico, disnea, fiebre y dolor abdominal
+  (guias AHA/ACC, WHO prehospital protocols, ESI handbook, protocolos de triage telefonico).
+
+> Aviso: las rutas de clics de eCW **dependen de la configuracion de cada clinica**. Verificalas
+> contra tu version antes de confiar en ellas. El contenido es de referencia general y no
+> sustituye el juicio clinico ni los protocolos locales.
 
 ## Stack
 

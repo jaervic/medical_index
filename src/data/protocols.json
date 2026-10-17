@@ -72,5 +72,255 @@
     "keywords": ["presion alta", "HTN", "hipertension", "blood pressure", "crisis"],
     "tags": ["triage", "cardiovascular"],
     "reviewedAt": "2026-02-05"
+  },
+  {
+    "id": "proto-chest-pain",
+    "type": "protocol",
+    "title": "Protocolo: Dolor toracico por telefono (posible evento cardiaco)",
+    "appliesTo": "Paciente que llama refiriendo dolor, presion u opresion en el pecho.",
+    "steps": [
+      "Asumir posible sindrome coronario agudo hasta descartarlo.",
+      "Preguntar: inicio, duracion, si irradia a mandibula/cuello/brazo, y sintomas asociados.",
+      "Buscar banderas rojas: diaforesis, nausea, falta de aire, desmayo, palidez.",
+      "Ante cualquier bandera roja: indicar llamar a 911 (no manejar por su cuenta).",
+      "Si el paciente esta solo, mantenerlo en linea hasta que llegue ayuda.",
+      "Documentar Telephone Encounter y avisar al PCP de inmediato."
+    ],
+    "warnings": [
+      "Presion/opresion con irradiacion + diaforesis = sospecha de infarto: 911.",
+      "Mujeres, diabeticos y adultos mayores pueden presentar sintomas atipicos."
+    ],
+    "keywords": ["dolor de pecho", "chest pain", "infarto", "MI", "corazon", "911"],
+    "tags": ["triage", "cardiovascular", "bandera-roja"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-dyspnea",
+    "type": "protocol",
+    "title": "Protocolo: Dificultad para respirar (disnea)",
+    "appliesTo": "Paciente que llama con falta de aire de inicio reciente o empeoramiento.",
+    "steps": [
+      "Preguntar si puede hablar en frases completas (marcador de gravedad).",
+      "Buscar banderas rojas: no puede hablar, usa musculos del cuello, labios azules, dolor toracico.",
+      "Si hay banderas rojas: indicar 911 y mantenerlo en linea.",
+      "Si es leve: sugerir reposo y reevaluar; pedirle que se mida saturacion si tiene oximetro.",
+      "Avisar al PCP y documentar Telephone Encounter."
+    ],
+    "warnings": [
+      "No poder completar una frase o SpO2 < 90% = emergencia.",
+      "Inicio subito en reposo sugiere embolia pulmonar o neumotorax."
+    ],
+    "keywords": ["falta de aire", "disnea", "SOB", "dificultad para respirar", "asfixia"],
+    "tags": ["triage", "respiratorio", "bandera-roja"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-fever-adult",
+    "type": "protocol",
+    "title": "Protocolo: Fiebre en el adulto (triage telefonico)",
+    "appliesTo": "Paciente adulto que reporta temperatura elevada.",
+    "steps": [
+      "Confirmar la temperatura y como la midio (> 100.4 F / 38 C es fiebre).",
+      "Descartar banderas rojas: confusion, rigidez de cuello, fotofobia, exantema petequial, hipotension.",
+      "Preguntar por inmunosupresion, embarazo, quimioterapia o implantes.",
+      "Sin banderas rojas e inmunocompetente: manejo sintomatico e hidratacion; reconsultar si empeora.",
+      "Con banderas rojas o inmunosupresion: evaluacion el mismo dia o ED.",
+      "Documentar Telephone Encounter."
+    ],
+    "warnings": [
+      "Fiebre + confusion o rigidez de cuello = sospecha de meningitis: emergencia.",
+      "Paciente inmunocomprometido con fiebre: no esperar."
+    ],
+    "keywords": ["fiebre", "fever", "calentura", "temperatura", "adulto"],
+    "tags": ["triage", "agudo"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-fever-infant",
+    "type": "protocol",
+    "title": "Protocolo: Fiebre en bebes y ninos (banderas rojas)",
+    "appliesTo": "Llama un padre o cuidador por fiebre en un menor.",
+    "steps": [
+      "Confirmar edad exacta y temperatura (> 100.4 F / 38 C).",
+      "Bebe menor de 90 dias con fiebre: referir a ED de inmediato (alto riesgo).",
+      "Buscar banderas rojas: letargo, no despierta facil, rechaza liquidos, dificultad para respirar, exantema petequial.",
+      "Preguntar estado de vacunacion e inmunizacion incompleta.",
+      "Sin banderas rojas y con vacunas al dia: manejo sintomatico e indicaciones de alarma.",
+      "Documentar Telephone Encounter."
+    ],
+    "warnings": [
+      "Menor de 90 dias con T > 100.4 F = ED siempre.",
+      "Temperatura < 96.8 F (36 C) en un nino es preocupante por sepsis."
+    ],
+    "keywords": ["fiebre", "bebe", "nino", "lactante", "fever", "pediatria"],
+    "tags": ["triage", "pediatria", "bandera-roja"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-abdominal-pain",
+    "type": "protocol",
+    "title": "Protocolo: Dolor abdominal por telefono",
+    "appliesTo": "Paciente que llama por dolor de estomago o abdominal.",
+    "steps": [
+      "Preguntar localizacion, inicio, relacion con la comida y caracter del dolor.",
+      "Descartar banderas rojas: sangrado digestivo, vomito con sangre, abdomen rigido, fiebre alta.",
+      "Preguntar por embarazo posible (considerar ectopico).",
+      "Dolor severo, rigido o con sangrado: referir a ED.",
+      "Sin banderas rojas: indicaciones de dieta, hidratacion y signos de alarma.",
+      "Documentar Telephone Encounter."
+    ],
+    "warnings": [
+      "Dolor abdominal + desmayo o sangrado en mujer en edad fertil: descarta embarazo ectopico (emergencia).",
+      "Dolor que migra a la fosa iliaca derecha con fiebre: sospecha de apendicitis."
+    ],
+    "keywords": ["dolor abdominal", "dolor de estomago", "abdomen", "apendicitis", "panza"],
+    "tags": ["triage", "digestivo"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-anaphylaxis",
+    "type": "protocol",
+    "title": "Protocolo: Reaccion alergica grave (anafilaxia)",
+    "appliesTo": "Paciente con ronchas o hinchazon tras exposicion a un alergeno.",
+    "steps": [
+      "Preguntar por hinchazon de labios, lengua o garganta y dificultad para respirar.",
+      "Preguntar por el desencadenante (alimento, medicamento, picadura) y el tiempo transcurrido.",
+      "Signos de anafilaxia (via aerea o respiracion): indicar 911 y usar epinefrina autoinyectable si la tiene.",
+      "Mantenerlo en linea hasta que llegue ayuda.",
+      "Si solo son ronchas sin compromiso respiratorio, el PCP decide manejo.",
+      "Documentar Telephone Encounter."
+    ],
+    "warnings": [
+      "Hinchazon de garganta o dificultad para respirar = anafilaxia: 911.",
+      "Ensenar al paciente a usar el autoinyector de epinefrina, no solo antihistaminico."
+    ],
+    "keywords": ["alergia", "anafilaxia", "ronchas", "hives", "epinefrina", "hinchazon"],
+    "tags": ["triage", "alergia", "bandera-roja"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-hypoglycemia",
+    "type": "protocol",
+    "title": "Protocolo: Azucar bajo (hipoglucemia)",
+    "appliesTo": "Paciente diabetico con temblor, sudor, confusion o glucometria baja.",
+    "steps": [
+      "Preguntar la glucometria si la tiene y los sintomas (temblor, sudor, hambre, confusion).",
+      "Si esta consciente y puede tragar: indicar 15 g de azucar de accion rapida (jugo, glucosa).",
+      "Reevaluar a los 15 minutos; repetir si sigue bajo.",
+      "Si esta inconsciente, confundido o no puede tragar: emergencia, llamar 911.",
+      "Avisar al PCP y documentar la indicacion y la glucometria."
+    ],
+    "warnings": [
+      "Nunca dar nada por boca si no puede tragar o esta inconsciente.",
+      "Revisar la causa: dosis de insulina, comida omitida o ejercicio."
+    ],
+    "keywords": ["azucar baja", "hipoglucemia", "diabetes", "glucosa", "temblor"],
+    "tags": ["triage", "endocrino", "bandera-roja"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-head-injury",
+    "type": "protocol",
+    "title": "Protocolo: Golpe en la cabeza (banderas rojas)",
+    "appliesTo": "Paciente que sufrio un golpe o caida en la cabeza.",
+    "steps": [
+      "Preguntar como fue el golpe y si hubo perdida de conocimiento o vomito.",
+      "Buscar banderas rojas: desorientacion, vomito repetido, vision doble, convulsion, debilidad de un lado.",
+      "Preguntar si toma anticoagulantes o tiene antecedente de sangrado.",
+      "Con cualquier bandera roja, anticoagulacion o edad avanzada: referir a ED.",
+      "Instruir vigilancia de sintomas en las siguientes 24-48 h.",
+      "Documentar Telephone Encounter."
+    ],
+    "warnings": [
+      "Perdida de conocimiento, vomito repetido o deficit neurologico = ED.",
+      "Paciente anticoagulado con golpe craneal: umbral bajo para referir."
+    ],
+    "keywords": ["golpe en la cabeza", "head injury", "concusion", "caida", "TBI"],
+    "tags": ["triage", "neurologico", "bandera-roja"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-back-pain-red-flags",
+    "type": "protocol",
+    "title": "Protocolo: Banderas rojas en dolor de espalda",
+    "appliesTo": "Paciente que llama por dolor lumbar.",
+    "steps": [
+      "Preguntar inicio (subito tras esfuerzo vs progresivo) y si hay sintomas en las piernas.",
+      "Buscar banderas rojas: perdida de control de esfinteres, adormecimiento en la zona genital, debilidad progresiva.",
+      "Preguntar por fiebre, perdida de peso o antecedente de cancer.",
+      "Con banderas rojas (cauda equina) o fiebre: referir a ED de inmediato.",
+      "Sin banderas rojas: manejo conservador y signos de alarma.",
+      "Documentar Telephone Encounter."
+    ],
+    "warnings": [
+      "Incontinencia urinaria/fecal o anestesia en 'silla de montar' = cauda equina: emergencia quirurgica.",
+      "Dolor lumbar + fiebre o uso de drogas IV: considerar infeccion (absceso)."
+    ],
+    "keywords": ["dolor de espalda", "lumbalgia", "cauda equina", "back pain", "lumbar"],
+    "tags": ["triage", "musculoesqueletico", "bandera-roja"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-labs-followup",
+    "type": "protocol",
+    "title": "Protocolo: Seguimiento de resultados de laboratorio",
+    "appliesTo": "Llego un resultado de lab y hay que cerrar el circuito con el paciente.",
+    "steps": [
+      "Revisar resultados pendientes en el panel DRTLA (clip rosado = electronico).",
+      "Marcar los criticos y sacarlos del flujo normal; avisar al PCP de inmediato.",
+      "El proveedor decide si se requiere llamada, cambio de tratamiento o cita.",
+      "Contactar al paciente: explicar resultado, plan y fecha de seguimiento.",
+      "Documentar el contacto y cerrar la orden (no dejar resultados sin revisar)."
+    ],
+    "warnings": [
+      "Valores criticos deben comunicarse el mismo dia.",
+      "Registrar al menos 2 intentos de contacto antes de enviar carta."
+    ],
+    "keywords": ["labs", "resultados", "seguimiento", "recall", "resultados pendientes", "DRTLA"],
+    "tags": ["laboratorio", "administrativo"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-prior-auth",
+    "type": "protocol",
+    "title": "Protocolo: Prior Authorization (pre-autorizacion)",
+    "appliesTo": "Un servicio, estudio o medicamento requiere aprobacion de la aseguradora.",
+    "steps": [
+      "Verificar si el plan exige pre-autorizacion para el servicio/medicamento.",
+      "Reunir el paquete: diagnostico, notas clinicas, CPT/HCPCS y justificacion.",
+      "Enviar la solicitud a la aseguradora por el canal indicado.",
+      "Registrar numero de caso y fecha; dar seguimiento hasta la respuesta.",
+      "Si se niega, informar al proveedor para apelar o cambiar la alternativa.",
+      "Comunicar la resolucion al paciente."
+    ],
+    "warnings": [
+      "Sin auth, el estudio o medicamento se puede rechazar o facturar al paciente.",
+      "La coordinacion en eCW es manual: mantén un registro del estado."
+    ],
+    "keywords": ["prior auth", "pre-autorizacion", "autorizacion", "aseguradora", "auth"],
+    "tags": ["administrativo", "seguros"],
+    "reviewedAt": "2026-02-15"
+  },
+  {
+    "id": "proto-awv",
+    "type": "protocol",
+    "title": "Protocolo: Annual Wellness Visit (Medicare)",
+    "appliesTo": "Paciente Medicare elegible para su visita anual de bienestar.",
+    "steps": [
+      "Confirmar elegibilidad (una AWV cada 12 meses; primera vez = G0438).",
+      "Aplicar el Health Risk Assessment (HRA).",
+      "Mediciones: talla, peso, BMI y presion arterial.",
+      "Evaluar caidas, discapacidad auditiva, seguridad en casa y funcionalidad (ADLs).",
+      "Evaluacion cognitiva y cribado de depresion/riesgo de sustancias.",
+      "Entregar plan de prevencion escrito (5-10 anos) segun USPSTF/ACIP.",
+      "Ofrecer planificacion anticipada de decisiones (avance de directivas)."
+    ],
+    "warnings": [
+      "Es visita de prevencion: los problemas agudos se facturan por separado.",
+      "Sin copago para el paciente; avisar si se agregan servicios con costo."
+    ],
+    "keywords": ["AWV", "visita anual", "wellness", "medicare", "HRA", "prevencion", "G0438"],
+    "tags": ["preventivo", "medicare"],
+    "reviewedAt": "2026-02-15"
   }
 ]
