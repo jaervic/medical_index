@@ -39,6 +39,10 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  build: {
+    // App local (React + Fuse + cmdk); ~155 kB gzip. Subimos el umbral de aviso.
+    chunkSizeWarningLimit: 600,
+  },
   test: {
     environment: 'jsdom',
     globals: true,

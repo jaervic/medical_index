@@ -10,6 +10,7 @@ export const STORAGE_KEYS = {
   frecency: `${NS}:frecency`,
   recents: `${NS}:recents`,
   theme: `${NS}:theme`,
+  panelCollapsed: `${NS}:panel-collapsed`,
 } as const;
 
 export type Theme = 'dark' | 'light';
@@ -93,4 +94,14 @@ export function loadTheme(): Theme {
 
 export function saveTheme(theme: Theme): void {
   write(STORAGE_KEYS.theme, theme);
+}
+
+// --- Panel de detalle ------------------------------------------------------
+
+export function loadPanelCollapsed(): boolean {
+  return read<boolean>(STORAGE_KEYS.panelCollapsed, false);
+}
+
+export function savePanelCollapsed(collapsed: boolean): void {
+  write(STORAGE_KEYS.panelCollapsed, collapsed);
 }

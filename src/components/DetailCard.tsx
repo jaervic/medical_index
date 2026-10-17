@@ -1,5 +1,7 @@
-import { Copy, Star } from 'lucide-react';
+import { Copy, Pencil, Star } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { primaryCopyText } from '@/lib/search';
+import { sourceFile, sourceUrl } from '@/lib/source';
 import type { Entry } from '@/lib/types';
 import { ClickPath } from './ClickPath';
 import { TypeBadge } from './TypeBadge';
@@ -32,38 +34,35 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-function Placeholder() {
-  return (
-    <div className="flex h-full items-center justify-center px-8 text-center">
-      <p className="max-w-xs text-sm text-muted">
-        Escribe para buscar. Presiona{' '}
-        <kbd className="rounded bg-ink/5 px-1.5 py-0.5 ring-1 ring-edge">↑</kbd>{' '}
-        <kbd className="rounded bg-ink/5 px-1.5 py-0.5 ring-1 ring-edge">↓</kbd> para navegar y{' '}
-        <kbd className="rounded bg-ink/5 px-1.5 py-0.5 ring-1 ring-edge">Enter</kbd> para copiar.
-      </p>
-    </div>
-  );
-}
-
-interface DetailCardProps {
-  entry: Entry | null;
+export interface DetailCardProps {
+  entry: Entry;
   isFavorite: boolean;
+  useCount: number;
   onToggleFavorite: (id: string) => void;
   onCopy: (text: string, label?: string) => void;
+  onTagClick: (tag: string) => void;
 }
 
-export function DetailCard({ entry, isFavorite, onToggleFavorite, onCopy }: DetailCardProps) {
-  if (!entry) return <Placeholder />;
+export function DetailCard({
+  entry,
+  isFavorite,
+  useCount,
+  onToggleFavorite,
+  onCopy,
+  onTagClick,
+}: DetailCardProps) {
+  const tags = entry.tags ?? [];
 
   return (
     <div className="flex h-full flex-col">
       <header className="flex items-start justify-between gap-3 border-b border-edge px-5 py-4">
         <div className="min-w-0">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <TypeBadge type={entry.type} />
             {entry.reviewedAt && (
               <span className="text-[11px] text-muted">Revisado {entry.reviewedAt}</span>
             )}
+            {useCount > 0 && <span className="text-[11px] text-muted">· Usada {useCount}x</span>}
           </div>
           <h2 className="mt-2 text-lg leading-tight font-semibold text-ink">{entry.title}</h2>
         </div>
@@ -82,21 +81,62 @@ export function DetailCard({ entry, isFavorite, onToggleFavorite, onCopy }: Deta
 
       <div className="flex-1 space-y-5 overflow-y-auto px-5 py-4">
         <EntryBody entry={entry} onCopy={onCopy} />
+
+        {tags.length > 0 && (
+          <Field label="Etiquetas">
+            <div className="flex flex-wrap gap-1.5">
+              {tags.map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => onTagClick(tag)}
+                  className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs text-accent ring-1 ring-inset ring-accent/25 transition hover:bg-accent/20"
+                >
+                  #{tag}
+                </button>
+              ))}
+            </div>
+          </Field>
+        )}
+
         {entry.keywords && entry.keywords.length > 0 && (
           <Field label="Tambien se busca como">
             <div className="flex flex-wrap gap-1.5">
               {entry.keywords.map((keyword) => (
-                <span
+                <button
                   key={keyword}
-                  className="rounded-md bg-ink/5 px-2 py-0.5 text-xs text-muted ring-1 ring-inset ring-edge"
+                  type="button"
+                  onClick={() => onTagClick(keyword)}
+                  className="rounded-md bg-ink/5 px-2 py-0.5 text-xs text-muted ring-1 ring-inset ring-edge transition hover:text-ink"
                 >
                   {keyword}
-                </span>
+                </button>
               ))}
             </div>
           </Field>
         )}
       </div>
+
+      <footer className="flex items-center gap-2 border-t border-edge px-5 py-3">
+        <button
+          type="button"
+          onClick={() => onCopy(primaryCopyText(entry), 'Copiado')}
+          className="inline-flex items-center gap-2 rounded-md bg-accent px-3 py-1.5 text-sm font-medium text-accent-ink transition hover:opacity-90"
+        >
+          <Copy size={14} />
+          Copiar
+        </button>
+        <a
+          href={sourceUrl(entry.type)}
+          target="_blank"
+          rel="noreferrer"
+          title={sourceFile(entry.type)}
+          className="inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-muted ring-1 ring-inset ring-edge transition hover:text-ink"
+        >
+          <Pencil size={14} />
+          Editar en GitHub
+        </a>
+      </footer>
     </div>
   );
 }

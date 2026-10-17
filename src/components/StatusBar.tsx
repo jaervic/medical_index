@@ -24,6 +24,7 @@ export function StatusBar() {
         <Hint keys={['↵']} label="copiar" />
         <Hint keys={['/']} label="buscar" />
         <Hint keys={['⌘', 'K']} label="enfocar" />
+        <Hint keys={['⌘', 'B']} label="panel" />
       </div>
       <span className="hidden sm:inline">
         Meddex · solo reglas generales, sin datos de pacientes

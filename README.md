@@ -19,6 +19,11 @@ sin perder tiempo navegando menus.
   - _Protocolo_: pasos numerados y advertencias.
   - _Acronimo_: significado y traduccion.
 - **Copiar a la nota** con `Enter` o botones por campo.
+- **Panel de detalle** que previsualiza el resultado resaltado mientras navegas; incluye **entradas
+  relacionadas**, etiquetas y sinonimos clicables, contador de uso y enlace para **editar en GitHub**.
+- **Estado vacio util**: atajos, mas usados, fijados y **linea de crisis 988** siempre a la vista.
+- **Panel colapsable** con `Ctrl/Cmd + B`: si lo ocultas, `Enter` abre la tarjeta a pantalla
+  completa (tambien en movil) y `Esc` la cierra.
 - **Fijados y recientes**, filtros por categoria, **tema claro/oscuro** (oscuro por defecto).
 - **PWA instalable y offline**: ponla en su propia ventana en tu monitor secundario.
 
