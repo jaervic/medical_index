@@ -9,8 +9,13 @@
     "colloquial": ["presion alta", "tension alta", "la presion", "se me sube la presion"],
     "keywords": ["high blood pressure", "HTN", "blood pressure", "elevated BP", "presion alta"],
     "tags": ["cardiovascular", "cronico"],
-    "note": "En la nota usa 'Hypertension (HTN)'. Evita 'high blood pressure' como diagnostico formal.",
-    "reviewedAt": "2026-01-15"
+    "note": "In the note use 'Hypertension (HTN)'. Avoid 'high blood pressure' as a formal diagnosis.",
+    "reviewedAt": "2026-01-15",
+    "i18n": {
+      "es": {
+        "note": "En la nota usa 'Hypertension (HTN)'. Evita 'high blood pressure' como diagnostico formal."
+      }
+    }
   },
   {
     "id": "diabetes-mellitus",
@@ -22,8 +27,13 @@
     "colloquial": ["azucar en la sangre", "tengo azucar", "diabetes"],
     "keywords": ["DM", "DM2", "type 2 diabetes", "glucose", "sugar", "azucar"],
     "tags": ["endocrino", "cronico"],
-    "note": "Especifica el tipo: DM2 (tipo 2) es lo mas comun en esta poblacion.",
-    "reviewedAt": "2026-01-15"
+    "note": "Specify the type: DM2 (type 2) is the most common in this population.",
+    "reviewedAt": "2026-01-15",
+    "i18n": {
+      "es": {
+        "note": "Especifica el tipo: DM2 (tipo 2) es lo mas comun en esta poblacion."
+      }
+    }
   },
   {
     "id": "upper-respiratory-infection",
@@ -35,8 +45,13 @@
     "colloquial": ["gripe", "gripa", "resfriado", "catarro", "estoy engripado"],
     "keywords": ["URI", "common cold", "cold", "flu-like"],
     "tags": ["respiratorio", "agudo"],
-    "note": "Distingue URI (viral) de Influenza. Si hay fiebre alta y mialgias, considera Influenza.",
-    "reviewedAt": "2026-02-01"
+    "note": "Distinguish URI (viral) from Influenza. With high fever and myalgias, consider Influenza.",
+    "reviewedAt": "2026-02-01",
+    "i18n": {
+      "es": {
+        "note": "Distingue URI (viral) de Influenza. Si hay fiebre alta y mialgias, considera Influenza."
+      }
+    }
   },
   {
     "id": "shortness-of-breath",
@@ -48,8 +63,13 @@
     "colloquial": ["falta de aire", "no puedo respirar", "me ahogo", "me falta el aire"],
     "keywords": ["SOB", "dyspnea", "breathing difficulty", "falta de aire"],
     "tags": ["respiratorio", "bandera-roja"],
-    "note": "SIEMPRE bandera roja en triage telefonico: puede requerir evaluacion presencial o 911.",
-    "reviewedAt": "2026-02-01"
+    "note": "ALWAYS a red flag in telephone triage: may require in-person evaluation or 911.",
+    "reviewedAt": "2026-02-01",
+    "i18n": {
+      "es": {
+        "note": "SIEMPRE bandera roja en triage telefonico: puede requerir evaluacion presencial o 911."
+      }
+    }
   },
   {
     "id": "sore-throat",
@@ -73,8 +93,13 @@
     "colloquial": ["asma", "silbido en el pecho", "no me pasa el aire"],
     "keywords": ["asthma", "wheezing", "reactive airway", "inhaler", "albuterol"],
     "tags": ["respiratorio", "cronico"],
-    "note": "Si el paciente reporta crisis asmatica con dificultad para hablar, indicar ED o 911.",
-    "reviewedAt": "2026-02-01"
+    "note": "If the patient reports an asthma attack with difficulty speaking, send to the ED or call 911.",
+    "reviewedAt": "2026-02-01",
+    "i18n": {
+      "es": {
+        "note": "Si el paciente reporta crisis asmatica con dificultad para hablar, indicar ED o 911."
+      }
+    }
   },
   {
     "id": "headache",
@@ -86,8 +111,13 @@
     "colloquial": ["dolor de cabeza", "me duele la cabeza", "migrana"],
     "keywords": ["cephalgia", "migraine", "migrana", "dolor de cabeza"],
     "tags": ["neurologico"],
-    "note": "Dolor de cabeza 'el peor de mi vida', con vision borrosa o deficit focal = bandera roja.",
-    "reviewedAt": "2026-01-20"
+    "note": "'Worst headache of my life', with blurred vision or focal deficit = red flag.",
+    "reviewedAt": "2026-01-20",
+    "i18n": {
+      "es": {
+        "note": "Dolor de cabeza 'el peor de mi vida', con vision borrosa o deficit focal = bandera roja."
+      }
+    }
   },
   {
     "id": "medication-refill",
@@ -99,8 +129,13 @@
     "colloquial": ["resurtido", "renovar receta", "necesito mi medicina", "refill"],
     "keywords": ["refill", "prescription renewal", "renew Rx", "resurtir"],
     "tags": ["farmacia", "administrativo"],
-    "note": "Confirmar: medicamento, dosis, farmacia y si el paciente tiene visita reciente con el PCP.",
-    "reviewedAt": "2026-02-10"
+    "note": "Confirm: medication, dose, pharmacy and whether the patient has a recent visit with the PCP.",
+    "reviewedAt": "2026-02-10",
+    "i18n": {
+      "es": {
+        "note": "Confirmar: medicamento, dosis, farmacia y si el paciente tiene visita reciente con el PCP."
+      }
+    }
   },
   {
     "id": "dizziness",
@@ -112,8 +147,13 @@
     "colloquial": ["mareo", "me marea", "ando mareado", "vahido"],
     "keywords": ["vertigo", "lightheaded", "presyncope", "mareo"],
     "tags": ["neurologico", "bandera-roja"],
-    "note": "Filtrar banderas rojas: sincope, deficit focal, dolor toracico.",
-    "reviewedAt": "2026-01-28"
+    "note": "Screen red flags: syncope, focal deficit, chest pain.",
+    "reviewedAt": "2026-01-28",
+    "i18n": {
+      "es": {
+        "note": "Filtrar banderas rojas: sincope, deficit focal, dolor toracico."
+      }
+    }
   },
   {
     "id": "chest-pain",
@@ -130,8 +170,13 @@
     ],
     "keywords": ["chest pain", "angina", "dolor toracico", "presion en el pecho"],
     "tags": ["cardiovascular", "bandera-roja"],
-    "note": "Presion/opresion que irradia a mandibula, cuello o brazo + diaforesis = 911.",
-    "reviewedAt": "2026-02-15"
+    "note": "Pressure/tightness radiating to the jaw, neck or arm + diaphoresis = 911.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Presion/opresion que irradia a mandibula, cuello o brazo + diaforesis = 911."
+      }
+    }
   },
   {
     "id": "palpitations",
@@ -160,8 +205,13 @@
     "colloquial": ["desmayo", "me desmaye", "perdi el conocimiento", "me desvaneci"],
     "keywords": ["syncope", "fainting", "passed out", "desmayo"],
     "tags": ["cardiovascular", "neurologico", "bandera-roja"],
-    "note": "Desmayo con dolor toracico, palpitaciones o durante ejercicio: evaluacion urgente.",
-    "reviewedAt": "2026-02-15"
+    "note": "Fainting with chest pain, palpitations or during exercise: urgent evaluation.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Desmayo con dolor toracico, palpitaciones o durante ejercicio: evaluacion urgente."
+      }
+    }
   },
   {
     "id": "dysuria",
@@ -173,8 +223,13 @@
     "colloquial": ["me arde al orinar", "escozor al orinar", "duele al orinar", "ardor al orinar"],
     "keywords": ["dysuria", "burning urination", "disuria", "ardor al orinar"],
     "tags": ["urologia"],
-    "note": "Sintoma cardinal de UTI; junto con frecuencia y urgencia.",
-    "reviewedAt": "2026-02-15"
+    "note": "Cardinal symptom of UTI; together with frequency and urgency.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Sintoma cardinal de UTI; junto con frecuencia y urgencia."
+      }
+    }
   },
   {
     "id": "urinary-frequency",
@@ -198,8 +253,13 @@
     "colloquial": ["nauseas", "vomito", "ganas de vomitar", "estomago revuelto", "asco"],
     "keywords": ["nausea", "vomiting", "emesis", "N/V", "nauseas"],
     "tags": ["digestivo", "agudo"],
-    "note": "Si hay vomito persistente o no tolera liquidos: riesgo de deshidratacion.",
-    "reviewedAt": "2026-02-15"
+    "note": "If vomiting persists or they cannot keep fluids down: risk of dehydration.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Si hay vomito persistente o no tolera liquidos: riesgo de deshidratacion."
+      }
+    }
   },
   {
     "id": "diarrhea",
@@ -235,8 +295,13 @@
     "colloquial": ["agruras", "acidez", "reflujo", "me sube el agrio", "ardor en el pecho"],
     "keywords": ["heartburn", "GERD", "reflux", "agruras", "acidez", "reflujo"],
     "tags": ["digestivo"],
-    "note": "El ardor por reflujo puede confundirse con dolor cardiaco: descarta banderas rojas.",
-    "reviewedAt": "2026-02-15"
+    "note": "Reflux burning can be mistaken for cardiac pain: rule out red flags.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "El ardor por reflujo puede confundirse con dolor cardiaco: descarta banderas rojas."
+      }
+    }
   },
   {
     "id": "abdominal-pain",
@@ -248,8 +313,13 @@
     "colloquial": ["dolor de estomago", "dolor de panza", "me duele la barriga", "colico"],
     "keywords": ["abdominal pain", "stomachache", "dolor abdominal", "dolor de estomago"],
     "tags": ["digestivo", "agudo"],
-    "note": "Preguntar localizacion, relacion con comida, sangrado y si hay fiebre.",
-    "reviewedAt": "2026-02-15"
+    "note": "Ask about location, relation to food, bleeding and whether there is fever.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Preguntar localizacion, relacion con comida, sangrado y si hay fiebre."
+      }
+    }
   },
   {
     "id": "fever",
@@ -261,8 +331,13 @@
     "colloquial": ["fiebre", "calentura", "temperatura", "esta caliente"],
     "keywords": ["fever", "febrile", "fiebre", "calentura", "pyrexia"],
     "tags": ["agudo", "bandera-roja"],
-    "note": "Fiebre > 38 C (100.4 F). En bebes < 90 dias es bandera roja.",
-    "reviewedAt": "2026-02-15"
+    "note": "Fever > 38 C (100.4 F). In infants < 90 days it is a red flag.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Fiebre > 38 C (100.4 F). En bebes < 90 dias es bandera roja."
+      }
+    }
   },
   {
     "id": "cough",
@@ -274,8 +349,13 @@
     "colloquial": ["tos", "estoy tosiendo", "tos con flema", "toso mucho"],
     "keywords": ["cough", "tos", "productive cough"],
     "tags": ["respiratorio", "agudo"],
-    "note": "Tos > 3 semanas, con sangre o disnea: requiere evaluacion.",
-    "reviewedAt": "2026-02-15"
+    "note": "Cough > 3 weeks, with blood or dyspnea: requires evaluation.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Tos > 3 semanas, con sangre o disnea: requiere evaluacion."
+      }
+    }
   },
   {
     "id": "nasal-congestion",
@@ -299,8 +379,13 @@
     "colloquial": ["ronchas", "sarpullido", "comezon", "picazon", "me pica todo"],
     "keywords": ["rash", "hives", "urticaria", "pruritus", "ronchas", "comezon", "sarpullido"],
     "tags": ["dermatologico", "alergia"],
-    "note": "Ronchas + hinchazon de labios/garganta o dificultad para respirar = anafilaxia: 911.",
-    "reviewedAt": "2026-02-15"
+    "note": "Hives + swelling of the lips/throat or difficulty breathing = anaphylaxis: 911.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Ronchas + hinchazon de labios/garganta o dificultad para respirar = anafilaxia: 911."
+      }
+    }
   },
   {
     "id": "peripheral-edema",
@@ -317,8 +402,13 @@
     ],
     "keywords": ["edema", "swelling", "hinchazon", "pies hinchados", "retencion de liquidos"],
     "tags": ["cardiovascular", "renal"],
-    "note": "Si es en una sola pierna y duele: descarta DVT (bandera roja).",
-    "reviewedAt": "2026-02-15"
+    "note": "If it is in one leg and painful: rule out DVT (red flag).",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Si es en una sola pierna y duele: descarta DVT (bandera roja)."
+      }
+    }
   },
   {
     "id": "back-pain",
@@ -335,8 +425,13 @@
     ],
     "keywords": ["back pain", "lumbalgia", "dolor de espalda", "lumbar"],
     "tags": ["musculoesqueletico"],
-    "note": "Con perdida de control de esfinteres o debilidad en piernas = cauda equina: emergencia.",
-    "reviewedAt": "2026-02-15"
+    "note": "With loss of bowel/bladder control or leg weakness = cauda equina: emergency.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Con perdida de control de esfinteres o debilidad en piernas = cauda equina: emergencia."
+      }
+    }
   },
   {
     "id": "knee-joint-pain",
@@ -365,8 +460,13 @@
     "colloquial": ["tiroides", "tiroides lenta", "problema de tiroides"],
     "keywords": ["thyroid", "hypothyroidism", "tiroides", "TSH"],
     "tags": ["endocrino", "cronico"],
-    "note": "Sintomas: fatiga, aumento de peso, intolerancia al frio, estrenimiento.",
-    "reviewedAt": "2026-02-15"
+    "note": "Symptoms: fatigue, weight gain, cold intolerance, constipation.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Sintomas: fatiga, aumento de peso, intolerancia al frio, estrenimiento."
+      }
+    }
   },
   {
     "id": "hyperlipidemia",
@@ -450,8 +550,13 @@
     "colloquial": ["depresion", "tristeza", "desanimo", "no tengo animo", "me siento vacio"],
     "keywords": ["depression", "depresion", "tristeza", "PHQ"],
     "tags": ["salud-mental", "cronico"],
-    "note": "Evalua ideacion suicida; documenta y escala al proveedor si hay riesgo.",
-    "reviewedAt": "2026-02-15"
+    "note": "Assess suicidal ideation; document and escalate to the provider if there is risk.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Evalua ideacion suicida; documenta y escala al proveedor si hay riesgo."
+      }
+    }
   },
   {
     "id": "hypoglycemia",
@@ -463,8 +568,13 @@
     "colloquial": ["azucar baja", "se le bajo el azucar", "me tiemblo por el azucar"],
     "keywords": ["hypoglycemia", "low sugar", "azucar baja", "low blood sugar"],
     "tags": ["endocrino", "bandera-roja"],
-    "note": "Sudor, temblor, confusion. Si no puede deglutir: emergencia.",
-    "reviewedAt": "2026-02-15"
+    "note": "Sweating, tremor, confusion. If they cannot swallow: emergency.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Sudor, temblor, confusion. Si no puede deglutir: emergencia."
+      }
+    }
   },
   {
     "id": "hyperglycemia",
@@ -476,8 +586,13 @@
     "colloquial": ["azucar alta", "glucosa alta", "se me subio el azucar"],
     "keywords": ["hyperglycemia", "high sugar", "azucar alta", "glucosa alta"],
     "tags": ["endocrino"],
-    "note": "Sed, orinar mucho, vision borrosa. Con nauseas/vomito y respiracion rapida: urgente.",
-    "reviewedAt": "2026-02-15"
+    "note": "Thirst, frequent urination, blurred vision. With nausea/vomiting and rapid breathing: urgent.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Sed, orinar mucho, vision borrosa. Con nauseas/vomito y respiracion rapida: urgente."
+      }
+    }
   },
   {
     "id": "panic-attack",
@@ -495,8 +610,13 @@
     ],
     "keywords": ["panic attack", "panic disorder", "ataque de panico", "crisis de ansiedad"],
     "tags": ["salud-mental", "ansiedad"],
-    "note": "Antes de asumir panico, descarta causas cardiacas y metabolicas (ECG, glucosa, tiroides).",
-    "reviewedAt": "2026-02-20"
+    "note": "Before assuming panic, rule out cardiac and metabolic causes (ECG, glucose, thyroid).",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Antes de asumir panico, descarta causas cardiacas y metabolicas (ECG, glucosa, tiroides)."
+      }
+    }
   },
   {
     "id": "ataque-de-nervios",
@@ -513,8 +633,13 @@
     ],
     "keywords": ["ataque de nervios", "cultural", "nervios", "descontrol", "latinos"],
     "tags": ["salud-mental", "cultural"],
-    "note": "Expresion frecuente en poblaciones latinas; no es un diagnostico DSM. Explora los sintomas para ubicarlo (ansiedad, panico, duelo, trauma).",
-    "reviewedAt": "2026-02-20"
+    "note": "Common expression in Latino populations; it is not a DSM diagnosis. Explore the symptoms to place it (anxiety, panic, grief, trauma).",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Expresion frecuente en poblaciones latinas; no es un diagnostico DSM. Explora los sintomas para ubicarlo (ansiedad, panico, duelo, trauma)."
+      }
+    }
   },
   {
     "id": "susto",
@@ -526,8 +651,13 @@
     "colloquial": ["susto", "espanto", "me asuste mucho", "se me fue el alma"],
     "keywords": ["susto", "espanto", "folk", "cultural", "miedo"],
     "tags": ["salud-mental", "cultural"],
-    "note": "En algunas culturas se atribuye a un susto fuerte. Escucha y evalua sintomas de ansiedad, sueno y animo sin descalificar.",
-    "reviewedAt": "2026-02-20"
+    "note": "In some cultures it is attributed to a strong fright. Listen and assess anxiety, sleep and mood symptoms without dismissing it.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "En algunas culturas se atribuye a un susto fuerte. Escucha y evalua sintomas de ansiedad, sueno y animo sin descalificar."
+      }
+    }
   },
   {
     "id": "suicidal-ideation",
@@ -545,8 +675,13 @@
     ],
     "keywords": ["suicidio", "suicidal", "ideacion suicida", "SI", "riesgo"],
     "tags": ["salud-mental", "crisis", "bandera-roja"],
-    "note": "Preguntar directamente NO aumenta el riesgo. Usa C-SSRS. Si hay intencion o plan: 988/911 y no dejar solo al paciente.",
-    "reviewedAt": "2026-02-20"
+    "note": "Asking directly does NOT increase risk. Use the C-SSRS. If there is intent or plan: 988/911 and do not leave the patient alone.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Preguntar directamente NO aumenta el riesgo. Usa C-SSRS. Si hay intencion o plan: 988/911 y no dejar solo al paciente."
+      }
+    }
   },
   {
     "id": "anhedonia",
@@ -563,8 +698,13 @@
     ],
     "keywords": ["anhedonia", "perdida de interes", "no disfruto", "desmotivacion"],
     "tags": ["salud-mental", "depresion"],
-    "note": "Sintoma nuclear de depresion; pregunta por su duracion (>= 2 semanas).",
-    "reviewedAt": "2026-02-20"
+    "note": "Core symptom of depression; ask about its duration (>= 2 weeks).",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Sintoma nuclear de depresion; pregunta por su duracion (>= 2 semanas)."
+      }
+    }
   },
   {
     "id": "mania",
@@ -581,8 +721,13 @@
     ],
     "keywords": ["mania", "hipomania", "bipolar", "euforia", "no duerme"],
     "tags": ["salud-mental", "bandera-roja"],
-    "note": "Antes de un antidepresivo en depresion, descarta bipolaridad (MDQ): un antidepresivo puede desencadenar mania.",
-    "reviewedAt": "2026-02-20"
+    "note": "Before an antidepressant in depression, rule out bipolar disorder (MDQ): an antidepressant can trigger mania.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Antes de un antidepresivo en depresion, descarta bipolaridad (MDQ): un antidepresivo puede desencadenar mania."
+      }
+    }
   },
   {
     "id": "psychosis",
@@ -599,8 +744,13 @@
     ],
     "keywords": ["psicosis", "alucinaciones", "delirios", "esquizofrenia", "voces"],
     "tags": ["salud-mental", "bandera-roja"],
-    "note": "Explora inicio, consumo de sustancias y riesgo de dano. Referir a salud mental de forma urgente si es de inicio reciente.",
-    "reviewedAt": "2026-02-20"
+    "note": "Explore onset, substance use and risk of harm. Refer to behavioral health urgently if new-onset.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Explora inicio, consumo de sustancias y riesgo de dano. Referir a salud mental de forma urgente si es de inicio reciente."
+      }
+    }
   },
   {
     "id": "ptsd",
@@ -617,8 +767,13 @@
     ],
     "keywords": ["PTSD", "TEPT", "trauma", "pesadillas", "flashbacks"],
     "tags": ["salud-mental"],
-    "note": "Criba con PC-PTSD; pregunta por hipervigilancia, evitacion y sintomas de reexperimentacion.",
-    "reviewedAt": "2026-02-20"
+    "note": "Screen with PC-PTSD; ask about hypervigilance, avoidance and re-experiencing symptoms.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Criba con PC-PTSD; pregunta por hipervigilancia, evitacion y sintomas de reexperimentacion."
+      }
+    }
   },
   {
     "id": "grief",
@@ -630,8 +785,13 @@
     "colloquial": ["perdi a mi esposo", "no lo supero", "estoy de luto", "se me fue mi mama"],
     "keywords": ["duelo", "luto", "grief", "bereavement", "perdida"],
     "tags": ["salud-mental"],
-    "note": "El duelo normal puede parecerse a la depresion; distingue por autoestima conservada y capacidad de consuelo. Si persiste > 12 meses con deterioro, considera duelo prolongado.",
-    "reviewedAt": "2026-02-20"
+    "note": "Normal grief can look like depression; distinguish it by preserved self-esteem and the ability to be consoled. If it persists > 12 months with impairment, consider prolonged grief.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "El duelo normal puede parecerse a la depresion; distingue por autoestima conservada y capacidad de consuelo. Si persiste > 12 meses con deterioro, considera duelo prolongado."
+      }
+    }
   },
   {
     "id": "adhd",
@@ -649,8 +809,13 @@
     ],
     "keywords": ["ADHD", "TDAH", "atencion", "hiperactividad", "concentracion"],
     "tags": ["salud-mental"],
-    "note": "Los sintomas deben iniciar en la infancia y causar deterioro en 2 o mas ambitos.",
-    "reviewedAt": "2026-02-20"
+    "note": "Symptoms must begin in childhood and cause impairment in 2 or more settings.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Los sintomas deben iniciar en la infancia y causar deterioro en 2 o mas ambitos."
+      }
+    }
   },
   {
     "id": "bipolar-disorder",
@@ -666,8 +831,13 @@
     ],
     "keywords": ["bipolar", "bipolaridad", "mania", "cambios de animo", "MDQ"],
     "tags": ["salud-mental"],
-    "note": "Criba con MDQ antes de iniciar antidepresivos.",
-    "reviewedAt": "2026-02-20"
+    "note": "Screen with the MDQ before starting antidepressants.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Criba con MDQ antes de iniciar antidepresivos."
+      }
+    }
   },
   {
     "id": "ocd",
@@ -700,8 +870,13 @@
     ],
     "keywords": ["SUD", "adiccion", "droga", "sustancias", "consumo"],
     "tags": ["salud-mental", "adicciones"],
-    "note": "Criba con AUDIT-C (alcohol) y DAST-10 (drogas); usa un enfoque sin juicio (SBIRT).",
-    "reviewedAt": "2026-02-20"
+    "note": "Screen with AUDIT-C (alcohol) and DAST-10 (drugs); use a non-judgmental approach (SBIRT).",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Criba con AUDIT-C (alcohol) y DAST-10 (drogas); usa un enfoque sin juicio (SBIRT)."
+      }
+    }
   },
   {
     "id": "alcohol-withdrawal",
@@ -717,8 +892,13 @@
     ],
     "keywords": ["abstinencia", "withdrawal", "temblor", "delirium tremens", "alcohol"],
     "tags": ["salud-mental", "adicciones", "bandera-roja"],
-    "note": "La abstinencia puede causar convulsiones y delirium tremens: es una emergencia medica. No suspender el alcohol en seco sin plan.",
-    "reviewedAt": "2026-02-20"
+    "note": "Withdrawal can cause seizures and delirium tremens: it is a medical emergency. Do not stop alcohol abruptly without a plan.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "La abstinencia puede causar convulsiones y delirium tremens: es una emergencia medica. No suspender el alcohol en seco sin plan."
+      }
+    }
   },
   {
     "id": "tobacco-use",
@@ -780,8 +960,13 @@
     ],
     "keywords": ["soledad", "aislamiento", "loneliness", "social"],
     "tags": ["salud-mental", "social"],
-    "note": "Factor de riesgo para depresion y suicidio; preguntar por red de apoyo en cada cribado.",
-    "reviewedAt": "2026-02-20"
+    "note": "Risk factor for depression and suicide; ask about the support network at every screening.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Factor de riesgo para depresion y suicidio; preguntar por red de apoyo en cada cribado."
+      }
+    }
   },
   {
     "id": "intimate-partner-violence",
@@ -798,8 +983,13 @@
     ],
     "keywords": ["violencia", "IPV", "abuso", "pareja", "domestica"],
     "tags": ["salud-mental", "social", "bandera-roja"],
-    "note": "Preguntar SIEMPRE a solas y sin la pareja presente. Ofrece recursos y valora el riesgo de seguridad.",
-    "reviewedAt": "2026-02-20"
+    "note": "ALWAYS ask alone and without the partner present. Offer resources and assess safety risk.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Preguntar SIEMPRE a solas y sin la pareja presente. Ofrece recursos y valora el riesgo de seguridad."
+      }
+    }
   },
   {
     "id": "irritability",
@@ -811,8 +1001,13 @@
     "colloquial": ["ando de malas", "todo me molesta", "me enojo facil", "me da coraje todo"],
     "keywords": ["irritabilidad", "enojo", "ira", "coraje", "irritable"],
     "tags": ["salud-mental"],
-    "note": "Puede ser sintoma de depresion (sobre todo en hombres), ansiedad o mania.",
-    "reviewedAt": "2026-02-20"
+    "note": "Can be a symptom of depression (especially in men), anxiety or mania.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Puede ser sintoma de depresion (sobre todo en hombres), ansiedad o mania."
+      }
+    }
   },
   {
     "id": "worthlessness",
@@ -824,8 +1019,13 @@
     "colloquial": ["me siento culpable", "no sirvo para nada", "soy una carga", "todo es mi culpa"],
     "keywords": ["culpa", "inutilidad", "worthlessness", "guilt", "carga"],
     "tags": ["salud-mental", "depresion"],
-    "note": "Sintoma de depresion; 'soy una carga' se asocia a mayor riesgo suicida.",
-    "reviewedAt": "2026-02-20"
+    "note": "Symptom of depression; 'I am a burden' is associated with higher suicide risk.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Sintoma de depresion; 'soy una carga' se asocia a mayor riesgo suicida."
+      }
+    }
   },
   {
     "id": "somatic-symptoms",
@@ -842,8 +1042,13 @@
     ],
     "keywords": ["somatico", "dolor", "sin causa", "nervios", "medically unexplained"],
     "tags": ["salud-mental", "somatoformo"],
-    "note": "Frecuente en ansiedad, depresion y trauma. Valida el sintoma; no lo descartes como imaginario.",
-    "reviewedAt": "2026-02-20"
+    "note": "Common in anxiety, depression and trauma. Validate the symptom; do not dismiss it as imaginary.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Frecuente en ansiedad, depresion y trauma. Valida el sintoma; no lo descartes como imaginario."
+      }
+    }
   },
   {
     "id": "sleep-hygiene",
@@ -860,7 +1065,12 @@
     ],
     "keywords": ["sueno", "insomnio", "higiene del sueno", "CBT-I", "dormir"],
     "tags": ["salud-mental", "sueno"],
-    "note": "El tratamiento de primera linea del insomnio cronico es terapia cognitivo-conductual (CBT-I), no solo hipnoticos.",
-    "reviewedAt": "2026-02-20"
+    "note": "First-line treatment for chronic insomnia is cognitive behavioral therapy (CBT-I), not just hypnotics.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "El tratamiento de primera linea del insomnio cronico es terapia cognitivo-conductual (CBT-I), no solo hipnoticos."
+      }
+    }
   }
 ]

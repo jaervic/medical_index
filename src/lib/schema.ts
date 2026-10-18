@@ -14,6 +14,30 @@ const baseSchema = z.object({
   keywords: z.array(z.string().min(1)).optional(),
   tags: z.array(z.string().min(1)).optional(),
   reviewedAt: z.string().optional(),
+  i18n: z
+    .object({
+      es: z
+        .object({
+          title: z.string().min(1).optional(),
+          note: z.string().optional(),
+          notes: z.string().optional(),
+          appliesTo: z.string().optional(),
+          steps: z.array(z.string().min(1)).optional(),
+          warnings: z.array(z.string().min(1)).optional(),
+        })
+        .optional(),
+      en: z
+        .object({
+          title: z.string().min(1).optional(),
+          note: z.string().optional(),
+          notes: z.string().optional(),
+          appliesTo: z.string().optional(),
+          steps: z.array(z.string().min(1)).optional(),
+          warnings: z.array(z.string().min(1)).optional(),
+        })
+        .optional(),
+    })
+    .optional(),
 });
 
 export const dictionarySchema = baseSchema.extend({
@@ -34,7 +58,6 @@ export const clickPathSchema = baseSchema.extend({
 
 export const protocolSchema = baseSchema.extend({
   type: z.literal('protocol'),
-  enTitle: z.string().min(1).optional(),
   pronunciation: z.string().optional(),
   steps: z.array(z.string().min(1)).min(1),
   appliesTo: z.string().optional(),

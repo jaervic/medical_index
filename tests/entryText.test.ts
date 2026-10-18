@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
+import { messages } from '@/i18n/messages';
 import { entryToText } from '@/lib/entryText';
 import type { Entry } from '@/lib/types';
+
+const es = (key: keyof typeof messages) => messages[key].es;
 
 describe('entryToText', () => {
   it('formatea un termino de diccionario', () => {
@@ -12,7 +15,7 @@ describe('entryToText', () => {
       es: 'Asma',
       pronunciation: 'AZ-muh',
     };
-    const text = entryToText(entry);
+    const text = entryToText(entry, es);
     expect(text).toContain('EN: Asthma');
     expect(text).toContain('Pronunciacion: AZ-muh');
     expect(text).toContain('ES: Asma');
@@ -25,7 +28,7 @@ describe('entryToText', () => {
       title: 'Protocolo',
       steps: ['uno', 'dos'],
     };
-    const text = entryToText(entry);
+    const text = entryToText(entry, es);
     expect(text).toContain('1. uno');
     expect(text).toContain('2. dos');
   });
@@ -38,6 +41,6 @@ describe('entryToText', () => {
       module: 'eCW',
       path: ['Chart', 'Hub', 'Referrals'],
     };
-    expect(entryToText(entry)).toContain('Chart > Hub > Referrals');
+    expect(entryToText(entry, es)).toContain('Chart > Hub > Referrals');
   });
 });

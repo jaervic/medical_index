@@ -125,6 +125,13 @@ export const messages = {
   'copy.done': { es: 'Copiado', en: 'Copied' },
   'copy.sheet': { es: 'Ficha copiada', en: 'Sheet copied' },
 
+  'sheet.en': { es: 'EN', en: 'EN' },
+  'sheet.es': { es: 'ES', en: 'ES' },
+  'sheet.pronunciation': { es: 'Pronunciacion', en: 'Pronunciation' },
+  'sheet.patient': { es: 'Paciente', en: 'Patient says' },
+  'sheet.appliesWhen': { es: 'Aplica cuando', en: 'Applies when' },
+  'sheet.warnings': { es: 'Advertencias', en: 'Warnings' },
+
   'editor.title': { es: 'Nueva entrada', en: 'New entry' },
   'editor.typeField': { es: 'Tipo', en: 'Type' },
   'editor.titleField': { es: 'Titulo', en: 'Title' },
@@ -137,7 +144,6 @@ export const messages = {
   'editor.translation': { es: 'Traduccion (ES)', en: 'Translation (ES)' },
   'editor.module': { es: 'Modulo', en: 'Module' },
   'editor.path': { es: 'Ruta de clics (una por linea)', en: 'Click path (one per line)' },
-  'editor.enTitle': { es: 'Nombre en ingles', en: 'English name' },
   'editor.steps': { es: 'Pasos (uno por linea)', en: 'Steps (one per line)' },
   'editor.warnings': { es: 'Advertencias (una por linea)', en: 'Warnings (one per line)' },
   'editor.note': { es: 'Nota / indicaciones', en: 'Note / instructions' },

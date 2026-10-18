@@ -7,8 +7,13 @@
     "translation": "Infeccion de vias urinarias",
     "keywords": ["urinary tract infection", "infeccion urinaria", "orina"],
     "tags": ["urologia", "agudo"],
-    "note": "Usa mayusculas en la nota: UTI.",
-    "reviewedAt": "2026-01-15"
+    "note": "Use capitals in the note: UTI.",
+    "reviewedAt": "2026-01-15",
+    "i18n": {
+      "es": {
+        "note": "Usa mayusculas en la nota: UTI."
+      }
+    }
   },
   {
     "id": "acr-sob",
@@ -78,8 +83,13 @@
     "translation": "Nada por via oral / en ayunas",
     "keywords": ["nothing by mouth", "ayuno", "no comer", "fasting"],
     "tags": ["procedimientos"],
-    "note": "Antes de labs en ayunas: confirmar que el paciente no coma ni beba.",
-    "reviewedAt": "2026-01-10"
+    "note": "Before fasting labs: confirm the patient is not eating or drinking.",
+    "reviewedAt": "2026-01-10",
+    "i18n": {
+      "es": {
+        "note": "Antes de labs en ayunas: confirmar que el paciente no coma ni beba."
+      }
+    }
   },
   {
     "id": "acr-prn",
@@ -135,8 +145,13 @@
     "translation": "Presion arterial",
     "keywords": ["blood pressure", "presion", "tension", "TA"],
     "tags": ["signos-vitales", "cardiovascular"],
-    "note": "Se documenta como sistolica/diastolica (p. ej. 128/78).",
-    "reviewedAt": "2026-02-15"
+    "note": "Documented as systolic/diastolic (e.g. 128/78).",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Se documenta como sistolica/diastolica (p. ej. 128/78)."
+      }
+    }
   },
   {
     "id": "acr-hr",
@@ -146,8 +161,13 @@
     "translation": "Frecuencia cardiaca / pulso",
     "keywords": ["pulse", "pulso", "heart rate", "FC"],
     "tags": ["signos-vitales"],
-    "note": "Normal en reposo aprox. 60-100 lpm en el adulto.",
-    "reviewedAt": "2026-02-15"
+    "note": "Normal at rest about 60-100 bpm in adults.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Normal en reposo aprox. 60-100 lpm en el adulto."
+      }
+    }
   },
   {
     "id": "acr-rr",
@@ -157,8 +177,13 @@
     "translation": "Frecuencia respiratoria",
     "keywords": ["respiratory rate", "respiraciones", "FR"],
     "tags": ["signos-vitales"],
-    "note": "Normal en reposo aprox. 12-20 rpm en el adulto.",
-    "reviewedAt": "2026-02-15"
+    "note": "Normal at rest about 12-20 breaths/min in adults.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Normal en reposo aprox. 12-20 rpm en el adulto."
+      }
+    }
   },
   {
     "id": "acr-spo2",
@@ -168,8 +193,13 @@
     "translation": "Saturacion de oxigeno",
     "keywords": ["oxygen saturation", "saturacion", "oximetro", "O2 sat", "pulse ox"],
     "tags": ["signos-vitales", "bandera-roja"],
-    "note": "Normal aprox. 95-100%. Por debajo de 90% es bandera roja: escalar.",
-    "reviewedAt": "2026-02-15"
+    "note": "Normal about 95-100%. Below 90% is a red flag: escalate.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Normal aprox. 95-100%. Por debajo de 90% es bandera roja: escalar."
+      }
+    }
   },
   {
     "id": "acr-temp",
@@ -179,8 +209,13 @@
     "translation": "Temperatura",
     "keywords": ["temperature", "temperatura", "fiebre", "fever"],
     "tags": ["signos-vitales"],
-    "note": "Fiebre se define como > 38 C (100.4 F).",
-    "reviewedAt": "2026-02-15"
+    "note": "Fever is defined as > 38 C (100.4 F).",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Fiebre se define como > 38 C (100.4 F)."
+      }
+    }
   },
   {
     "id": "acr-bmi",
@@ -200,8 +235,13 @@
     "translation": "Biometria hematica / conteo sanguineo completo",
     "keywords": ["complete blood count", "biometria hematica", "hemograma", "BH"],
     "tags": ["laboratorio"],
-    "note": "Incluye WBC, RBC, hemoglobina, hematocrito y plaquetas.",
-    "reviewedAt": "2026-02-15"
+    "note": "Includes WBC, RBC, hemoglobin, hematocrit and platelets.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Incluye WBC, RBC, hemoglobina, hematocrito y plaquetas."
+      }
+    }
   },
   {
     "id": "acr-bmp",
@@ -211,8 +251,13 @@
     "translation": "Panel metabolico basico",
     "keywords": ["basic metabolic panel", "panel metabolico", "electrolitos", "quimica"],
     "tags": ["laboratorio"],
-    "note": "Electrolitos, glucosa, BUN, creatinina y calcio.",
-    "reviewedAt": "2026-02-15"
+    "note": "Electrolytes, glucose, BUN, creatinine and calcium.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Electrolitos, glucosa, BUN, creatinina y calcio."
+      }
+    }
   },
   {
     "id": "acr-cmp",
@@ -222,8 +267,13 @@
     "translation": "Panel metabolico completo",
     "keywords": ["comprehensive metabolic panel", "panel metabolico completo", "funcion hepatica"],
     "tags": ["laboratorio"],
-    "note": "BMP + enzimas hepaticas, proteinas, albumina y bilirrubina.",
-    "reviewedAt": "2026-02-15"
+    "note": "BMP + liver enzymes, proteins, albumin and bilirubin.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "BMP + enzimas hepaticas, proteinas, albumina y bilirrubina."
+      }
+    }
   },
   {
     "id": "acr-a1c",
@@ -234,7 +284,12 @@
     "keywords": ["hemoglobin a1c", "hemoglobina glicosilada", "glicada", "azucar promedio"],
     "tags": ["laboratorio", "endocrino"],
     "note": "Normal < 5.7%; prediabetes 5.7-6.4%; diabetes >= 6.5%.",
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Normal < 5.7%; prediabetes 5.7-6.4%; diabetes >= 6.5%."
+      }
+    }
   },
   {
     "id": "acr-tsh",
@@ -254,8 +309,13 @@
     "translation": "Uroanalisis / examen de orina",
     "keywords": ["urinalysis", "uroanalisis", "examen de orina", "UA"],
     "tags": ["laboratorio", "urologia"],
-    "note": "Util en sospecha de UTI: busca leucocitos, nitritos y sangre.",
-    "reviewedAt": "2026-02-15"
+    "note": "Useful when UTI is suspected: look for leukocytes, nitrites and blood.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Util en sospecha de UTI: busca leucocitos, nitritos y sangre."
+      }
+    }
   },
   {
     "id": "acr-ekg",
@@ -275,8 +335,13 @@
     "translation": "Insuficiencia cardiaca congestiva",
     "keywords": ["heart failure", "insuficiencia cardiaca", "falla cardiaca"],
     "tags": ["cardiovascular", "cronico"],
-    "note": "Vigilar peso diario, edema, disnea y tolerancia al ejercicio.",
-    "reviewedAt": "2026-02-15"
+    "note": "Monitor daily weight, edema, dyspnea and exercise tolerance.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Vigilar peso diario, edema, disnea y tolerancia al ejercicio."
+      }
+    }
   },
   {
     "id": "acr-copd",
@@ -296,8 +361,13 @@
     "translation": "Enfermedad renal cronica",
     "keywords": ["renal", "kidney", "rinon", "creatinina"],
     "tags": ["renal", "cronico"],
-    "note": "Vigilar creatinina, TFG y medicamentos nefrotoxicos.",
-    "reviewedAt": "2026-02-15"
+    "note": "Monitor creatinine, GFR and nephrotoxic medications.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Vigilar creatinina, TFG y medicamentos nefrotoxicos."
+      }
+    }
   },
   {
     "id": "acr-cad",
@@ -317,8 +387,13 @@
     "translation": "Infarto al miocardio",
     "keywords": ["heart attack", "infarto", "ataque cardiaco"],
     "tags": ["cardiovascular", "bandera-roja"],
-    "note": "Emergencia. Dolor toracico + diaforesis/nausea/disnea = llamar 911.",
-    "reviewedAt": "2026-02-15"
+    "note": "Emergency. Chest pain + diaphoresis/nausea/dyspnea = call 911.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Emergencia. Dolor toracico + diaforesis/nausea/disnea = llamar 911."
+      }
+    }
   },
   {
     "id": "acr-cva",
@@ -328,8 +403,13 @@
     "translation": "Evento vascular cerebral / derrame",
     "keywords": ["stroke", "derrame", "embolia cerebral", "ACV", "apoplejia"],
     "tags": ["neurologico", "bandera-roja"],
-    "note": "Emergencia: 'tiempo es cerebro'. Debilidad facial, brazo o habla = 911.",
-    "reviewedAt": "2026-02-15"
+    "note": "Emergency: 'time is brain'. Facial weakness, arm or speech = 911.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Emergencia: 'tiempo es cerebro'. Debilidad facial, brazo o habla = 911."
+      }
+    }
   },
   {
     "id": "acr-tia",
@@ -339,8 +419,13 @@
     "translation": "Ataque isquemico transitorio",
     "keywords": ["transient ischemic attack", "isquemico transitorio", "mini derrame"],
     "tags": ["neurologico", "bandera-roja"],
-    "note": "Sintomas que se resuelven solos: aun asi requiere evaluacion el mismo dia.",
-    "reviewedAt": "2026-02-15"
+    "note": "Symptoms that resolve on their own: still require same-day evaluation.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Sintomas que se resuelven solos: aun asi requiere evaluacion el mismo dia."
+      }
+    }
   },
   {
     "id": "acr-dvt",
@@ -350,8 +435,13 @@
     "translation": "Trombosis venosa profunda",
     "keywords": ["thrombosis", "coagulo", "TVP", "pierna hinchada"],
     "tags": ["vascular", "bandera-roja"],
-    "note": "Dolor/hinchazon en una pierna + disnea puede ser PE: emergencia.",
-    "reviewedAt": "2026-02-15"
+    "note": "Pain/swelling in one leg + dyspnea may be PE: emergency.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Dolor/hinchazon en una pierna + disnea puede ser PE: emergencia."
+      }
+    }
   },
   {
     "id": "acr-pe",
@@ -421,8 +511,13 @@
     "translation": "Sin alergias conocidas a medicamentos / sin alergias conocidas",
     "keywords": ["no known allergies", "sin alergias", "alergias"],
     "tags": ["documentacion"],
-    "note": "Documenta NKDA solo tras preguntar; nunca lo asumas.",
-    "reviewedAt": "2026-02-15"
+    "note": "Document NKDA only after asking; never assume it.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Documenta NKDA solo tras preguntar; nunca lo asumas."
+      }
+    }
   },
   {
     "id": "acr-po",
@@ -512,8 +607,13 @@
     "translation": "Ley de privacidad y seguridad de datos de salud (EE. UU.)",
     "keywords": ["privacy", "privacidad", "confidencialidad", "PHI"],
     "tags": ["administrativo", "legal"],
-    "note": "Nunca compartas PHI por canales no seguros. Verifica identidad antes de dar informacion.",
-    "reviewedAt": "2026-02-15"
+    "note": "Never share PHI over insecure channels. Verify identity before giving information.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Nunca compartas PHI por canales no seguros. Verifica identidad antes de dar informacion."
+      }
+    }
   },
   {
     "id": "acr-adls",
@@ -523,8 +623,13 @@
     "translation": "Actividades de la vida diaria",
     "keywords": ["activities of daily living", "actividades de la vida diaria", "funcionalidad"],
     "tags": ["documentacion", "preventivo"],
-    "note": "Banarse, vestirse, comer, movilidad, ir al bano. Se evalua en la AWV.",
-    "reviewedAt": "2026-02-15"
+    "note": "Bathing, dressing, eating, mobility, toileting. Assessed in the AWV.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Banarse, vestirse, comer, movilidad, ir al bano. Se evalua en la AWV."
+      }
+    }
   },
   {
     "id": "acr-awv",
@@ -534,8 +639,13 @@
     "translation": "Visita anual de bienestar (Medicare)",
     "keywords": ["annual wellness visit", "visita anual", "wellness", "medicare", "G0438", "G0439"],
     "tags": ["preventivo", "medicare"],
-    "note": "G0438 inicial (una vez) / G0439 subsecuente (cada 12 meses). Sin copago para el paciente.",
-    "reviewedAt": "2026-02-15"
+    "note": "G0438 initial (once) / G0439 subsequent (every 12 months). No copay for the patient.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "G0438 inicial (una vez) / G0439 subsecuente (cada 12 meses). Sin copago para el paciente."
+      }
+    }
   },
   {
     "id": "acr-drtla",
@@ -545,8 +655,13 @@
     "translation": "Documentos, referencias, llamadas, labs y acciones",
     "keywords": ["DRTLA", "documentos", "referrals", "labs", "telephone encounters"],
     "tags": ["eCW"],
-    "note": "Pestana del panel derecho de la nota en eCW: resultados y ordenes sin salir del encuentro.",
-    "reviewedAt": "2026-02-15"
+    "note": "Right panel tab of the note in eCW: results and orders without leaving the encounter.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Pestana del panel derecho de la nota en eCW: resultados y ordenes sin salir del encuentro."
+      }
+    }
   },
   {
     "id": "acr-ccda",
@@ -556,8 +671,13 @@
     "translation": "Resumen clinico interoperable del paciente",
     "keywords": ["CCD", "CCDA", "resumen clinico", "continuity of care", "health summary"],
     "tags": ["eCW", "administrativo"],
-    "note": "Resumen que se comparte con otro proveedor o se imprime para el paciente.",
-    "reviewedAt": "2026-02-15"
+    "note": "Summary shared with another provider or printed for the patient.",
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "note": "Resumen que se comparte con otro proveedor o se imprime para el paciente."
+      }
+    }
   },
   {
     "id": "acr-phq2",
@@ -567,8 +687,13 @@
     "translation": "Cribado ultra-breve de depresion (2 preguntas)",
     "keywords": ["PHQ2", "depresion", "cribado", "screening", "animo"],
     "tags": ["salud-mental", "cribado"],
-    "note": "Rango 0-6. Positivo con >= 3: aplicar el PHQ-9 completo.",
-    "reviewedAt": "2026-02-20"
+    "note": "Range 0-6. Positive at >= 3: apply the full PHQ-9.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Rango 0-6. Positivo con >= 3: aplicar el PHQ-9 completo."
+      }
+    }
   },
   {
     "id": "acr-phq9",
@@ -578,8 +703,13 @@
     "translation": "Cuestionario de salud del paciente (depresion)",
     "keywords": ["PHQ9", "depresion", "depression", "severidad", "animo"],
     "tags": ["salud-mental", "cribado"],
-    "note": "Rango 0-27. Cortes 5 / 10 / 15 / 20 = leve / moderado / moderadamente grave / grave. Con >= 10 la sensibilidad y especificidad son ~88%. El item 9 explora ideacion suicida: SIEMPRE darle seguimiento.",
-    "reviewedAt": "2026-02-20"
+    "note": "Range 0-27. Cutoffs 5 / 10 / 15 / 20 = mild / moderate / moderately severe / severe. At >= 10 sensitivity and specificity are ~88%. Item 9 explores suicidal ideation: ALWAYS follow up.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Rango 0-27. Cortes 5 / 10 / 15 / 20 = leve / moderado / moderadamente grave / grave. Con >= 10 la sensibilidad y especificidad son ~88%. El item 9 explora ideacion suicida: SIEMPRE darle seguimiento."
+      }
+    }
   },
   {
     "id": "acr-gad2",
@@ -589,8 +719,13 @@
     "translation": "Cribado ultra-breve de ansiedad (2 preguntas)",
     "keywords": ["GAD2", "ansiedad", "cribado", "anxiety"],
     "tags": ["salud-mental", "cribado"],
-    "note": "Rango 0-6. Positivo con >= 3: aplicar el GAD-7 completo.",
-    "reviewedAt": "2026-02-20"
+    "note": "Range 0-6. Positive at >= 3: apply the full GAD-7.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Rango 0-6. Positivo con >= 3: aplicar el GAD-7 completo."
+      }
+    }
   },
   {
     "id": "acr-gad7",
@@ -600,8 +735,13 @@
     "translation": "Escala de trastorno de ansiedad generalizada",
     "keywords": ["GAD7", "ansiedad", "anxiety", "severidad", "nervios"],
     "tags": ["salud-mental", "cribado"],
-    "note": "Rango 0-21. Cortes 5 / 10 / 15 = leve / moderado / grave. Un puntaje >= 10 sugiere TAG.",
-    "reviewedAt": "2026-02-20"
+    "note": "Range 0-21. Cutoffs 5 / 10 / 15 = mild / moderate / severe. A score >= 10 suggests GAD.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Rango 0-21. Cortes 5 / 10 / 15 = leve / moderado / grave. Un puntaje >= 10 sugiere TAG."
+      }
+    }
   },
   {
     "id": "acr-phq4",
@@ -611,8 +751,13 @@
     "translation": "Cribado combinado de depresion y ansiedad",
     "keywords": ["PHQ4", "ansiedad", "depresion", "cribado combinado"],
     "tags": ["salud-mental", "cribado"],
-    "note": "Rango 0-12. Combina PHQ-2 y GAD-2; sirve como medida rapida de malestar general.",
-    "reviewedAt": "2026-02-20"
+    "note": "Range 0-12. Combines PHQ-2 and GAD-2; serves as a quick measure of overall distress.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Rango 0-12. Combina PHQ-2 y GAD-2; sirve como medida rapida de malestar general."
+      }
+    }
   },
   {
     "id": "acr-cssrs",
@@ -622,8 +767,13 @@
     "translation": "Escala Columbia de severidad del riesgo suicida",
     "keywords": ["CSSRS", "riesgo suicida", "suicidio", "screening", "ideacion"],
     "tags": ["salud-mental", "crisis", "bandera-roja"],
-    "note": "6 preguntas. Si hay pensamiento de hacerse dano (Q2-Q3) -> referir a salud mental; Q4-Q5 (intencion o plan) -> consulta de salud mental y precauciones de seguridad; Q6 (conducta) en los ultimos 3 meses -> ayuda inmediata: 988/911 y NO dejarlo solo.",
-    "reviewedAt": "2026-02-20"
+    "note": "6 questions. If there is a thought of self-harm (Q2-Q3) -> refer to behavioral health; Q4-Q5 (intent or plan) -> behavioral health consultation and safety precautions; Q6 (behavior) within the last 3 months -> immediate help: 988/911 and do NOT leave them alone.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "6 preguntas. Si hay pensamiento de hacerse dano (Q2-Q3) -> referir a salud mental; Q4-Q5 (intencion o plan) -> consulta de salud mental y precauciones de seguridad; Q6 (conducta) en los ultimos 3 meses -> ayuda inmediata: 988/911 y NO dejarlo solo."
+      }
+    }
   },
   {
     "id": "acr-auditc",
@@ -633,8 +783,13 @@
     "translation": "Cribado de consumo de riesgo de alcohol (3 preguntas)",
     "keywords": ["AUDIT", "alcohol", "SBIRT", "consumo", "tomo mucho"],
     "tags": ["salud-mental", "adicciones", "cribado"],
-    "note": "Rango 0-12. Positivo con >= 4 en hombres y >= 3 en mujeres. El CAGE ya no se recomienda.",
-    "reviewedAt": "2026-02-20"
+    "note": "Range 0-12. Positive at >= 4 in men and >= 3 in women. CAGE is no longer recommended.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Rango 0-12. Positivo con >= 4 en hombres y >= 3 en mujeres. El CAGE ya no se recomienda."
+      }
+    }
   },
   {
     "id": "acr-dast10",
@@ -654,8 +809,13 @@
     "translation": "Cuestionario de trastorno del animo (bipolaridad)",
     "keywords": ["MDQ", "bipolar", "bipolaridad", "mania", "animo"],
     "tags": ["salud-mental", "cribado"],
-    "note": "Se usa para descartar trastorno bipolar ANTES de iniciar un antidepresivo.",
-    "reviewedAt": "2026-02-20"
+    "note": "Used to rule out bipolar disorder BEFORE starting an antidepressant.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Se usa para descartar trastorno bipolar ANTES de iniciar un antidepresivo."
+      }
+    }
   },
   {
     "id": "acr-sbqr",
@@ -695,8 +855,13 @@
     "translation": "Evaluacion cognitiva de Montreal",
     "keywords": ["cognitivo", "demencia", "memoria", "MOCA"],
     "tags": ["salud-mental", "cognitivo"],
-    "note": "Cribado de deterioro cognitivo; util en deterioro funcional o sospecha de demencia.",
-    "reviewedAt": "2026-02-20"
+    "note": "Screening for cognitive impairment; useful with functional decline or suspected dementia.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Cribado de deterioro cognitivo; util en deterioro funcional o sospecha de demencia."
+      }
+    }
   },
   {
     "id": "acr-mmse",
@@ -726,8 +891,13 @@
     "translation": "Escala de movimientos involuntarios anormales",
     "keywords": ["AIMS", "discinesia tardia", "antipsicoticos", "movimientos"],
     "tags": ["salud-mental", "farmacia"],
-    "note": "Se aplica de forma periodica a pacientes con antipsicoticos para detectar discinesia tardia.",
-    "reviewedAt": "2026-02-20"
+    "note": "Applied periodically to patients on antipsychotics to detect tardive dyskinesia.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Se aplica de forma periodica a pacientes con antipsicoticos para detectar discinesia tardia."
+      }
+    }
   },
   {
     "id": "acr-ssri",
@@ -737,8 +907,13 @@
     "translation": "Inhibidor selectivo de la recaptura de serotonina",
     "keywords": ["ISRS", "serotonina", "fluoxetina", "sertralina", "antidepresivo"],
     "tags": ["salud-mental", "farmacia"],
-    "note": "Primera linea en depresion y ansiedad (p. ej. sertralina, fluoxetina). Vigilar sindrome serotoninergico si se combinan.",
-    "reviewedAt": "2026-02-20"
+    "note": "First line in depression and anxiety (e.g. sertraline, fluoxetine). Watch for serotonin syndrome if combined.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Primera linea en depresion y ansiedad (p. ej. sertralina, fluoxetina). Vigilar sindrome serotoninergico si se combinan."
+      }
+    }
   },
   {
     "id": "acr-snri",
@@ -768,8 +943,13 @@
     "translation": "Antidepresivo triciclico",
     "keywords": ["triciclico", "amitriptilina", "antidepresivo"],
     "tags": ["salud-mental", "farmacia"],
-    "note": "Riesgo en sobredosis; vigilar efectos anticolinergicos y cardiacos.",
-    "reviewedAt": "2026-02-20"
+    "note": "Risk in overdose; monitor anticholinergic and cardiac effects.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Riesgo en sobredosis; vigilar efectos anticolinergicos y cardiacos."
+      }
+    }
   },
   {
     "id": "acr-maoi",
@@ -779,8 +959,13 @@
     "translation": "Inhibidor de la monoaminooxidasa",
     "keywords": ["IMAO", "tranilcipromina", "antidepresivo"],
     "tags": ["salud-mental", "farmacia"],
-    "note": "Requiere dieta baja en tiramina y vigilancia de interacciones (crisis hipertensiva).",
-    "reviewedAt": "2026-02-20"
+    "note": "Requires a low-tyramine diet and monitoring of interactions (hypertensive crisis).",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Requiere dieta baja en tiramina y vigilancia de interacciones (crisis hipertensiva)."
+      }
+    }
   },
   {
     "id": "acr-bzd",
@@ -790,8 +975,13 @@
     "translation": "Benzodiacepina",
     "keywords": ["benzodiacepina", "clonazepam", "lorazepam", "alprazolam", "ansiolitico"],
     "tags": ["salud-mental", "farmacia", "bandera-roja"],
-    "note": "Riesgo de dependencia y abstinencia. NO combinar con opioides (depresion respiratoria). La mayoria requiere visita para resurtir.",
-    "reviewedAt": "2026-02-20"
+    "note": "Risk of dependence and withdrawal. Do NOT combine with opioids (respiratory depression). Most require a visit to refill.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Riesgo de dependencia y abstinencia. NO combinar con opioides (depresion respiratoria). La mayoria requiere visita para resurtir."
+      }
+    }
   },
   {
     "id": "acr-cbt",
@@ -811,8 +1001,13 @@
     "translation": "Terapia dialettico-conductual",
     "keywords": ["TDC", "terapia", "borderline", "desregulacion emocional"],
     "tags": ["salud-mental", "tratamiento"],
-    "note": "De eleccion en desregulacion emocional y riesgo suicida cronico.",
-    "reviewedAt": "2026-02-20"
+    "note": "Treatment of choice for emotional dysregulation and chronic suicide risk.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "De eleccion en desregulacion emocional y riesgo suicida cronico."
+      }
+    }
   },
   {
     "id": "acr-ect",
@@ -849,8 +1044,13 @@
       "collaborative care"
     ],
     "tags": ["salud-mental", "administrativo"],
-    "note": "Modelo de cuidado colaborativo: el PCP y el equipo de salud conductual comparten el plan.",
-    "reviewedAt": "2026-02-20"
+    "note": "Collaborative care model: the PCP and the behavioral health team share the plan.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Modelo de cuidado colaborativo: el PCP y el equipo de salud conductual comparten el plan."
+      }
+    }
   },
   {
     "id": "acr-sud",
@@ -870,8 +1070,13 @@
     "translation": "Ideacion suicida / ideacion homicida",
     "keywords": ["SI", "HI", "ideacion suicida", "ideacion homicida", "riesgo"],
     "tags": ["salud-mental", "crisis", "bandera-roja"],
-    "note": "Cualquiera de las dos, con intencion o plan, es una emergencia: 988/911.",
-    "reviewedAt": "2026-02-20"
+    "note": "Either one, with intent or plan, is an emergency: 988/911.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Cualquiera de las dos, con intencion o plan, es una emergencia: 988/911."
+      }
+    }
   },
   {
     "id": "acr-ptsd",
@@ -911,8 +1116,13 @@
     "translation": "Linea de crisis y prevencion del suicidio (EE. UU.), llamada o texto al 988",
     "keywords": ["988", "crisis", "suicidio", "linea de ayuda", "hotline"],
     "tags": ["salud-mental", "crisis"],
-    "note": "Disponible 24/7 en espanol e ingles. En peligro inmediato: 911.",
-    "reviewedAt": "2026-02-20"
+    "note": "Available 24/7 in English and Spanish. In immediate danger: 911.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Disponible 24/7 en espanol e ingles. En peligro inmediato: 911."
+      }
+    }
   },
   {
     "id": "acr-mbc",
@@ -922,7 +1132,12 @@
     "translation": "Atencion basada en mediciones (escalas seriadas)",
     "keywords": ["MBC", "escalas", "seguimiento", "PHQ-9 seriado", "medicion"],
     "tags": ["salud-mental", "documentacion"],
-    "note": "Repetir la misma escala en cada consulta para medir respuesta al tratamiento.",
-    "reviewedAt": "2026-02-20"
+    "note": "Repeat the same scale at every visit to measure response to treatment.",
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "note": "Repetir la misma escala en cada consulta para medir respuesta al tratamiento."
+      }
+    }
   }
 ]

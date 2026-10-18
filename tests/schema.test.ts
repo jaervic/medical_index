@@ -27,8 +27,16 @@ describe('validacion de datos (Zod)', () => {
 
   it('todo protocolo trae nombre en ingles y su pronunciacion', () => {
     const incompletos = ENTRIES.filter(
-      (entry) => entry.type === 'protocol' && (!entry.enTitle || !entry.pronunciation),
+      (entry) => entry.type === 'protocol' && !entry.pronunciation,
     ).map((entry) => entry.id);
     expect(incompletos).toEqual([]);
+  });
+
+  it('los protocolos y rutas traen su variante en espanol', () => {
+    const sinEs = ENTRIES.filter(
+      (entry) =>
+        (entry.type === 'protocol' || entry.type === 'clickpath') && !entry.i18n?.es?.title,
+    ).map((entry) => entry.id);
+    expect(sinEs).toEqual([]);
   });
 });

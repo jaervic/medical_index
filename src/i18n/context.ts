@@ -20,12 +20,12 @@ export interface I18nValue {
   t: (key: MessageKey, vars?: Vars) => string;
 }
 
-/** Valor por defecto en espanol: permite usar la app sin proveedor (tests). */
+/** Valor por defecto en ingles: permite usar la app sin proveedor (tests). */
 export const fallbackI18n: I18nValue = {
-  locale: 'es',
+  locale: 'en',
   setLocale: () => {},
   toggle: () => {},
-  t: (key, vars) => format(messages[key]?.es ?? key, vars),
+  t: (key, vars) => format(messages[key]?.en ?? key, vars),
 };
 
 export const I18nContext = createContext<I18nValue>(fallbackI18n);

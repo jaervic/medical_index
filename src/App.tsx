@@ -38,6 +38,7 @@ import { useUsage } from '@/hooks/useUsage';
 import { useViewportWidth } from '@/hooks/useViewportWidth';
 import { isTypingTarget } from '@/lib/dom';
 import { buildHome } from '@/lib/home';
+import { localizeEntries } from '@/lib/localize';
 import { parseQuery, removeTagToken, removeTypeToken } from '@/lib/queryFilters';
 import { findRelated } from '@/lib/related';
 import { frecencyValue } from '@/lib/storage';
@@ -75,7 +76,7 @@ export default function App() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { theme, cycle: cycleTheme } = useTheme();
-  const { t, toggle: toggleLocale } = useI18n();
+  const { t, locale, toggle: toggleLocale } = useI18n();
   const { collapsed, toggle: togglePanel } = usePanel();
   const { width: panelWidth, setWidth: setPanelWidth, reset: resetPanelWidth } = usePanelWidth();
   const viewport = useViewportWidth();
@@ -88,8 +89,16 @@ export default function App() {
 
   // Entradas propias primero, para que aparezcan arriba en la vista inicial.
   const allEntries = useMemo(() => [...customEntries, ...ENTRIES], [customEntries]);
-  const byId = useMemo(() => new Map(allEntries.map((entry) => [entry.id, entry])), [allEntries]);
+  // Version en el idioma activo (la base esta en ingles; `i18n.es` da el espanol).
+  const localizedAll = useMemo(() => localizeEntries(allEntries, locale), [allEntries, locale]);
+  const byId = useMemo(
+    () => new Map(localizedAll.map((entry) => [entry.id, entry])),
+    [localizedAll],
+  );
   const customIds = useMemo(() => new Set(customEntries.map((entry) => entry.id)), [customEntries]);
+
+  /** Los resultados de busqueda llegan con la entrada base; los mostramos localizados. */
+  const displayEntry = (entry: Entry) => byId.get(entry.id) ?? entry;
 
   const parsed = useMemo(() => parseQuery(query), [query]);
   const activeTags = parsed.tags;
@@ -118,7 +127,7 @@ export default function App() {
 
   const browseResults = useMemo(() => {
     if (!browsingTags) return [] as Entry[];
-    return allEntries
+    return localizedAll
       .filter(
         (entry) =>
           (effectiveType === 'all' || entry.type === effectiveType) &&
@@ -129,22 +138,22 @@ export default function App() {
       .map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
       .sort((a, b) => b.value - a.value || a.entry.title.localeCompare(b.entry.title))
       .map((item) => item.entry);
-  }, [browsingTags, allEntries, effectiveType, activeTags, frecencyMap]);
+  }, [browsingTags, localizedAll, effectiveType, activeTags, frecencyMap]);
 
   const home = useMemo(
-    () => buildHome(allEntries, favorites, recents, effectiveType),
-    [allEntries, favorites, recents, effectiveType],
+    () => buildHome(localizedAll, favorites, recents, effectiveType),
+    [localizedAll, favorites, recents, effectiveType],
   );
 
   const topUsed = useMemo(
     () =>
-      allEntries
+      localizedAll
         .map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
         .filter((item) => item.value > 0)
         .sort((a, b) => b.value - a.value)
         .slice(0, 5)
         .map((item) => item.entry),
-    [allEntries, frecencyMap],
+    [localizedAll, frecencyMap],
   );
 
   const restShown = useMemo(() => home.rest.slice(0, HOME_LIMIT), [home]);
@@ -173,8 +182,8 @@ export default function App() {
   const overlayEntry = overlayId ? (byId.get(overlayId) ?? null) : null;
 
   const related = useMemo(
-    () => (selected ? findRelated(selected, allEntries, 6).map((item) => item.entry) : []),
-    [selected, allEntries],
+    () => (selected ? findRelated(selected, localizedAll, 6).map((item) => item.entry) : []),
+    [selected, localizedAll],
   );
 
   const useCount = selected ? (frecencyMap[selected.id]?.count ?? 0) : 0;
@@ -383,7 +392,7 @@ export default function App() {
               </Command.Empty>
 
               {isSearching ? (
-                tagFiltered.map((item) => renderItem(item.entry))
+                tagFiltered.map((item) => renderItem(displayEntry(item.entry)))
               ) : browsingTags ? (
                 <Command.Group heading={`#${activeTags.join(' #')}`} className={GROUP_CLASS}>
                   {browseResults.map(renderItem)}

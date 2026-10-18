@@ -124,8 +124,8 @@ export function saveTheme(theme: Theme): void {
 // --- Idioma ----------------------------------------------------------------
 
 export function loadLocale(): Locale {
-  const value = read<Locale>(STORAGE_KEYS.locale, 'es');
-  return value === 'en' ? 'en' : 'es';
+  const value = read<Locale>(STORAGE_KEYS.locale, 'en');
+  return value === 'es' ? 'es' : 'en';
 }
 
 export function saveLocale(locale: Locale): void {

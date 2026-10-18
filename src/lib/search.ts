@@ -1,6 +1,5 @@
 import Fuse from 'fuse.js';
 import type { Entry } from './types';
-
 /**
  * Busqueda: Fuse.js para fuzzy matching + una capa de boosts propia.
  *
@@ -44,13 +43,28 @@ function bodyOf(entry: Entry): string {
   }
 }
 
+/** Texto de las variantes de idioma, para que la busqueda funcione en ambos. */
+function overlayText(entry: Entry): string {
+  const parts: string[] = [];
+  for (const overlay of [entry.i18n?.es, entry.i18n?.en]) {
+    if (!overlay) continue;
+    if (overlay.title) parts.push(overlay.title);
+    if (overlay.note) parts.push(overlay.note);
+    if (overlay.notes) parts.push(overlay.notes);
+    if (overlay.appliesTo) parts.push(overlay.appliesTo);
+    if (overlay.steps) parts.push(...overlay.steps);
+    if (overlay.warnings) parts.push(...overlay.warnings);
+  }
+  return parts.join(' ');
+}
+
 export function toDoc(entry: Entry): SearchDoc {
   return {
     entry,
     title: entry.title,
     keywords: (entry.keywords ?? []).join(' '),
     tags: (entry.tags ?? []).join(' '),
-    body: bodyOf(entry),
+    body: [bodyOf(entry), overlayText(entry)].join(' '),
   };
 }
 

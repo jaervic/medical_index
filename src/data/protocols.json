@@ -2,630 +2,1076 @@
   {
     "id": "proto-uti-triage",
     "type": "protocol",
-    "title": "Protocolo: Triage telefonico de UTI",
-    "enTitle": "Telephone Triage for UTI",
+    "title": "Telephone Triage for UTI",
     "pronunciation": "TEL-uh-fohn TRY-ij for U-T-I",
-    "appliesTo": "Paciente reporta ardor/escozor al orinar, urgencia urinaria o frecuencia.",
+    "appliesTo": "Patient reports burning or stinging with urination, urinary urgency or frequency.",
     "steps": [
-      "Preguntar sintomas: disuria, frecuencia, urgencia, hematuria, dolor lumbar.",
-      "Descartar banderas rojas: fiebre > 100.4 F, dolor en flanco, vomito, embarazo.",
-      "Si hay banderas rojas, escalar al PCP de inmediato o referir a ED.",
-      "Si es no complicado, documentar Telephone Encounter y solicitar U/A (uroanalisis).",
-      "Registrar indicaciones dadas y firma del RN."
+      "Ask about symptoms: dysuria, frequency, urgency, hematuria, flank pain.",
+      "Rule out red flags: fever > 100.4 F, flank pain, vomiting, pregnancy.",
+      "If red flags are present, escalate to the PCP immediately or refer to the ED.",
+      "If uncomplicated, document a Telephone Encounter and order a U/A (urinalysis).",
+      "Record the instructions given and the RN signature."
     ],
     "warnings": [
-      "Embarazo + sintomas urinarios = evaluacion el mismo dia.",
-      "Hombre con UTI sintomatica suele considerarse complicada."
+      "Pregnancy + urinary symptoms = same-day evaluation.",
+      "A man with symptomatic UTI is usually considered complicated."
     ],
     "keywords": ["UTI", "infeccion urinaria", "disuria", "ardor al orinar", "orina"],
     "tags": ["triage", "urologia"],
-    "reviewedAt": "2026-02-05"
+    "reviewedAt": "2026-02-05",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Triage telefonico de UTI",
+        "appliesTo": "Paciente reporta ardor/escozor al orinar, urgencia urinaria o frecuencia.",
+        "steps": [
+          "Preguntar sintomas: disuria, frecuencia, urgencia, hematuria, dolor lumbar.",
+          "Descartar banderas rojas: fiebre > 100.4 F, dolor en flanco, vomito, embarazo.",
+          "Si hay banderas rojas, escalar al PCP de inmediato o referir a ED.",
+          "Si es no complicado, documentar Telephone Encounter y solicitar U/A (uroanalisis).",
+          "Registrar indicaciones dadas y firma del RN."
+        ],
+        "warnings": [
+          "Embarazo + sintomas urinarios = evaluacion el mismo dia.",
+          "Hombre con UTI sintomatica suele considerarse complicada."
+        ]
+      }
+    }
   },
   {
     "id": "proto-refill-policy",
     "type": "protocol",
-    "title": "Protocolo: Politica de resurtidos",
-    "enTitle": "Medication Refill Policy",
+    "title": "Medication Refill Policy",
     "pronunciation": "med-i-KAY-shun REE-fil POL-i-see",
-    "appliesTo": "Cualquier solicitud de resurtido de medicamento por telefono.",
+    "appliesTo": "Any request for a medication refill by phone.",
     "steps": [
-      "Verificar que el paciente tenga una visita con el PCP en los ultimos 6-12 meses.",
-      "Confirmar nombre del medicamento, dosis y farmacia.",
-      "Confirmar que no sea medicamento controlado (si lo es, requiere visita).",
-      "Documentar Telephone Encounter con el motivo y las indicaciones.",
-      "Enviar la solicitud al PCP para aprobacion (Ruta: Prescriptions > Refill Request)."
+      "Verify the patient has seen the PCP within the last 6-12 months.",
+      "Confirm the medication name, dose and pharmacy.",
+      "Confirm it is not a controlled medication (if it is, a visit is required).",
+      "Document a Telephone Encounter with the reason and instructions.",
+      "Send the request to the PCP for approval (Path: Prescriptions > Refill Request)."
     ],
     "warnings": [
-      "Nunca surtir controlados (p. ej. opioides, benzodiacepinas) por telefono.",
-      "Ante duda, dejar para revision del PCP en lugar de aprobar."
+      "Never refill controlled substances (e.g. opioids, benzodiazepines) by phone.",
+      "When in doubt, leave it for PCP review instead of approving."
     ],
     "keywords": ["resurtido", "refill", "receta", "medicamento", "controlado"],
     "tags": ["farmacia", "administrativo"],
-    "reviewedAt": "2026-02-10"
+    "reviewedAt": "2026-02-10",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Politica de resurtidos",
+        "appliesTo": "Cualquier solicitud de resurtido de medicamento por telefono.",
+        "steps": [
+          "Verificar que el paciente tenga una visita con el PCP en los ultimos 6-12 meses.",
+          "Confirmar nombre del medicamento, dosis y farmacia.",
+          "Confirmar que no sea medicamento controlado (si lo es, requiere visita).",
+          "Documentar Telephone Encounter con el motivo y las indicaciones.",
+          "Enviar la solicitud al PCP para aprobacion (Ruta: Prescriptions > Refill Request)."
+        ],
+        "warnings": [
+          "Nunca surtir controlados (p. ej. opioides, benzodiacepinas) por telefono.",
+          "Ante duda, dejar para revision del PCP en lugar de aprobar."
+        ]
+      }
+    }
   },
   {
     "id": "proto-uri-telephone",
     "type": "protocol",
-    "title": "Protocolo: Manejo telefonico de URI",
-    "enTitle": "Telephone Management of URI",
+    "title": "Telephone Management of URI",
     "pronunciation": "TEL-uh-fohn MAN-ij-munt of U-R-I",
-    "appliesTo": "Paciente con sintomas de resfriado sin dificultad respiratoria.",
+    "appliesTo": "Patient with cold symptoms and no difficulty breathing.",
     "steps": [
-      "Confirmar que no hay falta de aire, dolor toracico ni fiebre alta persistente.",
-      "Recomendar hidratacion, descanso y manejo sintomatico.",
-      "Explicar que es viral y que los antibioticos no ayudan.",
-      "Indicar signos de alarma por los que debe buscar atencion.",
-      "Documentar Telephone Encounter."
+      "Confirm there is no shortness of breath, chest pain or persistent high fever.",
+      "Recommend hydration, rest and symptomatic care.",
+      "Explain that it is viral and antibiotics do not help.",
+      "List the warning signs that should prompt medical attention.",
+      "Document a Telephone Encounter."
     ],
-    "warnings": ["Falta de aire o saturacion baja = escalar de inmediato."],
+    "warnings": ["Shortness of breath or low oxygen saturation = escalate immediately."],
     "keywords": ["URI", "resfriado", "gripe", "cold", "telefono"],
     "tags": ["triage", "respiratorio"],
-    "reviewedAt": "2026-02-01"
+    "reviewedAt": "2026-02-01",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Manejo telefonico de URI",
+        "appliesTo": "Paciente con sintomas de resfriado sin dificultad respiratoria.",
+        "steps": [
+          "Confirmar que no hay falta de aire, dolor toracico ni fiebre alta persistente.",
+          "Recomendar hidratacion, descanso y manejo sintomatico.",
+          "Explicar que es viral y que los antibioticos no ayudan.",
+          "Indicar signos de alarma por los que debe buscar atencion.",
+          "Documentar Telephone Encounter."
+        ],
+        "warnings": ["Falta de aire o saturacion baja = escalar de inmediato."]
+      }
+    }
   },
   {
     "id": "proto-hypertension-red-flags",
     "type": "protocol",
-    "title": "Protocolo: Banderas rojas en presion alta",
-    "enTitle": "Hypertension Red Flags",
+    "title": "Hypertension Red Flags",
     "pronunciation": "hy-per-TEN-shun RED flags",
-    "appliesTo": "Paciente que llama porque detecto su presion elevada en casa.",
+    "appliesTo": "Patient who calls because they found high blood pressure at home.",
     "steps": [
-      "Preguntar la cifra exacta y si hay sintomas acompanantes.",
-      "Buscar banderas rojas: dolor de pecho, falta de aire, dolor de cabeza severo, vision borrosa.",
-      "Si hay banderas rojas, indicar ir a ED o llamar a 911.",
-      "Si esta asintomatico y la cifra no es critica, aconsejar rechequeo en reposo y avisar al PCP.",
-      "Documentar Telephone Encounter con la cifra y las indicaciones."
+      "Ask for the exact reading and whether there are associated symptoms.",
+      "Look for red flags: chest pain, shortness of breath, severe headache, blurred vision.",
+      "If red flags are present, tell them to go to the ED or call 911.",
+      "If asymptomatic and the reading is not critical, advise rechecking at rest and notify the PCP.",
+      "Document a Telephone Encounter with the reading and the instructions."
     ],
-    "warnings": ["Sintomas neurologicos o cardiacos = emergencia, no esperar."],
+    "warnings": ["Neurological or cardiac symptoms = emergency, do not wait."],
     "keywords": ["presion alta", "HTN", "hipertension", "blood pressure", "crisis"],
     "tags": ["triage", "cardiovascular"],
-    "reviewedAt": "2026-02-05"
+    "reviewedAt": "2026-02-05",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Banderas rojas en presion alta",
+        "appliesTo": "Paciente que llama porque detecto su presion elevada en casa.",
+        "steps": [
+          "Preguntar la cifra exacta y si hay sintomas acompanantes.",
+          "Buscar banderas rojas: dolor de pecho, falta de aire, dolor de cabeza severo, vision borrosa.",
+          "Si hay banderas rojas, indicar ir a ED o llamar a 911.",
+          "Si esta asintomatico y la cifra no es critica, aconsejar rechequeo en reposo y avisar al PCP.",
+          "Documentar Telephone Encounter con la cifra y las indicaciones."
+        ],
+        "warnings": ["Sintomas neurologicos o cardiacos = emergencia, no esperar."]
+      }
+    }
   },
   {
     "id": "proto-chest-pain",
     "type": "protocol",
-    "title": "Protocolo: Dolor toracico por telefono (posible evento cardiaco)",
-    "enTitle": "Chest Pain (Possible Cardiac Event)",
+    "title": "Chest Pain (Possible Cardiac Event)",
     "pronunciation": "chest payn (KAR-dee-ak i-VENT)",
-    "appliesTo": "Paciente que llama refiriendo dolor, presion u opresion en el pecho.",
+    "appliesTo": "Patient who calls reporting chest pain, pressure or tightness.",
     "steps": [
-      "Asumir posible sindrome coronario agudo hasta descartarlo.",
-      "Preguntar: inicio, duracion, si irradia a mandibula/cuello/brazo, y sintomas asociados.",
-      "Buscar banderas rojas: diaforesis, nausea, falta de aire, desmayo, palidez.",
-      "Ante cualquier bandera roja: indicar llamar a 911 (no manejar por su cuenta).",
-      "Si el paciente esta solo, mantenerlo en linea hasta que llegue ayuda.",
-      "Documentar Telephone Encounter y avisar al PCP de inmediato."
+      "Assume possible acute coronary syndrome until ruled out.",
+      "Ask: onset, duration, radiation to jaw/neck/arm, and associated symptoms.",
+      "Look for red flags: diaphoresis, nausea, shortness of breath, fainting, pallor.",
+      "For any red flag: tell them to call 911 (do not drive themselves).",
+      "If the patient is alone, keep them on the line until help arrives.",
+      "Document a Telephone Encounter and notify the PCP immediately."
     ],
     "warnings": [
-      "Presion/opresion con irradiacion + diaforesis = sospecha de infarto: 911.",
-      "Mujeres, diabeticos y adultos mayores pueden presentar sintomas atipicos."
+      "Pressure/tightness with radiation + diaphoresis = suspected MI: 911.",
+      "Women, diabetics and older adults may present with atypical symptoms."
     ],
     "keywords": ["dolor de pecho", "chest pain", "infarto", "MI", "corazon", "911"],
     "tags": ["triage", "cardiovascular", "bandera-roja"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Dolor toracico por telefono (posible evento cardiaco)",
+        "appliesTo": "Paciente que llama refiriendo dolor, presion u opresion en el pecho.",
+        "steps": [
+          "Asumir posible sindrome coronario agudo hasta descartarlo.",
+          "Preguntar: inicio, duracion, si irradia a mandibula/cuello/brazo, y sintomas asociados.",
+          "Buscar banderas rojas: diaforesis, nausea, falta de aire, desmayo, palidez.",
+          "Ante cualquier bandera roja: indicar llamar a 911 (no manejar por su cuenta).",
+          "Si el paciente esta solo, mantenerlo en linea hasta que llegue ayuda.",
+          "Documentar Telephone Encounter y avisar al PCP de inmediato."
+        ],
+        "warnings": [
+          "Presion/opresion con irradiacion + diaforesis = sospecha de infarto: 911.",
+          "Mujeres, diabeticos y adultos mayores pueden presentar sintomas atipicos."
+        ]
+      }
+    }
   },
   {
     "id": "proto-dyspnea",
     "type": "protocol",
-    "title": "Protocolo: Dificultad para respirar (disnea)",
-    "enTitle": "Shortness of Breath (Dyspnea)",
+    "title": "Shortness of Breath (Dyspnea)",
     "pronunciation": "SHORT-nis uv breth (disp-NEE-uh)",
-    "appliesTo": "Paciente que llama con falta de aire de inicio reciente o empeoramiento.",
+    "appliesTo": "Patient who calls with new or worsening shortness of breath.",
     "steps": [
-      "Preguntar si puede hablar en frases completas (marcador de gravedad).",
-      "Buscar banderas rojas: no puede hablar, usa musculos del cuello, labios azules, dolor toracico.",
-      "Si hay banderas rojas: indicar 911 y mantenerlo en linea.",
-      "Si es leve: sugerir reposo y reevaluar; pedirle que se mida saturacion si tiene oximetro.",
-      "Avisar al PCP y documentar Telephone Encounter."
+      "Ask whether they can speak in full sentences (a marker of severity).",
+      "Look for red flags: cannot speak, uses neck muscles, blue lips, chest pain.",
+      "If red flags are present: tell them to call 911 and keep them on the line.",
+      "If mild: advise rest and reassess; ask them to check oxygen saturation if they have a pulse oximeter.",
+      "Notify the PCP and document a Telephone Encounter."
     ],
     "warnings": [
-      "No poder completar una frase o SpO2 < 90% = emergencia.",
-      "Inicio subito en reposo sugiere embolia pulmonar o neumotorax."
+      "Unable to complete a sentence or SpO2 < 90% = emergency.",
+      "Sudden onset at rest suggests pulmonary embolism or pneumothorax."
     ],
     "keywords": ["falta de aire", "disnea", "SOB", "dificultad para respirar", "asfixia"],
     "tags": ["triage", "respiratorio", "bandera-roja"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Dificultad para respirar (disnea)",
+        "appliesTo": "Paciente que llama con falta de aire de inicio reciente o empeoramiento.",
+        "steps": [
+          "Preguntar si puede hablar en frases completas (marcador de gravedad).",
+          "Buscar banderas rojas: no puede hablar, usa musculos del cuello, labios azules, dolor toracico.",
+          "Si hay banderas rojas: indicar 911 y mantenerlo en linea.",
+          "Si es leve: sugerir reposo y reevaluar; pedirle que se mida saturacion si tiene oximetro.",
+          "Avisar al PCP y documentar Telephone Encounter."
+        ],
+        "warnings": [
+          "No poder completar una frase o SpO2 < 90% = emergencia.",
+          "Inicio subito en reposo sugiere embolia pulmonar o neumotorax."
+        ]
+      }
+    }
   },
   {
     "id": "proto-fever-adult",
     "type": "protocol",
-    "title": "Protocolo: Fiebre en el adulto (triage telefonico)",
-    "enTitle": "Fever in Adults",
+    "title": "Fever in Adults",
     "pronunciation": "FEE-ver in AD-ults",
-    "appliesTo": "Paciente adulto que reporta temperatura elevada.",
+    "appliesTo": "Adult patient reporting an elevated temperature.",
     "steps": [
-      "Confirmar la temperatura y como la midio (> 100.4 F / 38 C es fiebre).",
-      "Descartar banderas rojas: confusion, rigidez de cuello, fotofobia, exantema petequial, hipotension.",
-      "Preguntar por inmunosupresion, embarazo, quimioterapia o implantes.",
-      "Sin banderas rojas e inmunocompetente: manejo sintomatico e hidratacion; reconsultar si empeora.",
-      "Con banderas rojas o inmunosupresion: evaluacion el mismo dia o ED.",
-      "Documentar Telephone Encounter."
+      "Confirm the temperature and how it was measured (> 100.4 F / 38 C is fever).",
+      "Rule out red flags: confusion, neck stiffness, photophobia, petechial rash, hypotension.",
+      "Ask about immunosuppression, pregnancy, chemotherapy or implants.",
+      "No red flags and immunocompetent: symptomatic care and hydration; call back if worse.",
+      "Red flags or immunosuppression: same-day evaluation or ED.",
+      "Document a Telephone Encounter."
     ],
     "warnings": [
-      "Fiebre + confusion o rigidez de cuello = sospecha de meningitis: emergencia.",
-      "Paciente inmunocomprometido con fiebre: no esperar."
+      "Fever + confusion or neck stiffness = suspected meningitis: emergency.",
+      "Immunocompromised patient with fever: do not wait."
     ],
     "keywords": ["fiebre", "fever", "calentura", "temperatura", "adulto"],
     "tags": ["triage", "agudo"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Fiebre en el adulto (triage telefonico)",
+        "appliesTo": "Paciente adulto que reporta temperatura elevada.",
+        "steps": [
+          "Confirmar la temperatura y como la midio (> 100.4 F / 38 C es fiebre).",
+          "Descartar banderas rojas: confusion, rigidez de cuello, fotofobia, exantema petequial, hipotension.",
+          "Preguntar por inmunosupresion, embarazo, quimioterapia o implantes.",
+          "Sin banderas rojas e inmunocompetente: manejo sintomatico e hidratacion; reconsultar si empeora.",
+          "Con banderas rojas o inmunosupresion: evaluacion el mismo dia o ED.",
+          "Documentar Telephone Encounter."
+        ],
+        "warnings": [
+          "Fiebre + confusion o rigidez de cuello = sospecha de meningitis: emergencia.",
+          "Paciente inmunocomprometido con fiebre: no esperar."
+        ]
+      }
+    }
   },
   {
     "id": "proto-fever-infant",
     "type": "protocol",
-    "title": "Protocolo: Fiebre en bebes y ninos (banderas rojas)",
-    "enTitle": "Fever in Infants and Children (Red Flags)",
+    "title": "Fever in Infants and Children (Red Flags)",
     "pronunciation": "FEE-ver in IN-funts and CHIL-dren",
-    "appliesTo": "Llama un padre o cuidador por fiebre en un menor.",
+    "appliesTo": "A parent or caregiver calls about fever in a child.",
     "steps": [
-      "Confirmar edad exacta y temperatura (> 100.4 F / 38 C).",
-      "Bebe menor de 90 dias con fiebre: referir a ED de inmediato (alto riesgo).",
-      "Buscar banderas rojas: letargo, no despierta facil, rechaza liquidos, dificultad para respirar, exantema petequial.",
-      "Preguntar estado de vacunacion e inmunizacion incompleta.",
-      "Sin banderas rojas y con vacunas al dia: manejo sintomatico e indicaciones de alarma.",
-      "Documentar Telephone Encounter."
+      "Confirm the exact age and temperature (> 100.4 F / 38 C).",
+      "Infant under 90 days with fever: refer to the ED immediately (high risk).",
+      "Look for red flags: lethargy, hard to wake, refusing fluids, difficulty breathing, petechial rash.",
+      "Ask about vaccination status and incomplete immunization.",
+      "No red flags and up-to-date vaccines: symptomatic care and warning signs.",
+      "Document a Telephone Encounter."
     ],
     "warnings": [
-      "Menor de 90 dias con T > 100.4 F = ED siempre.",
-      "Temperatura < 96.8 F (36 C) en un nino es preocupante por sepsis."
+      "Under 90 days with T > 100.4 F = always ED.",
+      "Temperature < 96.8 F (36 C) in a child is concerning for sepsis."
     ],
     "keywords": ["fiebre", "bebe", "nino", "lactante", "fever", "pediatria"],
     "tags": ["triage", "pediatria", "bandera-roja"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Fiebre en bebes y ninos (banderas rojas)",
+        "appliesTo": "Llama un padre o cuidador por fiebre en un menor.",
+        "steps": [
+          "Confirmar edad exacta y temperatura (> 100.4 F / 38 C).",
+          "Bebe menor de 90 dias con fiebre: referir a ED de inmediato (alto riesgo).",
+          "Buscar banderas rojas: letargo, no despierta facil, rechaza liquidos, dificultad para respirar, exantema petequial.",
+          "Preguntar estado de vacunacion e inmunizacion incompleta.",
+          "Sin banderas rojas y con vacunas al dia: manejo sintomatico e indicaciones de alarma.",
+          "Documentar Telephone Encounter."
+        ],
+        "warnings": [
+          "Menor de 90 dias con T > 100.4 F = ED siempre.",
+          "Temperatura < 96.8 F (36 C) en un nino es preocupante por sepsis."
+        ]
+      }
+    }
   },
   {
     "id": "proto-abdominal-pain",
     "type": "protocol",
-    "title": "Protocolo: Dolor abdominal por telefono",
-    "enTitle": "Abdominal Pain",
+    "title": "Abdominal Pain",
     "pronunciation": "ab-DOM-i-nul payn",
-    "appliesTo": "Paciente que llama por dolor de estomago o abdominal.",
+    "appliesTo": "Patient who calls about stomach or abdominal pain.",
     "steps": [
-      "Preguntar localizacion, inicio, relacion con la comida y caracter del dolor.",
-      "Descartar banderas rojas: sangrado digestivo, vomito con sangre, abdomen rigido, fiebre alta.",
-      "Preguntar por embarazo posible (considerar ectopico).",
-      "Dolor severo, rigido o con sangrado: referir a ED.",
-      "Sin banderas rojas: indicaciones de dieta, hidratacion y signos de alarma.",
-      "Documentar Telephone Encounter."
+      "Ask about location, onset, relation to food and character of the pain.",
+      "Rule out red flags: GI bleeding, vomiting blood, rigid abdomen, high fever.",
+      "Ask about possible pregnancy (consider ectopic).",
+      "Severe, rigid or bleeding pain: refer to the ED.",
+      "No red flags: diet guidance, hydration and warning signs.",
+      "Document a Telephone Encounter."
     ],
     "warnings": [
-      "Dolor abdominal + desmayo o sangrado en mujer en edad fertil: descarta embarazo ectopico (emergencia).",
-      "Dolor que migra a la fosa iliaca derecha con fiebre: sospecha de apendicitis."
+      "Abdominal pain + fainting or bleeding in a woman of childbearing age: rule out ectopic pregnancy (emergency).",
+      "Pain migrating to the right lower quadrant with fever: suspected appendicitis."
     ],
     "keywords": ["dolor abdominal", "dolor de estomago", "abdomen", "apendicitis", "panza"],
     "tags": ["triage", "digestivo"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Dolor abdominal por telefono",
+        "appliesTo": "Paciente que llama por dolor de estomago o abdominal.",
+        "steps": [
+          "Preguntar localizacion, inicio, relacion con la comida y caracter del dolor.",
+          "Descartar banderas rojas: sangrado digestivo, vomito con sangre, abdomen rigido, fiebre alta.",
+          "Preguntar por embarazo posible (considerar ectopico).",
+          "Dolor severo, rigido o con sangrado: referir a ED.",
+          "Sin banderas rojas: indicaciones de dieta, hidratacion y signos de alarma.",
+          "Documentar Telephone Encounter."
+        ],
+        "warnings": [
+          "Dolor abdominal + desmayo o sangrado en mujer en edad fertil: descarta embarazo ectopico (emergencia).",
+          "Dolor que migra a la fosa iliaca derecha con fiebre: sospecha de apendicitis."
+        ]
+      }
+    }
   },
   {
     "id": "proto-anaphylaxis",
     "type": "protocol",
-    "title": "Protocolo: Reaccion alergica grave (anafilaxia)",
-    "enTitle": "Anaphylaxis (Severe Allergic Reaction)",
+    "title": "Anaphylaxis (Severe Allergic Reaction)",
     "pronunciation": "an-uh-fi-LAK-sis (si-VEER uh-LUR-jik ree-AK-shun)",
-    "appliesTo": "Paciente con ronchas o hinchazon tras exposicion a un alergeno.",
+    "appliesTo": "Patient with hives or swelling after exposure to an allergen.",
     "steps": [
-      "Preguntar por hinchazon de labios, lengua o garganta y dificultad para respirar.",
-      "Preguntar por el desencadenante (alimento, medicamento, picadura) y el tiempo transcurrido.",
-      "Signos de anafilaxia (via aerea o respiracion): indicar 911 y usar epinefrina autoinyectable si la tiene.",
-      "Mantenerlo en linea hasta que llegue ayuda.",
-      "Si solo son ronchas sin compromiso respiratorio, el PCP decide manejo.",
-      "Documentar Telephone Encounter."
+      "Ask about swelling of the lips, tongue or throat and difficulty breathing.",
+      "Ask about the trigger (food, medication, sting) and how much time has passed.",
+      "Signs of anaphylaxis (airway or breathing): tell them to call 911 and use an epinephrine auto-injector if available.",
+      "Keep them on the line until help arrives.",
+      "If it is only hives without breathing involvement, the PCP decides management.",
+      "Document a Telephone Encounter."
     ],
     "warnings": [
-      "Hinchazon de garganta o dificultad para respirar = anafilaxia: 911.",
-      "Ensenar al paciente a usar el autoinyector de epinefrina, no solo antihistaminico."
+      "Throat swelling or difficulty breathing = anaphylaxis: 911.",
+      "Teach the patient to use the epinephrine auto-injector, not just an antihistamine."
     ],
     "keywords": ["alergia", "anafilaxia", "ronchas", "hives", "epinefrina", "hinchazon"],
     "tags": ["triage", "alergia", "bandera-roja"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Reaccion alergica grave (anafilaxia)",
+        "appliesTo": "Paciente con ronchas o hinchazon tras exposicion a un alergeno.",
+        "steps": [
+          "Preguntar por hinchazon de labios, lengua o garganta y dificultad para respirar.",
+          "Preguntar por el desencadenante (alimento, medicamento, picadura) y el tiempo transcurrido.",
+          "Signos de anafilaxia (via aerea o respiracion): indicar 911 y usar epinefrina autoinyectable si la tiene.",
+          "Mantenerlo en linea hasta que llegue ayuda.",
+          "Si solo son ronchas sin compromiso respiratorio, el PCP decide manejo.",
+          "Documentar Telephone Encounter."
+        ],
+        "warnings": [
+          "Hinchazon de garganta o dificultad para respirar = anafilaxia: 911.",
+          "Ensenar al paciente a usar el autoinyector de epinefrina, no solo antihistaminico."
+        ]
+      }
+    }
   },
   {
     "id": "proto-hypoglycemia",
     "type": "protocol",
-    "title": "Protocolo: Azucar bajo (hipoglucemia)",
-    "enTitle": "Hypoglycemia (Low Blood Sugar)",
+    "title": "Hypoglycemia (Low Blood Sugar)",
     "pronunciation": "hy-poh-gly-SEE-mee-uh",
-    "appliesTo": "Paciente diabetico con temblor, sudor, confusion o glucometria baja.",
+    "appliesTo": "Diabetic patient with tremor, sweating, confusion or a low glucose reading.",
     "steps": [
-      "Preguntar la glucometria si la tiene y los sintomas (temblor, sudor, hambre, confusion).",
-      "Si esta consciente y puede tragar: indicar 15 g de azucar de accion rapida (jugo, glucosa).",
-      "Reevaluar a los 15 minutos; repetir si sigue bajo.",
-      "Si esta inconsciente, confundido o no puede tragar: emergencia, llamar 911.",
-      "Avisar al PCP y documentar la indicacion y la glucometria."
+      "Ask for the glucose reading if available and the symptoms (tremor, sweating, hunger, confusion).",
+      "If awake and able to swallow: give 15 g of fast-acting sugar (juice, glucose).",
+      "Reassess in 15 minutes; repeat if still low.",
+      "If unconscious, confused or unable to swallow: emergency, call 911.",
+      "Notify the PCP and document the instruction and the glucose reading."
     ],
     "warnings": [
-      "Nunca dar nada por boca si no puede tragar o esta inconsciente.",
-      "Revisar la causa: dosis de insulina, comida omitida o ejercicio."
+      "Never give anything by mouth if they cannot swallow or are unconscious.",
+      "Review the cause: insulin dose, missed meal or exercise."
     ],
     "keywords": ["azucar baja", "hipoglucemia", "diabetes", "glucosa", "temblor"],
     "tags": ["triage", "endocrino", "bandera-roja"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Azucar bajo (hipoglucemia)",
+        "appliesTo": "Paciente diabetico con temblor, sudor, confusion o glucometria baja.",
+        "steps": [
+          "Preguntar la glucometria si la tiene y los sintomas (temblor, sudor, hambre, confusion).",
+          "Si esta consciente y puede tragar: indicar 15 g de azucar de accion rapida (jugo, glucosa).",
+          "Reevaluar a los 15 minutos; repetir si sigue bajo.",
+          "Si esta inconsciente, confundido o no puede tragar: emergencia, llamar 911.",
+          "Avisar al PCP y documentar la indicacion y la glucometria."
+        ],
+        "warnings": [
+          "Nunca dar nada por boca si no puede tragar o esta inconsciente.",
+          "Revisar la causa: dosis de insulina, comida omitida o ejercicio."
+        ]
+      }
+    }
   },
   {
     "id": "proto-head-injury",
     "type": "protocol",
-    "title": "Protocolo: Golpe en la cabeza (banderas rojas)",
-    "enTitle": "Head Injury (Red Flags)",
+    "title": "Head Injury (Red Flags)",
     "pronunciation": "hed IN-juh-ree",
-    "appliesTo": "Paciente que sufrio un golpe o caida en la cabeza.",
+    "appliesTo": "Patient who suffered a blow or fall to the head.",
     "steps": [
-      "Preguntar como fue el golpe y si hubo perdida de conocimiento o vomito.",
-      "Buscar banderas rojas: desorientacion, vomito repetido, vision doble, convulsion, debilidad de un lado.",
-      "Preguntar si toma anticoagulantes o tiene antecedente de sangrado.",
-      "Con cualquier bandera roja, anticoagulacion o edad avanzada: referir a ED.",
-      "Instruir vigilancia de sintomas en las siguientes 24-48 h.",
-      "Documentar Telephone Encounter."
+      "Ask how the injury happened and whether there was loss of consciousness or vomiting.",
+      "Look for red flags: disorientation, repeated vomiting, double vision, seizure, one-sided weakness.",
+      "Ask whether they take anticoagulants or have a bleeding history.",
+      "With any red flag, anticoagulation or advanced age: refer to the ED.",
+      "Instruct them to watch for symptoms over the next 24-48 h.",
+      "Document a Telephone Encounter."
     ],
     "warnings": [
-      "Perdida de conocimiento, vomito repetido o deficit neurologico = ED.",
-      "Paciente anticoagulado con golpe craneal: umbral bajo para referir."
+      "Loss of consciousness, repeated vomiting or neurological deficit = ED.",
+      "Anticoagulated patient with a head injury: low threshold to refer."
     ],
     "keywords": ["golpe en la cabeza", "head injury", "concusion", "caida", "TBI"],
     "tags": ["triage", "neurologico", "bandera-roja"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Golpe en la cabeza (banderas rojas)",
+        "appliesTo": "Paciente que sufrio un golpe o caida en la cabeza.",
+        "steps": [
+          "Preguntar como fue el golpe y si hubo perdida de conocimiento o vomito.",
+          "Buscar banderas rojas: desorientacion, vomito repetido, vision doble, convulsion, debilidad de un lado.",
+          "Preguntar si toma anticoagulantes o tiene antecedente de sangrado.",
+          "Con cualquier bandera roja, anticoagulacion o edad avanzada: referir a ED.",
+          "Instruir vigilancia de sintomas en las siguientes 24-48 h.",
+          "Documentar Telephone Encounter."
+        ],
+        "warnings": [
+          "Perdida de conocimiento, vomito repetido o deficit neurologico = ED.",
+          "Paciente anticoagulado con golpe craneal: umbral bajo para referir."
+        ]
+      }
+    }
   },
   {
     "id": "proto-back-pain-red-flags",
     "type": "protocol",
-    "title": "Protocolo: Banderas rojas en dolor de espalda",
-    "enTitle": "Low Back Pain Red Flags",
+    "title": "Low Back Pain Red Flags",
     "pronunciation": "loh bak payn RED flags",
-    "appliesTo": "Paciente que llama por dolor lumbar.",
+    "appliesTo": "Patient who calls about low back pain.",
     "steps": [
-      "Preguntar inicio (subito tras esfuerzo vs progresivo) y si hay sintomas en las piernas.",
-      "Buscar banderas rojas: perdida de control de esfinteres, adormecimiento en la zona genital, debilidad progresiva.",
-      "Preguntar por fiebre, perdida de peso o antecedente de cancer.",
-      "Con banderas rojas (cauda equina) o fiebre: referir a ED de inmediato.",
-      "Sin banderas rojas: manejo conservador y signos de alarma.",
-      "Documentar Telephone Encounter."
+      "Ask about onset (sudden after strain vs progressive) and whether there are leg symptoms.",
+      "Look for red flags: loss of bowel/bladder control, numbness in the saddle area, progressive weakness.",
+      "Ask about fever, weight loss or a history of cancer.",
+      "With red flags (cauda equina) or fever: refer to the ED immediately.",
+      "No red flags: conservative management and warning signs.",
+      "Document a Telephone Encounter."
     ],
     "warnings": [
-      "Incontinencia urinaria/fecal o anestesia en 'silla de montar' = cauda equina: emergencia quirurgica.",
-      "Dolor lumbar + fiebre o uso de drogas IV: considerar infeccion (absceso)."
+      "Urinary/fecal incontinence or saddle anesthesia = cauda equina: surgical emergency.",
+      "Low back pain + fever or IV drug use: consider infection (abscess)."
     ],
     "keywords": ["dolor de espalda", "lumbalgia", "cauda equina", "back pain", "lumbar"],
     "tags": ["triage", "musculoesqueletico", "bandera-roja"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Banderas rojas en dolor de espalda",
+        "appliesTo": "Paciente que llama por dolor lumbar.",
+        "steps": [
+          "Preguntar inicio (subito tras esfuerzo vs progresivo) y si hay sintomas en las piernas.",
+          "Buscar banderas rojas: perdida de control de esfinteres, adormecimiento en la zona genital, debilidad progresiva.",
+          "Preguntar por fiebre, perdida de peso o antecedente de cancer.",
+          "Con banderas rojas (cauda equina) o fiebre: referir a ED de inmediato.",
+          "Sin banderas rojas: manejo conservador y signos de alarma.",
+          "Documentar Telephone Encounter."
+        ],
+        "warnings": [
+          "Incontinencia urinaria/fecal o anestesia en 'silla de montar' = cauda equina: emergencia quirurgica.",
+          "Dolor lumbar + fiebre o uso de drogas IV: considerar infeccion (absceso)."
+        ]
+      }
+    }
   },
   {
     "id": "proto-labs-followup",
     "type": "protocol",
-    "title": "Protocolo: Seguimiento de resultados de laboratorio",
-    "enTitle": "Lab Result Follow-up",
+    "title": "Lab Result Follow-up",
     "pronunciation": "lab ri-ZULT FOL-oh-up",
-    "appliesTo": "Llego un resultado de lab y hay que cerrar el circuito con el paciente.",
+    "appliesTo": "A lab result came in and the loop with the patient must be closed.",
     "steps": [
-      "Revisar resultados pendientes en el panel DRTLA (clip rosado = electronico).",
-      "Marcar los criticos y sacarlos del flujo normal; avisar al PCP de inmediato.",
-      "El proveedor decide si se requiere llamada, cambio de tratamiento o cita.",
-      "Contactar al paciente: explicar resultado, plan y fecha de seguimiento.",
-      "Documentar el contacto y cerrar la orden (no dejar resultados sin revisar)."
+      "Review pending results in the DRTLA panel (pink clip = electronic).",
+      "Flag critical values and pull them out of the normal flow; notify the PCP immediately.",
+      "The provider decides whether a call, a treatment change or an appointment is needed.",
+      "Contact the patient: explain the result, the plan and the follow-up date.",
+      "Document the contact and close the order (never leave results unreviewed)."
     ],
     "warnings": [
-      "Valores criticos deben comunicarse el mismo dia.",
-      "Registrar al menos 2 intentos de contacto antes de enviar carta."
+      "Critical values must be communicated the same day.",
+      "Log at least 2 contact attempts before sending a letter."
     ],
     "keywords": ["labs", "resultados", "seguimiento", "recall", "resultados pendientes", "DRTLA"],
     "tags": ["laboratorio", "administrativo"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Seguimiento de resultados de laboratorio",
+        "appliesTo": "Llego un resultado de lab y hay que cerrar el circuito con el paciente.",
+        "steps": [
+          "Revisar resultados pendientes en el panel DRTLA (clip rosado = electronico).",
+          "Marcar los criticos y sacarlos del flujo normal; avisar al PCP de inmediato.",
+          "El proveedor decide si se requiere llamada, cambio de tratamiento o cita.",
+          "Contactar al paciente: explicar resultado, plan y fecha de seguimiento.",
+          "Documentar el contacto y cerrar la orden (no dejar resultados sin revisar)."
+        ],
+        "warnings": [
+          "Valores criticos deben comunicarse el mismo dia.",
+          "Registrar al menos 2 intentos de contacto antes de enviar carta."
+        ]
+      }
+    }
   },
   {
     "id": "proto-prior-auth",
     "type": "protocol",
-    "title": "Protocolo: Prior Authorization (pre-autorizacion)",
-    "enTitle": "Prior Authorization",
+    "title": "Prior Authorization",
     "pronunciation": "PRY-or aw-thor-i-ZAY-shun",
-    "appliesTo": "Un servicio, estudio o medicamento requiere aprobacion de la aseguradora.",
+    "appliesTo": "A service, study or medication requires insurer approval.",
     "steps": [
-      "Verificar si el plan exige pre-autorizacion para el servicio/medicamento.",
-      "Reunir el paquete: diagnostico, notas clinicas, CPT/HCPCS y justificacion.",
-      "Enviar la solicitud a la aseguradora por el canal indicado.",
-      "Registrar numero de caso y fecha; dar seguimiento hasta la respuesta.",
-      "Si se niega, informar al proveedor para apelar o cambiar la alternativa.",
-      "Comunicar la resolucion al paciente."
+      "Check whether the plan requires prior authorization for the service/medication.",
+      "Assemble the packet: diagnosis, clinical notes, CPT/HCPCS and justification.",
+      "Send the request to the insurer through the required channel.",
+      "Log the case number and date; follow up until you get an answer.",
+      "If denied, inform the provider to appeal or switch to an alternative.",
+      "Communicate the resolution to the patient."
     ],
     "warnings": [
-      "Sin auth, el estudio o medicamento se puede rechazar o facturar al paciente.",
-      "La coordinacion en eCW es manual: mantén un registro del estado."
+      "Without auth, the study or medication may be denied or billed to the patient.",
+      "Coordination in eCW is manual: keep a status log."
     ],
     "keywords": ["prior auth", "pre-autorizacion", "autorizacion", "aseguradora", "auth"],
     "tags": ["administrativo", "seguros"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Prior Authorization (pre-autorizacion)",
+        "appliesTo": "Un servicio, estudio o medicamento requiere aprobacion de la aseguradora.",
+        "steps": [
+          "Verificar si el plan exige pre-autorizacion para el servicio/medicamento.",
+          "Reunir el paquete: diagnostico, notas clinicas, CPT/HCPCS y justificacion.",
+          "Enviar la solicitud a la aseguradora por el canal indicado.",
+          "Registrar numero de caso y fecha; dar seguimiento hasta la respuesta.",
+          "Si se niega, informar al proveedor para apelar o cambiar la alternativa.",
+          "Comunicar la resolucion al paciente."
+        ],
+        "warnings": [
+          "Sin auth, el estudio o medicamento se puede rechazar o facturar al paciente.",
+          "La coordinacion en eCW es manual: mantén un registro del estado."
+        ]
+      }
+    }
   },
   {
     "id": "proto-awv",
     "type": "protocol",
-    "title": "Protocolo: Annual Wellness Visit (Medicare)",
-    "enTitle": "Annual Wellness Visit",
+    "title": "Annual Wellness Visit",
     "pronunciation": "AN-yoo-ul WEL-nis VIZ-it",
-    "appliesTo": "Paciente Medicare elegible para su visita anual de bienestar.",
+    "appliesTo": "Medicare patient eligible for their annual wellness visit.",
     "steps": [
-      "Confirmar elegibilidad (una AWV cada 12 meses; primera vez = G0438).",
-      "Aplicar el Health Risk Assessment (HRA).",
-      "Mediciones: talla, peso, BMI y presion arterial.",
-      "Evaluar caidas, discapacidad auditiva, seguridad en casa y funcionalidad (ADLs).",
-      "Evaluacion cognitiva y cribado de depresion/riesgo de sustancias.",
-      "Entregar plan de prevencion escrito (5-10 anos) segun USPSTF/ACIP.",
-      "Ofrecer planificacion anticipada de decisiones (avance de directivas)."
+      "Confirm eligibility (one AWV every 12 months; first time = G0438).",
+      "Complete the Health Risk Assessment (HRA).",
+      "Measurements: height, weight, BMI and blood pressure.",
+      "Assess falls, hearing impairment, home safety and function (ADLs).",
+      "Cognitive assessment and screening for depression/substance risk.",
+      "Provide a written prevention plan (5-10 years) per USPSTF/ACIP.",
+      "Offer advance care planning."
     ],
     "warnings": [
-      "Es visita de prevencion: los problemas agudos se facturan por separado.",
-      "Sin copago para el paciente; avisar si se agregan servicios con costo."
+      "It is a prevention visit: acute problems are billed separately.",
+      "No copay for the patient; warn if services with a cost are added."
     ],
     "keywords": ["AWV", "visita anual", "wellness", "medicare", "HRA", "prevencion", "G0438"],
     "tags": ["preventivo", "medicare"],
-    "reviewedAt": "2026-02-15"
+    "reviewedAt": "2026-02-15",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Annual Wellness Visit (Medicare)",
+        "appliesTo": "Paciente Medicare elegible para su visita anual de bienestar.",
+        "steps": [
+          "Confirmar elegibilidad (una AWV cada 12 meses; primera vez = G0438).",
+          "Aplicar el Health Risk Assessment (HRA).",
+          "Mediciones: talla, peso, BMI y presion arterial.",
+          "Evaluar caidas, discapacidad auditiva, seguridad en casa y funcionalidad (ADLs).",
+          "Evaluacion cognitiva y cribado de depresion/riesgo de sustancias.",
+          "Entregar plan de prevencion escrito (5-10 anos) segun USPSTF/ACIP.",
+          "Ofrecer planificacion anticipada de decisiones (avance de directivas)."
+        ],
+        "warnings": [
+          "Es visita de prevencion: los problemas agudos se facturan por separado.",
+          "Sin copago para el paciente; avisar si se agregan servicios con costo."
+        ]
+      }
+    }
   },
   {
     "id": "proto-depression-screening",
     "type": "protocol",
-    "title": "Protocolo: Cribado y manejo de depresion",
-    "enTitle": "Depression Screening and Management",
+    "title": "Depression Screening and Management",
     "pronunciation": "di-PRESH-un SKREEN-ing and MAN-ij-munt",
-    "appliesTo": "Todo paciente adulto, al menos una vez al ano y ante sospecha clinica.",
+    "appliesTo": "Every adult patient, at least once a year and whenever depression is suspected.",
     "steps": [
-      "Aplicar PHQ-2 (0-6). Si es >= 3, aplicar PHQ-9 completo.",
-      "Interpretar PHQ-9 (0-27): 5/10/15/20 = leve / moderado / moderadamente grave / grave.",
-      "Revisar SIEMPRE el item 9 (ideacion suicida): si es positivo, activar el protocolo de riesgo suicida.",
-      "Si hay PHQ-9 >= 10, plantear plan de tratamiento (terapia, farmacoterapia o ambos) segun preferencia del paciente.",
-      "Evaluar funcionalidad y deseo de tratamiento, no solo el puntaje.",
-      "Repetir el PHQ-9 en cada seguimiento (atencion basada en mediciones)."
+      "Apply PHQ-2 (0-6). If >= 3, apply the full PHQ-9.",
+      "Interpret the PHQ-9 (0-27): 5/10/15/20 = mild / moderate / moderately severe / severe.",
+      "ALWAYS review item 9 (suicidal ideation): if positive, activate the suicide risk protocol.",
+      "If PHQ-9 >= 10, propose a treatment plan (therapy, pharmacotherapy or both) based on patient preference.",
+      "Assess function and desire for treatment, not just the score.",
+      "Repeat the PHQ-9 at every follow-up (measurement-based care)."
     ],
     "warnings": [
-      "PHQ-9 >= 10 tiene ~88% de sensibilidad y especificidad para depresion mayor.",
-      "Si hay sintomas de mania o antecedente bipolar, NO iniciar antidepresivo sin valorar MDQ."
+      "PHQ-9 >= 10 has ~88% sensitivity and specificity for major depression.",
+      "If there are manic symptoms or a bipolar history, do NOT start an antidepressant without the MDQ."
     ],
     "keywords": ["depresion", "PHQ-9", "PHQ-2", "cribado", "screening", "animo"],
     "tags": ["salud-mental", "cribado"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Cribado y manejo de depresion",
+        "appliesTo": "Todo paciente adulto, al menos una vez al ano y ante sospecha clinica.",
+        "steps": [
+          "Aplicar PHQ-2 (0-6). Si es >= 3, aplicar PHQ-9 completo.",
+          "Interpretar PHQ-9 (0-27): 5/10/15/20 = leve / moderado / moderadamente grave / grave.",
+          "Revisar SIEMPRE el item 9 (ideacion suicida): si es positivo, activar el protocolo de riesgo suicida.",
+          "Si hay PHQ-9 >= 10, plantear plan de tratamiento (terapia, farmacoterapia o ambos) segun preferencia del paciente.",
+          "Evaluar funcionalidad y deseo de tratamiento, no solo el puntaje.",
+          "Repetir el PHQ-9 en cada seguimiento (atencion basada en mediciones)."
+        ],
+        "warnings": [
+          "PHQ-9 >= 10 tiene ~88% de sensibilidad y especificidad para depresion mayor.",
+          "Si hay sintomas de mania o antecedente bipolar, NO iniciar antidepresivo sin valorar MDQ."
+        ]
+      }
+    }
   },
   {
     "id": "proto-suicide-risk",
     "type": "protocol",
-    "title": "Protocolo: Evaluacion de riesgo suicida (C-SSRS)",
-    "enTitle": "Suicide Risk Assessment",
+    "title": "Suicide Risk Assessment",
     "pronunciation": "SOO-i-syd risk uh-SES-munt",
-    "appliesTo": "Paciente con PHQ-9 item 9 positivo, o cualquier mencion de muerte o autolesion.",
+    "appliesTo": "Patient with a positive PHQ-9 item 9, or any mention of death or self-harm.",
     "steps": [
-      "Preguntar de forma directa y sin juicio: NO aumenta el riesgo de suicidio.",
-      "Aplicar C-SSRS. Q1-Q2 (deseo de morir / pensamiento): referir a salud mental.",
-      "Q3 (como lo haria): referir a salud mental el mismo dia.",
-      "Q4-Q5 (intencion o plan): consulta de salud mental + precauciones de seguridad.",
-      "Q6 (conducta) en los ultimos 3 meses: ayuda inmediata.",
-      "En alto riesgo: llamar o textear al 988, o 911 / ED; permanecer con el paciente hasta la evaluacion.",
-      "Restringir el acceso a medios (medicamentos, armas) y elaborar un plan de seguridad."
+      "Ask directly and without judgment: it does NOT increase suicide risk.",
+      "Apply the C-SSRS. Q1-Q2 (wish to die / thoughts): refer to behavioral health.",
+      "Q3 (how they would do it): refer to behavioral health the same day.",
+      "Q4-Q5 (intent or plan): behavioral health consultation + safety precautions.",
+      "Q6 (behavior) within the last 3 months: immediate help.",
+      "If high risk: call or text 988, or 911 / ED; stay with the patient until evaluated.",
+      "Restrict access to means (medications, firearms) and create a safety plan."
     ],
     "warnings": [
-      "No dejar solo a un paciente con intencion o plan activo.",
-      "988 es la linea de crisis 24/7 (llamada o texto), disponible en espanol e ingles."
+      "Do not leave a patient with active intent or plan alone.",
+      "988 is the 24/7 crisis line (call or text), available in English and Spanish."
     ],
     "keywords": ["suicidio", "riesgo suicida", "C-SSRS", "988", "crisis", "ideacion"],
     "tags": ["salud-mental", "crisis", "bandera-roja"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Evaluacion de riesgo suicida (C-SSRS)",
+        "appliesTo": "Paciente con PHQ-9 item 9 positivo, o cualquier mencion de muerte o autolesion.",
+        "steps": [
+          "Preguntar de forma directa y sin juicio: NO aumenta el riesgo de suicidio.",
+          "Aplicar C-SSRS. Q1-Q2 (deseo de morir / pensamiento): referir a salud mental.",
+          "Q3 (como lo haria): referir a salud mental el mismo dia.",
+          "Q4-Q5 (intencion o plan): consulta de salud mental + precauciones de seguridad.",
+          "Q6 (conducta) en los ultimos 3 meses: ayuda inmediata.",
+          "En alto riesgo: llamar o textear al 988, o 911 / ED; permanecer con el paciente hasta la evaluacion.",
+          "Restringir el acceso a medios (medicamentos, armas) y elaborar un plan de seguridad."
+        ],
+        "warnings": [
+          "No dejar solo a un paciente con intencion o plan activo.",
+          "988 es la linea de crisis 24/7 (llamada o texto), disponible en espanol e ingles."
+        ]
+      }
+    }
   },
   {
     "id": "proto-anxiety-screening",
     "type": "protocol",
-    "title": "Protocolo: Cribado de ansiedad (GAD-7)",
-    "enTitle": "Anxiety Screening",
+    "title": "Anxiety Screening",
     "pronunciation": "ang-ZY-uh-tee SKREEN-ing",
-    "appliesTo": "Paciente con sintomas de ansiedad o como cribado en la visita anual.",
+    "appliesTo": "Patient with anxiety symptoms or as screening at the annual visit.",
     "steps": [
-      "Aplicar GAD-2 (0-6). Si es >= 3, aplicar el GAD-7 completo.",
-      "Interpretar el GAD-7 (0-21): 5/10/15 = leve / moderado / grave.",
-      "Descartar causas medicas: hipertiroidismo, arritmia, cafeina, medicamentos, consumo de sustancias.",
-      "Descartar comorbilidad con depresion (PHQ-9) y con bipolaridad (MDQ) antes de tratar.",
-      "Plan segun severidad: terapia (TCC), farmacoterapia (SSRI/SNRI) o ambas.",
-      "Repetir el GAD-7 para medir respuesta."
+      "Apply GAD-2 (0-6). If >= 3, apply the full GAD-7.",
+      "Interpret the GAD-7 (0-21): 5/10/15 = mild / moderate / severe.",
+      "Rule out medical causes: hyperthyroidism, arrhythmia, caffeine, medications, substance use.",
+      "Rule out comorbidity with depression (PHQ-9) and with bipolar disorder (MDQ) before treating.",
+      "Plan by severity: therapy (CBT), pharmacotherapy (SSRI/SNRI) or both.",
+      "Repeat the GAD-7 to measure response."
     ],
     "warnings": [
-      "GAD-7 >= 10 sugiere trastorno de ansiedad generalizada.",
-      "No usar benzodiacepinas de forma cronica como tratamiento de primera linea."
+      "GAD-7 >= 10 suggests generalized anxiety disorder.",
+      "Do not use benzodiazepines chronically as first-line treatment."
     ],
     "keywords": ["ansiedad", "GAD-7", "GAD-2", "TAG", "cribado", "nervios"],
     "tags": ["salud-mental", "cribado"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Cribado de ansiedad (GAD-7)",
+        "appliesTo": "Paciente con sintomas de ansiedad o como cribado en la visita anual.",
+        "steps": [
+          "Aplicar GAD-2 (0-6). Si es >= 3, aplicar el GAD-7 completo.",
+          "Interpretar el GAD-7 (0-21): 5/10/15 = leve / moderado / grave.",
+          "Descartar causas medicas: hipertiroidismo, arritmia, cafeina, medicamentos, consumo de sustancias.",
+          "Descartar comorbilidad con depresion (PHQ-9) y con bipolaridad (MDQ) antes de tratar.",
+          "Plan segun severidad: terapia (TCC), farmacoterapia (SSRI/SNRI) o ambas.",
+          "Repetir el GAD-7 para medir respuesta."
+        ],
+        "warnings": [
+          "GAD-7 >= 10 sugiere trastorno de ansiedad generalizada.",
+          "No usar benzodiacepinas de forma cronica como tratamiento de primera linea."
+        ]
+      }
+    }
   },
   {
     "id": "proto-alcohol-sbirt",
     "type": "protocol",
-    "title": "Protocolo: SBIRT de alcohol (AUDIT-C)",
-    "enTitle": "Alcohol Screening and Brief Intervention",
+    "title": "Alcohol Screening and Brief Intervention",
     "pronunciation": "AL-kuh-hol SKREEN-ing and breef in-ter-VEN-shun",
-    "appliesTo": "Todo adulto; USPSTF recomienda cribar a todos los adultos.",
+    "appliesTo": "Every adult; the USPSTF recommends screening all adults.",
     "steps": [
-      "Aplicar AUDIT-C (3 preguntas, 0-12).",
-      "Positivo: >= 4 en hombres y >= 3 en mujeres.",
-      "Intervencion breve (5 A's / FLO): retroalimentar, escuchar y ofrecer opciones.",
-      "Preguntar si el paciente desea reducir, dejar o no cambiar el consumo.",
-      "Ofrecer plan de cambio y seguimiento; referir a tratamiento si hay dependencia.",
-      "Documentar el puntaje, la intervencion y el plan."
+      "Apply AUDIT-C (3 questions, 0-12).",
+      "Positive: >= 4 in men and >= 3 in women.",
+      "Brief intervention (5 A's / FLO): give feedback, listen and offer options.",
+      "Ask whether the patient wants to reduce, quit or not change their drinking.",
+      "Offer a change plan and follow-up; refer to treatment if there is dependence.",
+      "Document the score, the intervention and the plan."
     ],
     "warnings": [
-      "El CAGE ya no se recomienda (baja sensibilidad).",
-      "En embarazo, un puntaje > 0 ya es positivo: no hay nivel seguro."
+      "CAGE is no longer recommended (low sensitivity).",
+      "In pregnancy, any score > 0 is positive: there is no safe level."
     ],
     "keywords": ["alcohol", "AUDIT-C", "SBIRT", "consumo", "adiccion", "cribado"],
     "tags": ["salud-mental", "adicciones", "cribado"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: SBIRT de alcohol (AUDIT-C)",
+        "appliesTo": "Todo adulto; USPSTF recomienda cribar a todos los adultos.",
+        "steps": [
+          "Aplicar AUDIT-C (3 preguntas, 0-12).",
+          "Positivo: >= 4 en hombres y >= 3 en mujeres.",
+          "Intervencion breve (5 A's / FLO): retroalimentar, escuchar y ofrecer opciones.",
+          "Preguntar si el paciente desea reducir, dejar o no cambiar el consumo.",
+          "Ofrecer plan de cambio y seguimiento; referir a tratamiento si hay dependencia.",
+          "Documentar el puntaje, la intervencion y el plan."
+        ],
+        "warnings": [
+          "El CAGE ya no se recomienda (baja sensibilidad).",
+          "En embarazo, un puntaje > 0 ya es positivo: no hay nivel seguro."
+        ]
+      }
+    }
   },
   {
     "id": "proto-substance-sbirt",
     "type": "protocol",
-    "title": "Protocolo: SBIRT de sustancias (DAST-10)",
-    "enTitle": "Substance Use Screening and Brief Intervention",
+    "title": "Substance Use Screening and Brief Intervention",
     "pronunciation": "SUB-stuns yoos SKREEN-ing and breef in-ter-VEN-shun",
-    "appliesTo": "Paciente con sospecha de consumo de drogas o como cribado.",
+    "appliesTo": "Patient with suspected drug use or as screening.",
     "steps": [
-      "Aplicar DAST-10 y preguntar por el tipo de sustancia y la frecuencia.",
-      "Evaluar riesgo de abstinencia (alcohol, opioides, benzodiacepinas): puede ser peligrosa.",
-      "Intervencion breve sin juicio; explorar motivacion para el cambio.",
-      "Ofrecer referir a tratamiento por adicciones segun el nivel de riesgo.",
-      "Ofrecer recursos de reduccion de dano y naloxona si hay uso de opioides.",
-      "Documentar y dar seguimiento."
+      "Apply DAST-10 and ask about the substance type and frequency.",
+      "Assess withdrawal risk (alcohol, opioids, benzodiazepines): it can be dangerous.",
+      "Brief, non-judgmental intervention; explore motivation to change.",
+      "Offer referral to addiction treatment based on the level of risk.",
+      "Offer harm-reduction resources and naloxone if opioids are used.",
+      "Document and follow up."
     ],
     "warnings": [
-      "La abstinencia a alcohol y benzodiacepinas puede causar convulsiones: no suspender en seco.",
-      "Uso de opioides + sedantes = alto riesgo de sobredosis respiratoria."
+      "Alcohol and benzodiazepine withdrawal can cause seizures: do not stop abruptly.",
+      "Opioid use + sedatives = high risk of respiratory overdose."
     ],
     "keywords": ["drogas", "DAST-10", "SBIRT", "consumo", "opioides", "adiccion"],
     "tags": ["salud-mental", "adicciones", "cribado"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: SBIRT de sustancias (DAST-10)",
+        "appliesTo": "Paciente con sospecha de consumo de drogas o como cribado.",
+        "steps": [
+          "Aplicar DAST-10 y preguntar por el tipo de sustancia y la frecuencia.",
+          "Evaluar riesgo de abstinencia (alcohol, opioides, benzodiacepinas): puede ser peligrosa.",
+          "Intervencion breve sin juicio; explorar motivacion para el cambio.",
+          "Ofrecer referir a tratamiento por adicciones segun el nivel de riesgo.",
+          "Ofrecer recursos de reduccion de dano y naloxona si hay uso de opioides.",
+          "Documentar y dar seguimiento."
+        ],
+        "warnings": [
+          "La abstinencia a alcohol y benzodiacepinas puede causar convulsiones: no suspender en seco.",
+          "Uso de opioides + sedantes = alto riesgo de sobredosis respiratoria."
+        ]
+      }
+    }
   },
   {
     "id": "proto-bipolar-screening",
     "type": "protocol",
-    "title": "Protocolo: Cribado de bipolaridad antes de antidepresivos (MDQ)",
-    "enTitle": "Bipolar Screening Before Antidepressants",
+    "title": "Bipolar Screening Before Antidepressants",
     "pronunciation": "by-POH-lar SKREEN-ing bi-FOR an-tee-di-PRES-unts",
-    "appliesTo": "Paciente con depresion en quien se piensa iniciar un antidepresivo.",
+    "appliesTo": "Patient with depression in whom an antidepressant is being considered.",
     "steps": [
-      "Aplicar el MDQ (Mood Disorder Questionnaire).",
-      "Preguntar por episodios de animo elevado/irritable con aumento de energia o de sueno reducido.",
-      "Preguntar por antecedente familiar de bipolaridad y por respuestas previas a antidepresivos (viraje).",
-      "Si el MDQ es positivo, derivar a salud mental antes de iniciar el antidepresivo.",
-      "Registrar el resultado en la nota."
+      "Apply the MDQ (Mood Disorder Questionnaire).",
+      "Ask about episodes of elevated/irritable mood with increased energy or reduced sleep.",
+      "Ask about a family history of bipolar disorder and previous antidepressant responses (switching).",
+      "If the MDQ is positive, refer to behavioral health before starting the antidepressant.",
+      "Record the result in the note."
     ],
     "warnings": [
-      "Un antidepresivo en un paciente bipolar puede desencadenar mania o ciclado rapido.",
-      "Confusion diagnostica frecuente: la depresion bipolar se trata distinto."
+      "An antidepressant in a bipolar patient can trigger mania or rapid cycling.",
+      "Frequent diagnostic confusion: bipolar depression is treated differently."
     ],
     "keywords": ["bipolar", "MDQ", "mania", "antidepresivo", "cribado"],
     "tags": ["salud-mental", "farmacia"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Cribado de bipolaridad antes de antidepresivos (MDQ)",
+        "appliesTo": "Paciente con depresion en quien se piensa iniciar un antidepresivo.",
+        "steps": [
+          "Aplicar el MDQ (Mood Disorder Questionnaire).",
+          "Preguntar por episodios de animo elevado/irritable con aumento de energia o de sueno reducido.",
+          "Preguntar por antecedente familiar de bipolaridad y por respuestas previas a antidepresivos (viraje).",
+          "Si el MDQ es positivo, derivar a salud mental antes de iniciar el antidepresivo.",
+          "Registrar el resultado en la nota."
+        ],
+        "warnings": [
+          "Un antidepresivo en un paciente bipolar puede desencadenar mania o ciclado rapido.",
+          "Confusion diagnostica frecuente: la depresion bipolar se trata distinto."
+        ]
+      }
+    }
   },
   {
     "id": "proto-panic-triage",
     "type": "protocol",
-    "title": "Protocolo: Triage de un ataque de panico",
-    "enTitle": "Panic Attack Triage",
+    "title": "Panic Attack Triage",
     "pronunciation": "PAN-ik uh-TAK TRY-ij",
-    "appliesTo": "Paciente con crisis de ansiedad, palpitaciones o sensacion de muerte inminente.",
+    "appliesTo": "Patient with an anxiety crisis, palpitations or a sense of impending doom.",
     "steps": [
-      "Tratar como posible causa organica hasta descartarla: ECG, glucosa, saturacion y signos vitales.",
-      "Descartar banderas rojas cardiacas: dolor toracico opresivo, irradiacion, diaforesis.",
-      "Descartar causas metabolicas: hipertiroidismo, hipoglucemia, cafeina o estimulantes.",
-      "Si se confirma panico, tranquilizar y ensenar respiracion diafragmatica.",
-      "Plan: TCC y/o SSRI; evitar benzodiacepinas de uso cronico.",
-      "Documentar y ofrecer seguimiento."
+      "Treat as a possible organic cause until ruled out: ECG, glucose, oxygen saturation and vital signs.",
+      "Rule out cardiac red flags: oppressive chest pain, radiation, diaphoresis.",
+      "Rule out metabolic causes: hyperthyroidism, hypoglycemia, caffeine or stimulants.",
+      "If panic is confirmed, reassure and teach diaphragmatic breathing.",
+      "Plan: CBT and/or an SSRI; avoid chronic benzodiazepine use.",
+      "Document and offer follow-up."
     ],
     "warnings": [
-      "Nunca atribuyas por defecto un dolor toracico a 'nervios' sin descartar causa cardiaca.",
-      "Sintomas de panico y de sindrome coronario se superponen."
+      "Never attribute chest pain to 'nerves' by default without ruling out a cardiac cause.",
+      "Panic and coronary syndrome symptoms overlap."
     ],
     "keywords": ["panico", "ataque de panico", "ansiedad", "palpitaciones", "crisis"],
     "tags": ["salud-mental", "triage", "ansiedad"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Triage de un ataque de panico",
+        "appliesTo": "Paciente con crisis de ansiedad, palpitaciones o sensacion de muerte inminente.",
+        "steps": [
+          "Tratar como posible causa organica hasta descartarla: ECG, glucosa, saturacion y signos vitales.",
+          "Descartar banderas rojas cardiacas: dolor toracico opresivo, irradiacion, diaforesis.",
+          "Descartar causas metabolicas: hipertiroidismo, hipoglucemia, cafeina o estimulantes.",
+          "Si se confirma panico, tranquilizar y ensenar respiracion diafragmatica.",
+          "Plan: TCC y/o SSRI; evitar benzodiacepinas de uso cronico.",
+          "Documentar y ofrecer seguimiento."
+        ],
+        "warnings": [
+          "Nunca atribuyas por defecto un dolor toracico a 'nervios' sin descartar causa cardiaca.",
+          "Sintomas de panico y de sindrome coronario se superponen."
+        ]
+      }
+    }
   },
   {
     "id": "proto-psychosis-mania-triage",
     "type": "protocol",
-    "title": "Protocolo: Triage de psicosis o mania",
-    "enTitle": "Psychosis and Mania Triage",
+    "title": "Psychosis and Mania Triage",
     "pronunciation": "sy-KOH-sis and MAY-nee-uh TRY-ij",
-    "appliesTo": "Paciente con alucinaciones, delirios, habla desorganizada o mania.",
+    "appliesTo": "Patient with hallucinations, delusions, disorganized speech or mania.",
     "steps": [
-      "Evaluar seguridad: riesgo de dano a si mismo o a otros.",
-      "Preguntar por consumo de sustancias y por inicio/duracion de los sintomas.",
-      "Descartar causas medicas: infeccion, delirium, hipoglucemia, medicamentos.",
-      "Si hay riesgo, inicio reciente o agitacion: referir a ED o salud mental de forma urgente.",
-      "Si es estable y conocido: contactar a salud mental y coordinar el plan.",
-      "Documentar hallazgos y plan; no dejar solo al paciente si hay riesgo."
+      "Assess safety: risk of harm to self or others.",
+      "Ask about substance use and the onset/duration of symptoms.",
+      "Rule out medical causes: infection, delirium, hypoglycemia, medications.",
+      "If there is risk, recent onset or agitation: refer to the ED or behavioral health urgently.",
+      "If stable and known: contact behavioral health and coordinate the plan.",
+      "Document findings and the plan; do not leave the patient alone if there is risk."
     ],
     "warnings": [
-      "Psicosis de inicio reciente en un adulto mayor: pensar en causa organica.",
-      "El delirium es una emergencia medica, no psiquiatrica primaria."
+      "New-onset psychosis in an older adult: think of an organic cause.",
+      "Delirium is a medical emergency, not a primary psychiatric one."
     ],
     "keywords": ["psicosis", "mania", "alucinaciones", "delirios", "agitacion", "urgente"],
     "tags": ["salud-mental", "triage", "bandera-roja"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Triage de psicosis o mania",
+        "appliesTo": "Paciente con alucinaciones, delirios, habla desorganizada o mania.",
+        "steps": [
+          "Evaluar seguridad: riesgo de dano a si mismo o a otros.",
+          "Preguntar por consumo de sustancias y por inicio/duracion de los sintomas.",
+          "Descartar causas medicas: infeccion, delirium, hipoglucemia, medicamentos.",
+          "Si hay riesgo, inicio reciente o agitacion: referir a ED o salud mental de forma urgente.",
+          "Si es estable y conocido: contactar a salud mental y coordinar el plan.",
+          "Documentar hallazgos y plan; no dejar solo al paciente si hay riesgo."
+        ],
+        "warnings": [
+          "Psicosis de inicio reciente en un adulto mayor: pensar en causa organica.",
+          "El delirium es una emergencia medica, no psiquiatrica primaria."
+        ]
+      }
+    }
   },
   {
     "id": "proto-ssri-followup",
     "type": "protocol",
-    "title": "Protocolo: Seguimiento de un SSRI/SNRI",
-    "enTitle": "SSRI / SNRI Follow-up",
+    "title": "SSRI / SNRI Follow-up",
     "pronunciation": "FOL-oh-up",
-    "appliesTo": "Paciente que inicio o cambio de antidepresivo.",
+    "appliesTo": "Patient who started or changed an antidepressant.",
     "steps": [
-      "Reagendar seguimiento en 2-4 semanas tras iniciar o cambiar la dosis.",
-      "Repetir PHQ-9 y GAD-7 para medir respuesta.",
-      "Preguntar por efectos adversos (nausea, insomnio, disfuncion sexual, agitacion).",
-      "Avisar que el efecto completo tarda 4-6 semanas y que no se suspenda de golpe.",
-      "Vigilar el aumento de ideacion suicida al inicio, sobre todo en jovenes.",
-      "Documentar el cambio de plan."
+      "Schedule follow-up in 2-4 weeks after starting or changing the dose.",
+      "Repeat the PHQ-9 and GAD-7 to measure response.",
+      "Ask about side effects (nausea, insomnia, sexual dysfunction, agitation).",
+      "Explain that the full effect takes 4-6 weeks and that it should not be stopped abruptly.",
+      "Watch for increased suicidal ideation early on, especially in young people.",
+      "Document the change of plan."
     ],
     "warnings": [
-      "Sindrome serotoninergico: agitacion, temblor, sudor, fiebre, hiperreflexia. Suspender y buscar atencion.",
-      "No suspender bruscamente: riesgo de sindrome de discontinuacion."
+      "Serotonin syndrome: agitation, tremor, sweating, fever, hyperreflexia. Stop and seek care.",
+      "Do not stop abruptly: risk of discontinuation syndrome."
     ],
     "keywords": ["SSRI", "ISRS", "antidepresivo", "seguimiento", "serotonina"],
     "tags": ["salud-mental", "farmacia"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Seguimiento de un SSRI/SNRI",
+        "appliesTo": "Paciente que inicio o cambio de antidepresivo.",
+        "steps": [
+          "Reagendar seguimiento en 2-4 semanas tras iniciar o cambiar la dosis.",
+          "Repetir PHQ-9 y GAD-7 para medir respuesta.",
+          "Preguntar por efectos adversos (nausea, insomnio, disfuncion sexual, agitacion).",
+          "Avisar que el efecto completo tarda 4-6 semanas y que no se suspenda de golpe.",
+          "Vigilar el aumento de ideacion suicida al inicio, sobre todo en jovenes.",
+          "Documentar el cambio de plan."
+        ],
+        "warnings": [
+          "Sindrome serotoninergico: agitacion, temblor, sudor, fiebre, hiperreflexia. Suspender y buscar atencion.",
+          "No suspender bruscamente: riesgo de sindrome de discontinuacion."
+        ]
+      }
+    }
   },
   {
     "id": "proto-withdrawal-safety",
     "type": "protocol",
-    "title": "Protocolo: Seguridad en abstinencia a alcohol o sedantes",
-    "enTitle": "Alcohol and Sedative Withdrawal Safety",
+    "title": "Alcohol and Sedative Withdrawal Safety",
     "pronunciation": "AL-kuh-hol and SED-uh-tiv with-DRAW-ul SAYF-tee",
-    "appliesTo": "Paciente que suspende o reduce alcohol, benzodiacepinas o barbituricos.",
+    "appliesTo": "Patient who stops or reduces alcohol, benzodiazepines or barbiturates.",
     "steps": [
-      "Evaluar la ultima ingesta y los sintomas (temblor, sudor, ansiedad, nausea).",
-      "Preguntar por convulsiones o delirium previos en abstinencias pasadas.",
-      "Descartar banderas rojas: convulsion, confusion, alucinaciones, fiebre, taquicardia marcada.",
-      "Con banderas rojas: referir a ED; la abstinencia grave es una emergencia medica.",
-      "Nunca suspender de golpe sedantes o alcohol sin un plan medico supervisado.",
-      "Documentar y coordinar el plan de manejo."
+      "Assess the last intake and the symptoms (tremor, sweating, anxiety, nausea).",
+      "Ask about seizures or delirium during past withdrawals.",
+      "Rule out red flags: seizure, confusion, hallucinations, fever, marked tachycardia.",
+      "With red flags: refer to the ED; severe withdrawal is a medical emergency.",
+      "Never stop sedatives or alcohol abruptly without a supervised medical plan.",
+      "Document and coordinate the management plan."
     ],
     "warnings": [
-      "El delirium tremens tiene mortalidad sin tratamiento.",
-      "Un paciente con antecedente de convulsion por abstinencia requiere manejo escalado."
+      "Delirium tremens is fatal without treatment.",
+      "A patient with a history of withdrawal seizures requires escalated management."
     ],
     "keywords": ["abstinencia", "withdrawal", "alcohol", "benzodiacepina", "delirium tremens"],
     "tags": ["salud-mental", "adicciones", "bandera-roja"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Seguridad en abstinencia a alcohol o sedantes",
+        "appliesTo": "Paciente que suspende o reduce alcohol, benzodiacepinas o barbituricos.",
+        "steps": [
+          "Evaluar la ultima ingesta y los sintomas (temblor, sudor, ansiedad, nausea).",
+          "Preguntar por convulsiones o delirium previos en abstinencias pasadas.",
+          "Descartar banderas rojas: convulsion, confusion, alucinaciones, fiebre, taquicardia marcada.",
+          "Con banderas rojas: referir a ED; la abstinencia grave es una emergencia medica.",
+          "Nunca suspender de golpe sedantes o alcohol sin un plan medico supervisado.",
+          "Documentar y coordinar el plan de manejo."
+        ],
+        "warnings": [
+          "El delirium tremens tiene mortalidad sin tratamiento.",
+          "Un paciente con antecedente de convulsion por abstinencia requiere manejo escalado."
+        ]
+      }
+    }
   },
   {
     "id": "proto-ipv-screening",
     "type": "protocol",
-    "title": "Protocolo: Cribado de violencia de pareja (IPV)",
-    "enTitle": "Intimate Partner Violence Screening",
+    "title": "Intimate Partner Violence Screening",
     "pronunciation": "IN-ti-mit PART-ner VY-uh-luns SKREEN-ing",
-    "appliesTo": "Cribado de rutina y ante signos de alarma en la exploracion.",
+    "appliesTo": "Routine screening and when there are warning signs on exam.",
     "steps": [
-      "Preguntar a SOLAS y sin la pareja presente (ni acompanante).",
-      "Usar una pregunta directa y confidencial: 'Se siente segura en su casa o con su pareja?'.",
-      "Si es positiva, validar sin juzgar y preguntar por el riesgo actual de seguridad.",
-      "Ofrecer recursos (linea de crisis, refugio) y un plan de seguridad.",
-      "Documentar con cuidado; preguntar si es seguro registrar la informacion en el expediente.",
-      "Ofrecer seguimiento y cobertura de salud mental."
+      "Ask ALONE and without the partner present (or a companion).",
+      "Use a direct, confidential question: 'Do you feel safe at home or with your partner?'.",
+      "If positive, validate without judging and ask about current safety risk.",
+      "Offer resources (crisis line, shelter) and a safety plan.",
+      "Document carefully; ask whether it is safe to record the information in the chart.",
+      "Offer follow-up and behavioral health coverage."
     ],
     "warnings": [
-      "Nunca preguntar frente a la pareja o acompanantes.",
-      "Respetar la autonomia de la persona; no la presiones a dejar la relacion."
+      "Never ask in front of the partner or companions.",
+      "Respect the person's autonomy; do not pressure them to leave the relationship."
     ],
     "keywords": ["violencia", "IPV", "pareja", "abuso", "domestica", "seguridad"],
     "tags": ["salud-mental", "social", "cribado"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Cribado de violencia de pareja (IPV)",
+        "appliesTo": "Cribado de rutina y ante signos de alarma en la exploracion.",
+        "steps": [
+          "Preguntar a SOLAS y sin la pareja presente (ni acompanante).",
+          "Usar una pregunta directa y confidencial: 'Se siente segura en su casa o con su pareja?'.",
+          "Si es positiva, validar sin juzgar y preguntar por el riesgo actual de seguridad.",
+          "Ofrecer recursos (linea de crisis, refugio) y un plan de seguridad.",
+          "Documentar con cuidado; preguntar si es seguro registrar la informacion en el expediente.",
+          "Ofrecer seguimiento y cobertura de salud mental."
+        ],
+        "warnings": [
+          "Nunca preguntar frente a la pareja o acompanantes.",
+          "Respetar la autonomia de la persona; no la presiones a dejar la relacion."
+        ]
+      }
+    }
   },
   {
     "id": "proto-bh-referral",
     "type": "protocol",
-    "title": "Protocolo: Referencia a salud conductual (warm handoff)",
-    "enTitle": "Behavioral Health Referral (Warm Handoff)",
+    "title": "Behavioral Health Referral (Warm Handoff)",
     "pronunciation": "bee-HAYV-yer-ul helth ri-FUR-ul (warm HAND-of)",
-    "appliesTo": "Paciente con cribado positivo que requiere atencion de salud mental.",
+    "appliesTo": "Patient with a positive screen who needs behavioral health care.",
     "steps": [
-      "Aplicar y documentar el cribado (PHQ-9, GAD-7, C-SSRS).",
-      "Explicar el resultado y normalizar la atencion de salud mental.",
-      "Hacer una presentacion en caliente (warm handoff): presentar al paciente con el equipo de BH cuando sea posible.",
-      "Ofrecer opciones: BH interno, psiquiatria, terapia externa o telesalud.",
-      "Confirmar que el paciente logro el contacto y dar seguimiento activo.",
-      "Documentar la referencia y el plan de seguimiento."
+      "Apply and document the screen (PHQ-9, GAD-7, C-SSRS).",
+      "Explain the result and normalize behavioral health care.",
+      "Do a warm handoff: introduce the patient to the BH team when possible.",
+      "Offer options: internal BH, psychiatry, outside therapy or telehealth.",
+      "Confirm the patient made contact and follow up actively.",
+      "Document the referral and the follow-up plan."
     ],
     "warnings": [
-      "El seguimiento es parte del cuidado: confirma que el paciente fue atendido.",
-      "Si hay riesgo suicida u homicida, no esperes una cita programada: activa crisis."
+      "Follow-up is part of care: confirm the patient was seen.",
+      "If there is suicidal or homicidal risk, do not wait for a scheduled appointment: activate crisis."
     ],
     "keywords": [
       "salud conductual",
@@ -636,52 +1082,104 @@
       "seguimiento"
     ],
     "tags": ["salud-mental", "administrativo"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Referencia a salud conductual (warm handoff)",
+        "appliesTo": "Paciente con cribado positivo que requiere atencion de salud mental.",
+        "steps": [
+          "Aplicar y documentar el cribado (PHQ-9, GAD-7, C-SSRS).",
+          "Explicar el resultado y normalizar la atencion de salud mental.",
+          "Hacer una presentacion en caliente (warm handoff): presentar al paciente con el equipo de BH cuando sea posible.",
+          "Ofrecer opciones: BH interno, psiquiatria, terapia externa o telesalud.",
+          "Confirmar que el paciente logro el contacto y dar seguimiento activo.",
+          "Documentar la referencia y el plan de seguimiento."
+        ],
+        "warnings": [
+          "El seguimiento es parte del cuidado: confirma que el paciente fue atendido.",
+          "Si hay riesgo suicida u homicida, no esperes una cita programada: activa crisis."
+        ]
+      }
+    }
   },
   {
     "id": "proto-grief-vs-depression",
     "type": "protocol",
-    "title": "Protocolo: Distinguir duelo de depresion",
-    "enTitle": "Grief vs Depression",
+    "title": "Grief vs Depression",
     "pronunciation": "greef ver-sus di-PRESH-un",
-    "appliesTo": "Paciente reciente de una perdida que presenta sintomas depresivos.",
+    "appliesTo": "Patient recently bereaved who presents with depressive symptoms.",
     "steps": [
-      "Explorar el tipo de perdida y el tiempo transcurrido.",
-      "Diferenciar: en el duelo la autoestima suele conservarse y el dolor viene en oleadas ligadas a la perdida.",
-      "En la depresion hay animo bajo persistente, anhedonia global, culpa y desesperanza generalizadas.",
-      "Evaluar siempre el riesgo suicida (C-SSRS), incluso en duelo.",
-      "Ofrecer apoyo, seguimiento y, si hay criterios de depresion mayor, tratamiento.",
-      "Si el duelo es incapacitante y persiste > 12 meses, considerar duelo prolongado."
+      "Explore the type of loss and the time elapsed.",
+      "Differentiate: in grief, self-esteem is usually preserved and the pain comes in waves tied to the loss.",
+      "In depression there is persistent low mood, global anhedonia, and generalized guilt and hopelessness.",
+      "Always assess suicide risk (C-SSRS), even in grief.",
+      "Offer support, follow-up and, if major depression criteria are met, treatment.",
+      "If grief is disabling and persists > 12 months, consider prolonged grief."
     ],
     "warnings": [
-      "El duelo no excluye la depresion: pueden coexistir.",
-      "El riesgo suicida puede aparecer en cualquiera de los dos."
+      "Grief does not rule out depression: they can coexist.",
+      "Suicide risk can appear in either one."
     ],
     "keywords": ["duelo", "grief", "depresion", "luto", "perdida"],
     "tags": ["salud-mental"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Distinguir duelo de depresion",
+        "appliesTo": "Paciente reciente de una perdida que presenta sintomas depresivos.",
+        "steps": [
+          "Explorar el tipo de perdida y el tiempo transcurrido.",
+          "Diferenciar: en el duelo la autoestima suele conservarse y el dolor viene en oleadas ligadas a la perdida.",
+          "En la depresion hay animo bajo persistente, anhedonia global, culpa y desesperanza generalizadas.",
+          "Evaluar siempre el riesgo suicida (C-SSRS), incluso en duelo.",
+          "Ofrecer apoyo, seguimiento y, si hay criterios de depresion mayor, tratamiento.",
+          "Si el duelo es incapacitante y persiste > 12 meses, considerar duelo prolongado."
+        ],
+        "warnings": [
+          "El duelo no excluye la depresion: pueden coexistir.",
+          "El riesgo suicida puede aparecer en cualquiera de los dos."
+        ]
+      }
+    }
   },
   {
     "id": "proto-crisis-988",
     "type": "protocol",
-    "title": "Protocolo: Respuesta a una crisis de salud mental",
-    "enTitle": "Mental Health Crisis Response",
+    "title": "Mental Health Crisis Response",
     "pronunciation": "MEN-tul helth KRY-sis ri-SPONS",
-    "appliesTo": "Paciente en crisis con riesgo de dano, agitacion severa o descompensacion.",
+    "appliesTo": "Patient in crisis with risk of harm, severe agitation or decompensation.",
     "steps": [
-      "Garantizar la seguridad de todos: pedir ayuda si es necesario.",
-      "Evaluar el riesgo de dano a si mismo o a otros (SI/HI).",
-      "Si hay intencion, plan o conducta: llamar o textear al 988, o 911 / ED.",
-      "Permanecer con el paciente hasta que sea evaluado; no dejarlo solo.",
-      "Reducir el acceso a medios (medicamentos, objetos cortantes, armas).",
-      "Documentar la evaluacion, las llamadas y el plan; dar seguimiento en 24-72 h."
+      "Ensure everyone's safety: ask for help if needed.",
+      "Assess the risk of harm to self or others (SI/HI).",
+      "If there is intent, plan or behavior: call or text 988, or 911 / ED.",
+      "Stay with the patient until they are evaluated; do not leave them alone.",
+      "Reduce access to means (medications, sharp objects, firearms).",
+      "Document the assessment, the calls and the plan; follow up in 24-72 h."
     ],
     "warnings": [
-      "988: linea de crisis y prevencion del suicidio, 24/7, en espanol e ingles.",
-      "En peligro inmediato, la via es 911 o el servicio de urgencias."
+      "988: suicide prevention and crisis line, 24/7, in English and Spanish.",
+      "In immediate danger, the route is 911 or the emergency department."
     ],
     "keywords": ["crisis", "988", "suicidio", "emergencia", "salud mental", "911"],
     "tags": ["salud-mental", "crisis", "bandera-roja"],
-    "reviewedAt": "2026-02-20"
+    "reviewedAt": "2026-02-20",
+    "i18n": {
+      "es": {
+        "title": "Protocolo: Respuesta a una crisis de salud mental",
+        "appliesTo": "Paciente en crisis con riesgo de dano, agitacion severa o descompensacion.",
+        "steps": [
+          "Garantizar la seguridad de todos: pedir ayuda si es necesario.",
+          "Evaluar el riesgo de dano a si mismo o a otros (SI/HI).",
+          "Si hay intencion, plan o conducta: llamar o textear al 988, o 911 / ED.",
+          "Permanecer con el paciente hasta que sea evaluado; no dejarlo solo.",
+          "Reducir el acceso a medios (medicamentos, objetos cortantes, armas).",
+          "Documentar la evaluacion, las llamadas y el plan; dar seguimiento en 24-72 h."
+        ],
+        "warnings": [
+          "988: linea de crisis y prevencion del suicidio, 24/7, en espanol e ingles.",
+          "En peligro inmediato, la via es 911 o el servicio de urgencias."
+        ]
+      }
+    }
   }
 ]

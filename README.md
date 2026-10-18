@@ -17,8 +17,7 @@ sin perder tiempo navegando menus.
   - _Diccionario_: termino exacto EN/ES, **pronunciacion en ingles** (p. ej. `hy-per-TEN-shun`),
     como lo dice el paciente, nota clinica.
   - _Ruta eCW_: breadcrumb de clics (`Chart › Hub › Referrals › New ...`) copiable.
-  - _Protocolo_: nombre del procedimiento en ingles con su **pronunciacion**, pasos numerados y
-    advertencias.
+  - _Protocolo_: nombre en ingles con su **pronunciacion**, pasos numerados y advertencias.
   - _Acronimo_: significado y traduccion.
 - **Copiar a la nota** solo de forma explicita: con el boton **Copiar** de la tarjeta o los chips
   por campo. Hacer clic o `Enter` sobre un resultado **no** copia: lo selecciona y lo muestra en
@@ -32,7 +31,10 @@ sin perder tiempo navegando menus.
   **resalta** y las entradas de **bandera roja** se marcan con un punto rojo.
 - **Estado en la URL** (`?q=`, `?type=`, `#id`): refresca o comparte un enlace sin perder el contexto.
 - **Ayuda de atajos** con `?`; `Esc` limpia la busqueda; `Ctrl/Cmd + B` alterna el panel.
-- **Tema** claro, oscuro o **segun el sistema**; **interfaz en espanol o ingles** (boton ES/EN).
+- **Tema** claro, oscuro o **segun el sistema**.
+- **Idioma ES/EN**: el boton cambia **interfaz y contenido** a la vez. El contenido esta escrito en
+  **ingles** y cada entrada guarda su variante en **espanol**, asi que el mismo switch muestra una
+  u otra; la busqueda indexa ambos idiomas.
 - **Panel de detalle redimensionable**: arrastra el separador entre la lista y el panel (o usa
   `←`/`→`, doble clic para el ancho por defecto); el ancho se guarda.
 - **Fijados y recientes**, filtros por categoria y busqueda tolerante a errores.

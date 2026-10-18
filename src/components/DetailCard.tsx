@@ -171,7 +171,7 @@ export function DetailCard({
         </button>
         <button
           type="button"
-          onClick={() => onCopy(entryToText(entry), t('copy.sheet'))}
+          onClick={() => onCopy(entryToText(entry, t), t('copy.sheet'))}
           className="inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-ink ring-1 ring-inset ring-edge transition hover:bg-ink/5"
         >
           <FileText size={14} aria-hidden />
@@ -199,7 +199,7 @@ function EntryBody({
   entry: Entry;
   onCopy: (text: string, label?: string) => void;
 }) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   switch (entry.type) {
     case 'dictionary':
@@ -267,19 +267,11 @@ function EntryBody({
     case 'protocol':
       return (
         <>
-          {entry.enTitle && (
-            <Field label={t('detail.english')}>
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="text-base font-medium text-ink">{entry.enTitle}</span>
-                <CopyChip label={t('detail.copyEn')} value={entry.enTitle} onCopy={onCopy} />
-              </div>
-              {entry.pronunciation && (
-                <div className="mt-1 text-xs text-muted">
-                  {t('detail.pronounces')}{' '}
-                  <span className="font-medium text-ink">{entry.pronunciation}</span>
-                </div>
-              )}
-            </Field>
+          {locale === 'en' && entry.pronunciation && (
+            <div className="text-xs text-muted">
+              {t('detail.pronounces')}{' '}
+              <span className="font-medium text-ink">{entry.pronunciation}</span>
+            </div>
           )}
           {entry.appliesTo && (
             <Field label={t('detail.appliesWhen')}>

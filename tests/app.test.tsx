@@ -11,7 +11,7 @@ describe('App (palette)', () => {
 
   it('muestra resultados al escribir en el buscador', () => {
     render(<App />);
-    const input = screen.getByPlaceholderText(/Busca UTI/i);
+    const input = screen.getByPlaceholderText(/Search UTI/i);
 
     fireEvent.change(input, { target: { value: 'asthma' } });
 
@@ -20,7 +20,7 @@ describe('App (palette)', () => {
 
   it('Esc limpia la busqueda', () => {
     render(<App />);
-    const input = screen.getByPlaceholderText(/Busca UTI/i) as HTMLInputElement;
+    const input = screen.getByPlaceholderText(/Search UTI/i) as HTMLInputElement;
 
     fireEvent.change(input, { target: { value: 'asthma' } });
     expect(input.value).toBe('asthma');
@@ -34,7 +34,7 @@ describe('App (palette)', () => {
 
     fireEvent.keyDown(window, { key: '?' });
 
-    expect(screen.getByRole('dialog', { name: /Atajos y datos/i })).toBeTruthy();
+    expect(screen.getByRole('dialog', { name: /Atajos y datos|Shortcuts and data/i })).toBeTruthy();
   });
 
   it('lee la busqueda inicial desde la URL', () => {
@@ -47,9 +47,7 @@ describe('App (palette)', () => {
   it('hacer clic en un resultado no copia al portapapeles', () => {
     const spy = vi.spyOn(navigator.clipboard, 'writeText');
     render(<App />);
-    fireEvent.change(screen.getByPlaceholderText(/Busca UTI/i), {
-      target: { value: 'asthma' },
-    });
+    fireEvent.change(screen.getByPlaceholderText(/Search UTI/i), { target: { value: 'asthma' } });
 
     const item = document.querySelector('[cmdk-item]');
     expect(item).toBeTruthy();
@@ -61,11 +59,9 @@ describe('App (palette)', () => {
   it('el boton Copiar de la tarjeta si copia', () => {
     const spy = vi.spyOn(navigator.clipboard, 'writeText');
     render(<App />);
-    fireEvent.change(screen.getByPlaceholderText(/Busca UTI/i), {
-      target: { value: 'asthma' },
-    });
+    fireEvent.change(screen.getByPlaceholderText(/Search UTI/i), { target: { value: 'asthma' } });
 
-    fireEvent.click(screen.getByRole('button', { name: 'Copiar' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Copy' }));
 
     expect(spy).toHaveBeenCalled();
   });
@@ -73,14 +69,14 @@ describe('App (palette)', () => {
   it('crea una entrada propia', () => {
     render(<App />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Nueva entrada' }));
-    const dialog = screen.getByRole('dialog', { name: 'Nueva entrada' });
-    fireEvent.change(within(dialog).getByLabelText(/Titulo/i), {
-      target: { value: 'Cefalea tensional' },
+    fireEvent.click(screen.getByRole('button', { name: 'New entry' }));
+    const dialog = screen.getByRole('dialog', { name: 'New entry' });
+    fireEvent.change(within(dialog).getByLabelText(/Title/i), {
+      target: { value: 'Tension headache' },
     });
-    fireEvent.click(within(dialog).getByRole('button', { name: 'Guardar' }));
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Save' }));
 
-    expect(screen.getAllByText('Cefalea tensional').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Tension headache').length).toBeGreaterThan(0);
   });
 
   it('expone un separador para redimensionar el panel', () => {

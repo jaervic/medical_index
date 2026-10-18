@@ -26,7 +26,6 @@ const EMPTY = {
   translation: '',
   module: 'eCW',
   path: '',
-  enTitle: '',
   appliesTo: '',
   steps: '',
   warnings: '',
@@ -122,7 +121,6 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
         candidate = {
           ...base,
           type,
-          enTitle: form.enTitle.trim() || undefined,
           pronunciation: form.pronunciation.trim() || undefined,
           appliesTo: form.appliesTo.trim() || undefined,
           steps: lines(form.steps),
@@ -242,13 +240,6 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
 
             {type === 'protocol' && (
               <>
-                <Field label={t('editor.enTitle')}>
-                  <Input
-                    value={form.enTitle}
-                    onChange={set('enTitle')}
-                    placeholder="Migraine Triage"
-                  />
-                </Field>
                 <Field label={t('editor.pronunciation')}>
                   <Input
                     value={form.pronunciation}

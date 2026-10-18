@@ -25,22 +25,22 @@ describe('i18n', () => {
     expect(incomplete).toEqual([]);
   });
 
-  it('usa espanol por defecto', () => {
-    render(
-      <I18nProvider>
-        <Probe />
-      </I18nProvider>,
-    );
-    expect(screen.getByText('es:¿Que necesitas?')).toBeTruthy();
-  });
-
-  it('usa ingles si esta guardado', () => {
-    localStorage.setItem('meddex:locale', JSON.stringify('en'));
+  it('usa ingles por defecto', () => {
     render(
       <I18nProvider>
         <Probe />
       </I18nProvider>,
     );
     expect(screen.getByText('en:What do you need?')).toBeTruthy();
+  });
+
+  it('usa espanol si esta guardado', () => {
+    localStorage.setItem('meddex:locale', JSON.stringify('es'));
+    render(
+      <I18nProvider>
+        <Probe />
+      </I18nProvider>,
+    );
+    expect(screen.getByText('es:¿Que necesitas?')).toBeTruthy();
   });
 });

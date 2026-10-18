@@ -8,6 +8,19 @@
 
 export type EntryType = 'dictionary' | 'clickpath' | 'protocol' | 'acronym';
 
+/**
+ * Campos de "prosa" que pueden variar por idioma. La base de cada entrada esta
+ * en ingles; `i18n.es` guarda la variante en espanol.
+ */
+export interface LocalizedText {
+  title?: string;
+  note?: string;
+  notes?: string;
+  appliesTo?: string;
+  steps?: string[];
+  warnings?: string[];
+}
+
 export interface BaseEntry {
   /** Identificador estable y unico (kebab-case). */
   id: string;
@@ -19,6 +32,8 @@ export interface BaseEntry {
   tags?: string[];
   /** Fecha ISO de ultima revision del contenido clinico. */
   reviewedAt?: string;
+  /** Variantes de idioma de los campos de prosa. */
+  i18n?: { es?: LocalizedText; en?: LocalizedText };
 }
 
 export interface DictionaryEntry extends BaseEntry {
@@ -45,8 +60,6 @@ export interface ClickPathEntry extends BaseEntry {
 
 export interface ProtocolEntry extends BaseEntry {
   type: 'protocol';
-  /** Nombre del protocolo en ingles (para la nota). */
-  enTitle?: string;
   /** Como se pronuncia el nombre en ingles (respelling en texto). */
   pronunciation?: string;
   /** Pasos ordenados. */
