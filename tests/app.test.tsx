@@ -82,4 +82,12 @@ describe('App (palette)', () => {
 
     expect(screen.getAllByText('Cefalea tensional').length).toBeGreaterThan(0);
   });
+
+  it('expone un separador para redimensionar el panel', () => {
+    render(<App />);
+
+    const handle = screen.getByRole('separator');
+    expect(handle.getAttribute('aria-orientation')).toBe('vertical');
+    expect(Number(handle.getAttribute('aria-valuenow'))).toBeGreaterThan(0);
+  });
 });

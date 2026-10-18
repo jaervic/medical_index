@@ -8,6 +8,7 @@ import { primaryCopyText } from '@/lib/search';
 import { sourceFile, sourceUrl } from '@/lib/source';
 import type { Entry } from '@/lib/types';
 import { ClickPath } from './ClickPath';
+import { RelatedEntries } from './RelatedEntries';
 import { TypeBadge } from './TypeBadge';
 
 interface CopyChipProps {
@@ -43,10 +44,12 @@ export interface DetailCardProps {
   isFavorite: boolean;
   useCount: number;
   isCustom?: boolean;
+  related?: Entry[];
   onToggleFavorite: (id: string) => void;
   onCopy: (text: string, label?: string) => void;
   onTagClick: (tag: string) => void;
   onKeywordClick: (keyword: string) => void;
+  onPickRelated?: (entry: Entry) => void;
   onDelete?: (id: string) => void;
 }
 
@@ -55,10 +58,12 @@ export function DetailCard({
   isFavorite,
   useCount,
   isCustom = false,
+  related = [],
   onToggleFavorite,
   onCopy,
   onTagClick,
   onKeywordClick,
+  onPickRelated,
   onDelete,
 }: DetailCardProps) {
   const { t } = useI18n();
@@ -66,7 +71,7 @@ export function DetailCard({
   const stale = isStaleReview(entry);
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex min-h-0 flex-1 flex-col">
       <header className="flex items-start justify-between gap-3 border-b border-edge px-5 py-4">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
@@ -149,6 +154,10 @@ export function DetailCard({
               ))}
             </div>
           </Field>
+        )}
+
+        {onPickRelated && related.length > 0 && (
+          <RelatedEntries entries={related} onPick={onPickRelated} />
         )}
       </div>
 

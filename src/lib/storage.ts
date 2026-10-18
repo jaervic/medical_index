@@ -14,6 +14,7 @@ export const STORAGE_KEYS = {
   theme: `${NS}:theme`,
   locale: `${NS}:locale`,
   panelCollapsed: `${NS}:panel-collapsed`,
+  panelWidth: `${NS}:panel-width`,
 } as const;
 
 export type Theme = 'dark' | 'light' | 'system';
@@ -139,6 +140,17 @@ export function loadPanelCollapsed(): boolean {
 
 export function savePanelCollapsed(collapsed: boolean): void {
   write(STORAGE_KEYS.panelCollapsed, collapsed);
+}
+
+// --- Ancho del panel de detalle --------------------------------------------
+
+export function loadPanelWidth(): number {
+  const value = read<number>(STORAGE_KEYS.panelWidth, 480);
+  return typeof value === 'number' && Number.isFinite(value) ? value : 480;
+}
+
+export function savePanelWidth(width: number): void {
+  write(STORAGE_KEYS.panelWidth, width);
 }
 
 // --- Exportar / importar datos personales ----------------------------------

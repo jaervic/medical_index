@@ -118,6 +118,10 @@ export const messages = {
   'detail.copyEn': { es: 'Copiar EN', en: 'Copy EN' },
   'detail.copyEs': { es: 'Copiar ES', en: 'Copy ES' },
   'detail.close': { es: 'Cerrar', en: 'Close' },
+  'panel.resize': {
+    es: 'Ajustar el ancho del panel (arrastra o usa las flechas)',
+    en: 'Resize the panel (drag or use arrow keys)',
+  },
 
   'copy.done': { es: 'Copiado', en: 'Copied' },
   'copy.sheet': { es: 'Ficha copiada', en: 'Sheet copied' },

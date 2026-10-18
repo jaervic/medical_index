@@ -63,7 +63,7 @@ export function EmptyPanel({
   const { t } = useI18n();
 
   return (
-    <div className="flex h-full flex-col gap-5 overflow-y-auto p-5">
+    <div className="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto p-5">
       <div>
         <h2 className="text-base font-semibold text-ink">{t('empty.title')}</h2>
         <p className="mt-1 text-sm text-muted">{t('empty.subtitle', { total })}</p>

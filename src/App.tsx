@@ -19,21 +19,23 @@ import { DetailOverlay } from '@/components/DetailOverlay';
 import { EmptyPanel } from '@/components/EmptyPanel';
 import { EntryEditor } from '@/components/EntryEditor';
 import { HelpOverlay } from '@/components/HelpOverlay';
-import { RelatedEntries } from '@/components/RelatedEntries';
 import { ResultItem } from '@/components/ResultItem';
 import { StatusBar } from '@/components/StatusBar';
 import { Toast } from '@/components/Toast';
 import { ENTRIES } from '@/data';
 import { useI18n } from '@/i18n/context';
+import { ResizeHandle } from '@/components/ResizeHandle';
 import { useCopy } from '@/hooks/useCopy';
 import { useCustomEntries } from '@/hooks/useCustomEntries';
 import { useFocusHotkey } from '@/hooks/useFocusHotkey';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { usePanel } from '@/hooks/usePanel';
+import { PANEL_MAX, PANEL_MIN, usePanelWidth } from '@/hooks/usePanelWidth';
 import { useSearch } from '@/hooks/useSearch';
 import { useTheme } from '@/hooks/useTheme';
 import { useUrlState } from '@/hooks/useUrlState';
 import { useUsage } from '@/hooks/useUsage';
+import { useViewportWidth } from '@/hooks/useViewportWidth';
 import { isTypingTarget } from '@/lib/dom';
 import { buildHome } from '@/lib/home';
 import { parseQuery, removeTagToken, removeTypeToken } from '@/lib/queryFilters';
@@ -75,6 +77,8 @@ export default function App() {
   const { theme, cycle: cycleTheme } = useTheme();
   const { t, toggle: toggleLocale } = useI18n();
   const { collapsed, toggle: togglePanel } = usePanel();
+  const { width: panelWidth, setWidth: setPanelWidth, reset: resetPanelWidth } = usePanelWidth();
+  const viewport = useViewportWidth();
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const { favorites, recents, queries, frecencyMap, toggleFavorite, registerUse, registerQuery } =
     useUsage();
@@ -93,6 +97,11 @@ export default function App() {
   const isSearching = parsed.text.length > 0;
   const browsingTags = !isSearching && activeTags.length > 0;
   const panelVisible = isDesktop && !collapsed;
+
+  // Limites del panel segun el espacio disponible (la lista ocupa su ancho fijo).
+  const listWidth = viewport >= 1280 ? 500 : 440;
+  const panelMax = Math.max(PANEL_MIN, Math.min(PANEL_MAX, viewport - listWidth - 6 - 24 - 40));
+  const effectivePanelWidth = Math.min(panelWidth, panelMax);
 
   const results = useSearch(allEntries, parsed.text, frecencyMap, effectiveType);
   const tagFiltered = useMemo(
@@ -261,7 +270,7 @@ export default function App() {
 
   return (
     <div className="flex h-full flex-col">
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-3 overflow-hidden p-3 sm:p-5 2xl:max-w-[1400px] print:h-auto print:overflow-visible print:p-0">
+      <main className="mx-auto flex w-full flex-1 flex-col gap-3 overflow-hidden p-3 sm:p-5 lg:w-fit lg:max-w-full print:h-auto print:overflow-visible print:p-0">
         <header className="flex items-center justify-between gap-4 px-1 print:hidden">
           <div className="flex items-baseline gap-2">
             <span className="text-base font-semibold text-ink">Meddex</span>
@@ -416,18 +425,32 @@ export default function App() {
           </Command>
 
           {!collapsed && (
-            <section className="hidden min-h-0 flex-1 flex-col gap-3 lg:flex print:flex print:w-full">
-              <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm print:overflow-visible print:border-0 print:shadow-none">
+            <>
+              <ResizeHandle
+                width={effectivePanelWidth}
+                min={PANEL_MIN}
+                max={panelMax}
+                label={t('panel.resize')}
+                onChange={(next) => setPanelWidth(Math.min(panelMax, next))}
+                onReset={resetPanelWidth}
+              />
+
+              <section
+                style={{ width: effectivePanelWidth }}
+                className="hidden min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm lg:flex print:flex print:w-full print:border-0 print:shadow-none"
+              >
                 {selected ? (
                   <DetailCard
                     entry={selected}
                     isFavorite={favorites.includes(selected.id)}
                     useCount={useCount}
                     isCustom={customIds.has(selected.id)}
+                    related={related}
                     onToggleFavorite={toggleFavorite}
                     onCopy={copy}
                     onTagClick={handleTagClick}
                     onKeywordClick={handleKeywordClick}
+                    onPickRelated={handlePick}
                     onDelete={handleDeleteCustom}
                   />
                 ) : (
@@ -440,24 +463,12 @@ export default function App() {
                     onPickQuery={handlePickQuery}
                   />
                 )}
-              </div>
 
-              {selected && related.length > 0 && (
-                <div className="max-h-[38%] shrink-0 overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm 2xl:hidden print:hidden">
-                  <RelatedEntries entries={related} onPick={handlePick} />
+                <div className="shrink-0 border-t border-edge print:hidden">
+                  <CrisisBanner variant="row" />
                 </div>
-              )}
-
-              <div className="shrink-0 print:hidden">
-                <CrisisBanner />
-              </div>
-            </section>
-          )}
-
-          {!collapsed && selected && related.length > 0 && (
-            <aside className="hidden w-[300px] shrink-0 flex-col overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm 2xl:flex print:hidden">
-              <RelatedEntries entries={related} onPick={handlePick} />
-            </aside>
+              </section>
+            </>
           )}
         </div>
       </main>

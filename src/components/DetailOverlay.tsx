@@ -7,7 +7,6 @@ import { findRelated } from '@/lib/related';
 import type { Entry } from '@/lib/types';
 import { CrisisBanner } from './CrisisBanner';
 import { DetailCard } from './DetailCard';
-import { RelatedEntries } from './RelatedEntries';
 
 interface DetailOverlayProps {
   entry: Entry;
@@ -77,19 +76,15 @@ export function DetailOverlay({
             isFavorite={isFavorite}
             useCount={useCount}
             isCustom={isCustom}
+            related={related}
             onToggleFavorite={onToggleFavorite}
             onCopy={onCopy}
             onTagClick={onTagClick}
             onKeywordClick={onKeywordClick}
+            onPickRelated={onPick}
             onDelete={onDelete}
           />
         </div>
-
-        {related.length > 0 && (
-          <div className="max-h-[30%] shrink-0 border-t border-edge">
-            <RelatedEntries entries={related} onPick={onPick} />
-          </div>
-        )}
 
         <div className="shrink-0 border-t border-edge p-3">
           <CrisisBanner />

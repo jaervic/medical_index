@@ -33,6 +33,8 @@ sin perder tiempo navegando menus.
 - **Estado en la URL** (`?q=`, `?type=`, `#id`): refresca o comparte un enlace sin perder el contexto.
 - **Ayuda de atajos** con `?`; `Esc` limpia la busqueda; `Ctrl/Cmd + B` alterna el panel.
 - **Tema** claro, oscuro o **segun el sistema**; **interfaz en espanol o ingles** (boton ES/EN).
+- **Panel de detalle redimensionable**: arrastra el separador entre la lista y el panel (o usa
+  `←`/`→`, doble clic para el ancho por defecto); el ancho se guarda.
 - **Fijados y recientes**, filtros por categoria y busqueda tolerante a errores.
 - **Accesibilidad**: navegacion completa por teclado, foco visible, dialogos con trampa de foco,
   regiones `aria-live` para anunciar resultados y respeto a `prefers-reduced-motion`.
