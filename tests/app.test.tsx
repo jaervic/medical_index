@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import App from '@/App';
 
@@ -68,5 +68,18 @@ describe('App (palette)', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Copiar' }));
 
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('crea una entrada propia', () => {
+    render(<App />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Nueva entrada' }));
+    const dialog = screen.getByRole('dialog', { name: 'Nueva entrada' });
+    fireEvent.change(within(dialog).getByLabelText(/Titulo/i), {
+      target: { value: 'Cefalea tensional' },
+    });
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Guardar' }));
+
+    expect(screen.getAllByText('Cefalea tensional').length).toBeGreaterThan(0);
   });
 });

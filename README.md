@@ -36,6 +36,10 @@ sin perder tiempo navegando menus.
 - **Fijados y recientes**, filtros por categoria y busqueda tolerante a errores.
 - **Accesibilidad**: navegacion completa por teclado, foco visible, dialogos con trampa de foco,
   regiones `aria-live` para anunciar resultados y respeto a `prefers-reduced-motion`.
+- **Entradas propias**: crea las tuyas con el botón **Nueva entrada** (se guardan en el navegador,
+  entran en la búsqueda, se marcan como "Propia" y se pueden eliminar). Se incluyen en export/import.
+- **Higiene de contenido**: las entradas con revision antigua muestran "Revision vencida" y
+  `npm run check:reviews` avisa en la CI.
 - **Búsquedas recientes** y botón **"Copiar ficha"** (la entrada completa en texto plano).
 - **Exportar/importar** tus datos personales (fijados, recientes, busquedas, tema) desde la ayuda
   con `?`; todo local, sin datos de pacientes.
@@ -82,6 +86,7 @@ Calidad:
 npm run lint
 npm run format:check
 npm run typecheck
+npm run check:reviews   # avisa de contenido con revision antigua (falla si supera 24 meses)
 npm test
 ```
 

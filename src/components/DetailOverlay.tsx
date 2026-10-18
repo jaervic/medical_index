@@ -1,6 +1,5 @@
 import { X } from 'lucide-react';
 import { useMemo, useRef } from 'react';
-import { ENTRIES } from '@/data';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { findRelated } from '@/lib/related';
@@ -11,33 +10,42 @@ import { RelatedEntries } from './RelatedEntries';
 
 interface DetailOverlayProps {
   entry: Entry;
+  entries: Entry[];
   isFavorite: boolean;
   useCount: number;
+  isCustom?: boolean;
   onToggleFavorite: (id: string) => void;
   onCopy: (text: string, label?: string) => void;
   onTagClick: (tag: string) => void;
   onKeywordClick: (keyword: string) => void;
   onPick: (entry: Entry) => void;
+  onDelete?: (id: string) => void;
   onClose: () => void;
 }
 
 /** Tarjeta a pantalla completa para cuando no hay panel lateral (movil o colapsado). */
 export function DetailOverlay({
   entry,
+  entries,
   isFavorite,
   useCount,
+  isCustom = false,
   onToggleFavorite,
   onCopy,
   onTagClick,
   onKeywordClick,
   onPick,
+  onDelete,
   onClose,
 }: DetailOverlayProps) {
   const ref = useRef<HTMLDivElement>(null);
   useFocusTrap(ref, onClose);
   useScrollLock();
 
-  const related = useMemo(() => findRelated(entry, ENTRIES, 5).map((item) => item.entry), [entry]);
+  const related = useMemo(
+    () => findRelated(entry, entries, 5).map((item) => item.entry),
+    [entry, entries],
+  );
 
   return (
     <div
@@ -66,10 +74,12 @@ export function DetailOverlay({
             entry={entry}
             isFavorite={isFavorite}
             useCount={useCount}
+            isCustom={isCustom}
             onToggleFavorite={onToggleFavorite}
             onCopy={onCopy}
             onTagClick={onTagClick}
             onKeywordClick={onKeywordClick}
+            onDelete={onDelete}
           />
         </div>
 

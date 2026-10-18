@@ -5,6 +5,7 @@ import {
   Moon,
   PanelRightClose,
   PanelRightOpen,
+  Plus,
   Search,
   Sun,
   X,
@@ -16,6 +17,7 @@ import { CrisisBanner } from '@/components/CrisisBanner';
 import { DetailCard } from '@/components/DetailCard';
 import { DetailOverlay } from '@/components/DetailOverlay';
 import { EmptyPanel } from '@/components/EmptyPanel';
+import { EntryEditor } from '@/components/EntryEditor';
 import { HelpOverlay } from '@/components/HelpOverlay';
 import { RelatedEntries } from '@/components/RelatedEntries';
 import { ResultItem } from '@/components/ResultItem';
@@ -23,6 +25,7 @@ import { StatusBar } from '@/components/StatusBar';
 import { Toast } from '@/components/Toast';
 import { ENTRIES } from '@/data';
 import { useCopy } from '@/hooks/useCopy';
+import { useCustomEntries } from '@/hooks/useCustomEntries';
 import { useFocusHotkey } from '@/hooks/useFocusHotkey';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { usePanel } from '@/hooks/usePanel';
@@ -36,8 +39,6 @@ import { parseQuery, removeTagToken, removeTypeToken } from '@/lib/queryFilters'
 import { findRelated } from '@/lib/related';
 import { frecencyValue } from '@/lib/storage';
 import type { Entry, EntryType } from '@/lib/types';
-
-const byId = new Map(ENTRIES.map((entry) => [entry.id, entry]));
 
 /** Tope de entradas mostradas en la vista inicial (evita volcar 200+ filas). */
 const HOME_LIMIT = 50;
@@ -67,6 +68,7 @@ export default function App() {
   const [selectedId, setSelectedId] = useState<string | null>(initial.id || null);
   const [overlayId, setOverlayId] = useState<string | null>(null);
   const [helpOpen, setHelpOpen] = useState(false);
+  const [editorOpen, setEditorOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { theme, cycle: cycleTheme } = useTheme();
@@ -74,8 +76,14 @@ export default function App() {
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const { favorites, recents, queries, frecencyMap, toggleFavorite, registerUse, registerQuery } =
     useUsage();
+  const { customEntries, addCustomEntry, removeCustomEntry } = useCustomEntries();
   const { message, copy } = useCopy();
   useFocusHotkey(inputRef);
+
+  // Entradas propias primero, para que aparezcan arriba en la vista inicial.
+  const allEntries = useMemo(() => [...customEntries, ...ENTRIES], [customEntries]);
+  const byId = useMemo(() => new Map(allEntries.map((entry) => [entry.id, entry])), [allEntries]);
+  const customIds = useMemo(() => new Set(customEntries.map((entry) => entry.id)), [customEntries]);
 
   const parsed = useMemo(() => parseQuery(query), [query]);
   const activeTags = parsed.tags;
@@ -84,7 +92,7 @@ export default function App() {
   const browsingTags = !isSearching && activeTags.length > 0;
   const panelVisible = isDesktop && !collapsed;
 
-  const results = useSearch(parsed.text, frecencyMap, effectiveType);
+  const results = useSearch(allEntries, parsed.text, frecencyMap, effectiveType);
   const tagFiltered = useMemo(
     () =>
       activeTags.length === 0
@@ -99,29 +107,33 @@ export default function App() {
 
   const browseResults = useMemo(() => {
     if (!browsingTags) return [] as Entry[];
-    return ENTRIES.filter(
-      (entry) =>
-        (effectiveType === 'all' || entry.type === effectiveType) &&
-        activeTags.every((tag) => (entry.tags ?? []).some((value) => value.toLowerCase() === tag)),
-    )
+    return allEntries
+      .filter(
+        (entry) =>
+          (effectiveType === 'all' || entry.type === effectiveType) &&
+          activeTags.every((tag) =>
+            (entry.tags ?? []).some((value) => value.toLowerCase() === tag),
+          ),
+      )
       .map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
       .sort((a, b) => b.value - a.value || a.entry.title.localeCompare(b.entry.title))
       .map((item) => item.entry);
-  }, [browsingTags, effectiveType, activeTags, frecencyMap]);
+  }, [browsingTags, allEntries, effectiveType, activeTags, frecencyMap]);
 
   const home = useMemo(
-    () => buildHome(ENTRIES, favorites, recents, effectiveType),
-    [favorites, recents, effectiveType],
+    () => buildHome(allEntries, favorites, recents, effectiveType),
+    [allEntries, favorites, recents, effectiveType],
   );
 
   const topUsed = useMemo(
     () =>
-      ENTRIES.map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
+      allEntries
+        .map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
         .filter((item) => item.value > 0)
         .sort((a, b) => b.value - a.value)
         .slice(0, 5)
         .map((item) => item.entry),
-    [frecencyMap],
+    [allEntries, frecencyMap],
   );
 
   const restShown = useMemo(() => home.rest.slice(0, HOME_LIMIT), [home]);
@@ -150,8 +162,8 @@ export default function App() {
   const overlayEntry = overlayId ? (byId.get(overlayId) ?? null) : null;
 
   const related = useMemo(
-    () => (selected ? findRelated(selected, ENTRIES, 6).map((item) => item.entry) : []),
-    [selected],
+    () => (selected ? findRelated(selected, allEntries, 6).map((item) => item.entry) : []),
+    [selected, allEntries],
   );
 
   const useCount = selected ? (frecencyMap[selected.id]?.count ?? 0) : 0;
@@ -213,6 +225,19 @@ export default function App() {
     if (parsed.type) setQuery(removeTypeToken(query));
   };
 
+  const handleSaveCustom = (entry: Entry) => {
+    addCustomEntry(entry);
+    setEditorOpen(false);
+    setSelectedId(entry.id);
+    registerUse(entry.id);
+  };
+
+  const handleDeleteCustom = (id: string) => {
+    removeCustomEntry(id);
+    setSelectedId((current) => (current === id ? null : current));
+    setOverlayId((current) => (current === id ? null : current));
+  };
+
   const renderItem = (entry: Entry) => (
     <ResultItem key={entry.id} entry={entry} query={parsed.text} onSelect={handleSelect} />
   );
@@ -240,8 +265,17 @@ export default function App() {
           <div className="flex items-center gap-1">
             <button
               type="button"
+              onClick={() => setEditorOpen(true)}
+              aria-label="Nueva entrada"
+              className="rounded-md p-2 text-muted transition hover:bg-ink/5 hover:text-ink"
+            >
+              <Plus size={17} />
+            </button>
+            <button
+              type="button"
               onClick={() => setHelpOpen(true)}
               aria-label="Atajos de teclado"
+              aria-keyshortcuts="Shift+/"
               className="rounded-md p-2 text-muted transition hover:bg-ink/5 hover:text-ink"
             >
               <HelpCircle size={17} />
@@ -251,6 +285,7 @@ export default function App() {
               onClick={togglePanel}
               aria-label={collapsed ? 'Mostrar panel de detalle' : 'Ocultar panel de detalle'}
               aria-pressed={!collapsed}
+              aria-keyshortcuts="Control+B Meta+B"
               className="hidden rounded-md p-2 text-muted transition hover:bg-ink/5 hover:text-ink lg:inline-flex"
             >
               {collapsed ? <PanelRightOpen size={17} /> : <PanelRightClose size={17} />}
@@ -284,6 +319,7 @@ export default function App() {
                 autoFocus
                 spellCheck={false}
                 aria-label="Buscar en protocolos, acronimos y diccionario"
+                aria-keyshortcuts="Control+K Meta+K"
                 placeholder="Busca UTI, refill, PHQ-9, tag:triage, #eCW..."
                 className="h-14 w-full bg-transparent text-base text-ink outline-none placeholder:text-muted"
               />
@@ -333,17 +369,27 @@ export default function App() {
               ) : (
                 <>
                   {home.favorites.length > 0 && (
-                    <Command.Group heading="Fijados" className={GROUP_CLASS}>
+                    <Command.Group
+                      heading={`Fijados · ${home.favorites.length}`}
+                      className={GROUP_CLASS}
+                    >
                       {home.favorites.map(renderItem)}
                     </Command.Group>
                   )}
                   {home.recents.length > 0 && (
-                    <Command.Group heading="Recientes" className={GROUP_CLASS}>
+                    <Command.Group
+                      heading={`Recientes · ${home.recents.length}`}
+                      className={GROUP_CLASS}
+                    >
                       {home.recents.map(renderItem)}
                     </Command.Group>
                   )}
                   <Command.Group
-                    heading={hasHomeShortcuts ? 'Todo lo demas' : 'Todo'}
+                    heading={
+                      hasHomeShortcuts
+                        ? `Todo lo demas · ${home.rest.length}`
+                        : `Todo · ${home.rest.length}`
+                    }
                     className={GROUP_CLASS}
                   >
                     {restShown.map(renderItem)}
@@ -366,14 +412,16 @@ export default function App() {
                     entry={selected}
                     isFavorite={favorites.includes(selected.id)}
                     useCount={useCount}
+                    isCustom={customIds.has(selected.id)}
                     onToggleFavorite={toggleFavorite}
                     onCopy={copy}
                     onTagClick={handleTagClick}
                     onKeywordClick={handleKeywordClick}
+                    onDelete={handleDeleteCustom}
                   />
                 ) : (
                   <EmptyPanel
-                    total={ENTRIES.length}
+                    total={allEntries.length}
                     topUsed={topUsed}
                     favorites={home.favorites}
                     queries={queries}
@@ -409,13 +457,16 @@ export default function App() {
       {overlayEntry && (
         <DetailOverlay
           entry={overlayEntry}
+          entries={allEntries}
           isFavorite={favorites.includes(overlayEntry.id)}
           useCount={frecencyMap[overlayEntry.id]?.count ?? 0}
+          isCustom={customIds.has(overlayEntry.id)}
           onToggleFavorite={toggleFavorite}
           onCopy={copy}
           onTagClick={handleTagClick}
           onKeywordClick={handleKeywordClick}
           onPick={handlePick}
+          onDelete={handleDeleteCustom}
           onClose={() => setOverlayId(null)}
         />
       )}
@@ -426,6 +477,8 @@ export default function App() {
           onImported={() => window.location.reload()}
         />
       )}
+
+      {editorOpen && <EntryEditor onSave={handleSaveCustom} onClose={() => setEditorOpen(false)} />}
     </div>
   );
 }

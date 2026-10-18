@@ -10,6 +10,7 @@ export const STORAGE_KEYS = {
   frecency: `${NS}:frecency`,
   recents: `${NS}:recents`,
   queries: `${NS}:queries`,
+  customEntries: `${NS}:custom-entries`,
   theme: `${NS}:theme`,
   panelCollapsed: `${NS}:panel-collapsed`,
 } as const;
@@ -74,6 +75,16 @@ export function saveQueries(list: string[]): void {
   write(STORAGE_KEYS.queries, list);
 }
 
+// --- Entradas propias ------------------------------------------------------
+
+export function loadCustomEntries(): unknown[] {
+  return read<unknown[]>(STORAGE_KEYS.customEntries, []);
+}
+
+export function saveCustomEntries(entries: unknown[]): void {
+  write(STORAGE_KEYS.customEntries, entries);
+}
+
 // --- Frecency --------------------------------------------------------------
 
 export function loadFrecency(): FrecencyMap {
@@ -125,6 +136,7 @@ export interface PersonalData {
   favorites: string[];
   recents: string[];
   queries: string[];
+  customEntries: unknown[];
   frecency: FrecencyMap;
   theme: Theme;
 }
@@ -136,6 +148,7 @@ export function exportPersonalData(): PersonalData {
     favorites: loadFavorites(),
     recents: loadRecents(),
     queries: loadQueries(),
+    customEntries: loadCustomEntries(),
     frecency: loadFrecency(),
     theme: loadTheme(),
   };
@@ -167,6 +180,9 @@ export function importPersonalData(raw: unknown): { ok: boolean; error?: string 
   saveRecents(data.recents);
   saveQueries(data.queries);
   saveFrecency(data.frecency as FrecencyMap);
+  if (Array.isArray(data.customEntries)) {
+    saveCustomEntries(data.customEntries);
+  }
   if (data.theme === 'dark' || data.theme === 'light' || data.theme === 'system') {
     saveTheme(data.theme);
   }

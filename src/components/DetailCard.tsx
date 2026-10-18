@@ -1,7 +1,8 @@
-import { Copy, FileText, Pencil, Star } from 'lucide-react';
+import { AlertTriangle, Copy, FileText, Pencil, Star, Trash2 } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { isRedFlag } from '@/lib/entryFlags';
 import { entryToText } from '@/lib/entryText';
+import { isStaleReview } from '@/lib/review';
 import { primaryCopyText } from '@/lib/search';
 import { sourceFile, sourceUrl } from '@/lib/source';
 import type { Entry } from '@/lib/types';
@@ -40,22 +41,27 @@ export interface DetailCardProps {
   entry: Entry;
   isFavorite: boolean;
   useCount: number;
+  isCustom?: boolean;
   onToggleFavorite: (id: string) => void;
   onCopy: (text: string, label?: string) => void;
   onTagClick: (tag: string) => void;
   onKeywordClick: (keyword: string) => void;
+  onDelete?: (id: string) => void;
 }
 
 export function DetailCard({
   entry,
   isFavorite,
   useCount,
+  isCustom = false,
   onToggleFavorite,
   onCopy,
   onTagClick,
   onKeywordClick,
+  onDelete,
 }: DetailCardProps) {
   const tags = entry.tags ?? [];
+  const stale = isStaleReview(entry);
 
   return (
     <div className="flex h-full flex-col">
@@ -71,6 +77,17 @@ export function DetailCard({
             )}
             {entry.reviewedAt && (
               <span className="text-[11px] text-muted">Revisado {entry.reviewedAt}</span>
+            )}
+            {stale && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/12 px-2 py-0.5 text-[11px] font-medium text-amber-700 ring-1 ring-inset ring-amber-500/25 dark:text-amber-300">
+                <AlertTriangle size={11} aria-hidden />
+                Revision vencida
+              </span>
+            )}
+            {isCustom && (
+              <span className="rounded-full bg-ink/5 px-2 py-0.5 text-[11px] font-medium text-muted ring-1 ring-inset ring-edge">
+                Propia
+              </span>
             )}
             {useCount > 0 && <span className="text-[11px] text-muted">· Usada {useCount}x</span>}
           </div>
@@ -154,6 +171,16 @@ export function DetailCard({
           <Pencil size={14} />
           Editar en GitHub
         </a>
+        {isCustom && onDelete && (
+          <button
+            type="button"
+            onClick={() => onDelete(entry.id)}
+            className="ml-auto inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-rose-600 ring-1 ring-inset ring-rose-500/25 transition hover:bg-rose-500/10 dark:text-rose-300"
+          >
+            <Trash2 size={14} />
+            Eliminar
+          </button>
+        )}
       </footer>
     </div>
   );
