@@ -24,7 +24,7 @@ sin perder tiempo navegando menus.
   por campo. Hacer clic o `Enter` sobre un resultado **no** copia: lo selecciona y lo muestra en
   el panel derecho (en movil abre la tarjeta).
 - **Panel de detalle** que previsualiza el resultado resaltado mientras navegas; incluye **entradas
-  relacionadas**, etiquetas y sinonimos clicables, contador de uso y enlace para **editar en GitHub**.
+  relacionadas**, etiquetas y sinonimos clicables y contador de uso.
 - **Estado vacio util**: atajos, mas usados, fijados y **linea de crisis 988** siempre a la vista.
 - **Panel colapsable** con `Ctrl/Cmd + B`: si lo ocultas, `Enter` abre la tarjeta a pantalla
   completa (tambien en movil) y `Esc` la cierra.

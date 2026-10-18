@@ -1,11 +1,10 @@
-import { AlertTriangle, Copy, FileText, Pencil, Star, Trash2 } from 'lucide-react';
+import { AlertTriangle, Copy, FileText, Star, Trash2 } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useI18n } from '@/i18n/context';
 import { isRedFlag } from '@/lib/entryFlags';
 import { entryToText } from '@/lib/entryText';
 import { isStaleReview } from '@/lib/review';
 import { primaryCopyText } from '@/lib/search';
-import { sourceFile, sourceUrl } from '@/lib/source';
 import type { Entry } from '@/lib/types';
 import { ClickPath } from './ClickPath';
 import { RelatedEntries } from './RelatedEntries';
@@ -178,16 +177,6 @@ export function DetailCard({
           <FileText size={14} aria-hidden />
           {t('detail.copySheet')}
         </button>
-        <a
-          href={sourceUrl(entry.type)}
-          target="_blank"
-          rel="noreferrer"
-          title={sourceFile(entry.type)}
-          className="inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-muted ring-1 ring-inset ring-edge transition hover:text-ink"
-        >
-          <Pencil size={14} aria-hidden />
-          {t('detail.editGithub')}
-        </a>
         {isCustom && onDelete && (
           <button
             type="button"

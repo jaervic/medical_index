@@ -108,7 +108,6 @@ export const messages = {
   'detail.searchAs': { es: 'Tambien se busca como', en: 'Also searched as' },
   'detail.copy': { es: 'Copiar', en: 'Copy' },
   'detail.copySheet': { es: 'Copiar ficha', en: 'Copy sheet' },
-  'detail.editGithub': { es: 'Editar en GitHub', en: 'Edit on GitHub' },
   'detail.delete': { es: 'Eliminar', en: 'Delete' },
   'detail.custom': { es: 'Propia', en: 'Custom' },
   'detail.stale': { es: 'Revision vencida', en: 'Review overdue' },
