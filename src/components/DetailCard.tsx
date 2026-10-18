@@ -1,6 +1,7 @@
-import { Copy, Pencil, Star } from 'lucide-react';
+import { Copy, FileText, Pencil, Star } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { isRedFlag } from '@/lib/entryFlags';
+import { entryToText } from '@/lib/entryText';
 import { primaryCopyText } from '@/lib/search';
 import { sourceFile, sourceUrl } from '@/lib/source';
 import type { Entry } from '@/lib/types';
@@ -88,7 +89,7 @@ export function DetailCard({
         </button>
       </header>
 
-      <div className="flex-1 space-y-5 overflow-y-auto px-5 py-4">
+      <div className="flex-1 space-y-5 overflow-y-auto px-5 py-4 print:overflow-visible">
         <EntryBody entry={entry} onCopy={onCopy} />
 
         {tags.length > 0 && (
@@ -126,7 +127,7 @@ export function DetailCard({
         )}
       </div>
 
-      <footer className="flex items-center gap-2 border-t border-edge px-5 py-3">
+      <footer className="flex flex-wrap items-center gap-2 border-t border-edge px-5 py-3">
         <button
           type="button"
           onClick={() => onCopy(primaryCopyText(entry), 'Copiado')}
@@ -134,6 +135,14 @@ export function DetailCard({
         >
           <Copy size={14} />
           Copiar
+        </button>
+        <button
+          type="button"
+          onClick={() => onCopy(entryToText(entry), 'Ficha copiada')}
+          className="inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-ink ring-1 ring-inset ring-edge transition hover:bg-ink/5"
+        >
+          <FileText size={14} />
+          Copiar ficha
         </button>
         <a
           href={sourceUrl(entry.type)}

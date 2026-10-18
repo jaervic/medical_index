@@ -46,7 +46,7 @@ const GROUP_CLASS =
   'px-1 pb-2 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-muted [&_[cmdk-group-heading]]:uppercase';
 
 const LIST_BASE =
-  'flex min-h-0 w-full flex-col overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm';
+  'flex min-h-0 w-full flex-col overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm print:hidden';
 const LIST_EXPANDED = `${LIST_BASE} lg:w-[440px] lg:shrink-0 xl:w-[500px]`;
 const LIST_COLLAPSED = `${LIST_BASE} lg:mx-auto lg:max-w-3xl`;
 
@@ -72,7 +72,8 @@ export default function App() {
   const { theme, cycle: cycleTheme } = useTheme();
   const { collapsed, toggle: togglePanel } = usePanel();
   const isDesktop = useMediaQuery('(min-width: 1024px)');
-  const { favorites, recents, frecencyMap, toggleFavorite, registerUse } = useUsage();
+  const { favorites, recents, queries, frecencyMap, toggleFavorite, registerUse, registerQuery } =
+    useUsage();
   const { message, copy } = useCopy();
   useFocusHotkey(inputRef);
 
@@ -181,6 +182,7 @@ export default function App() {
    */
   const handleSelect = (entry: Entry) => {
     registerUse(entry.id);
+    registerQuery(parsed.text);
     setSelectedId(entry.id);
     if (!panelVisible) setOverlayId(entry.id);
   };
@@ -198,6 +200,11 @@ export default function App() {
 
   const handleKeywordClick = (keyword: string) => {
     setQuery(keyword);
+    inputRef.current?.focus();
+  };
+
+  const handlePickQuery = (q: string) => {
+    setQuery(q);
     inputRef.current?.focus();
   };
 
@@ -222,8 +229,8 @@ export default function App() {
 
   return (
     <div className="flex h-full flex-col">
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-3 overflow-hidden p-3 sm:p-5 2xl:max-w-[1400px]">
-        <header className="flex items-center justify-between gap-4 px-1">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-3 overflow-hidden p-3 sm:p-5 2xl:max-w-[1400px] print:h-auto print:overflow-visible print:p-0">
+        <header className="flex items-center justify-between gap-4 px-1 print:hidden">
           <div className="flex items-baseline gap-2">
             <span className="text-base font-semibold text-ink">Meddex</span>
             <span className="hidden text-xs text-muted sm:inline">
@@ -352,8 +359,8 @@ export default function App() {
           </Command>
 
           {!collapsed && (
-            <section className="hidden min-h-0 flex-1 flex-col gap-3 lg:flex">
-              <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm">
+            <section className="hidden min-h-0 flex-1 flex-col gap-3 lg:flex print:flex print:w-full">
+              <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm print:overflow-visible print:border-0 print:shadow-none">
                 {selected ? (
                   <DetailCard
                     entry={selected}
@@ -369,25 +376,27 @@ export default function App() {
                     total={ENTRIES.length}
                     topUsed={topUsed}
                     favorites={home.favorites}
+                    queries={queries}
                     onPick={handlePick}
+                    onPickQuery={handlePickQuery}
                   />
                 )}
               </div>
 
               {selected && related.length > 0 && (
-                <div className="max-h-[38%] shrink-0 overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm 2xl:hidden">
+                <div className="max-h-[38%] shrink-0 overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm 2xl:hidden print:hidden">
                   <RelatedEntries entries={related} onPick={handlePick} />
                 </div>
               )}
 
-              <div className="shrink-0">
+              <div className="shrink-0 print:hidden">
                 <CrisisBanner />
               </div>
             </section>
           )}
 
           {!collapsed && selected && related.length > 0 && (
-            <aside className="hidden w-[300px] shrink-0 flex-col overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm 2xl:flex">
+            <aside className="hidden w-[300px] shrink-0 flex-col overflow-hidden rounded-2xl border border-edge bg-panel shadow-sm 2xl:flex print:hidden">
               <RelatedEntries entries={related} onPick={handlePick} />
             </aside>
           )}
@@ -411,7 +420,12 @@ export default function App() {
         />
       )}
 
-      {helpOpen && <HelpOverlay onClose={() => setHelpOpen(false)} />}
+      {helpOpen && (
+        <HelpOverlay
+          onClose={() => setHelpOpen(false)}
+          onImported={() => window.location.reload()}
+        />
+      )}
     </div>
   );
 }

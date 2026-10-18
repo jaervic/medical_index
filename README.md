@@ -36,6 +36,10 @@ sin perder tiempo navegando menus.
 - **Fijados y recientes**, filtros por categoria y busqueda tolerante a errores.
 - **Accesibilidad**: navegacion completa por teclado, foco visible, dialogos con trampa de foco,
   regiones `aria-live` para anunciar resultados y respeto a `prefers-reduced-motion`.
+- **Búsquedas recientes** y botón **"Copiar ficha"** (la entrada completa en texto plano).
+- **Exportar/importar** tus datos personales (fijados, recientes, busquedas, tema) desde la ayuda
+  con `?`; todo local, sin datos de pacientes.
+- **Estilos de impresión**: imprime la tarjeta abierta en fondo blanco.
 - **PWA instalable y offline**: ponla en su propia ventana en tu monitor secundario.
 
 ## Contenido y fuentes
@@ -80,6 +84,9 @@ npm run format:check
 npm run typecheck
 npm test
 ```
+
+`npm test` incluye un chequeo de accesibilidad con **axe-core** (violaciones graves/criticas), por
+lo que la CI actua tambien como prueba de a11y.
 
 ## Agregar contenido
 

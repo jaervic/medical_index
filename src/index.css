@@ -79,6 +79,20 @@ body {
   }
 }
 
+/* Impresion: solo la tarjeta de detalle, en fondo blanco. */
+@media print {
+  html,
+  body,
+  #root {
+    height: auto;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+}
+
 @keyframes meddex-toast-in {
   from {
     opacity: 0;

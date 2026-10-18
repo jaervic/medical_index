@@ -4,21 +4,24 @@ import {
   frecencyValue,
   loadFavorites,
   loadFrecency,
+  loadQueries,
   loadRecents,
   pushRecent,
   saveFavorites,
   saveFrecency,
+  saveQueries,
   saveRecents,
   type FrecencyMap,
 } from '@/lib/storage';
 
 /**
- * Personalizacion local: fijados, recientes y frecency. Sin backend ni cuentas;
- * todo vive en localStorage y es exclusivo del usuario.
+ * Personalizacion local: fijados, recientes, busquedas y frecency. Sin backend
+ * ni cuentas; todo vive en localStorage y es exclusivo del usuario.
  */
 export function useUsage() {
   const [favorites, setFavorites] = useState<string[]>(() => loadFavorites());
   const [recents, setRecents] = useState<string[]>(() => loadRecents());
+  const [queries, setQueries] = useState<string[]>(() => loadQueries());
   const [frecencyMap, setFrecencyMap] = useState<FrecencyMap>(() => loadFrecency());
 
   const toggleFavorite = useCallback((id: string) => {
@@ -42,7 +45,26 @@ export function useUsage() {
     });
   }, []);
 
+  const registerQuery = useCallback((query: string) => {
+    const clean = query.trim();
+    if (clean.length < 2) return;
+    setQueries((prev) => {
+      const next = pushRecent(prev, clean, 8);
+      saveQueries(next);
+      return next;
+    });
+  }, []);
+
   const frecency = useCallback((id: string) => frecencyValue(frecencyMap[id]), [frecencyMap]);
 
-  return { favorites, recents, frecencyMap, frecency, toggleFavorite, registerUse };
+  return {
+    favorites,
+    recents,
+    queries,
+    frecencyMap,
+    frecency,
+    toggleFavorite,
+    registerUse,
+    registerQuery,
+  };
 }

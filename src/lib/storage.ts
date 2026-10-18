@@ -9,6 +9,7 @@ export const STORAGE_KEYS = {
   favorites: `${NS}:favorites`,
   frecency: `${NS}:frecency`,
   recents: `${NS}:recents`,
+  queries: `${NS}:queries`,
   theme: `${NS}:theme`,
   panelCollapsed: `${NS}:panel-collapsed`,
 } as const;
@@ -63,6 +64,16 @@ export function pushRecent(list: string[], id: string, max = 8): string[] {
   return [id, ...list.filter((item) => item !== id)].slice(0, max);
 }
 
+// --- Busquedas recientes ---------------------------------------------------
+
+export function loadQueries(): string[] {
+  return read<string[]>(STORAGE_KEYS.queries, []);
+}
+
+export function saveQueries(list: string[]): void {
+  write(STORAGE_KEYS.queries, list);
+}
+
 // --- Frecency --------------------------------------------------------------
 
 export function loadFrecency(): FrecencyMap {
@@ -104,4 +115,60 @@ export function loadPanelCollapsed(): boolean {
 
 export function savePanelCollapsed(collapsed: boolean): void {
   write(STORAGE_KEYS.panelCollapsed, collapsed);
+}
+
+// --- Exportar / importar datos personales ----------------------------------
+
+export interface PersonalData {
+  app: 'meddex';
+  version: 1;
+  favorites: string[];
+  recents: string[];
+  queries: string[];
+  frecency: FrecencyMap;
+  theme: Theme;
+}
+
+export function exportPersonalData(): PersonalData {
+  return {
+    app: 'meddex',
+    version: 1,
+    favorites: loadFavorites(),
+    recents: loadRecents(),
+    queries: loadQueries(),
+    frecency: loadFrecency(),
+    theme: loadTheme(),
+  };
+}
+
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((item) => typeof item === 'string');
+}
+
+/** Valida y aplica un JSON exportado. No toca datos de pacientes (no existen). */
+export function importPersonalData(raw: unknown): { ok: boolean; error?: string } {
+  if (typeof raw !== 'object' || raw === null) {
+    return { ok: false, error: 'el archivo no es un objeto JSON valido' };
+  }
+  const data = raw as Partial<PersonalData>;
+
+  if (
+    !isStringArray(data.favorites) ||
+    !isStringArray(data.recents) ||
+    !isStringArray(data.queries)
+  ) {
+    return { ok: false, error: 'faltan las listas de fijados, recientes o busquedas' };
+  }
+  if (typeof data.frecency !== 'object' || data.frecency === null) {
+    return { ok: false, error: 'la seccion de frecuencia no es valida' };
+  }
+
+  saveFavorites(data.favorites);
+  saveRecents(data.recents);
+  saveQueries(data.queries);
+  saveFrecency(data.frecency as FrecencyMap);
+  if (data.theme === 'dark' || data.theme === 'light' || data.theme === 'system') {
+    saveTheme(data.theme);
+  }
+  return { ok: true };
 }

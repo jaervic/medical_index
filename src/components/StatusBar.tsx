@@ -22,7 +22,7 @@ export function StatusBar() {
   const modifier = useModifierKey();
 
   return (
-    <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-edge px-4 py-2 text-[11px] text-muted">
+    <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-edge px-4 py-2 text-[11px] text-muted print:hidden">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
         <Hint keys={['↑', '↓']} label="navegar" />
         <Hint keys={['↵']} label="ver detalle" />

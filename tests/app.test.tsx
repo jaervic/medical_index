@@ -34,7 +34,7 @@ describe('App (palette)', () => {
 
     fireEvent.keyDown(window, { key: '?' });
 
-    expect(screen.getByRole('dialog', { name: /Atajos de teclado/i })).toBeTruthy();
+    expect(screen.getByRole('dialog', { name: /Atajos y datos/i })).toBeTruthy();
   });
 
   it('lee la busqueda inicial desde la URL', () => {

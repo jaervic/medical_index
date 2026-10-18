@@ -1,4 +1,4 @@
-import { Star, TrendingUp } from 'lucide-react';
+import { History, Star, TrendingUp } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useModifierKey } from '@/hooks/useModifierKey';
 import type { Entry } from '@/lib/types';
@@ -9,7 +9,9 @@ interface EmptyPanelProps {
   total: number;
   topUsed: Entry[];
   favorites: Entry[];
+  queries: string[];
   onPick: (entry: Entry) => void;
+  onPickQuery: (query: string) => void;
 }
 
 function MiniList({
@@ -48,7 +50,14 @@ function MiniList({
   );
 }
 
-export function EmptyPanel({ total, topUsed, favorites, onPick }: EmptyPanelProps) {
+export function EmptyPanel({
+  total,
+  topUsed,
+  favorites,
+  queries,
+  onPick,
+  onPickQuery,
+}: EmptyPanelProps) {
   const modifier = useModifierKey();
 
   return (
@@ -59,6 +68,27 @@ export function EmptyPanel({ total, topUsed, favorites, onPick }: EmptyPanelProp
           Escribe arriba o navega con el teclado. {total} entradas listas para consultar.
         </p>
       </div>
+
+      {queries.length > 0 && (
+        <div>
+          <div className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wide text-muted uppercase">
+            <History size={13} aria-hidden />
+            Busquedas recientes
+          </div>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {queries.map((query) => (
+              <button
+                key={query}
+                type="button"
+                onClick={() => onPickQuery(query)}
+                className="rounded-full bg-ink/5 px-2.5 py-1 text-xs text-muted ring-1 ring-inset ring-edge transition hover:text-ink"
+              >
+                {query}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       <ShortcutList modifier={modifier} />
 
