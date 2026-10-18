@@ -9,7 +9,7 @@ export interface ShortcutDef {
 export function shortcuts(modifier: Modifier): ShortcutDef[] {
   return [
     { keys: ['↑', '↓'], label: 'Navegar resultados' },
-    { keys: ['↵'], label: 'Copiar el termino (o abrir la tarjeta)' },
+    { keys: ['↵'], label: 'Ver la entrada en el panel' },
     { keys: ['/'], label: 'Enfocar el buscador' },
     { keys: [modifier, 'K'], label: 'Enfocar desde cualquier lugar' },
     { keys: [modifier, 'B'], label: 'Mostrar u ocultar el panel' },

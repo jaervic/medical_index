@@ -20,7 +20,9 @@ sin perder tiempo navegando menus.
   - _Protocolo_: nombre del procedimiento en ingles con su **pronunciacion**, pasos numerados y
     advertencias.
   - _Acronimo_: significado y traduccion.
-- **Copiar a la nota** con `Enter` o botones por campo.
+- **Copiar a la nota** solo de forma explicita: con el boton **Copiar** de la tarjeta o los chips
+  por campo. Hacer clic o `Enter` sobre un resultado **no** copia: lo selecciona y lo muestra en
+  el panel derecho (en movil abre la tarjeta).
 - **Panel de detalle** que previsualiza el resultado resaltado mientras navegas; incluye **entradas
   relacionadas**, etiquetas y sinonimos clicables, contador de uso y enlace para **editar en GitHub**.
 - **Estado vacio util**: atajos, mas usados, fijados y **linea de crisis 988** siempre a la vista.

@@ -25,7 +25,7 @@ export function StatusBar() {
     <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-edge px-4 py-2 text-[11px] text-muted">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
         <Hint keys={['↑', '↓']} label="navegar" />
-        <Hint keys={['↵']} label="copiar" />
+        <Hint keys={['↵']} label="ver detalle" />
         <Hint keys={['/']} label="buscar" />
         <Hint keys={[modifier, 'K']} label="enfocar" />
         <Hint keys={[modifier, 'B']} label="panel" />

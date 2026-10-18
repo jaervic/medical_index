@@ -34,7 +34,6 @@ import { isTypingTarget } from '@/lib/dom';
 import { buildHome } from '@/lib/home';
 import { parseQuery, removeTagToken, removeTypeToken } from '@/lib/queryFilters';
 import { findRelated } from '@/lib/related';
-import { primaryCopyText } from '@/lib/search';
 import { frecencyValue } from '@/lib/storage';
 import type { Entry, EntryType } from '@/lib/types';
 
@@ -175,14 +174,15 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [overlayId, helpOpen, query]);
 
-  /** Enter/clic en la lista: copia si el panel esta visible, si no abre la tarjeta. */
+  /**
+   * Clic / Enter en un resultado: solo selecciona (la tarjeta aparece en el panel).
+   * En movil o con el panel colapsado, abre el overlay. Copiar es una accion
+   * explicita desde el boton de la tarjeta.
+   */
   const handleSelect = (entry: Entry) => {
     registerUse(entry.id);
-    if (panelVisible) {
-      void copy(primaryCopyText(entry));
-    } else {
-      setOverlayId(entry.id);
-    }
+    setSelectedId(entry.id);
+    if (!panelVisible) setOverlayId(entry.id);
   };
 
   /** Elegir desde "Relacionados", "Mas usados" o vacio: selecciona sin copiar. */
