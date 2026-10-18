@@ -1,11 +1,13 @@
-import { ENTRY_TYPE_LABEL, type EntryType } from '@/lib/types';
+import { useI18n } from '@/i18n/context';
+import type { MessageKey } from '@/i18n/messages';
+import type { EntryType } from '@/lib/types';
 
-const FILTERS: Array<{ value: EntryType | 'all'; label: string }> = [
-  { value: 'all', label: 'Todo' },
-  { value: 'acronym', label: ENTRY_TYPE_LABEL.acronym },
-  { value: 'dictionary', label: ENTRY_TYPE_LABEL.dictionary },
-  { value: 'clickpath', label: ENTRY_TYPE_LABEL.clickpath },
-  { value: 'protocol', label: ENTRY_TYPE_LABEL.protocol },
+const FILTERS: Array<{ value: EntryType | 'all'; key: MessageKey }> = [
+  { value: 'all', key: 'filter.all' },
+  { value: 'acronym', key: 'type.acronym' },
+  { value: 'dictionary', key: 'type.dictionary' },
+  { value: 'clickpath', key: 'type.clickpath' },
+  { value: 'protocol', key: 'type.protocol' },
 ];
 
 interface CategoryFilterProps {
@@ -14,8 +16,10 @@ interface CategoryFilterProps {
 }
 
 export function CategoryFilter({ value, onChange }: CategoryFilterProps) {
+  const { t } = useI18n();
+
   return (
-    <div role="group" aria-label="Filtrar por categoria" className="flex flex-wrap gap-1.5">
+    <div role="group" aria-label={t('search.filterGroup')} className="flex flex-wrap gap-1.5">
       {FILTERS.map((filter) => {
         const active = filter.value === value;
         return (
@@ -30,7 +34,7 @@ export function CategoryFilter({ value, onChange }: CategoryFilterProps) {
                 : 'text-muted ring-1 ring-inset ring-edge hover:text-ink'
             }`}
           >
-            {filter.label}
+            {t(filter.key)}
           </button>
         );
       })}

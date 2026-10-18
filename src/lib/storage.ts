@@ -12,10 +12,12 @@ export const STORAGE_KEYS = {
   queries: `${NS}:queries`,
   customEntries: `${NS}:custom-entries`,
   theme: `${NS}:theme`,
+  locale: `${NS}:locale`,
   panelCollapsed: `${NS}:panel-collapsed`,
 } as const;
 
 export type Theme = 'dark' | 'light' | 'system';
+export type Locale = 'es' | 'en';
 
 export interface FrecencyRecord {
   count: number;
@@ -118,6 +120,17 @@ export function saveTheme(theme: Theme): void {
   write(STORAGE_KEYS.theme, theme);
 }
 
+// --- Idioma ----------------------------------------------------------------
+
+export function loadLocale(): Locale {
+  const value = read<Locale>(STORAGE_KEYS.locale, 'es');
+  return value === 'en' ? 'en' : 'es';
+}
+
+export function saveLocale(locale: Locale): void {
+  write(STORAGE_KEYS.locale, locale);
+}
+
 // --- Panel de detalle ------------------------------------------------------
 
 export function loadPanelCollapsed(): boolean {
@@ -139,6 +152,7 @@ export interface PersonalData {
   customEntries: unknown[];
   frecency: FrecencyMap;
   theme: Theme;
+  locale: Locale;
 }
 
 export function exportPersonalData(): PersonalData {
@@ -151,6 +165,7 @@ export function exportPersonalData(): PersonalData {
     customEntries: loadCustomEntries(),
     frecency: loadFrecency(),
     theme: loadTheme(),
+    locale: loadLocale(),
   };
 }
 
@@ -185,6 +200,9 @@ export function importPersonalData(raw: unknown): { ok: boolean; error?: string 
   }
   if (data.theme === 'dark' || data.theme === 'light' || data.theme === 'system') {
     saveTheme(data.theme);
+  }
+  if (data.locale === 'es' || data.locale === 'en') {
+    saveLocale(data.locale);
   }
   return { ok: true };
 }

@@ -1,5 +1,6 @@
 import { Download, Upload } from 'lucide-react';
 import { useRef, useState } from 'react';
+import { useI18n } from '@/i18n/context';
 import { exportPersonalData, importPersonalData } from '@/lib/storage';
 
 /**
@@ -7,6 +8,7 @@ import { exportPersonalData, importPersonalData } from '@/lib/storage';
  * Son solo preferencias locales: nunca hay datos de pacientes.
  */
 export function DataControls({ onImported }: { onImported: () => void }) {
+  const { t } = useI18n();
   const fileRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState<string | null>(null);
 
@@ -20,7 +22,7 @@ export function DataControls({ onImported }: { onImported: () => void }) {
     link.download = 'meddex-datos.json';
     link.click();
     URL.revokeObjectURL(url);
-    setMessage('Datos exportados.');
+    setMessage(t('data.exported'));
   };
 
   const handleImport = async (file: File) => {
@@ -28,13 +30,13 @@ export function DataControls({ onImported }: { onImported: () => void }) {
       const parsed = JSON.parse(await file.text()) as unknown;
       const result = importPersonalData(parsed);
       if (result.ok) {
-        setMessage('Datos importados. Recargando...');
+        setMessage(t('data.imported'));
         onImported();
       } else {
-        setMessage(`No se importo: ${result.error}.`);
+        setMessage(t('data.importFailed', { error: result.error ?? '' }));
       }
     } catch {
-      setMessage('No se pudo leer el archivo (JSON invalido).');
+      setMessage(t('data.readError'));
     }
   };
 
@@ -46,16 +48,16 @@ export function DataControls({ onImported }: { onImported: () => void }) {
           onClick={handleExport}
           className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-ink ring-1 ring-inset ring-edge transition hover:bg-ink/5"
         >
-          <Download size={14} />
-          Exportar datos
+          <Download size={14} aria-hidden />
+          {t('data.export')}
         </button>
         <button
           type="button"
           onClick={() => fileRef.current?.click()}
           className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-ink ring-1 ring-inset ring-edge transition hover:bg-ink/5"
         >
-          <Upload size={14} />
-          Importar datos
+          <Upload size={14} aria-hidden />
+          {t('data.import')}
         </button>
         <input
           ref={fileRef}

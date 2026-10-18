@@ -1,5 +1,5 @@
+import { useI18n } from '@/i18n/context';
 import type { EntryType } from '@/lib/types';
-import { ENTRY_TYPE_LABEL } from '@/lib/types';
 
 const STYLES: Record<EntryType, string> = {
   dictionary: 'bg-sky-500/12 text-sky-600 dark:text-sky-300 ring-sky-500/25',
@@ -9,11 +9,13 @@ const STYLES: Record<EntryType, string> = {
 };
 
 export function TypeBadge({ type }: { type: EntryType }) {
+  const { t } = useI18n();
+
   return (
     <span
       className={`rounded-full px-2 py-0.5 text-[11px] font-medium ring-1 ring-inset ${STYLES[type]}`}
     >
-      {ENTRY_TYPE_LABEL[type]}
+      {t(`type.${type}`)}
     </span>
   );
 }

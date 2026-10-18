@@ -1,9 +1,12 @@
+import { useI18n } from '@/i18n/context';
 import { shortcuts, type Modifier } from '@/lib/shortcuts';
 
 export function ShortcutList({ modifier }: { modifier: Modifier }) {
+  const { t } = useI18n();
+
   return (
     <ul className="divide-y divide-edge rounded-lg border border-edge px-3 py-1.5">
-      {shortcuts(modifier).map((shortcut) => (
+      {shortcuts(modifier, t).map((shortcut) => (
         <li key={shortcut.label} className="flex items-center justify-between gap-3 py-1">
           <span className="text-xs text-muted">{shortcut.label}</span>
           <span className="flex items-center gap-1">

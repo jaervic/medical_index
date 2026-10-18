@@ -1,7 +1,9 @@
 import { X } from 'lucide-react';
-import { ENTRY_TYPE_LABEL, type EntryType } from '@/lib/types';
+import { useI18n } from '@/i18n/context';
+import type { EntryType } from '@/lib/types';
 
 function Chip({ label, onRemove }: { label: string; onRemove: () => void }) {
+  const { t } = useI18n();
   return (
     <button
       type="button"
@@ -10,7 +12,7 @@ function Chip({ label, onRemove }: { label: string; onRemove: () => void }) {
     >
       {label}
       <X size={12} aria-hidden />
-      <span className="sr-only">Quitar filtro</span>
+      <span className="sr-only">{t('filters.remove')}</span>
     </button>
   );
 }
@@ -23,11 +25,15 @@ interface ActiveFiltersProps {
 }
 
 export function ActiveFilters({ type, tags, onRemoveType, onRemoveTag }: ActiveFiltersProps) {
+  const { t } = useI18n();
+
   if (!type && tags.length === 0) return null;
 
   return (
     <div className="flex flex-wrap items-center gap-1.5">
-      {type && <Chip label={`Tipo: ${ENTRY_TYPE_LABEL[type]}`} onRemove={onRemoveType} />}
+      {type && (
+        <Chip label={t('filters.type', { label: t(`type.${type}`) })} onRemove={onRemoveType} />
+      )}
       {tags.map((tag) => (
         <Chip key={tag} label={`#${tag}`} onRemove={() => onRemoveTag(tag)} />
       ))}

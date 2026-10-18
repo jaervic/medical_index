@@ -8,10 +8,11 @@ import {
   type ReactNode,
   type TextareaHTMLAttributes,
 } from 'react';
+import { useI18n } from '@/i18n/context';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { parseCustomEntry, slugId } from '@/lib/customEntries';
-import { ENTRY_TYPE_LABEL, type Entry, type EntryType } from '@/lib/types';
+import type { Entry, EntryType } from '@/lib/types';
 
 const TYPES: EntryType[] = ['dictionary', 'acronym', 'clickpath', 'protocol'];
 
@@ -57,6 +58,7 @@ interface EntryEditorProps {
 /** Formulario para crear una entrada propia. Valida con el mismo esquema Zod. */
 export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
   useFocusTrap(ref, onClose);
   useScrollLock();
 
@@ -73,7 +75,7 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
     event.preventDefault();
     const title = form.title.trim();
     if (title.length === 0) {
-      setError('El titulo es obligatorio.');
+      setError(t('editor.required'));
       return;
     }
 
@@ -141,7 +143,7 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Nueva entrada"
+      aria-label={t('editor.title')}
       className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 p-0 sm:items-center sm:p-6"
       onClick={onClose}
     >
@@ -152,10 +154,10 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
         className="flex max-h-[92vh] w-full max-w-lg flex-col overflow-hidden rounded-t-2xl border border-edge bg-panel shadow-2xl outline-none sm:rounded-2xl"
       >
         <header className="flex items-center justify-between border-b border-edge px-5 py-3.5">
-          <h2 className="text-base font-semibold text-ink">Nueva entrada</h2>
+          <h2 className="text-base font-semibold text-ink">{t('editor.title')}</h2>
           <button
             type="button"
-            aria-label="Cerrar"
+            aria-label={t('detail.close')}
             onClick={onClose}
             className="rounded-md p-1.5 text-muted transition hover:bg-ink/5 hover:text-ink"
           >
@@ -165,7 +167,7 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
 
         <form onSubmit={handleSubmit} className="flex min-h-0 flex-1 flex-col">
           <div className="space-y-4 overflow-y-auto p-5">
-            <Field label="Tipo">
+            <Field label={t('editor.typeField')}>
               <select
                 value={type}
                 onChange={(event) => setType(event.target.value as EntryType)}
@@ -173,32 +175,32 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
               >
                 {TYPES.map((value) => (
                   <option key={value} value={value}>
-                    {ENTRY_TYPE_LABEL[value]}
+                    {t(`type.${value}`)}
                   </option>
                 ))}
               </select>
             </Field>
 
-            <Field label="Titulo">
-              <Input value={form.title} onChange={set('title')} placeholder="p. ej. Migraine" />
+            <Field label={t('editor.titleField')}>
+              <Input value={form.title} onChange={set('title')} placeholder="Migraine" />
             </Field>
 
             {type === 'dictionary' && (
               <>
-                <Field label="Ingles (nota)">
+                <Field label={t('detail.english')}>
                   <Input value={form.en} onChange={set('en')} placeholder="Migraine" />
                 </Field>
-                <Field label="Espanol">
+                <Field label={t('detail.spanish')}>
                   <Input value={form.es} onChange={set('es')} placeholder="Migrana" />
                 </Field>
-                <Field label="Pronunciacion">
+                <Field label={t('editor.pronunciation')}>
                   <Input
                     value={form.pronunciation}
                     onChange={set('pronunciation')}
                     placeholder="MY-grayn"
                   />
                 </Field>
-                <Field label="Como lo dice el paciente (separado por comas)">
+                <Field label={t('editor.colloquial')}>
                   <Input
                     value={form.colloquial}
                     onChange={set('colloquial')}
@@ -210,14 +212,10 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
 
             {type === 'acronym' && (
               <>
-                <Field label="Significado (EN)">
-                  <Input
-                    value={form.expansion}
-                    onChange={set('expansion')}
-                    placeholder="Urinary Tract Infection"
-                  />
+                <Field label={t('editor.expansion')}>
+                  <Input value={form.expansion} onChange={set('expansion')} placeholder="UTI" />
                 </Field>
-                <Field label="Traduccion (ES)">
+                <Field label={t('editor.translation')}>
                   <Input
                     value={form.translation}
                     onChange={set('translation')}
@@ -229,10 +227,10 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
 
             {type === 'clickpath' && (
               <>
-                <Field label="Modulo">
+                <Field label={t('editor.module')}>
                   <Input value={form.module} onChange={set('module')} placeholder="eCW" />
                 </Field>
-                <Field label="Ruta de clics (una por linea)">
+                <Field label={t('editor.path')}>
                   <Textarea
                     value={form.path}
                     onChange={set('path')}
@@ -244,35 +242,35 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
 
             {type === 'protocol' && (
               <>
-                <Field label="Nombre en ingles">
+                <Field label={t('editor.enTitle')}>
                   <Input
                     value={form.enTitle}
                     onChange={set('enTitle')}
                     placeholder="Migraine Triage"
                   />
                 </Field>
-                <Field label="Pronunciacion">
+                <Field label={t('editor.pronunciation')}>
                   <Input
                     value={form.pronunciation}
                     onChange={set('pronunciation')}
                     placeholder="MY-grayn TRY-ij"
                   />
                 </Field>
-                <Field label="Aplica cuando">
+                <Field label={t('detail.appliesWhen')}>
                   <Input
                     value={form.appliesTo}
                     onChange={set('appliesTo')}
                     placeholder="Paciente con cefalea recurrente"
                   />
                 </Field>
-                <Field label="Pasos (uno por linea)">
+                <Field label={t('editor.steps')}>
                   <Textarea
                     value={form.steps}
                     onChange={set('steps')}
                     placeholder={'Preguntar banderas rojas\nIndicar tratamiento'}
                   />
                 </Field>
-                <Field label="Advertencias (una por linea)">
+                <Field label={t('editor.warnings')}>
                   <Textarea
                     value={form.warnings}
                     onChange={set('warnings')}
@@ -282,18 +280,18 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
               </>
             )}
 
-            <Field label="Nota / indicaciones">
+            <Field label={t('editor.note')}>
               <Textarea value={form.note} onChange={set('note')} />
             </Field>
 
-            <Field label="Tambien se busca como (separado por comas)">
+            <Field label={t('editor.keywords')}>
               <Input
                 value={form.keywords}
                 onChange={set('keywords')}
                 placeholder="migrana, headache"
               />
             </Field>
-            <Field label="Etiquetas (separado por comas)">
+            <Field label={t('editor.tags')}>
               <Input
                 value={form.tags}
                 onChange={set('tags')}
@@ -314,13 +312,13 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
               onClick={onClose}
               className="rounded-md px-3 py-1.5 text-sm text-muted transition hover:text-ink"
             >
-              Cancelar
+              {t('editor.cancel')}
             </button>
             <button
               type="submit"
               className="rounded-md bg-accent px-3 py-1.5 text-sm font-medium text-accent-ink transition hover:opacity-90"
             >
-              Guardar
+              {t('editor.save')}
             </button>
           </footer>
         </form>

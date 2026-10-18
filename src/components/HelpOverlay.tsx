@@ -1,5 +1,6 @@
 import { X } from 'lucide-react';
 import { useRef } from 'react';
+import { useI18n } from '@/i18n/context';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useModifierKey } from '@/hooks/useModifierKey';
 import { useScrollLock } from '@/hooks/useScrollLock';
@@ -16,6 +17,7 @@ export function HelpOverlay({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const modifier = useModifierKey();
+  const { t } = useI18n();
   useFocusTrap(ref, onClose);
   useScrollLock();
 
@@ -23,7 +25,7 @@ export function HelpOverlay({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Atajos y datos"
+      aria-label={t('help.title')}
       className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 p-0 sm:items-center sm:p-6"
       onClick={onClose}
     >
@@ -34,10 +36,10 @@ export function HelpOverlay({
         className="flex max-h-[92vh] w-full max-w-md flex-col overflow-hidden rounded-t-2xl border border-edge bg-panel shadow-2xl outline-none sm:rounded-2xl"
       >
         <header className="flex items-center justify-between border-b border-edge px-5 py-3.5">
-          <h2 className="text-base font-semibold text-ink">Atajos y datos</h2>
+          <h2 className="text-base font-semibold text-ink">{t('help.title')}</h2>
           <button
             type="button"
-            aria-label="Cerrar"
+            aria-label={t('detail.close')}
             onClick={onClose}
             className="rounded-md p-1.5 text-muted transition hover:bg-ink/5 hover:text-ink"
           >
@@ -47,18 +49,15 @@ export function HelpOverlay({
         <div className="space-y-5 overflow-y-auto p-5">
           <section>
             <h3 className="mb-2 text-[11px] font-semibold tracking-wide text-muted uppercase">
-              Atajos de teclado
+              {t('help.shortcuts')}
             </h3>
             <ShortcutList modifier={modifier} />
           </section>
           <section>
             <h3 className="text-[11px] font-semibold tracking-wide text-muted uppercase">
-              Datos personales
+              {t('help.data')}
             </h3>
-            <p className="mt-1 mb-2 text-xs text-muted">
-              Fijados, recientes, busquedas y tema. Solo preferencias locales, sin datos de
-              pacientes.
-            </p>
+            <p className="mt-1 mb-2 text-xs text-muted">{t('help.dataDesc')}</p>
             <DataControls onImported={onImported} />
           </section>
         </div>

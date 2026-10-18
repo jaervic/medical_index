@@ -1,5 +1,6 @@
 import { History, Star, TrendingUp } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { useI18n } from '@/i18n/context';
 import { useModifierKey } from '@/hooks/useModifierKey';
 import type { Entry } from '@/lib/types';
 import { ShortcutList } from './ShortcutList';
@@ -59,21 +60,20 @@ export function EmptyPanel({
   onPickQuery,
 }: EmptyPanelProps) {
   const modifier = useModifierKey();
+  const { t } = useI18n();
 
   return (
     <div className="flex h-full flex-col gap-5 overflow-y-auto p-5">
       <div>
-        <h2 className="text-base font-semibold text-ink">¿Que necesitas?</h2>
-        <p className="mt-1 text-sm text-muted">
-          Escribe arriba o navega con el teclado. {total} entradas listas para consultar.
-        </p>
+        <h2 className="text-base font-semibold text-ink">{t('empty.title')}</h2>
+        <p className="mt-1 text-sm text-muted">{t('empty.subtitle', { total })}</p>
       </div>
 
       {queries.length > 0 && (
         <div>
           <div className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wide text-muted uppercase">
             <History size={13} aria-hidden />
-            Busquedas recientes
+            {t('empty.recentQueries')}
           </div>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {queries.map((query) => (
@@ -93,14 +93,14 @@ export function EmptyPanel({
       <ShortcutList modifier={modifier} />
 
       <MiniList
-        heading="Mas usados"
+        heading={t('empty.topUsed')}
         icon={<TrendingUp size={13} aria-hidden />}
         entries={topUsed}
         onPick={onPick}
       />
 
       <MiniList
-        heading="Fijados"
+        heading={t('empty.favorites')}
         icon={<Star size={13} aria-hidden />}
         entries={favorites}
         onPick={onPick}

@@ -1,5 +1,6 @@
 import { X } from 'lucide-react';
 import { useMemo, useRef } from 'react';
+import { useI18n } from '@/i18n/context';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { findRelated } from '@/lib/related';
@@ -39,6 +40,7 @@ export function DetailOverlay({
   onClose,
 }: DetailOverlayProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
   useFocusTrap(ref, onClose);
   useScrollLock();
 
@@ -64,7 +66,7 @@ export function DetailOverlay({
         <div className="relative flex min-h-0 flex-1 flex-col">
           <button
             type="button"
-            aria-label="Cerrar"
+            aria-label={t('detail.close')}
             onClick={onClose}
             className="absolute top-3 right-3 z-10 rounded-md bg-panel/80 p-1.5 text-muted transition hover:text-ink"
           >

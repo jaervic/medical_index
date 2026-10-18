@@ -1,5 +1,6 @@
 import { AlertTriangle, Copy, FileText, Pencil, Star, Trash2 } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { useI18n } from '@/i18n/context';
 import { isRedFlag } from '@/lib/entryFlags';
 import { entryToText } from '@/lib/entryText';
 import { isStaleReview } from '@/lib/review';
@@ -22,7 +23,7 @@ function CopyChip({ label, value, onCopy }: CopyChipProps) {
       onClick={() => onCopy(value, label)}
       className="inline-flex items-center gap-1.5 rounded-md bg-ink/5 px-2 py-1 text-xs font-medium text-ink ring-1 ring-inset ring-edge transition hover:bg-accent hover:text-accent-ink hover:ring-accent"
     >
-      <Copy size={12} />
+      <Copy size={12} aria-hidden />
       {label}
     </button>
   );
@@ -60,6 +61,7 @@ export function DetailCard({
   onKeywordClick,
   onDelete,
 }: DetailCardProps) {
+  const { t } = useI18n();
   const tags = entry.tags ?? [];
   const stale = isStaleReview(entry);
 
@@ -72,30 +74,36 @@ export function DetailCard({
             {isRedFlag(entry) && (
               <span className="inline-flex items-center gap-1 rounded-full bg-rose-500/10 px-2 py-0.5 text-[11px] font-medium text-rose-600 ring-1 ring-inset ring-rose-500/25 dark:text-rose-300">
                 <span aria-hidden className="size-1.5 rounded-full bg-rose-500" />
-                Bandera roja
+                {t('detail.redFlag')}
               </span>
             )}
             {entry.reviewedAt && (
-              <span className="text-[11px] text-muted">Revisado {entry.reviewedAt}</span>
+              <span className="text-[11px] text-muted">
+                {t('detail.reviewed', { date: entry.reviewedAt })}
+              </span>
             )}
             {stale && (
               <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/12 px-2 py-0.5 text-[11px] font-medium text-amber-700 ring-1 ring-inset ring-amber-500/25 dark:text-amber-300">
                 <AlertTriangle size={11} aria-hidden />
-                Revision vencida
+                {t('detail.stale')}
               </span>
             )}
             {isCustom && (
               <span className="rounded-full bg-ink/5 px-2 py-0.5 text-[11px] font-medium text-muted ring-1 ring-inset ring-edge">
-                Propia
+                {t('detail.custom')}
               </span>
             )}
-            {useCount > 0 && <span className="text-[11px] text-muted">· Usada {useCount}x</span>}
+            {useCount > 0 && (
+              <span className="text-[11px] text-muted">
+                · {t('detail.usedCount', { count: useCount })}
+              </span>
+            )}
           </div>
           <h2 className="mt-2 text-lg leading-tight font-semibold text-ink">{entry.title}</h2>
         </div>
         <button
           type="button"
-          aria-label={isFavorite ? 'Quitar de fijados' : 'Fijar'}
+          aria-label={isFavorite ? 'Unpin' : 'Pin'}
           aria-pressed={isFavorite}
           onClick={() => onToggleFavorite(entry.id)}
           className={`shrink-0 rounded-md p-2 transition ${
@@ -110,7 +118,7 @@ export function DetailCard({
         <EntryBody entry={entry} onCopy={onCopy} />
 
         {tags.length > 0 && (
-          <Field label="Etiquetas">
+          <Field label={t('detail.tags')}>
             <div className="flex flex-wrap gap-1.5">
               {tags.map((tag) => (
                 <button
@@ -127,7 +135,7 @@ export function DetailCard({
         )}
 
         {entry.keywords && entry.keywords.length > 0 && (
-          <Field label="Tambien se busca como">
+          <Field label={t('detail.searchAs')}>
             <div className="flex flex-wrap gap-1.5">
               {entry.keywords.map((keyword) => (
                 <button
@@ -147,19 +155,19 @@ export function DetailCard({
       <footer className="flex flex-wrap items-center gap-2 border-t border-edge px-5 py-3">
         <button
           type="button"
-          onClick={() => onCopy(primaryCopyText(entry), 'Copiado')}
+          onClick={() => onCopy(primaryCopyText(entry), t('copy.done'))}
           className="inline-flex items-center gap-2 rounded-md bg-accent px-3 py-1.5 text-sm font-medium text-accent-ink transition hover:opacity-90"
         >
-          <Copy size={14} />
-          Copiar
+          <Copy size={14} aria-hidden />
+          {t('detail.copy')}
         </button>
         <button
           type="button"
-          onClick={() => onCopy(entryToText(entry), 'Ficha copiada')}
+          onClick={() => onCopy(entryToText(entry), t('copy.sheet'))}
           className="inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-ink ring-1 ring-inset ring-edge transition hover:bg-ink/5"
         >
-          <FileText size={14} />
-          Copiar ficha
+          <FileText size={14} aria-hidden />
+          {t('detail.copySheet')}
         </button>
         <a
           href={sourceUrl(entry.type)}
@@ -168,8 +176,8 @@ export function DetailCard({
           title={sourceFile(entry.type)}
           className="inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-muted ring-1 ring-inset ring-edge transition hover:text-ink"
         >
-          <Pencil size={14} />
-          Editar en GitHub
+          <Pencil size={14} aria-hidden />
+          {t('detail.editGithub')}
         </a>
         {isCustom && onDelete && (
           <button
@@ -177,8 +185,8 @@ export function DetailCard({
             onClick={() => onDelete(entry.id)}
             className="ml-auto inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-rose-600 ring-1 ring-inset ring-rose-500/25 transition hover:bg-rose-500/10 dark:text-rose-300"
           >
-            <Trash2 size={14} />
-            Eliminar
+            <Trash2 size={14} aria-hidden />
+            {t('detail.delete')}
           </button>
         )}
       </footer>
@@ -193,40 +201,47 @@ function EntryBody({
   entry: Entry;
   onCopy: (text: string, label?: string) => void;
 }) {
+  const { t } = useI18n();
+
   switch (entry.type) {
     case 'dictionary':
       return (
         <>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div className="rounded-lg border border-edge bg-ink/[0.02] p-3">
-              <div className="text-[11px] font-semibold text-muted uppercase">Ingles (nota)</div>
+              <div className="text-[11px] font-semibold text-muted uppercase">
+                {t('detail.english')}
+              </div>
               <div className="mt-1 text-base font-medium text-ink">{entry.en}</div>
               {entry.pronunciation && (
                 <div className="mt-1 text-xs text-muted">
-                  Se pronuncia <span className="font-medium text-ink">{entry.pronunciation}</span>
+                  {t('detail.pronounces')}{' '}
+                  <span className="font-medium text-ink">{entry.pronunciation}</span>
                 </div>
               )}
               <div className="mt-2">
-                <CopyChip label="Copiar EN" value={entry.en} onCopy={onCopy} />
+                <CopyChip label={t('detail.copyEn')} value={entry.en} onCopy={onCopy} />
               </div>
             </div>
             <div className="rounded-lg border border-edge bg-ink/[0.02] p-3">
-              <div className="text-[11px] font-semibold text-muted uppercase">Espanol</div>
+              <div className="text-[11px] font-semibold text-muted uppercase">
+                {t('detail.spanish')}
+              </div>
               <div className="mt-1 text-base font-medium text-ink">{entry.es}</div>
               <div className="mt-2">
-                <CopyChip label="Copiar ES" value={entry.es} onCopy={onCopy} />
+                <CopyChip label={t('detail.copyEs')} value={entry.es} onCopy={onCopy} />
               </div>
             </div>
           </div>
 
           {entry.colloquial && entry.colloquial.length > 0 && (
-            <Field label="Como lo dice el paciente">
+            <Field label={t('detail.patientSays')}>
               <div className="flex flex-wrap gap-1.5">
                 {entry.colloquial.map((phrase) => (
                   <button
                     key={phrase}
                     type="button"
-                    onClick={() => onCopy(phrase, 'Copiado')}
+                    onClick={() => onCopy(phrase, t('copy.done'))}
                     className="rounded-full bg-amber-500/12 px-2.5 py-1 text-xs text-amber-700 ring-1 ring-inset ring-amber-500/25 transition hover:bg-amber-500/20 dark:text-amber-300"
                   >
                     “{phrase}”
@@ -243,10 +258,10 @@ function EntryBody({
     case 'clickpath':
       return (
         <>
-          <Field label={`Ruta en ${entry.module}`}>
+          <Field label={t('detail.routeIn', { module: entry.module })}>
             <ClickPath path={entry.path} />
           </Field>
-          <CopyChip label="Copiar ruta completa" value={entry.path.join(' > ')} onCopy={onCopy} />
+          <CopyChip label={t('detail.copyRoute')} value={entry.path.join(' > ')} onCopy={onCopy} />
           {entry.notes && <Note>{entry.notes}</Note>}
         </>
       );
@@ -255,24 +270,25 @@ function EntryBody({
       return (
         <>
           {entry.enTitle && (
-            <Field label="En ingles">
+            <Field label={t('detail.english')}>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-base font-medium text-ink">{entry.enTitle}</span>
-                <CopyChip label="Copiar EN" value={entry.enTitle} onCopy={onCopy} />
+                <CopyChip label={t('detail.copyEn')} value={entry.enTitle} onCopy={onCopy} />
               </div>
               {entry.pronunciation && (
                 <div className="mt-1 text-xs text-muted">
-                  Se pronuncia <span className="font-medium text-ink">{entry.pronunciation}</span>
+                  {t('detail.pronounces')}{' '}
+                  <span className="font-medium text-ink">{entry.pronunciation}</span>
                 </div>
               )}
             </Field>
           )}
           {entry.appliesTo && (
-            <Field label="Aplica cuando">
+            <Field label={t('detail.appliesWhen')}>
               <p className="text-sm text-ink">{entry.appliesTo}</p>
             </Field>
           )}
-          <Field label="Pasos">
+          <Field label={t('detail.steps')}>
             <ol className="space-y-2">
               {entry.steps.map((step, index) => (
                 <li key={step} className="flex gap-3 text-sm text-ink">
@@ -285,12 +301,12 @@ function EntryBody({
             </ol>
           </Field>
           <CopyChip
-            label="Copiar pasos"
+            label={t('detail.copySteps')}
             value={entry.steps.map((step, index) => `${index + 1}. ${step}`).join('\n')}
             onCopy={onCopy}
           />
           {entry.warnings && entry.warnings.length > 0 && (
-            <Field label="Advertencias">
+            <Field label={t('detail.warnings')}>
               <ul className="space-y-1.5">
                 {entry.warnings.map((warning) => (
                   <li key={warning} className="flex gap-2 text-sm text-rose-600 dark:text-rose-300">
@@ -307,18 +323,18 @@ function EntryBody({
     case 'acronym':
       return (
         <>
-          <Field label="Significado (EN)">
+          <Field label={t('detail.meaning')}>
             <div className="flex items-center gap-2">
               <span className="text-base font-medium text-ink">{entry.expansion}</span>
               <CopyChip
-                label="Copiar"
+                label={t('detail.copy')}
                 value={`${entry.title} — ${entry.expansion}`}
                 onCopy={onCopy}
               />
             </div>
           </Field>
           {entry.translation && (
-            <Field label="En espanol">
+            <Field label={t('detail.translation')}>
               <p className="text-sm text-ink">{entry.translation}</p>
             </Field>
           )}

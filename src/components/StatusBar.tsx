@@ -1,3 +1,4 @@
+import { useI18n } from '@/i18n/context';
 import { useModifierKey } from '@/hooks/useModifierKey';
 
 function Hint({ keys, label }: { keys: string[]; label: string }) {
@@ -20,20 +21,19 @@ function Hint({ keys, label }: { keys: string[]; label: string }) {
 
 export function StatusBar() {
   const modifier = useModifierKey();
+  const { t } = useI18n();
 
   return (
     <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-edge px-4 py-2 text-[11px] text-muted print:hidden">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-        <Hint keys={['↑', '↓']} label="navegar" />
-        <Hint keys={['↵']} label="ver detalle" />
-        <Hint keys={['/']} label="buscar" />
-        <Hint keys={[modifier, 'K']} label="enfocar" />
-        <Hint keys={[modifier, 'B']} label="panel" />
-        <Hint keys={['?']} label="ayuda" />
+        <Hint keys={['↑', '↓']} label={t('status.navigate')} />
+        <Hint keys={['↵']} label={t('status.view')} />
+        <Hint keys={['/']} label={t('status.search')} />
+        <Hint keys={[modifier, 'K']} label={t('status.focus')} />
+        <Hint keys={[modifier, 'B']} label={t('status.panel')} />
+        <Hint keys={['?']} label={t('status.help')} />
       </div>
-      <span className="hidden sm:inline">
-        Meddex · solo reglas generales, sin datos de pacientes
-      </span>
+      <span className="hidden sm:inline">{t('status.footer')}</span>
     </footer>
   );
 }

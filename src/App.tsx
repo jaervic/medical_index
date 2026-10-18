@@ -24,6 +24,7 @@ import { ResultItem } from '@/components/ResultItem';
 import { StatusBar } from '@/components/StatusBar';
 import { Toast } from '@/components/Toast';
 import { ENTRIES } from '@/data';
+import { useI18n } from '@/i18n/context';
 import { useCopy } from '@/hooks/useCopy';
 import { useCustomEntries } from '@/hooks/useCustomEntries';
 import { useFocusHotkey } from '@/hooks/useFocusHotkey';
@@ -72,6 +73,7 @@ export default function App() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { theme, cycle: cycleTheme } = useTheme();
+  const { t, toggle: toggleLocale } = useI18n();
   const { collapsed, toggle: togglePanel } = usePanel();
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const { favorites, recents, queries, frecencyMap, toggleFavorite, registerUse, registerQuery } =
@@ -249,7 +251,12 @@ export default function App() {
       ? browseResults.length
       : home.favorites.length + home.recents.length + home.rest.length;
 
-  const themeLabel = theme === 'dark' ? 'oscuro' : theme === 'light' ? 'claro' : 'segun el sistema';
+  const themeLabel =
+    theme === 'dark'
+      ? t('app.theme.dark')
+      : theme === 'light'
+        ? t('app.theme.light')
+        : t('app.theme.system');
   const ThemeIcon = theme === 'dark' ? Sun : theme === 'light' ? Moon : Monitor;
 
   return (
@@ -258,15 +265,13 @@ export default function App() {
         <header className="flex items-center justify-between gap-4 px-1 print:hidden">
           <div className="flex items-baseline gap-2">
             <span className="text-base font-semibold text-ink">Meddex</span>
-            <span className="hidden text-xs text-muted sm:inline">
-              Segundo cerebro clinico · protocolos, click-paths de eCW y diccionario
-            </span>
+            <span className="hidden text-xs text-muted sm:inline">{t('app.tagline')}</span>
           </div>
           <div className="flex items-center gap-1">
             <button
               type="button"
               onClick={() => setEditorOpen(true)}
-              aria-label="Nueva entrada"
+              aria-label={t('app.newEntry')}
               className="rounded-md p-2 text-muted transition hover:bg-ink/5 hover:text-ink"
             >
               <Plus size={17} />
@@ -274,7 +279,7 @@ export default function App() {
             <button
               type="button"
               onClick={() => setHelpOpen(true)}
-              aria-label="Atajos de teclado"
+              aria-label={t('app.help')}
               aria-keyshortcuts="Shift+/"
               className="rounded-md p-2 text-muted transition hover:bg-ink/5 hover:text-ink"
             >
@@ -283,7 +288,7 @@ export default function App() {
             <button
               type="button"
               onClick={togglePanel}
-              aria-label={collapsed ? 'Mostrar panel de detalle' : 'Ocultar panel de detalle'}
+              aria-label={collapsed ? t('app.panelShow') : t('app.panelHide')}
               aria-pressed={!collapsed}
               aria-keyshortcuts="Control+B Meta+B"
               className="hidden rounded-md p-2 text-muted transition hover:bg-ink/5 hover:text-ink lg:inline-flex"
@@ -292,8 +297,16 @@ export default function App() {
             </button>
             <button
               type="button"
+              onClick={toggleLocale}
+              aria-label={t('app.language.change')}
+              className="rounded-md px-2 py-2 text-xs font-semibold text-muted transition hover:bg-ink/5 hover:text-ink"
+            >
+              {t('app.language.code')}
+            </button>
+            <button
+              type="button"
               onClick={cycleTheme}
-              aria-label={`Tema ${themeLabel}. Cambiar tema`}
+              aria-label={t('app.theme.change', { theme: themeLabel })}
               className="rounded-md p-2 text-muted transition hover:bg-ink/5 hover:text-ink"
             >
               <ThemeIcon size={17} />
@@ -318,15 +331,15 @@ export default function App() {
                 onValueChange={setQuery}
                 autoFocus
                 spellCheck={false}
-                aria-label="Buscar en protocolos, acronimos y diccionario"
+                aria-label={t('search.label')}
                 aria-keyshortcuts="Control+K Meta+K"
-                placeholder="Busca UTI, refill, PHQ-9, tag:triage, #eCW..."
+                placeholder={t('search.placeholder')}
                 className="h-14 w-full bg-transparent text-base text-ink outline-none placeholder:text-muted"
               />
               {query.length > 0 && (
                 <button
                   type="button"
-                  aria-label="Limpiar busqueda"
+                  aria-label={t('search.clear')}
                   onClick={() => {
                     setQuery('');
                     inputRef.current?.focus();
@@ -352,12 +365,12 @@ export default function App() {
             </div>
 
             <div aria-live="polite" className="sr-only">
-              {isSearching || browsingTags ? `${resultCount} resultados` : ''}
+              {isSearching || browsingTags ? t('search.resultsCount', { count: resultCount }) : ''}
             </div>
 
             <Command.List className="min-h-0 flex-1 overflow-y-auto p-1.5">
               <Command.Empty className="px-4 py-10 text-center text-sm text-muted">
-                Sin resultados para “{query}”.
+                {t('search.noResults', { query })}
               </Command.Empty>
 
               {isSearching ? (
@@ -370,7 +383,7 @@ export default function App() {
                 <>
                   {home.favorites.length > 0 && (
                     <Command.Group
-                      heading={`Fijados · ${home.favorites.length}`}
+                      heading={`${t('group.favorites')} · ${home.favorites.length}`}
                       className={GROUP_CLASS}
                     >
                       {home.favorites.map(renderItem)}
@@ -378,25 +391,23 @@ export default function App() {
                   )}
                   {home.recents.length > 0 && (
                     <Command.Group
-                      heading={`Recientes · ${home.recents.length}`}
+                      heading={`${t('group.recents')} · ${home.recents.length}`}
                       className={GROUP_CLASS}
                     >
                       {home.recents.map(renderItem)}
                     </Command.Group>
                   )}
                   <Command.Group
-                    heading={
-                      hasHomeShortcuts
-                        ? `Todo lo demas · ${home.rest.length}`
-                        : `Todo · ${home.rest.length}`
-                    }
+                    heading={`${
+                      hasHomeShortcuts ? t('group.rest') : t('group.restAll')
+                    } · ${home.rest.length}`}
                     className={GROUP_CLASS}
                   >
                     {restShown.map(renderItem)}
                   </Command.Group>
                   {restRemaining > 0 && (
                     <p className="px-3 pb-2 text-center text-[11px] text-muted">
-                      {restRemaining} entradas mas · escribe para filtrar
+                      {t('group.more', { count: restRemaining })}
                     </p>
                   )}
                 </>

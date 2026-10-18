@@ -32,7 +32,7 @@ sin perder tiempo navegando menus.
   **resalta** y las entradas de **bandera roja** se marcan con un punto rojo.
 - **Estado en la URL** (`?q=`, `?type=`, `#id`): refresca o comparte un enlace sin perder el contexto.
 - **Ayuda de atajos** con `?`; `Esc` limpia la busqueda; `Ctrl/Cmd + B` alterna el panel.
-- **Tema** claro, oscuro o **segun el sistema**.
+- **Tema** claro, oscuro o **segun el sistema**; **interfaz en espanol o ingles** (boton ES/EN).
 - **Fijados y recientes**, filtros por categoria y busqueda tolerante a errores.
 - **Accesibilidad**: navegacion completa por teclado, foco visible, dialogos con trampa de foco,
   regiones `aria-live` para anunciar resultados y respeto a `prefers-reduced-motion`.

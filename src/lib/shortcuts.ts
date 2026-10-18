@@ -1,3 +1,5 @@
+import type { MessageKey } from '@/i18n/messages';
+
 export type Modifier = '⌘' | 'Ctrl';
 
 export interface ShortcutDef {
@@ -5,15 +7,17 @@ export interface ShortcutDef {
   label: string;
 }
 
+type Translate = (key: MessageKey) => string;
+
 /** Lista de atajos mostrada en la ayuda y en el panel vacio. */
-export function shortcuts(modifier: Modifier): ShortcutDef[] {
+export function shortcuts(modifier: Modifier, t: Translate): ShortcutDef[] {
   return [
-    { keys: ['↑', '↓'], label: 'Navegar resultados' },
-    { keys: ['↵'], label: 'Ver la entrada en el panel' },
-    { keys: ['/'], label: 'Enfocar el buscador' },
-    { keys: [modifier, 'K'], label: 'Enfocar desde cualquier lugar' },
-    { keys: [modifier, 'B'], label: 'Mostrar u ocultar el panel' },
-    { keys: ['?'], label: 'Ver esta ayuda' },
-    { keys: ['Esc'], label: 'Limpiar la busqueda o cerrar' },
+    { keys: ['↑', '↓'], label: t('shortcut.navigate') },
+    { keys: ['↵'], label: t('shortcut.view') },
+    { keys: ['/'], label: t('shortcut.focus') },
+    { keys: [modifier, 'K'], label: t('shortcut.focusAnywhere') },
+    { keys: [modifier, 'B'], label: t('shortcut.panel') },
+    { keys: ['?'], label: t('shortcut.help') },
+    { keys: ['Esc'], label: t('shortcut.clear') },
   ];
 }
