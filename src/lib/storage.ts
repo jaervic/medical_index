@@ -186,9 +186,13 @@ function isStringArray(value: unknown): value is string[] {
 }
 
 /** Valida y aplica un JSON exportado. No toca datos de pacientes (no existen). */
-export function importPersonalData(raw: unknown): { ok: boolean; error?: string } {
+export type ImportErrorCode = 'invalid-json' | 'missing-lists' | 'invalid-frecency';
+
+export function importPersonalData(
+  raw: unknown,
+): { ok: true } | { ok: false; code: ImportErrorCode } {
   if (typeof raw !== 'object' || raw === null) {
-    return { ok: false, error: 'el archivo no es un objeto JSON valido' };
+    return { ok: false, code: 'invalid-json' };
   }
   const data = raw as Partial<PersonalData>;
 
@@ -197,10 +201,10 @@ export function importPersonalData(raw: unknown): { ok: boolean; error?: string 
     !isStringArray(data.recents) ||
     !isStringArray(data.queries)
   ) {
-    return { ok: false, error: 'faltan las listas de fijados, recientes o busquedas' };
+    return { ok: false, code: 'missing-lists' };
   }
   if (typeof data.frecency !== 'object' || data.frecency === null) {
-    return { ok: false, error: 'la seccion de frecuencia no es valida' };
+    return { ok: false, code: 'invalid-frecency' };
   }
 
   saveFavorites(data.favorites);

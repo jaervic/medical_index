@@ -34,7 +34,8 @@ sin perder tiempo navegando menus.
 - **Tema** claro, oscuro o **segun el sistema**.
 - **Idioma ES/EN**: el boton cambia **interfaz y contenido** a la vez. El contenido esta escrito en
   **ingles** y cada entrada guarda su variante en **espanol**, asi que el mismo switch muestra una
-  u otra; la busqueda indexa ambos idiomas.
+  u otra; la busqueda indexa ambos idiomas y las **etiquetas** tambien se traducen, con `#tag`
+  funcionando en ES y EN.
 - **Panel de detalle redimensionable**: arrastra el separador entre la lista y el panel (o usa
   `←`/`→`, doble clic para el ancho por defecto); el ancho se guarda.
 - **Fijados y recientes**, filtros por categoria y busqueda tolerante a errores.

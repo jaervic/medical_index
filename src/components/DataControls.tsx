@@ -1,7 +1,14 @@
 import { Download, Upload } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { useI18n } from '@/i18n/context';
-import { exportPersonalData, importPersonalData } from '@/lib/storage';
+import type { MessageKey } from '@/i18n/messages';
+import { exportPersonalData, importPersonalData, type ImportErrorCode } from '@/lib/storage';
+
+const ERROR_KEY: Record<ImportErrorCode, MessageKey> = {
+  'invalid-json': 'data.err.invalidJson',
+  'missing-lists': 'data.err.missingLists',
+  'invalid-frecency': 'data.err.invalidFrecency',
+};
 
 /**
  * Exporta/importa los datos personales (fijados, recientes, busquedas, tema).
@@ -33,7 +40,7 @@ export function DataControls({ onImported }: { onImported: () => void }) {
         setMessage(t('data.imported'));
         onImported();
       } else {
-        setMessage(t('data.importFailed', { error: result.error ?? '' }));
+        setMessage(t('data.importFailed', { error: t(ERROR_KEY[result.code]) }));
       }
     } catch {
       setMessage(t('data.readError'));

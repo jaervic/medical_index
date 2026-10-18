@@ -19,11 +19,7 @@ export const messages = {
   'app.theme.light': { es: 'claro', en: 'light' },
   'app.theme.system': { es: 'segun el sistema', en: 'system' },
   'app.theme.change': { es: 'Tema {theme}. Cambiar tema', en: 'Theme {theme}. Change theme' },
-  'app.language.change': {
-    es: 'Idioma: espanol. Cambiar a ingles',
-    en: 'Language: English. Switch to Spanish',
-  },
-  'app.language.code': { es: 'EN', en: 'ES' },
+  'app.language.label': { es: 'Idioma', en: 'Language' },
 
   'search.label': {
     es: 'Buscar en protocolos, acronimos y diccionario',
@@ -172,6 +168,18 @@ export const messages = {
   'data.readError': {
     es: 'No se pudo leer el archivo (JSON invalido).',
     en: 'Could not read the file (invalid JSON).',
+  },
+  'data.err.invalidJson': {
+    es: 'el archivo no es un objeto JSON valido',
+    en: 'the file is not a valid JSON object',
+  },
+  'data.err.missingLists': {
+    es: 'faltan las listas de fijados, recientes o busquedas',
+    en: 'the pinned, recent or searches lists are missing',
+  },
+  'data.err.invalidFrecency': {
+    es: 'la seccion de frecuencia no es valida',
+    en: 'the frequency section is not valid',
   },
 } satisfies Messages;
 

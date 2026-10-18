@@ -5,6 +5,7 @@ import { isRedFlag } from '@/lib/entryFlags';
 import { entryToText } from '@/lib/entryText';
 import { isStaleReview } from '@/lib/review';
 import { primaryCopyText } from '@/lib/search';
+import { tagLabel } from '@/lib/tagLabels';
 import type { Entry } from '@/lib/types';
 import { ClickPath } from './ClickPath';
 import { RelatedEntries } from './RelatedEntries';
@@ -65,7 +66,7 @@ export function DetailCard({
   onPickRelated,
   onDelete,
 }: DetailCardProps) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const tags = entry.tags ?? [];
   const stale = isStaleReview(entry);
 
@@ -131,7 +132,7 @@ export function DetailCard({
                   onClick={() => onTagClick(tag)}
                   className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs text-accent ring-1 ring-inset ring-accent/25 transition hover:bg-accent/20"
                 >
-                  #{tag}
+                  #{tagLabel(tag, locale)}
                 </button>
               ))}
             </div>

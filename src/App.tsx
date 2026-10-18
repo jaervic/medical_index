@@ -23,7 +23,7 @@ import { ResultItem } from '@/components/ResultItem';
 import { StatusBar } from '@/components/StatusBar';
 import { Toast } from '@/components/Toast';
 import { ENTRIES } from '@/data';
-import { useI18n } from '@/i18n/context';
+import { useI18n, type Locale } from '@/i18n/context';
 import { ResizeHandle } from '@/components/ResizeHandle';
 import { useCopy } from '@/hooks/useCopy';
 import { useCustomEntries } from '@/hooks/useCustomEntries';
@@ -42,6 +42,7 @@ import { localizeEntries } from '@/lib/localize';
 import { parseQuery, removeTagToken, removeTypeToken } from '@/lib/queryFilters';
 import { findRelated } from '@/lib/related';
 import { frecencyValue } from '@/lib/storage';
+import { tagMatches } from '@/lib/tagLabels';
 import type { Entry, EntryType } from '@/lib/types';
 
 /** Tope de entradas mostradas en la vista inicial (evita volcar 200+ filas). */
@@ -76,7 +77,7 @@ export default function App() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { theme, cycle: cycleTheme } = useTheme();
-  const { t, locale, toggle: toggleLocale } = useI18n();
+  const { t, locale, setLocale } = useI18n();
   const { collapsed, toggle: togglePanel } = usePanel();
   const { width: panelWidth, setWidth: setPanelWidth, reset: resetPanelWidth } = usePanelWidth();
   const viewport = useViewportWidth();
@@ -117,11 +118,7 @@ export default function App() {
     () =>
       activeTags.length === 0
         ? results
-        : results.filter((item) =>
-            activeTags.every((tag) =>
-              (item.entry.tags ?? []).some((value) => value.toLowerCase() === tag),
-            ),
-          ),
+        : results.filter((item) => activeTags.every((tag) => tagMatches(item.entry.tags, tag))),
     [results, activeTags],
   );
 
@@ -131,9 +128,7 @@ export default function App() {
       .filter(
         (entry) =>
           (effectiveType === 'all' || entry.type === effectiveType) &&
-          activeTags.every((tag) =>
-            (entry.tags ?? []).some((value) => value.toLowerCase() === tag),
-          ),
+          activeTags.every((tag) => tagMatches(entry.tags, tag)),
       )
       .map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
       .sort((a, b) => b.value - a.value || a.entry.title.localeCompare(b.entry.title))
@@ -313,14 +308,25 @@ export default function App() {
             >
               {collapsed ? <PanelRightOpen size={17} /> : <PanelRightClose size={17} />}
             </button>
-            <button
-              type="button"
-              onClick={toggleLocale}
-              aria-label={t('app.language.change')}
-              className="rounded-md px-2 py-2 text-xs font-semibold text-muted transition hover:bg-ink/5 hover:text-ink"
+            <div
+              role="group"
+              aria-label={t('app.language.label')}
+              className="flex items-center rounded-md p-0.5 ring-1 ring-inset ring-edge"
             >
-              {t('app.language.code')}
-            </button>
+              {(['es', 'en'] as Locale[]).map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  aria-pressed={locale === code}
+                  onClick={() => setLocale(code)}
+                  className={`rounded px-2 py-1 text-xs font-semibold transition ${
+                    locale === code ? 'bg-accent text-accent-ink' : 'text-muted hover:text-ink'
+                  }`}
+                >
+                  {code.toUpperCase()}
+                </button>
+              ))}
+            </div>
             <button
               type="button"
               onClick={cycleTheme}
@@ -488,7 +494,7 @@ export default function App() {
       {overlayEntry && (
         <DetailOverlay
           entry={overlayEntry}
-          entries={allEntries}
+          entries={localizedAll}
           isFavorite={favorites.includes(overlayEntry.id)}
           useCount={frecencyMap[overlayEntry.id]?.count ?? 0}
           isCustom={customIds.has(overlayEntry.id)}

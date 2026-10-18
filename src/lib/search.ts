@@ -1,4 +1,5 @@
 import Fuse from 'fuse.js';
+import { tagForms } from './tagLabels';
 import type { Entry } from './types';
 /**
  * Busqueda: Fuse.js para fuzzy matching + una capa de boosts propia.
@@ -63,7 +64,7 @@ export function toDoc(entry: Entry): SearchDoc {
     entry,
     title: entry.title,
     keywords: (entry.keywords ?? []).join(' '),
-    tags: (entry.tags ?? []).join(' '),
+    tags: (entry.tags ?? []).flatMap(tagForms).join(' '),
     body: [bodyOf(entry), overlayText(entry)].join(' '),
   };
 }
