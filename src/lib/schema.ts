@@ -24,6 +24,7 @@ const baseSchema = z.object({
           appliesTo: z.string().optional(),
           steps: z.array(z.string().min(1)).optional(),
           warnings: z.array(z.string().min(1)).optional(),
+          path: z.array(z.string().min(1)).optional(),
         })
         .optional(),
       en: z
@@ -34,6 +35,7 @@ const baseSchema = z.object({
           appliesTo: z.string().optional(),
           steps: z.array(z.string().min(1)).optional(),
           warnings: z.array(z.string().min(1)).optional(),
+          path: z.array(z.string().min(1)).optional(),
         })
         .optional(),
     })

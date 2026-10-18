@@ -19,6 +19,7 @@ export interface LocalizedText {
   appliesTo?: string;
   steps?: string[];
   warnings?: string[];
+  path?: string[];
 }
 
 export interface BaseEntry {

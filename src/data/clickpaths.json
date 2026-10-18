@@ -4,7 +4,7 @@
     "type": "clickpath",
     "title": "Create a Referral",
     "module": "eCW",
-    "path": ["Chart", "Hub", "Referrals", "New", "Seleccionar Especialidad", "Asignar a RN"],
+    "path": ["Chart", "Hub", "Referrals", "New", "Select Specialty", "Assign to RN"],
     "keywords": ["referral", "referir", "especialista", "referido", "derivar"],
     "tags": ["eCW", "referrals", "administrativo"],
     "notes": "Always assign to the RN for authorization before sending to the specialist.",
@@ -12,7 +12,8 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Crear un Referral",
-        "notes": "Asignar siempre a la RN para autorizacion antes de enviar al especialista."
+        "notes": "Asignar siempre a la RN para autorizacion antes de enviar al especialista.",
+        "path": ["Chart", "Hub", "Referrals", "New", "Seleccionar Especialidad", "Asignar a RN"]
       }
     }
   },
@@ -26,9 +27,9 @@
       "Hub",
       "Prescriptions",
       "Refill Request",
-      "Seleccionar Farmacia",
-      "Revisar dosis",
-      "Enviar a PCP"
+      "Select Pharmacy",
+      "Review dose",
+      "Send to PCP"
     ],
     "keywords": ["refill", "resurtido", "resurtir", "renovar receta", "recetas"],
     "tags": ["eCW", "farmacia", "administrativo"],
@@ -37,7 +38,16 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Resurtido de medicamento",
-        "notes": "Si el medicamento es controlado, NO surtir por telefono: requiere visita."
+        "notes": "Si el medicamento es controlado, NO surtir por telefono: requiere visita.",
+        "path": [
+          "Chart",
+          "Hub",
+          "Prescriptions",
+          "Refill Request",
+          "Seleccionar Farmacia",
+          "Revisar dosis",
+          "Enviar a PCP"
+        ]
       }
     }
   },
@@ -50,9 +60,9 @@
       "Progress Note",
       "Treatment",
       "Rx (Add)",
-      "Marcar Assessment/Dx ANTES de buscar el medicamento",
-      "Buscar medicamento",
-      "Ajustar dosis e instrucciones",
+      "Check the Assessment/Dx BEFORE searching the medication",
+      "Search medication",
+      "Adjust dose and instructions",
       "Apply",
       "OK",
       "Hub",
@@ -73,7 +83,20 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: E-prescribir un medicamento",
-        "notes": "Es un flujo de 2 pasos: primero se ordena y luego se envia. Revisa ePrescription Logs: Sent = ok, Failed = reintentar."
+        "notes": "Es un flujo de 2 pasos: primero se ordena y luego se envia. Revisa ePrescription Logs: Sent = ok, Failed = reintentar.",
+        "path": [
+          "Progress Note",
+          "Treatment",
+          "Rx (Add)",
+          "Marcar Assessment/Dx ANTES de buscar el medicamento",
+          "Buscar medicamento",
+          "Ajustar dosis e instrucciones",
+          "Apply",
+          "OK",
+          "Hub",
+          "ePrescription Logs",
+          "Send ePrescription"
+        ]
       }
     }
   },
@@ -88,8 +111,8 @@
       "Encounters",
       "New",
       "Telephone",
-      "Motivo de llamada",
-      "Notas",
+      "Reason for call",
+      "Notes",
       "Sign & Save"
     ],
     "keywords": ["telephone encounter", "llamada", "telefono", "documentar llamada"],
@@ -99,7 +122,17 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Documentar Telephone Encounter",
-        "notes": "Registrar SIEMPRE la llamada: tiempo, motivo, indicaciones dadas y firma del RN."
+        "notes": "Registrar SIEMPRE la llamada: tiempo, motivo, indicaciones dadas y firma del RN.",
+        "path": [
+          "Chart",
+          "Hub",
+          "Encounters",
+          "New",
+          "Telephone",
+          "Motivo de llamada",
+          "Notas",
+          "Sign & Save"
+        ]
       }
     }
   },
@@ -113,10 +146,10 @@
       "Treatment",
       "Labs",
       "Browse",
-      "Marcar el Assessment/Dx de la orden",
-      "Cambiar el criterio a 'Contains'",
-      "Seleccionar el panel",
-      "Future Orders (o Same Day si es en casa)",
+      "Check the order's Assessment/Dx",
+      "Switch the criteria to 'Contains'",
+      "Select the panel",
+      "Future Orders (or Same Day if in-house)",
       "Sign & Save"
     ],
     "keywords": ["labs", "laboratorios", "analisis", "blood work", "ordenar labs"],
@@ -126,7 +159,18 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Ordenar laboratorios",
-        "notes": "Ordena SIEMPRE como FUTURE ORDERS (salvo labs en casa el mismo dia). Cambia a 'Contains' para encontrar el panel mas facil."
+        "notes": "Ordena SIEMPRE como FUTURE ORDERS (salvo labs en casa el mismo dia). Cambia a 'Contains' para encontrar el panel mas facil.",
+        "path": [
+          "Progress Note",
+          "Treatment",
+          "Labs",
+          "Browse",
+          "Marcar el Assessment/Dx de la orden",
+          "Cambiar el criterio a 'Contains'",
+          "Seleccionar el panel",
+          "Future Orders (o Same Day si es en casa)",
+          "Sign & Save"
+        ]
       }
     }
   },
@@ -140,9 +184,9 @@
       "Treatment",
       "Diagnostic Imaging (DI)",
       "Browse",
-      "Marcar Assessment/Dx",
-      "Seleccionar estudio",
-      "Guardar orden"
+      "Check Assessment/Dx",
+      "Select the study",
+      "Save order"
     ],
     "keywords": ["imaging", "radiografia", "rayos x", "ultrasonido", "DI", "estudio", "imagen"],
     "tags": ["eCW", "ordenes"],
@@ -151,7 +195,16 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Ordenar diagnostico por imagen (DI)",
-        "notes": "Toda orden se liga a un diagnostico (assessment)."
+        "notes": "Toda orden se liga a un diagnostico (assessment).",
+        "path": [
+          "Progress Note",
+          "Treatment",
+          "Diagnostic Imaging (DI)",
+          "Browse",
+          "Marcar Assessment/Dx",
+          "Seleccionar estudio",
+          "Guardar orden"
+        ]
       }
     }
   },
@@ -163,9 +216,9 @@
     "path": [
       "Patient Hub",
       "Immunizations",
-      "Revisar historial (no duplicar)",
+      "Review history (do not duplicate)",
       "Order Immunization",
-      "Seleccionar vacuna",
+      "Select vaccine",
       "Sign & Save"
     ],
     "keywords": ["vacuna", "immunization", "flu shot", "inyeccion", "vacunacion"],
@@ -175,7 +228,15 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Ordenar una vacuna",
-        "notes": "Flujo de 2 pasos: verifica el historial ANTES de ordenar para no duplicar dosis."
+        "notes": "Flujo de 2 pasos: verifica el historial ANTES de ordenar para no duplicar dosis.",
+        "path": [
+          "Patient Hub",
+          "Immunizations",
+          "Revisar historial (no duplicar)",
+          "Order Immunization",
+          "Seleccionar vacuna",
+          "Sign & Save"
+        ]
       }
     }
   },
@@ -184,13 +245,14 @@
     "type": "clickpath",
     "title": "Document an Office Visit",
     "module": "eCW",
-    "path": ["Chart", "Hub", "Encounters", "New", "Office Visit", "Motivo / HPI", "Sign & Save"],
+    "path": ["Chart", "Hub", "Encounters", "New", "Office Visit", "Reason / HPI", "Sign & Save"],
     "keywords": ["office visit", "visita", "soap note", "nota"],
     "tags": ["eCW", "documentacion"],
     "reviewedAt": "2026-02-10",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Documentar visita de oficina"
+        "title": "Ruta de clics: Documentar visita de oficina",
+        "path": ["Chart", "Hub", "Encounters", "New", "Office Visit", "Motivo / HPI", "Sign & Save"]
       }
     }
   },
@@ -200,12 +262,12 @@
     "title": "Register a New Patient",
     "module": "eCW",
     "path": [
-      "Patient Lookup (buscar por apellido + fecha de nacimiento)",
-      "New Patient (solo si no hay coincidencia)",
+      "Patient Lookup (search by last name + date of birth)",
+      "New Patient (only if there is no match)",
       "Demographics",
-      "Asignar PCP / rendering provider",
+      "Assign PCP / rendering provider",
       "Insurance",
-      "Consentimientos",
+      "Consents",
       "OK / Save"
     ],
     "keywords": [
@@ -222,7 +284,16 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Registrar paciente nuevo",
-        "notes": "SIEMPRE haz Patient Lookup primero para evitar registros duplicados. Verifica ortografia, DOB y poliza antes de guardar."
+        "notes": "SIEMPRE haz Patient Lookup primero para evitar registros duplicados. Verifica ortografia, DOB y poliza antes de guardar.",
+        "path": [
+          "Patient Lookup (buscar por apellido + fecha de nacimiento)",
+          "New Patient (solo si no hay coincidencia)",
+          "Demographics",
+          "Asignar PCP / rendering provider",
+          "Insurance",
+          "Consentimientos",
+          "OK / Save"
+        ]
       }
     }
   },
@@ -235,17 +306,26 @@
       "Hub",
       "Scheduler",
       "Appointments",
-      "New (o buscar hueco)",
-      "Seleccionar tipo de visita (NP / PHYS / ESTPT)",
-      "Asignar proveedor y recurso",
-      "Guardar y confirmar con el paciente"
+      "New (or find a slot)",
+      "Select visit type (NP / PHYS / ESTPT)",
+      "Assign provider and resource",
+      "Save and confirm with the patient"
     ],
     "keywords": ["agendar", "cita", "appointment", "schedule", "agenda"],
     "tags": ["eCW", "scheduling"],
     "reviewedAt": "2026-02-15",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Agendar una cita"
+        "title": "Ruta de clics: Agendar una cita",
+        "path": [
+          "Hub",
+          "Scheduler",
+          "Appointments",
+          "New (o buscar hueco)",
+          "Seleccionar tipo de visita (NP / PHYS / ESTPT)",
+          "Asignar proveedor y recurso",
+          "Guardar y confirmar con el paciente"
+        ]
       }
     }
   },
@@ -258,9 +338,9 @@
       "Hub",
       "Scheduler",
       "New Appointment",
-      "Tipo: Nurse Visit (10-15 min)",
-      "Motivo (BP check, INR, DEPO, inyeccion)",
-      "Guardar"
+      "Type: Nurse Visit (10-15 min)",
+      "Reason (BP check, INR, DEPO, injection)",
+      "Save"
     ],
     "keywords": ["nurse visit", "visita de enfermeria", "presion", "INR", "DEPO", "inyeccion"],
     "tags": ["eCW", "scheduling"],
@@ -269,7 +349,15 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Agendar Nurse Visit",
-        "notes": "Visita corta de enfermeria (10-15 min) para controles que no requieren al proveedor."
+        "notes": "Visita corta de enfermeria (10-15 min) para controles que no requieren al proveedor.",
+        "path": [
+          "Hub",
+          "Scheduler",
+          "New Appointment",
+          "Tipo: Nurse Visit (10-15 min)",
+          "Motivo (BP check, INR, DEPO, inyeccion)",
+          "Guardar"
+        ]
       }
     }
   },
@@ -282,9 +370,9 @@
       "Hub",
       "Scheduler",
       "New Appointment",
-      "Tipo: Lab Visit (10-15 min)",
-      "Marcar si es en ayunas (fasting)",
-      "Guardar"
+      "Type: Lab Visit (10-15 min)",
+      "Check if fasting",
+      "Save"
     ],
     "keywords": ["lab visit", "toma de laboratorio", "ayunas", "fasting", "sangre"],
     "tags": ["eCW", "scheduling"],
@@ -293,7 +381,15 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Agendar Lab Visit",
-        "notes": "Si es en ayunas, avisa al paciente que no coma antes de la toma."
+        "notes": "Si es en ayunas, avisa al paciente que no coma antes de la toma.",
+        "path": [
+          "Hub",
+          "Scheduler",
+          "New Appointment",
+          "Tipo: Lab Visit (10-15 min)",
+          "Marcar si es en ayunas (fasting)",
+          "Guardar"
+        ]
       }
     }
   },
@@ -306,9 +402,9 @@
       "Chart",
       "Right Chart Panel > DRTLA",
       "Labs",
-      "Filtrar por fecha",
-      "Abrir resultado (clip rosado = electronico)",
-      "Anotar / enviar al proveedor"
+      "Filter by date",
+      "Open result (pink clip = electronic)",
+      "Note / send to the provider"
     ],
     "keywords": [
       "resultados",
@@ -323,7 +419,15 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Revisar resultados de labs",
-        "notes": "El clip rosado indica que el resultado llego por via electronica. Revisa periodicamente los pendientes."
+        "notes": "El clip rosado indica que el resultado llego por via electronica. Revisa periodicamente los pendientes.",
+        "path": [
+          "Chart",
+          "Right Chart Panel > DRTLA",
+          "Labs",
+          "Filtrar por fecha",
+          "Abrir resultado (clip rosado = electronico)",
+          "Anotar / enviar al proveedor"
+        ]
       }
     }
   },
@@ -332,19 +436,20 @@
     "type": "clickpath",
     "title": "Upload a Document to the Chart",
     "module": "eCW",
-    "path": [
-      "Chart",
-      "Patient Documents",
-      "Add / Scan",
-      "Seleccionar tipo de documento",
-      "Guardar"
-    ],
+    "path": ["Chart", "Patient Documents", "Add / Scan", "Select document type", "Save"],
     "keywords": ["documento", "escanear", "scan", "subir", "expediente", "document"],
     "tags": ["eCW", "documentacion"],
     "reviewedAt": "2026-02-15",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Subir un documento al expediente"
+        "title": "Ruta de clics: Subir un documento al expediente",
+        "path": [
+          "Chart",
+          "Patient Documents",
+          "Add / Scan",
+          "Seleccionar tipo de documento",
+          "Guardar"
+        ]
       }
     }
   },
@@ -358,8 +463,8 @@
       "Hub",
       "Insurance / Eligibility",
       "Real-time Eligibility",
-      "Verificar plan activo",
-      "Guardar"
+      "Verify active plan",
+      "Save"
     ],
     "keywords": [
       "elegibilidad",
@@ -375,7 +480,15 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Verificar elegibilidad del seguro",
-        "notes": "Verifica antes de la cita o de ordenar servicios para evitar rechazos."
+        "notes": "Verifica antes de la cita o de ordenar servicios para evitar rechazos.",
+        "path": [
+          "Chart",
+          "Hub",
+          "Insurance / Eligibility",
+          "Real-time Eligibility",
+          "Verificar plan activo",
+          "Guardar"
+        ]
       }
     }
   },
@@ -389,16 +502,25 @@
       "Hub",
       "Messages / Tasks",
       "New Message",
-      "Seleccionar proveedor",
-      "Adjuntar nota o resultado",
-      "Enviar"
+      "Select provider",
+      "Attach note or result",
+      "Send"
     ],
     "keywords": ["mensaje", "tarea", "task", "message", "enviar al doctor", "recado"],
     "tags": ["eCW", "comunicacion"],
     "reviewedAt": "2026-02-15",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Enviar mensaje o tarea al proveedor"
+        "title": "Ruta de clics: Enviar mensaje o tarea al proveedor",
+        "path": [
+          "Chart",
+          "Hub",
+          "Messages / Tasks",
+          "New Message",
+          "Seleccionar proveedor",
+          "Adjuntar nota o resultado",
+          "Enviar"
+        ]
       }
     }
   },
@@ -410,11 +532,11 @@
     "path": [
       "Hub",
       "Referrals / Orders",
-      "Abrir la orden que requiere auth",
-      "Verificar requisitos del plan",
-      "Reunir paquete (notas, Dx, CPT)",
-      "Enviar a la aseguradora",
-      "Actualizar estado y dar seguimiento"
+      "Open the order that requires auth",
+      "Check the plan's requirements",
+      "Assemble packet (notes, Dx, CPT)",
+      "Send to the insurer",
+      "Update status and follow up"
     ],
     "keywords": [
       "prior auth",
@@ -430,7 +552,16 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Gestionar una Prior Authorization",
-        "notes": "No es un flujo automatico en eCW: la coordinacion con la aseguradora es manual. Lleva registro del estado."
+        "notes": "No es un flujo automatico en eCW: la coordinacion con la aseguradora es manual. Lleva registro del estado.",
+        "path": [
+          "Hub",
+          "Referrals / Orders",
+          "Abrir la orden que requiere auth",
+          "Verificar requisitos del plan",
+          "Reunir paquete (notas, Dx, CPT)",
+          "Enviar a la aseguradora",
+          "Actualizar estado y dar seguimiento"
+        ]
       }
     }
   },
@@ -443,16 +574,24 @@
       "Chart",
       "Right Chart Panel > DRTLA",
       "Referrals",
-      "Abrir la referencia",
-      "Ver especialidad y estado",
-      "Actualizar / informar al paciente"
+      "Open the referral",
+      "View specialty and status",
+      "Update / inform the patient"
     ],
     "keywords": ["estado referral", "seguimiento referral", "referencia pendiente", "specialty"],
     "tags": ["eCW", "referrals"],
     "reviewedAt": "2026-02-15",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Revisar estado de un Referral"
+        "title": "Ruta de clics: Revisar estado de un Referral",
+        "path": [
+          "Chart",
+          "Right Chart Panel > DRTLA",
+          "Referrals",
+          "Abrir la referencia",
+          "Ver especialidad y estado",
+          "Actualizar / informar al paciente"
+        ]
       }
     }
   },
@@ -467,11 +606,11 @@
       "Encounters",
       "New Office Visit (AWV)",
       "Health Risk Assessment (HRA)",
-      "Mediciones (talla, peso, BMI, BP)",
-      "Caidas / oido / seguridad en casa",
-      "Evaluacion cognitiva",
-      "Plan de prevencion escrito",
-      "Codificar G0438 / G0439"
+      "Measurements (height, weight, BMI, BP)",
+      "Falls / hearing / home safety",
+      "Cognitive assessment",
+      "Written prevention plan",
+      "Code G0438 / G0439"
     ],
     "keywords": ["AWV", "visita anual", "wellness", "medicare", "HRA", "prevencion"],
     "tags": ["eCW", "preventivo", "medicare"],
@@ -480,7 +619,19 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Documentar Annual Wellness Visit (AWV)",
-        "notes": "G0438 = primera AWV (una vez en la vida); G0439 = subsecuente. Sin copago para el paciente."
+        "notes": "G0438 = primera AWV (una vez en la vida); G0439 = subsecuente. Sin copago para el paciente.",
+        "path": [
+          "Chart",
+          "Hub",
+          "Encounters",
+          "New Office Visit (AWV)",
+          "Health Risk Assessment (HRA)",
+          "Mediciones (talla, peso, BMI, BP)",
+          "Caidas / oido / seguridad en casa",
+          "Evaluacion cognitiva",
+          "Plan de prevencion escrito",
+          "Codificar G0438 / G0439"
+        ]
       }
     }
   },
@@ -489,13 +640,21 @@
     "type": "clickpath",
     "title": "Send a Patient Appointment Reminder",
     "module": "eCW",
-    "path": ["Hub", "Scheduler", "Appointments", "Seleccionar cita", "Patient Reminder", "Enviar"],
+    "path": ["Hub", "Scheduler", "Appointments", "Select appointment", "Patient Reminder", "Send"],
     "keywords": ["recordatorio", "reminder", "cita", "appointment", "confirmar cita"],
     "tags": ["eCW", "scheduling"],
     "reviewedAt": "2026-02-10",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Recordatorio de cita al paciente"
+        "title": "Ruta de clics: Recordatorio de cita al paciente",
+        "path": [
+          "Hub",
+          "Scheduler",
+          "Appointments",
+          "Seleccionar cita",
+          "Patient Reminder",
+          "Enviar"
+        ]
       }
     }
   },
@@ -508,10 +667,10 @@
       "Hub",
       "Scheduler",
       "Appointments",
-      "Buscar la cita",
+      "Find the appointment",
       "Cancel / Reschedule",
-      "Motivo",
-      "Confirmar con el paciente"
+      "Reason",
+      "Confirm with the patient"
     ],
     "keywords": ["cancelar", "reprogramar", "reschedule", "cancel", "cambiar cita"],
     "tags": ["eCW", "scheduling"],
@@ -520,7 +679,16 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Cancelar o reprogramar una cita",
-        "notes": "Documenta el motivo (no-show, solicitud del paciente) para el seguimiento."
+        "notes": "Documenta el motivo (no-show, solicitud del paciente) para el seguimiento.",
+        "path": [
+          "Hub",
+          "Scheduler",
+          "Appointments",
+          "Buscar la cita",
+          "Cancel / Reschedule",
+          "Motivo",
+          "Confirmar con el paciente"
+        ]
       }
     }
   },
@@ -534,16 +702,25 @@
       "Hub",
       "Tasks",
       "New Task",
-      "Asignar a usuario",
-      "Descripcion y fecha limite",
-      "Guardar"
+      "Assign to user",
+      "Description and due date",
+      "Save"
     ],
     "keywords": ["tarea", "task", "seguimiento", "pendiente", "follow up"],
     "tags": ["eCW", "comunicacion"],
     "reviewedAt": "2026-02-15",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Crear una tarea de seguimiento"
+        "title": "Ruta de clics: Crear una tarea de seguimiento",
+        "path": [
+          "Chart",
+          "Hub",
+          "Tasks",
+          "New Task",
+          "Asignar a usuario",
+          "Descripcion y fecha limite",
+          "Guardar"
+        ]
       }
     }
   },
@@ -556,15 +733,22 @@
       "Chart",
       "Hub",
       "Documents / Clinical Summary",
-      "Generar CCD / Resumen",
-      "Imprimir o compartir"
+      "Generate CCD / Summary",
+      "Print or share"
     ],
     "keywords": ["resumen", "CCD", "clinical summary", "imprimir", "compartir expediente"],
     "tags": ["eCW", "administrativo"],
     "reviewedAt": "2026-02-15",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Imprimir o compartir el resumen del paciente"
+        "title": "Ruta de clics: Imprimir o compartir el resumen del paciente",
+        "path": [
+          "Chart",
+          "Hub",
+          "Documents / Clinical Summary",
+          "Generar CCD / Resumen",
+          "Imprimir o compartir"
+        ]
       }
     }
   },
@@ -577,10 +761,10 @@
       "Chart",
       "Progress Note / Rooming",
       "Assessments / Questionnaires",
-      "Seleccionar PHQ-9 (o GAD-7)",
-      "Capturar respuestas",
-      "Guardar (el puntaje se calcula solo)",
-      "Revisar puntaje y anotar el plan"
+      "Select PHQ-9 (or GAD-7)",
+      "Capture answers",
+      "Save (the score is calculated automatically)",
+      "Review score and note the plan"
     ],
     "keywords": [
       "PHQ-9",
@@ -597,7 +781,16 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Documentar PHQ-9 / GAD-7",
-        "notes": "Se puede enviar al paciente antes de la visita. Revisa el item 9 del PHQ-9 (riesgo suicida) y da seguimiento. Documenta la escala en cada visita (measurement-based care)."
+        "notes": "Se puede enviar al paciente antes de la visita. Revisa el item 9 del PHQ-9 (riesgo suicida) y da seguimiento. Documenta la escala en cada visita (measurement-based care).",
+        "path": [
+          "Chart",
+          "Progress Note / Rooming",
+          "Assessments / Questionnaires",
+          "Seleccionar PHQ-9 (o GAD-7)",
+          "Capturar respuestas",
+          "Guardar (el puntaje se calcula solo)",
+          "Revisar puntaje y anotar el plan"
+        ]
       }
     }
   },
@@ -610,9 +803,9 @@
       "Chart",
       "Assessments / Questionnaires",
       "C-SSRS Screener",
-      "Aplicar las 6 preguntas",
-      "Registrar respuestas",
-      "Alertar al proveedor si hay banderas altas (Q4-Q6)"
+      "Ask the 6 questions",
+      "Record answers",
+      "Alert the provider if there are high flags (Q4-Q6)"
     ],
     "keywords": ["C-SSRS", "riesgo suicida", "suicidio", "screener", "crisis"],
     "tags": ["eCW", "salud-mental", "crisis"],
@@ -621,7 +814,15 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Documentar C-SSRS (riesgo suicida)",
-        "notes": "Ante Q4-Q5 (intencion o plan) o Q6 reciente: consulta de salud mental, precauciones de seguridad y 988/911 si hay riesgo inmediato."
+        "notes": "Ante Q4-Q5 (intencion o plan) o Q6 reciente: consulta de salud mental, precauciones de seguridad y 988/911 si hay riesgo inmediato.",
+        "path": [
+          "Chart",
+          "Assessments / Questionnaires",
+          "C-SSRS Screener",
+          "Aplicar las 6 preguntas",
+          "Registrar respuestas",
+          "Alertar al proveedor si hay banderas altas (Q4-Q6)"
+        ]
       }
     }
   },
@@ -635,10 +836,10 @@
       "Hub",
       "Referrals",
       "New",
-      "Seleccionar Behavioral Health / Psiquiatria",
-      "Asignar a BH / RN",
-      "Adjuntar motivo y PHQ-9 / GAD-7",
-      "Guardar"
+      "Select Behavioral Health / Psychiatry",
+      "Assign to BH / RN",
+      "Attach reason and PHQ-9 / GAD-7",
+      "Save"
     ],
     "keywords": ["salud conductual", "BH", "psiquiatria", "referral", "salud mental", "referencia"],
     "tags": ["eCW", "salud-mental", "referrals"],
@@ -647,7 +848,17 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Referral a salud conductual",
-        "notes": "Adjunta el puntaje del cribado al referral para agilizar la valoracion. Haz warm handoff cuando puedas."
+        "notes": "Adjunta el puntaje del cribado al referral para agilizar la valoracion. Haz warm handoff cuando puedas.",
+        "path": [
+          "Chart",
+          "Hub",
+          "Referrals",
+          "New",
+          "Seleccionar Behavioral Health / Psiquiatria",
+          "Asignar a BH / RN",
+          "Adjuntar motivo y PHQ-9 / GAD-7",
+          "Guardar"
+        ]
       }
     }
   },
@@ -659,10 +870,10 @@
     "path": [
       "Chart",
       "Patient Documents / Notes",
-      "Nuevo documento: Safety Plan",
-      "Listar senales de alarma y estrategias de afrontamiento",
-      "Contactos de apoyo y linea de crisis (988)",
-      "Firmar y guardar"
+      "New document: Safety Plan",
+      "List warning signs and coping strategies",
+      "Support contacts and crisis line (988)",
+      "Sign and save"
     ],
     "keywords": ["plan de seguridad", "safety plan", "crisis", "suicidio", "988"],
     "tags": ["eCW", "salud-mental", "crisis"],
@@ -671,7 +882,15 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Documentar un plan de seguridad",
-        "notes": "El plan de seguridad debe incluir pasos concretos, contactos y restriccion de medios. Entregale una copia al paciente."
+        "notes": "El plan de seguridad debe incluir pasos concretos, contactos y restriccion de medios. Entregale una copia al paciente.",
+        "path": [
+          "Chart",
+          "Patient Documents / Notes",
+          "Nuevo documento: Safety Plan",
+          "Listar senales de alarma y estrategias de afrontamiento",
+          "Contactos de apoyo y linea de crisis (988)",
+          "Firmar y guardar"
+        ]
       }
     }
   },
@@ -684,9 +903,9 @@
       "Hub",
       "Scheduler",
       "New Appointment",
-      "Tipo: Telehealth / BH",
-      "Enviar enlace al paciente (healow)",
-      "Documentar en el Encounter y firmar"
+      "Type: Telehealth / BH",
+      "Send link to the patient (healow)",
+      "Document in the Encounter and sign"
     ],
     "keywords": ["telesalud", "telehealth", "videollamada", "salud mental", "healow"],
     "tags": ["eCW", "salud-mental", "scheduling"],
@@ -695,7 +914,15 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Cita de telesalud de salud mental",
-        "notes": "Confirma que el paciente tenga el enlace y un lugar privado. Verifica requisitos de telesalud del plan."
+        "notes": "Confirma que el paciente tenga el enlace y un lugar privado. Verifica requisitos de telesalud del plan.",
+        "path": [
+          "Hub",
+          "Scheduler",
+          "New Appointment",
+          "Tipo: Telehealth / BH",
+          "Enviar enlace al paciente (healow)",
+          "Documentar en el Encounter y firmar"
+        ]
       }
     }
   },
@@ -708,10 +935,10 @@
       "Chart",
       "Hub",
       "Prescriptions",
-      "Seleccionar medicamento",
-      "Verificar si requiere auth",
-      "Enviar solicitud",
-      "Actualizar estado"
+      "Select medication",
+      "Check if auth is required",
+      "Send request",
+      "Update status"
     ],
     "keywords": ["prior auth", "psiquiatrico", "antipsicotico", "medicamento", "autorizacion"],
     "tags": ["eCW", "salud-mental", "farmacia", "administrativo"],
@@ -720,7 +947,16 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Prior auth de medicamento psiquiatrico",
-        "notes": "Muchos antipsicoticos y algunos antidepresivos requieren pre-autorizacion. Avisa al paciente de la demora antes del cambio."
+        "notes": "Muchos antipsicoticos y algunos antidepresivos requieren pre-autorizacion. Avisa al paciente de la demora antes del cambio.",
+        "path": [
+          "Chart",
+          "Hub",
+          "Prescriptions",
+          "Seleccionar medicamento",
+          "Verificar si requiere auth",
+          "Enviar solicitud",
+          "Actualizar estado"
+        ]
       }
     }
   },
@@ -734,9 +970,9 @@
       "Hub",
       "Referrals / Tasks",
       "New Consult",
-      "Seleccionar Social Work / Case Management",
-      "Motivo (recursos, violencia, transporte)",
-      "Enviar"
+      "Select Social Work / Case Management",
+      "Reason (resources, violence, transportation)",
+      "Send"
     ],
     "keywords": ["trabajo social", "social work", "case management", "consulta", "recursos"],
     "tags": ["eCW", "salud-mental", "administrativo"],
@@ -745,7 +981,16 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Consulta a trabajo social",
-        "notes": "Util para IPV, barreras de acceso, transporte o recursos comunitarios."
+        "notes": "Util para IPV, barreras de acceso, transporte o recursos comunitarios.",
+        "path": [
+          "Chart",
+          "Hub",
+          "Referrals / Tasks",
+          "New Consult",
+          "Seleccionar Social Work / Case Management",
+          "Motivo (recursos, violencia, transporte)",
+          "Enviar"
+        ]
       }
     }
   },
@@ -757,10 +1002,10 @@
     "path": [
       "Chart",
       "Hub",
-      "Telephone Encounter (o Encounter)",
-      "Motivo: crisis de salud mental",
-      "Documentar evaluacion, C-SSRS y plan",
-      "Registrar 988 y recursos dados",
+      "Telephone Encounter (or Encounter)",
+      "Reason: mental health crisis",
+      "Document assessment, C-SSRS and plan",
+      "Log 988 and resources given",
       "Sign & Save"
     ],
     "keywords": ["crisis", "documentar", "988", "salud mental", "telephone encounter"],
@@ -770,7 +1015,16 @@
     "i18n": {
       "es": {
         "title": "Ruta de clics: Documentar una crisis de salud mental",
-        "notes": "Registra tiempo, riesgo evaluado, plan acordado y seguimiento. Si hubo llamada a 988/911, anotalo con hora."
+        "notes": "Registra tiempo, riesgo evaluado, plan acordado y seguimiento. Si hubo llamada a 988/911, anotalo con hora.",
+        "path": [
+          "Chart",
+          "Hub",
+          "Telephone Encounter (o Encounter)",
+          "Motivo: crisis de salud mental",
+          "Documentar evaluacion, C-SSRS y plan",
+          "Registrar 988 y recursos dados",
+          "Sign & Save"
+        ]
       }
     }
   }

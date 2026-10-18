@@ -55,6 +55,7 @@ function overlayText(entry: Entry): string {
     if (overlay.appliesTo) parts.push(overlay.appliesTo);
     if (overlay.steps) parts.push(...overlay.steps);
     if (overlay.warnings) parts.push(...overlay.warnings);
+    if (overlay.path) parts.push(...overlay.path);
   }
   return parts.join(' ');
 }

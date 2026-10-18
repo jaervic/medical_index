@@ -189,7 +189,7 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
                   <Input value={form.en} onChange={set('en')} placeholder="Migraine" />
                 </Field>
                 <Field label={t('detail.spanish')}>
-                  <Input value={form.es} onChange={set('es')} placeholder="Migrana" />
+                  <Input value={form.es} onChange={set('es')} placeholder={t('ph.en')} />
                 </Field>
                 <Field label={t('editor.pronunciation')}>
                   <Input
@@ -202,7 +202,7 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
                   <Input
                     value={form.colloquial}
                     onChange={set('colloquial')}
-                    placeholder="migrana, dolor de cabeza"
+                    placeholder={t('ph.colloquial')}
                   />
                 </Field>
               </>
@@ -217,7 +217,7 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
                   <Input
                     value={form.translation}
                     onChange={set('translation')}
-                    placeholder="Infeccion urinaria"
+                    placeholder={t('ph.translation')}
                   />
                 </Field>
               </>
@@ -251,21 +251,21 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
                   <Input
                     value={form.appliesTo}
                     onChange={set('appliesTo')}
-                    placeholder="Paciente con cefalea recurrente"
+                    placeholder={t('ph.appliesTo')}
                   />
                 </Field>
                 <Field label={t('editor.steps')}>
                   <Textarea
                     value={form.steps}
                     onChange={set('steps')}
-                    placeholder={'Preguntar banderas rojas\nIndicar tratamiento'}
+                    placeholder={t('ph.steps')}
                   />
                 </Field>
                 <Field label={t('editor.warnings')}>
                   <Textarea
                     value={form.warnings}
                     onChange={set('warnings')}
-                    placeholder="Deficit focal = ED"
+                    placeholder={t('ph.warnings')}
                   />
                 </Field>
               </>
@@ -279,15 +279,11 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
               <Input
                 value={form.keywords}
                 onChange={set('keywords')}
-                placeholder="migrana, headache"
+                placeholder={t('ph.keywords')}
               />
             </Field>
             <Field label={t('editor.tags')}>
-              <Input
-                value={form.tags}
-                onChange={set('tags')}
-                placeholder="neurologico, bandera-roja"
-              />
+              <Input value={form.tags} onChange={set('tags')} placeholder={t('ph.tags')} />
             </Field>
           </div>
 

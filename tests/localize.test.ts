@@ -10,6 +10,15 @@ const protocol: Entry = {
   i18n: { es: { title: 'Fiebre en el adulto', steps: ['Paso uno'] } },
 };
 
+const clickpath: Entry = {
+  id: 'cp',
+  type: 'clickpath',
+  title: 'Create a Referral',
+  module: 'eCW',
+  path: ['Chart', 'Select Specialty'],
+  i18n: { es: { title: 'Crear un Referral', path: ['Chart', 'Seleccionar Especialidad'] } },
+};
+
 describe('localizeEntry', () => {
   it('devuelve la base en ingles', () => {
     expect(localizeEntry(protocol, 'en').title).toBe('Fever in Adults');
@@ -19,6 +28,13 @@ describe('localizeEntry', () => {
     const es = localizeEntry(protocol, 'es');
     expect(es.title).toBe('Fiebre en el adulto');
     expect(es.type === 'protocol' ? es.steps[0] : '').toBe('Paso uno');
+  });
+
+  it('localiza el path de una ruta de eCW', () => {
+    const en = localizeEntry(clickpath, 'en');
+    const es = localizeEntry(clickpath, 'es');
+    expect(en.type === 'clickpath' ? en.path[1] : '').toBe('Select Specialty');
+    expect(es.type === 'clickpath' ? es.path[1] : '').toBe('Seleccionar Especialidad');
   });
 
   it('no altera entradas sin variante', () => {

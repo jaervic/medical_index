@@ -152,6 +152,21 @@ export const messages = {
   'editor.save': { es: 'Guardar', en: 'Save' },
   'editor.required': { es: 'El titulo es obligatorio.', en: 'The title is required.' },
 
+  'ph.en': { es: 'Migrana', en: 'Migraine' },
+  'ph.colloquial': { es: 'migrana, dolor de cabeza', en: 'migraine, headache' },
+  'ph.translation': { es: 'Infeccion urinaria', en: 'Urinary tract infection' },
+  'ph.appliesTo': {
+    es: 'Paciente con cefalea recurrente',
+    en: 'Patient with recurrent headache',
+  },
+  'ph.steps': {
+    es: 'Preguntar banderas rojas\nIndicar tratamiento',
+    en: 'Ask about red flags\nGive treatment',
+  },
+  'ph.warnings': { es: 'Deficit focal = ED', en: 'Focal deficit = ED' },
+  'ph.keywords': { es: 'migrana, headache', en: 'headache, migraine' },
+  'ph.tags': { es: 'neurologico, bandera-roja', en: 'neurology, red-flag' },
+
   'help.title': { es: 'Atajos y datos', en: 'Shortcuts and data' },
   'help.shortcuts': { es: 'Atajos de teclado', en: 'Keyboard shortcuts' },
   'help.data': { es: 'Datos personales', en: 'Personal data' },
