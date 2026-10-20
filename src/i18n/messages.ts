@@ -8,8 +8,8 @@ interface Messages {
 
 export const messages = {
   'app.tagline': {
-    es: 'Segundo cerebro clinico · protocolos, click-paths de eCW y diccionario',
-    en: 'Clinical second brain · protocols, eCW click-paths and dictionary',
+    es: 'Segundo cerebro clinico · protocolos, rutas de athenaOne y diccionario',
+    en: 'Clinical second brain · protocols, athenaOne paths and dictionary',
   },
   'app.newEntry': { es: 'Nueva entrada', en: 'New entry' },
   'app.help': { es: 'Atajos de teclado', en: 'Keyboard shortcuts' },
@@ -26,8 +26,8 @@ export const messages = {
     en: 'Search protocols, acronyms and dictionary',
   },
   'search.placeholder': {
-    es: 'Busca UTI, refill, PHQ-9, tag:triage, #eCW...',
-    en: 'Search UTI, refill, PHQ-9, tag:triage, #eCW...',
+    es: 'Busca UTI, refill, PHQ-9, tag:triage, #athena...',
+    en: 'Search UTI, refill, PHQ-9, tag:triage, #athena...',
   },
   'search.clear': { es: 'Limpiar busqueda', en: 'Clear search' },
   'search.noResults': {
@@ -38,8 +38,9 @@ export const messages = {
   'search.filterGroup': { es: 'Filtrar por categoria', en: 'Filter by category' },
 
   'filter.all': { es: 'Todo', en: 'All' },
+  'filter.mentalHealth': { es: 'Salud mental', en: 'Mental health' },
   'type.dictionary': { es: 'Diccionario', en: 'Dictionary' },
-  'type.clickpath': { es: 'Ruta eCW', en: 'eCW path' },
+  'type.clickpath': { es: 'Ruta AthenaOne', en: 'AthenaOne path' },
   'type.protocol': { es: 'Protocolo', en: 'Protocol' },
   'type.acronym': { es: 'Acronimo', en: 'Acronym' },
   'filters.type': { es: 'Tipo: {label}', en: 'Type: {label}' },
@@ -62,6 +63,7 @@ export const messages = {
   'empty.recentQueries': { es: 'Busquedas recientes', en: 'Recent searches' },
   'empty.topUsed': { es: 'Mas usados', en: 'Most used' },
   'empty.favorites': { es: 'Fijados', en: 'Pinned' },
+  'empty.mentalHealth': { es: 'Salud mental', en: 'Mental health' },
 
   'shortcut.navigate': { es: 'Navegar resultados', en: 'Navigate results' },
   'shortcut.view': { es: 'Ver la entrada en el panel', en: 'Show the entry in the panel' },

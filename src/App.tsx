@@ -1,5 +1,6 @@
 import { Command } from 'cmdk';
 import {
+  Brain,
   HelpCircle,
   Monitor,
   Moon,
@@ -151,6 +152,17 @@ export default function App() {
     [localizedAll, frecencyMap],
   );
 
+  const mentalHealthEntries = useMemo(
+    () =>
+      localizedAll
+        .filter((entry) => entry.type === 'protocol' && (entry.tags ?? []).includes('salud-mental'))
+        .map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
+        .sort((a, b) => b.value - a.value || a.entry.title.localeCompare(b.entry.title))
+        .slice(0, 5)
+        .map((item) => item.entry),
+    [localizedAll, frecencyMap],
+  );
+
   const restShown = useMemo(() => home.rest.slice(0, HOME_LIMIT), [home]);
   const restRemaining = home.rest.length - restShown.length;
 
@@ -238,6 +250,16 @@ export default function App() {
   const handleTypeChange = (value: EntryType | 'all') => {
     setTypeFilter(value);
     if (parsed.type) setQuery(removeTypeToken(query));
+  };
+
+  const mentalHealthActive = activeTags.includes('salud-mental');
+  const toggleMentalHealth = () => {
+    setQuery((current) =>
+      mentalHealthActive
+        ? removeTagToken(current, 'salud-mental')
+        : `${current.trim()} #salud-mental`.trim(),
+    );
+    inputRef.current?.focus();
   };
 
   const handleSaveCustom = (entry: Entry) => {
@@ -376,7 +398,22 @@ export default function App() {
             </div>
 
             <div className="flex flex-col gap-2 border-b border-edge px-3 py-2">
-              <CategoryFilter value={effectiveType} onChange={handleTypeChange} />
+              <div className="flex flex-wrap items-center gap-2">
+                <CategoryFilter value={effectiveType} onChange={handleTypeChange} />
+                <button
+                  type="button"
+                  aria-pressed={mentalHealthActive}
+                  onClick={toggleMentalHealth}
+                  className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium transition ${
+                    mentalHealthActive
+                      ? 'bg-accent text-accent-ink'
+                      : 'text-muted ring-1 ring-inset ring-edge hover:text-ink'
+                  }`}
+                >
+                  <Brain size={12} aria-hidden />
+                  {t('filter.mentalHealth')}
+                </button>
+              </div>
               <ActiveFilters
                 type={parsed.type}
                 tags={activeTags}
@@ -473,6 +510,7 @@ export default function App() {
                     total={allEntries.length}
                     topUsed={topUsed}
                     favorites={home.favorites}
+                    mentalHealth={mentalHealthEntries}
                     queries={queries}
                     onPick={handlePick}
                     onPickQuery={handlePickQuery}

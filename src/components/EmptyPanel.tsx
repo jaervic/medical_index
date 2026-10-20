@@ -1,4 +1,4 @@
-import { History, Star, TrendingUp } from 'lucide-react';
+import { Brain, History, Star, TrendingUp } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useI18n } from '@/i18n/context';
 import { useModifierKey } from '@/hooks/useModifierKey';
@@ -10,6 +10,7 @@ interface EmptyPanelProps {
   total: number;
   topUsed: Entry[];
   favorites: Entry[];
+  mentalHealth: Entry[];
   queries: string[];
   onPick: (entry: Entry) => void;
   onPickQuery: (query: string) => void;
@@ -55,6 +56,7 @@ export function EmptyPanel({
   total,
   topUsed,
   favorites,
+  mentalHealth,
   queries,
   onPick,
   onPickQuery,
@@ -68,6 +70,13 @@ export function EmptyPanel({
         <h2 className="text-base font-semibold text-ink">{t('empty.title')}</h2>
         <p className="mt-1 text-sm text-muted">{t('empty.subtitle', { total })}</p>
       </div>
+
+      <MiniList
+        heading={t('empty.mentalHealth')}
+        icon={<Brain size={13} aria-hidden />}
+        entries={mentalHealth}
+        onPick={onPick}
+      />
 
       {queries.length > 0 && (
         <div>

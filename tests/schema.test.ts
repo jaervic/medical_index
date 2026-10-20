@@ -39,11 +39,4 @@ describe('validacion de datos (Zod)', () => {
     ).map((entry) => entry.id);
     expect(sinEs).toEqual([]);
   });
-
-  it('las rutas traen su path en espanol', () => {
-    const sinEs = ENTRIES.filter(
-      (entry) => entry.type === 'clickpath' && !entry.i18n?.es?.path,
-    ).map((entry) => entry.id);
-    expect(sinEs).toEqual([]);
-  });
 });

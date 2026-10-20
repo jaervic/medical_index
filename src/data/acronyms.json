@@ -118,16 +118,6 @@
     "reviewedAt": "2026-01-10"
   },
   {
-    "id": "acr-ecw",
-    "type": "acronym",
-    "title": "eCW",
-    "expansion": "eClinicalWorks",
-    "translation": "Expediente electronico (EHR) que usamos en la clinica",
-    "keywords": ["eclinicalworks", "ehr", "expediente electronico"],
-    "tags": ["eCW", "administrativo"],
-    "reviewedAt": "2026-01-10"
-  },
-  {
     "id": "acr-rx",
     "type": "acronym",
     "title": "Rx",
@@ -648,29 +638,13 @@
     }
   },
   {
-    "id": "acr-drtla",
-    "type": "acronym",
-    "title": "DRTLA",
-    "expansion": "Documents, Referrals, Telephone Encounters, Labs, Actions",
-    "translation": "Documentos, referencias, llamadas, labs y acciones",
-    "keywords": ["DRTLA", "documentos", "referrals", "labs", "telephone encounters"],
-    "tags": ["eCW"],
-    "note": "Right panel tab of the note in eCW: results and orders without leaving the encounter.",
-    "reviewedAt": "2026-02-15",
-    "i18n": {
-      "es": {
-        "note": "Pestana del panel derecho de la nota en eCW: resultados y ordenes sin salir del encuentro."
-      }
-    }
-  },
-  {
     "id": "acr-ccda",
     "type": "acronym",
     "title": "CCDA / CCD",
     "expansion": "Consolidated Clinical Document Architecture / Continuity of Care Document",
     "translation": "Resumen clinico interoperable del paciente",
     "keywords": ["CCD", "CCDA", "resumen clinico", "continuity of care", "health summary"],
-    "tags": ["eCW", "administrativo"],
+    "tags": ["athena", "administrativo"],
     "note": "Summary shared with another provider or printed for the patient.",
     "reviewedAt": "2026-02-15",
     "i18n": {
@@ -1137,6 +1111,134 @@
     "i18n": {
       "es": {
         "note": "Repetir la misma escala en cada consulta para medir respuesta al tratamiento."
+      }
+    }
+  },
+  {
+    "id": "acr-athena",
+    "type": "acronym",
+    "title": "athenaOne",
+    "expansion": "athenahealth EHR (athenaClinicals / athenaCommunicator)",
+    "translation": "Expediente electronico athenahealth",
+    "keywords": ["athena", "athenahealth", "EHR", "expediente electronico"],
+    "tags": ["athena", "administrativo"],
+    "note": "Chart, Orders, Communicator and Schedule are the main areas we use.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "Chart, Orders, Communicator y Schedule son las areas principales que usamos."
+      }
+    }
+  },
+  {
+    "id": "acr-ciwa",
+    "type": "acronym",
+    "title": "CIWA-Ar",
+    "expansion": "Clinical Institute Withdrawal Assessment for Alcohol, revised",
+    "translation": "Escala de abstinencia al alcohol",
+    "keywords": ["CIWA", "withdrawal", "abstinencia", "alcohol"],
+    "tags": ["salud-mental", "adicciones", "cribado"],
+    "note": "Scores 0-67; monitor during alcohol withdrawal and escalate if severe.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "Puntaje 0-67; monitoriza en abstinencia al alcohol y escala si es grave."
+      }
+    }
+  },
+  {
+    "id": "acr-cows",
+    "type": "acronym",
+    "title": "COWS",
+    "expansion": "Clinical Opiate Withdrawal Scale",
+    "translation": "Escala de abstinencia a opioides",
+    "keywords": ["COWS", "opioides", "abstinencia", "withdrawal"],
+    "tags": ["salud-mental", "adicciones", "cribado"],
+    "note": "5-12 mild, 13-24 moderate, 25-36 moderately severe, > 36 severe.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "5-12 leve, 13-24 moderado, 25-36 moderadamente grave, > 36 grave."
+      }
+    }
+  },
+  {
+    "id": "acr-pcl5",
+    "type": "acronym",
+    "title": "PCL-5",
+    "expansion": "PTSD Checklist for DSM-5",
+    "translation": "Lista de verificacion de TEPT (DSM-5)",
+    "keywords": ["PCL-5", "PTSD", "TEPT", "trauma"],
+    "tags": ["salud-mental", "cribado"],
+    "note": "20 items (0-80); a score >= 33 suggests probable PTSD.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "20 items (0-80); un puntaje >= 33 sugiere TEPT probable."
+      }
+    }
+  },
+  {
+    "id": "acr-ymrs",
+    "type": "acronym",
+    "title": "YMRS",
+    "expansion": "Young Mania Rating Scale",
+    "translation": "Escala de mania de Young",
+    "keywords": ["YMRS", "mania", "bipolar", "severidad"],
+    "tags": ["salud-mental", "cribado"],
+    "note": "11 items; higher scores indicate more severe mania.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "11 items; puntajes mas altos indican mania mas grave."
+      }
+    }
+  },
+  {
+    "id": "acr-asq",
+    "type": "acronym",
+    "title": "ASQ",
+    "expansion": "Ask Suicide-Screening Questions",
+    "translation": "Preguntas de cribado de suicidio",
+    "keywords": ["ASQ", "suicidio", "cribado", "riesgo"],
+    "tags": ["salud-mental", "crisis", "cribado"],
+    "note": "4 questions; a positive screen requires a full risk assessment (C-SSRS).",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "4 preguntas; un cribado positivo requiere una evaluacion completa (C-SSRS)."
+      }
+    }
+  },
+  {
+    "id": "acr-phq15",
+    "type": "acronym",
+    "title": "PHQ-15",
+    "expansion": "Patient Health Questionnaire-15 (somatic symptoms)",
+    "translation": "Cuestionario de sintomas somaticos",
+    "keywords": ["PHQ-15", "somatico", "somatizacion"],
+    "tags": ["salud-mental", "cribado"],
+    "note": "Scores 5/10/15 = low/medium/high somatic symptom severity.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "5/10/15 = severidad somatica baja/media/alta."
+      }
+    }
+  },
+  {
+    "id": "acr-audit",
+    "type": "acronym",
+    "title": "AUDIT",
+    "expansion": "Alcohol Use Disorders Identification Test",
+    "translation": "Test de identificacion de trastornos por alcohol",
+    "keywords": ["AUDIT", "alcohol", "cribado"],
+    "tags": ["salud-mental", "adicciones", "cribado"],
+    "note": "10 items (0-40); AUDIT-C is the 3-item short version.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "10 items (0-40); AUDIT-C es la version corta de 3 items."
       }
     }
   }

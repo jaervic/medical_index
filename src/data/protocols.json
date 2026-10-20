@@ -549,7 +549,7 @@
     ],
     "warnings": [
       "Without auth, the study or medication may be denied or billed to the patient.",
-      "Coordination in eCW is manual: keep a status log."
+      "Coordination in athenaOne can be manual: keep a status log."
     ],
     "keywords": ["prior auth", "pre-autorizacion", "autorizacion", "aseguradora", "auth"],
     "tags": ["administrativo", "seguros"],
@@ -568,7 +568,7 @@
         ],
         "warnings": [
           "Sin auth, el estudio o medicamento se puede rechazar o facturar al paciente.",
-          "La coordinacion en eCW es manual: mantén un registro del estado."
+          "La coordinacion en athenaOne puede ser manual: lleva un registro del estado."
         ]
       }
     }
@@ -1178,6 +1178,429 @@
         "warnings": [
           "988: linea de crisis y prevencion del suicidio, 24/7, en espanol e ingles.",
           "En peligro inmediato, la via es 911 o el servicio de urgencias."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-ptsd-screening",
+    "type": "protocol",
+    "title": "PTSD Screening and Initial Care",
+    "pronunciation": "post-traw-MAT-ik stress dis-OR-der",
+    "appliesTo": "Adult patient with trauma exposure and symptoms of re-experiencing, avoidance or hyperarousal.",
+    "steps": [
+      "Screen with PC-PTSD-5; a positive screen warrants further assessment.",
+      "Use the PCL-5 to measure severity (0-80; >= 33 suggests probable PTSD).",
+      "Assess safety and suicide risk (C-SSRS).",
+      "Offer trauma-focused therapy (CBT/EMDR) as first line; SSRIs are an option.",
+      "Avoid routine benzodiazepines.",
+      "Document the screen, the plan and the follow-up."
+    ],
+    "warnings": [
+      "Assess suicide risk at every visit.",
+      "Benzodiazepines can worsen PTSD and are not first line."
+    ],
+    "keywords": ["PTSD", "TEPT", "trauma", "PCL-5", "pesadillas"],
+    "tags": ["salud-mental", "cribado"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Cribado y manejo inicial de TEPT",
+        "appliesTo": "Paciente adulto con exposicion a trauma y sintomas de reexperimentacion, evitacion o hiperactivacion.",
+        "steps": [
+          "Cribar con PC-PTSD-5; un cribado positivo requiere mas evaluacion.",
+          "Usar el PCL-5 para medir severidad (0-80; >= 33 sugiere TEPT probable).",
+          "Evaluar seguridad y riesgo suicida (C-SSRS).",
+          "Ofrecer terapia centrada en trauma (TCC/EMDR) como primera linea; los ISRS son una opcion.",
+          "Evitar benzodiacepinas de rutina.",
+          "Documentar el cribado, el plan y el seguimiento."
+        ],
+        "warnings": [
+          "Evaluar riesgo suicida en cada visita.",
+          "Las benzodiacepinas pueden empeorar el TEPT y no son primera linea."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-adult-adhd",
+    "type": "protocol",
+    "title": "Adult ADHD Assessment",
+    "pronunciation": "uh-DULT A-D-H-D uh-SES-munt",
+    "appliesTo": "Adult with persistent inattention, impulsivity or hyperactivity causing impairment.",
+    "steps": [
+      "Confirm symptoms began in childhood and affect 2 or more settings.",
+      "Use an adult ADHD rating scale (e.g. ASRS) and collateral history.",
+      "Rule out anxiety, depression, sleep apnea, thyroid disease and substance use.",
+      "Screen for bipolar disorder (MDQ) before starting a stimulant.",
+      "Assess cardiovascular risk and blood pressure before stimulants.",
+      "Plan: therapy, stimulant or non-stimulant, and follow-up."
+    ],
+    "warnings": [
+      "Stimulants: monitor BP/HR and misuse risk.",
+      "Screen for bipolar disorder before starting a stimulant."
+    ],
+    "keywords": ["ADHD", "TDAH", "atencion", "ASRS", "estimulante"],
+    "tags": ["salud-mental", "cribado"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Evaluacion de TDAH en adultos",
+        "appliesTo": "Adulto con inatencion, impulsividad o hiperactividad persistentes que causan deterioro.",
+        "steps": [
+          "Confirmar que los sintomas empezaron en la infancia y afectan 2 o mas ambitos.",
+          "Usar una escala de TDAH en adultos (p. ej. ASRS) e historia colateral.",
+          "Descartar ansiedad, depresion, apnea del sueno, tiroides y consumo de sustancias.",
+          "Cribar bipolaridad (MDQ) antes de iniciar un estimulante.",
+          "Evaluar riesgo cardiovascular y presion arterial antes de estimulantes.",
+          "Plan: terapia, estimulante o no estimulante, y seguimiento."
+        ],
+        "warnings": [
+          "Estimulantes: vigilar PA/FC y riesgo de abuso.",
+          "Cribar bipolaridad antes de iniciar un estimulante."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-ocd",
+    "type": "protocol",
+    "title": "OCD Screening and Care",
+    "pronunciation": "oh-see-DEE",
+    "appliesTo": "Patient with intrusive thoughts and repetitive behaviors that consume time.",
+    "steps": [
+      "Ask about obsessions, compulsions and time spent per day.",
+      "Use the Y-BOCS to rate severity.",
+      "Screen for depression and suicide risk.",
+      "First line: CBT with exposure and response prevention (ERP) and/or an SSRI.",
+      "Use higher SSRI doses than in depression, with a slower titration.",
+      "Follow up in 4-6 weeks."
+    ],
+    "warnings": [
+      "OCD is not just being neat; assess functional impact.",
+      "Screen for comorbid tics and depression."
+    ],
+    "keywords": ["OCD", "TOC", "obsesiones", "compulsiones", "Y-BOCS"],
+    "tags": ["salud-mental", "cribado"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Cribado y manejo del TOC",
+        "appliesTo": "Paciente con pensamientos intrusivos y conductas repetitivas que consumen tiempo.",
+        "steps": [
+          "Preguntar por obsesiones, compulsiones y tiempo diario dedicado.",
+          "Usar el Y-BOCS para graduar la severidad.",
+          "Cribar depresion y riesgo suicida.",
+          "Primera linea: TCC con exposicion y prevencion de respuesta (EPR) y/o un ISRS.",
+          "Usar dosis de ISRS mas altas que en depresion, con titulacion lenta.",
+          "Seguimiento en 4-6 semanas."
+        ],
+        "warnings": [
+          "El TOC no es solo ser ordenado; evalua el impacto funcional.",
+          "Cribar tics y depresion comorbidos."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-perinatal-depression",
+    "type": "protocol",
+    "title": "Perinatal Depression Screening",
+    "pronunciation": "per-i-NAY-tul di-PRESH-un",
+    "appliesTo": "Pregnant or postpartum patient.",
+    "steps": [
+      "Screen with the EPDS at the first prenatal visit and postpartum.",
+      "A score >= 10 or any positive self-harm item requires follow-up.",
+      "Assess suicide risk and safety for the patient and the infant.",
+      "Offer therapy and/or an SSRI (sertraline is commonly used in lactation).",
+      "Coordinate with OB and pediatrics.",
+      "Document the plan and follow-up."
+    ],
+    "warnings": [
+      "EPDS item 10 (self-harm) positive = urgent evaluation.",
+      "Do not stop a needed antidepressant abruptly in pregnancy."
+    ],
+    "keywords": ["perinatal", "posparto", "EPDS", "depresion posparto", "embarazo"],
+    "tags": ["salud-mental", "perinatal", "cribado"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Cribado de depresion perinatal",
+        "appliesTo": "Paciente embarazada o en posparto.",
+        "steps": [
+          "Cribar con la EPDS en la primera visita prenatal y en el posparto.",
+          "Un puntaje >= 10 o cualquier item de autolesion positivo requiere seguimiento.",
+          "Evaluar riesgo suicida y seguridad de la paciente y del bebe.",
+          "Ofrecer terapia y/o ISRS (sertralina se usa con frecuencia en lactancia).",
+          "Coordinar con obstetricia y pediatria.",
+          "Documentar el plan y el seguimiento."
+        ],
+        "warnings": [
+          "Item 10 de la EPDS (autolesion) positivo = evaluacion urgente.",
+          "No suspender bruscamente un antidepresivo necesario en el embarazo."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-insomnia-cbti",
+    "type": "protocol",
+    "title": "Insomnia and CBT-I",
+    "pronunciation": "in-SOM-nee-uh and see-bee-TEE-eye",
+    "appliesTo": "Patient with difficulty falling or staying asleep for 3 or more months.",
+    "steps": [
+      "Ask about sleep schedule, caffeine, alcohol, screens and snoring.",
+      "Screen for depression, anxiety and sleep apnea (STOP-BANG).",
+      "First line: CBT-I (sleep restriction, stimulus control, sleep hygiene).",
+      "Avoid long-term hypnotics; if used, set a stop plan.",
+      "Review at 2-4 weeks."
+    ],
+    "warnings": [
+      "Screen for sleep apnea before sedatives.",
+      "Avoid chronic benzodiazepines and Z-drugs."
+    ],
+    "keywords": ["insomnio", "sueno", "CBT-I", "insomnia", "dormir"],
+    "tags": ["salud-mental", "sueno"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Insomnio y CBT-I",
+        "appliesTo": "Paciente con dificultad para conciliar o mantener el sueno durante 3 meses o mas.",
+        "steps": [
+          "Preguntar por horario de sueno, cafeina, alcohol, pantallas y ronquidos.",
+          "Cribar depresion, ansiedad y apnea del sueno (STOP-BANG).",
+          "Primera linea: CBT-I (restriccion de sueno, control de estimulos, higiene del sueno).",
+          "Evitar hipnoticos cronicos; si se usan, fijar un plan de retirada.",
+          "Revisar en 2-4 semanas."
+        ],
+        "warnings": [
+          "Cribar apnea antes de sedantes.",
+          "Evitar benzodiacepinas y farmacos Z de forma cronica."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-tobacco-cessation",
+    "type": "protocol",
+    "title": "Tobacco Cessation",
+    "pronunciation": "tuh-BAK-oh ses-AY-shun",
+    "appliesTo": "Patient who uses tobacco and is willing to reduce or quit.",
+    "steps": [
+      "Ask and document tobacco use at every visit.",
+      "Advise to quit and assess readiness.",
+      "Offer pharmacotherapy: NRT, varenicline or bupropion.",
+      "Offer counseling and quitline resources.",
+      "Set a quit date and follow up."
+    ],
+    "warnings": [
+      "Screen for depression before varenicline/bupropion.",
+      "Combine medication and counseling for best results."
+    ],
+    "keywords": ["tabaco", "fumar", "dejar de fumar", "vareniclina", "nicotina"],
+    "tags": ["salud-mental", "adicciones", "preventivo"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Cesacion tabaquica",
+        "appliesTo": "Paciente que consume tabaco y esta dispuesto a reducirlo o dejarlo.",
+        "steps": [
+          "Preguntar y documentar el consumo de tabaco en cada visita.",
+          "Aconsejar dejar y evaluar la disposicion al cambio.",
+          "Ofrecer farmacoterapia: TRN, vareniclina o bupropion.",
+          "Ofrecer consejeria y recursos de linea de ayuda.",
+          "Fijar una fecha para dejar y dar seguimiento."
+        ],
+        "warnings": [
+          "Cribar depresion antes de vareniclina/bupropion.",
+          "Combinar farmaco y consejeria mejora los resultados."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-lithium-monitoring",
+    "type": "protocol",
+    "title": "Lithium Monitoring",
+    "pronunciation": "LITH-ee-um MON-i-tor-ing",
+    "appliesTo": "Patient on lithium for bipolar disorder.",
+    "steps": [
+      "Check lithium level, renal function, TSH and calcium at baseline and periodically.",
+      "Draw levels 12 hours after the last dose.",
+      "Review tremor, thirst, polyuria and GI symptoms.",
+      "Check interactions (NSAIDs, ACE inhibitors, diuretics).",
+      "Document the level, the plan and the next check."
+    ],
+    "warnings": [
+      "Toxicity: vomiting, ataxia, confusion, coarse tremor = urgent.",
+      "Dehydration and NSAIDs raise lithium levels."
+    ],
+    "keywords": ["litio", "bipolar", "nivel", "toxicidad", "monitorizacion"],
+    "tags": ["salud-mental", "farmacia", "laboratorio"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Monitorizacion del litio",
+        "appliesTo": "Paciente en tratamiento con litio por trastorno bipolar.",
+        "steps": [
+          "Solicitar nivel de litio, funcion renal, TSH y calcio al inicio y periodicamente.",
+          "Tomar el nivel 12 horas despues de la ultima dosis.",
+          "Revisar temblor, sed, poliuria y sintomas digestivos.",
+          "Revisar interacciones (AINEs, IECA, diureticos).",
+          "Documentar el nivel, el plan y el proximo control."
+        ],
+        "warnings": [
+          "Toxicidad: vomito, ataxia, confusion, temblor grueso = urgente.",
+          "La deshidratacion y los AINEs suben el litio."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-antipsychotic-metabolic",
+    "type": "protocol",
+    "title": "Antipsychotic Metabolic Monitoring",
+    "pronunciation": "an-tee-sy-KOT-ik met-uh-BOL-ik MON-i-tor-ing",
+    "appliesTo": "Patient starting or continuing an antipsychotic.",
+    "steps": [
+      "Baseline: weight, BMI, waist, BP, fasting glucose/A1c and lipids.",
+      "Repeat at 12 weeks and then annually (or per risk).",
+      "Use the AIMS periodically to screen for tardive dyskinesia.",
+      "Address smoking, diet and activity.",
+      "Document the results and the plan."
+    ],
+    "warnings": [
+      "Olanzapine/clozapine carry the highest metabolic risk.",
+      "Report abnormal movements early (AIMS)."
+    ],
+    "keywords": ["antipsicotico", "metabolico", "AIMS", "discinesia", "A1c"],
+    "tags": ["salud-mental", "farmacia", "laboratorio"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Monitorizacion metabolica de antipsicoticos",
+        "appliesTo": "Paciente que inicia o continua un antipsicotico.",
+        "steps": [
+          "Basal: peso, IMC, cintura, PA, glucosa/A1c en ayunas y lipidos.",
+          "Repetir a las 12 semanas y luego anualmente (o segun riesgo).",
+          "Aplicar el AIMS periodicamente para cribar discinesia tardia.",
+          "Abordar tabaco, dieta y actividad.",
+          "Documentar los resultados y el plan."
+        ],
+        "warnings": [
+          "Olanzapina/clozapina tienen el mayor riesgo metabolico.",
+          "Reportar movimientos anormales pronto (AIMS)."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-homicidal-ideation",
+    "type": "protocol",
+    "title": "Homicidal Ideation and Agitation",
+    "pronunciation": "hom-i-SY-dul eye-dee-AY-shun and aj-i-TAY-shun",
+    "appliesTo": "Patient with thoughts of harming others or severe agitation.",
+    "steps": [
+      "Assess immediate risk to self and others and the means available.",
+      "Ask directly about intent, plan and target.",
+      "Ensure staff safety; call 911 if there is imminent danger.",
+      "Escalate to the provider and behavioral health immediately.",
+      "Document the assessment and the safety measures."
+    ],
+    "warnings": [
+      "Imminent danger: 911 and clear the area.",
+      "Do not leave the patient alone if there is active intent."
+    ],
+    "keywords": ["homicida", "agitacion", "violencia", "riesgo", "911"],
+    "tags": ["salud-mental", "crisis", "bandera-roja"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Ideacion homicida y agitacion",
+        "appliesTo": "Paciente con pensamientos de danar a otros o agitacion severa.",
+        "steps": [
+          "Evaluar el riesgo inmediato para si mismo y para otros y los medios disponibles.",
+          "Preguntar directamente por intencion, plan y objetivo.",
+          "Garantizar la seguridad del personal; llamar a 911 si hay peligro inminente.",
+          "Escalar al proveedor y a salud mental de inmediato.",
+          "Documentar la evaluacion y las medidas de seguridad."
+        ],
+        "warnings": [
+          "Peligro inminente: 911 y despejar el area.",
+          "No dejar solo al paciente si hay intencion activa."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-relapse-prevention",
+    "type": "protocol",
+    "title": "Relapse Prevention and Adherence",
+    "pronunciation": "REE-laps pre-VEN-shun",
+    "appliesTo": "Patient in follow-up for depression, anxiety or substance use.",
+    "steps": [
+      "Review early warning signs with the patient.",
+      "Identify triggers, coping strategies and support contacts.",
+      "Confirm medication adherence and barriers.",
+      "Set a written plan for worsening symptoms.",
+      "Schedule follow-up and document the plan."
+    ],
+    "warnings": [
+      "Ask about missed doses and side effects at every visit.",
+      "Reassess suicide risk if symptoms worsen."
+    ],
+    "keywords": ["recaida", "adherencia", "prevencion", "seguimiento", "plan"],
+    "tags": ["salud-mental", "tratamiento"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Prevencion de recaidas y adherencia",
+        "appliesTo": "Paciente en seguimiento por depresion, ansiedad o consumo de sustancias.",
+        "steps": [
+          "Revisar con el paciente las senales de alarma tempranas.",
+          "Identificar desencadenantes, estrategias de afrontamiento y contactos de apoyo.",
+          "Confirmar adherencia al tratamiento y barreras.",
+          "Dejar un plan escrito para el empeoramiento de sintomas.",
+          "Agendar seguimiento y documentar el plan."
+        ],
+        "warnings": [
+          "Preguntar por dosis omitidas y efectos adversos en cada visita.",
+          "Reevaluar riesgo suicida si empeora."
+        ]
+      }
+    }
+  },
+  {
+    "id": "proto-prolonged-grief",
+    "type": "protocol",
+    "title": "Prolonged Grief",
+    "pronunciation": "pruh-LONGD greef",
+    "appliesTo": "Patient with disabling grief persisting more than 12 months after a loss.",
+    "steps": [
+      "Distinguish grief from depression (self-esteem, waves tied to the loss).",
+      "Assess functional impairment and suicide risk (C-SSRS).",
+      "Screen for depression and PTSD.",
+      "Offer grief-focused psychotherapy; treat comorbid depression if present.",
+      "Document the plan and follow up."
+    ],
+    "warnings": ["Prolonged grief can coexist with depression.", "Always assess suicide risk."],
+    "keywords": ["duelo", "grief", "duelo prolongado", "perdida", "luto"],
+    "tags": ["salud-mental"],
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Duelo prolongado",
+        "appliesTo": "Paciente con duelo incapacitante que persiste mas de 12 meses tras una perdida.",
+        "steps": [
+          "Distinguir duelo de depresion (autoestima, oleadas ligadas a la perdida).",
+          "Evaluar deterioro funcional y riesgo suicida (C-SSRS).",
+          "Cribar depresion y TEPT.",
+          "Ofrecer psicoterapia centrada en el duelo; tratar depresion comorbida si existe.",
+          "Documentar el plan y dar seguimiento."
+        ],
+        "warnings": [
+          "El duelo prolongado puede coexistir con depresion.",
+          "Evaluar siempre riesgo suicida."
         ]
       }
     }

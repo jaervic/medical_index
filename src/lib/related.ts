@@ -5,7 +5,7 @@ import type { Entry } from './types';
  *
  * Los sinonimos (keywords) pesan mas porque son mas especificos; las etiquetas
  * se ponderan por frecuencia inversa (una etiqueta generica como "salud-mental"
- * aporta poco, una especifica como "eCW" aporta mucho). Asi el bloque
+ * aporta poco, una especifica como "athena" aporta mucho). Asi el bloque
  * "Relacionados" llena el panel con sugerencias utiles y no con ruido.
  */
 

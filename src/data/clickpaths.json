@@ -3,17 +3,25 @@
     "id": "cp-referral",
     "type": "clickpath",
     "title": "Create a Referral",
-    "module": "eCW",
-    "path": ["Chart", "Hub", "Referrals", "New", "Select Specialty", "Assign to RN"],
-    "keywords": ["referral", "referir", "especialista", "referido", "derivar"],
-    "tags": ["eCW", "referrals", "administrativo"],
-    "notes": "Always assign to the RN for authorization before sending to the specialist.",
-    "reviewedAt": "2026-02-10",
+    "module": "athenaOne",
+    "path": [
+      "Chart",
+      "Create Order Group",
+      "Ordering Provider",
+      "Referral",
+      "Select specialty",
+      "Attach notes",
+      "Send",
+      "Authorization Tracker"
+    ],
+    "keywords": ["referral", "referir", "especialista", "referido", "derivar", "athenaOne"],
+    "tags": ["athena", "referrals", "administrativo"],
+    "notes": "Track the referral in the Authorization Tracker. Assign it to the RN when prior authorization is needed.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Crear un Referral",
-        "notes": "Asignar siempre a la RN para autorizacion antes de enviar al especialista.",
-        "path": ["Chart", "Hub", "Referrals", "New", "Seleccionar Especialidad", "Asignar a RN"]
+        "title": "Crear un Referral",
+        "notes": "Sigue la referencia en el Authorization Tracker. Asignala a la RN cuando requiera pre-autorizacion."
       }
     }
   },
@@ -21,33 +29,24 @@
     "id": "cp-refill",
     "type": "clickpath",
     "title": "Medication Refill",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Hub",
       "Prescriptions",
       "Refill Request",
-      "Select Pharmacy",
       "Review dose",
-      "Send to PCP"
+      "Select pharmacy",
+      "Approve or deny",
+      "Document the decision"
     ],
-    "keywords": ["refill", "resurtido", "resurtir", "renovar receta", "recetas"],
-    "tags": ["eCW", "farmacia", "administrativo"],
+    "keywords": ["refill", "resurtido", "resurtir", "renovar receta", "recetas", "athenaOne"],
+    "tags": ["athena", "farmacia", "administrativo"],
     "notes": "If the medication is controlled, do NOT refill by phone: a visit is required.",
-    "reviewedAt": "2026-02-10",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Resurtido de medicamento",
-        "notes": "Si el medicamento es controlado, NO surtir por telefono: requiere visita.",
-        "path": [
-          "Chart",
-          "Hub",
-          "Prescriptions",
-          "Refill Request",
-          "Seleccionar Farmacia",
-          "Revisar dosis",
-          "Enviar a PCP"
-        ]
+        "title": "Resurtido de medicamento",
+        "notes": "Si el medicamento es controlado, NO surtir por telefono: requiere visita."
       }
     }
   },
@@ -55,19 +54,15 @@
     "id": "cp-eprescribe",
     "type": "clickpath",
     "title": "E-prescribe a Medication",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
-      "Progress Note",
-      "Treatment",
-      "Rx (Add)",
-      "Check the Assessment/Dx BEFORE searching the medication",
+      "Chart",
+      "Prescribe",
+      "Select the Assessment/Dx first",
       "Search medication",
       "Adjust dose and instructions",
-      "Apply",
-      "OK",
-      "Hub",
-      "ePrescription Logs",
-      "Send ePrescription"
+      "Send to pharmacy",
+      "Check for ePA (CoverMyMeds)"
     ],
     "keywords": [
       "eprescribe",
@@ -75,64 +70,47 @@
       "prescribir",
       "medicamento",
       "e-prescribing",
-      "enviar receta"
+      "enviar receta",
+      "athenaOne"
     ],
-    "tags": ["eCW", "farmacia"],
-    "notes": "It is a 2-step flow: first you order, then you send. Check ePrescription Logs: Sent = ok, Failed = retry.",
-    "reviewedAt": "2026-02-15",
+    "tags": ["athena", "farmacia"],
+    "notes": "If the payer requires prior authorization, submit the ePA from the prescribing workflow and track it.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: E-prescribir un medicamento",
-        "notes": "Es un flujo de 2 pasos: primero se ordena y luego se envia. Revisa ePrescription Logs: Sent = ok, Failed = reintentar.",
-        "path": [
-          "Progress Note",
-          "Treatment",
-          "Rx (Add)",
-          "Marcar Assessment/Dx ANTES de buscar el medicamento",
-          "Buscar medicamento",
-          "Ajustar dosis e instrucciones",
-          "Apply",
-          "OK",
-          "Hub",
-          "ePrescription Logs",
-          "Send ePrescription"
-        ]
+        "title": "E-prescribir un medicamento",
+        "notes": "Si el plan requiere pre-autorizacion, envia el ePA desde el flujo de prescripcion y da seguimiento."
       }
     }
   },
   {
     "id": "cp-telephone-encounter",
     "type": "clickpath",
-    "title": "Document a Telephone Encounter",
-    "module": "eCW",
+    "title": "Document a Phone Note",
+    "module": "athenaOne",
     "path": [
-      "Chart",
-      "Hub",
-      "Encounters",
-      "New",
-      "Telephone",
+      "Communicator",
+      "Phone Note",
+      "Select patient",
       "Reason for call",
-      "Notes",
-      "Sign & Save"
+      "Details and instructions",
+      "Save"
     ],
-    "keywords": ["telephone encounter", "llamada", "telefono", "documentar llamada"],
-    "tags": ["eCW", "documentacion"],
+    "keywords": [
+      "telephone encounter",
+      "phone note",
+      "llamada",
+      "telefono",
+      "documentar llamada",
+      "athenaOne"
+    ],
+    "tags": ["athena", "documentacion"],
     "notes": "ALWAYS log the call: time, reason, instructions given and the RN signature.",
-    "reviewedAt": "2026-02-10",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Documentar Telephone Encounter",
-        "notes": "Registrar SIEMPRE la llamada: tiempo, motivo, indicaciones dadas y firma del RN.",
-        "path": [
-          "Chart",
-          "Hub",
-          "Encounters",
-          "New",
-          "Telephone",
-          "Motivo de llamada",
-          "Notas",
-          "Sign & Save"
-        ]
+        "title": "Documentar un Phone Note",
+        "notes": "Registrar SIEMPRE la llamada: tiempo, motivo, indicaciones dadas y firma del RN."
       }
     }
   },
@@ -140,103 +118,83 @@
     "id": "cp-order-labs",
     "type": "clickpath",
     "title": "Order Labs",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
-      "Progress Note",
-      "Treatment",
-      "Labs",
-      "Browse",
-      "Check the order's Assessment/Dx",
-      "Switch the criteria to 'Contains'",
+      "Chart",
+      "Create Order Group",
+      "Ordering Provider",
+      "Lab",
+      "Search the compendium",
       "Select the panel",
-      "Future Orders (or Same Day if in-house)",
-      "Sign & Save"
+      "Set future or standing order",
+      "Sign"
     ],
-    "keywords": ["labs", "laboratorios", "analisis", "blood work", "ordenar labs"],
-    "tags": ["eCW", "ordenes"],
-    "notes": "ALWAYS order as FUTURE ORDERS (except same-day in-house labs). Switch to 'Contains' to find the panel more easily.",
-    "reviewedAt": "2026-02-15",
+    "keywords": ["labs", "laboratorios", "analisis", "blood work", "ordenar labs", "athenaOne"],
+    "tags": ["athena", "ordenes"],
+    "notes": "Order as a future/standing order unless it is same-day in-house. Tie the order to a diagnosis.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Ordenar laboratorios",
-        "notes": "Ordena SIEMPRE como FUTURE ORDERS (salvo labs en casa el mismo dia). Cambia a 'Contains' para encontrar el panel mas facil.",
-        "path": [
-          "Progress Note",
-          "Treatment",
-          "Labs",
-          "Browse",
-          "Marcar el Assessment/Dx de la orden",
-          "Cambiar el criterio a 'Contains'",
-          "Seleccionar el panel",
-          "Future Orders (o Same Day si es en casa)",
-          "Sign & Save"
-        ]
+        "title": "Ordenar laboratorios",
+        "notes": "Ordena como future/standing order salvo labs en casa el mismo dia. Liga la orden a un diagnostico."
       }
     }
   },
   {
     "id": "cp-order-imaging",
     "type": "clickpath",
-    "title": "Order Diagnostic Imaging (DI)",
-    "module": "eCW",
+    "title": "Order Imaging",
+    "module": "athenaOne",
     "path": [
-      "Progress Note",
-      "Treatment",
-      "Diagnostic Imaging (DI)",
-      "Browse",
-      "Check Assessment/Dx",
+      "Chart",
+      "Create Order Group",
+      "Ordering Provider",
+      "Imaging",
+      "Search the compendium",
       "Select the study",
-      "Save order"
+      "Sign"
     ],
-    "keywords": ["imaging", "radiografia", "rayos x", "ultrasonido", "DI", "estudio", "imagen"],
-    "tags": ["eCW", "ordenes"],
+    "keywords": [
+      "imaging",
+      "radiografia",
+      "rayos x",
+      "ultrasonido",
+      "DI",
+      "estudio",
+      "imagen",
+      "athenaOne"
+    ],
+    "tags": ["athena", "ordenes"],
     "notes": "Every order is tied to a diagnosis (assessment).",
-    "reviewedAt": "2026-02-15",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Ordenar diagnostico por imagen (DI)",
-        "notes": "Toda orden se liga a un diagnostico (assessment).",
-        "path": [
-          "Progress Note",
-          "Treatment",
-          "Diagnostic Imaging (DI)",
-          "Browse",
-          "Marcar Assessment/Dx",
-          "Seleccionar estudio",
-          "Guardar orden"
-        ]
+        "title": "Ordenar diagnostico por imagen",
+        "notes": "Toda orden se liga a un diagnostico (assessment)."
       }
     }
   },
   {
     "id": "cp-immunization",
     "type": "clickpath",
-    "title": "Order a Vaccine",
-    "module": "eCW",
+    "title": "Administer or Order a Vaccine",
+    "module": "athenaOne",
     "path": [
-      "Patient Hub",
+      "Chart",
       "Immunizations",
       "Review history (do not duplicate)",
-      "Order Immunization",
-      "Select vaccine",
-      "Sign & Save"
+      "Order or administer",
+      "Select vaccine and lot",
+      "Sign"
     ],
-    "keywords": ["vacuna", "immunization", "flu shot", "inyeccion", "vacunacion"],
-    "tags": ["eCW", "preventivo"],
-    "notes": "2-step flow: check the history BEFORE ordering to avoid duplicate doses.",
-    "reviewedAt": "2026-02-15",
+    "keywords": ["vacuna", "immunization", "flu shot", "inyeccion", "vacunacion", "athenaOne"],
+    "tags": ["athena", "preventivo"],
+    "notes": "2-step: verify the history BEFORE ordering to avoid duplicate doses.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Ordenar una vacuna",
-        "notes": "Flujo de 2 pasos: verifica el historial ANTES de ordenar para no duplicar dosis.",
-        "path": [
-          "Patient Hub",
-          "Immunizations",
-          "Revisar historial (no duplicar)",
-          "Order Immunization",
-          "Seleccionar vacuna",
-          "Sign & Save"
-        ]
+        "title": "Administrar u ordenar una vacuna",
+        "notes": "2 pasos: verifica el historial ANTES de ordenar para no duplicar dosis."
       }
     }
   },
@@ -244,15 +202,21 @@
     "id": "cp-office-visit",
     "type": "clickpath",
     "title": "Document an Office Visit",
-    "module": "eCW",
-    "path": ["Chart", "Hub", "Encounters", "New", "Office Visit", "Reason / HPI", "Sign & Save"],
-    "keywords": ["office visit", "visita", "soap note", "nota"],
-    "tags": ["eCW", "documentacion"],
-    "reviewedAt": "2026-02-10",
+    "module": "athenaOne",
+    "path": [
+      "Schedule",
+      "Open the encounter",
+      "Note",
+      "Reason / HPI",
+      "Assessment and plan",
+      "Sign"
+    ],
+    "keywords": ["office visit", "visita", "soap note", "nota", "athenaOne"],
+    "tags": ["athena", "documentacion"],
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Documentar visita de oficina",
-        "path": ["Chart", "Hub", "Encounters", "New", "Office Visit", "Motivo / HPI", "Sign & Save"]
+        "title": "Documentar una visita de oficina"
       }
     }
   },
@@ -260,15 +224,15 @@
     "id": "cp-new-patient",
     "type": "clickpath",
     "title": "Register a New Patient",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
-      "Patient Lookup (search by last name + date of birth)",
-      "New Patient (only if there is no match)",
+      "Patients",
+      "Register Patient",
+      "Search first (last name + date of birth)",
       "Demographics",
-      "Assign PCP / rendering provider",
       "Insurance",
       "Consents",
-      "OK / Save"
+      "Save"
     ],
     "keywords": [
       "paciente nuevo",
@@ -276,24 +240,15 @@
       "new patient",
       "registration",
       "alta de paciente",
-      "lookup"
+      "athenaOne"
     ],
-    "tags": ["eCW", "administrativo"],
-    "notes": "ALWAYS do the Patient Lookup first to avoid duplicate records. Verify spelling, DOB and policy before saving.",
-    "reviewedAt": "2026-02-15",
+    "tags": ["athena", "administrativo"],
+    "notes": "ALWAYS search first to avoid duplicate records. Verify spelling, DOB and policy before saving.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Registrar paciente nuevo",
-        "notes": "SIEMPRE haz Patient Lookup primero para evitar registros duplicados. Verifica ortografia, DOB y poliza antes de guardar.",
-        "path": [
-          "Patient Lookup (buscar por apellido + fecha de nacimiento)",
-          "New Patient (solo si no hay coincidencia)",
-          "Demographics",
-          "Asignar PCP / rendering provider",
-          "Insurance",
-          "Consentimientos",
-          "OK / Save"
-        ]
+        "title": "Registrar paciente nuevo",
+        "notes": "SIEMPRE busca primero para evitar duplicados. Verifica ortografia, DOB y poliza antes de guardar."
       }
     }
   },
@@ -301,31 +256,21 @@
     "id": "cp-schedule-appt",
     "type": "clickpath",
     "title": "Schedule an Appointment",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
-      "Hub",
-      "Scheduler",
-      "Appointments",
-      "New (or find a slot)",
-      "Select visit type (NP / PHYS / ESTPT)",
+      "Schedule",
+      "Find an open slot",
+      "Select visit type",
       "Assign provider and resource",
-      "Save and confirm with the patient"
+      "Book",
+      "Confirm with the patient"
     ],
-    "keywords": ["agendar", "cita", "appointment", "schedule", "agenda"],
-    "tags": ["eCW", "scheduling"],
-    "reviewedAt": "2026-02-15",
+    "keywords": ["agendar", "cita", "appointment", "schedule", "agenda", "athenaOne"],
+    "tags": ["athena", "scheduling"],
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Agendar una cita",
-        "path": [
-          "Hub",
-          "Scheduler",
-          "Appointments",
-          "New (o buscar hueco)",
-          "Seleccionar tipo de visita (NP / PHYS / ESTPT)",
-          "Asignar proveedor y recurso",
-          "Guardar y confirmar con el paciente"
-        ]
+        "title": "Agendar una cita"
       }
     }
   },
@@ -333,31 +278,30 @@
     "id": "cp-nurse-visit",
     "type": "clickpath",
     "title": "Schedule a Nurse Visit",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
-      "Hub",
-      "Scheduler",
-      "New Appointment",
-      "Type: Nurse Visit (10-15 min)",
-      "Reason (BP check, INR, DEPO, injection)",
-      "Save"
+      "Schedule",
+      "Book",
+      "Visit type: Nurse only",
+      "Reason (BP check, INR, injection)",
+      "Confirm"
     ],
-    "keywords": ["nurse visit", "visita de enfermeria", "presion", "INR", "DEPO", "inyeccion"],
-    "tags": ["eCW", "scheduling"],
-    "notes": "Short nursing visit (10-15 min) for checks that do not require the provider.",
-    "reviewedAt": "2026-02-15",
+    "keywords": [
+      "nurse visit",
+      "visita de enfermeria",
+      "presion",
+      "INR",
+      "DEPO",
+      "inyeccion",
+      "athenaOne"
+    ],
+    "tags": ["athena", "scheduling"],
+    "notes": "Short nursing visit for checks that do not require the provider.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Agendar Nurse Visit",
-        "notes": "Visita corta de enfermeria (10-15 min) para controles que no requieren al proveedor.",
-        "path": [
-          "Hub",
-          "Scheduler",
-          "New Appointment",
-          "Tipo: Nurse Visit (10-15 min)",
-          "Motivo (BP check, INR, DEPO, inyeccion)",
-          "Guardar"
-        ]
+        "title": "Agendar una visita de enfermeria",
+        "notes": "Visita corta de enfermeria para controles que no requieren al proveedor."
       }
     }
   },
@@ -365,31 +309,16 @@
     "id": "cp-lab-visit",
     "type": "clickpath",
     "title": "Schedule a Lab Visit",
-    "module": "eCW",
-    "path": [
-      "Hub",
-      "Scheduler",
-      "New Appointment",
-      "Type: Lab Visit (10-15 min)",
-      "Check if fasting",
-      "Save"
-    ],
-    "keywords": ["lab visit", "toma de laboratorio", "ayunas", "fasting", "sangre"],
-    "tags": ["eCW", "scheduling"],
+    "module": "athenaOne",
+    "path": ["Schedule", "Book", "Visit type: Lab only", "Check if fasting", "Confirm"],
+    "keywords": ["lab visit", "toma de laboratorio", "ayunas", "fasting", "sangre", "athenaOne"],
+    "tags": ["athena", "scheduling"],
     "notes": "If fasting, tell the patient not to eat before the draw.",
-    "reviewedAt": "2026-02-15",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Agendar Lab Visit",
-        "notes": "Si es en ayunas, avisa al paciente que no coma antes de la toma.",
-        "path": [
-          "Hub",
-          "Scheduler",
-          "New Appointment",
-          "Tipo: Lab Visit (10-15 min)",
-          "Marcar si es en ayunas (fasting)",
-          "Guardar"
-        ]
+        "title": "Agendar una visita de laboratorio",
+        "notes": "Si es en ayunas, avisa al paciente que no coma antes de la toma."
       }
     }
   },
@@ -397,59 +326,44 @@
     "id": "cp-review-labs",
     "type": "clickpath",
     "title": "Review Lab Results",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Right Chart Panel > DRTLA",
+      "Results",
       "Labs",
       "Filter by date",
-      "Open result (pink clip = electronic)",
-      "Note / send to the provider"
+      "Open the result",
+      "Acknowledge or route to the provider"
     ],
     "keywords": [
       "resultados",
       "labs",
       "resultados de laboratorio",
-      "DRTLA",
-      "resultados pendientes"
+      "resultados pendientes",
+      "athenaOne"
     ],
-    "tags": ["eCW", "laboratorio"],
-    "notes": "The pink clip means the result arrived electronically. Check pending results regularly.",
-    "reviewedAt": "2026-02-15",
+    "tags": ["athena", "laboratorio"],
+    "notes": "Check pending results regularly and acknowledge every result.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Revisar resultados de labs",
-        "notes": "El clip rosado indica que el resultado llego por via electronica. Revisa periodicamente los pendientes.",
-        "path": [
-          "Chart",
-          "Right Chart Panel > DRTLA",
-          "Labs",
-          "Filtrar por fecha",
-          "Abrir resultado (clip rosado = electronico)",
-          "Anotar / enviar al proveedor"
-        ]
+        "title": "Revisar resultados de labs",
+        "notes": "Revisa periodicamente los pendientes y da acuse de cada resultado."
       }
     }
   },
   {
     "id": "cp-document-upload",
     "type": "clickpath",
-    "title": "Upload a Document to the Chart",
-    "module": "eCW",
-    "path": ["Chart", "Patient Documents", "Add / Scan", "Select document type", "Save"],
-    "keywords": ["documento", "escanear", "scan", "subir", "expediente", "document"],
-    "tags": ["eCW", "documentacion"],
-    "reviewedAt": "2026-02-15",
+    "title": "Upload a Document",
+    "module": "athenaOne",
+    "path": ["Chart", "Documents", "Upload or Scan", "Select document type", "Save"],
+    "keywords": ["documento", "escanear", "scan", "subir", "expediente", "document", "athenaOne"],
+    "tags": ["athena", "documentacion"],
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Subir un documento al expediente",
-        "path": [
-          "Chart",
-          "Patient Documents",
-          "Add / Scan",
-          "Seleccionar tipo de documento",
-          "Guardar"
-        ]
+        "title": "Subir un documento al expediente"
       }
     }
   },
@@ -457,14 +371,13 @@
     "id": "cp-eligibility",
     "type": "clickpath",
     "title": "Check Insurance Eligibility",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Hub",
-      "Insurance / Eligibility",
-      "Real-time Eligibility",
+      "Insurance",
+      "Check Eligibility",
       "Verify active plan",
-      "Save"
+      "Document the result"
     ],
     "keywords": [
       "elegibilidad",
@@ -472,55 +385,38 @@
       "insurance",
       "eligibility",
       "cobertura",
-      "verificar seguro"
+      "verificar seguro",
+      "athenaOne"
     ],
-    "tags": ["eCW", "administrativo"],
+    "tags": ["athena", "administrativo"],
     "notes": "Verify before the visit or before ordering services to avoid denials.",
-    "reviewedAt": "2026-02-15",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Verificar elegibilidad del seguro",
-        "notes": "Verifica antes de la cita o de ordenar servicios para evitar rechazos.",
-        "path": [
-          "Chart",
-          "Hub",
-          "Insurance / Eligibility",
-          "Real-time Eligibility",
-          "Verificar plan activo",
-          "Guardar"
-        ]
+        "title": "Verificar elegibilidad del seguro",
+        "notes": "Verifica antes de la cita o de ordenar servicios para evitar rechazos."
       }
     }
   },
   {
     "id": "cp-message-provider",
     "type": "clickpath",
-    "title": "Send a Message or Task to the Provider",
-    "module": "eCW",
+    "title": "Send a Message or Task",
+    "module": "athenaOne",
     "path": [
-      "Chart",
-      "Hub",
-      "Messages / Tasks",
-      "New Message",
+      "Communicator",
+      "New Task or Message",
       "Select provider",
       "Attach note or result",
+      "Set due date",
       "Send"
     ],
-    "keywords": ["mensaje", "tarea", "task", "message", "enviar al doctor", "recado"],
-    "tags": ["eCW", "comunicacion"],
-    "reviewedAt": "2026-02-15",
+    "keywords": ["mensaje", "tarea", "task", "message", "enviar al doctor", "recado", "athenaOne"],
+    "tags": ["athena", "comunicacion"],
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Enviar mensaje o tarea al proveedor",
-        "path": [
-          "Chart",
-          "Hub",
-          "Messages / Tasks",
-          "New Message",
-          "Seleccionar proveedor",
-          "Adjuntar nota o resultado",
-          "Enviar"
-        ]
+        "title": "Enviar un mensaje o tarea al proveedor"
       }
     }
   },
@@ -528,40 +424,32 @@
     "id": "cp-prior-auth",
     "type": "clickpath",
     "title": "Manage a Prior Authorization",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
-      "Hub",
-      "Referrals / Orders",
-      "Open the order that requires auth",
-      "Check the plan's requirements",
-      "Assemble packet (notes, Dx, CPT)",
-      "Send to the insurer",
-      "Update status and follow up"
+      "Chart",
+      "Orders or Referrals",
+      "Open the order",
+      "Check the plan requirements",
+      "Submit ePA (CoverMyMeds) or payer portal",
+      "Authorization Tracker",
+      "Update the patient"
     ],
     "keywords": [
       "prior auth",
       "pre-autorizacion",
       "autorizacion",
-      "auth",
       "aseguradora",
-      "requisitos"
+      "auth",
+      "CoverMyMeds",
+      "athenaOne"
     ],
-    "tags": ["eCW", "administrativo"],
-    "notes": "Not an automatic flow in eCW: coordination with the insurer is manual. Keep a status log.",
-    "reviewedAt": "2026-02-15",
+    "tags": ["athena", "administrativo"],
+    "notes": "Coordination can be manual: keep a status log in the Authorization Tracker.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Gestionar una Prior Authorization",
-        "notes": "No es un flujo automatico en eCW: la coordinacion con la aseguradora es manual. Lleva registro del estado.",
-        "path": [
-          "Hub",
-          "Referrals / Orders",
-          "Abrir la orden que requiere auth",
-          "Verificar requisitos del plan",
-          "Reunir paquete (notas, Dx, CPT)",
-          "Enviar a la aseguradora",
-          "Actualizar estado y dar seguimiento"
-        ]
+        "title": "Gestionar una pre-autorizacion",
+        "notes": "La coordinacion puede ser manual: lleva un registro del estado en el Authorization Tracker."
       }
     }
   },
@@ -569,92 +457,67 @@
     "id": "cp-referral-status",
     "type": "clickpath",
     "title": "Check a Referral's Status",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Right Chart Panel > DRTLA",
       "Referrals",
       "Open the referral",
       "View specialty and status",
-      "Update / inform the patient"
+      "Authorization Tracker",
+      "Update and inform the patient"
     ],
-    "keywords": ["estado referral", "seguimiento referral", "referencia pendiente", "specialty"],
-    "tags": ["eCW", "referrals"],
-    "reviewedAt": "2026-02-15",
+    "keywords": [
+      "estado referral",
+      "seguimiento referral",
+      "referencia pendiente",
+      "specialty",
+      "athenaOne"
+    ],
+    "tags": ["athena", "referrals"],
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Revisar estado de un Referral",
-        "path": [
-          "Chart",
-          "Right Chart Panel > DRTLA",
-          "Referrals",
-          "Abrir la referencia",
-          "Ver especialidad y estado",
-          "Actualizar / informar al paciente"
-        ]
+        "title": "Revisar el estado de un referral"
       }
     }
   },
   {
     "id": "cp-awv",
     "type": "clickpath",
-    "title": "Document an Annual Wellness Visit (AWV)",
-    "module": "eCW",
+    "title": "Document an Annual Wellness Visit",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Hub",
-      "Encounters",
-      "New Office Visit (AWV)",
-      "Health Risk Assessment (HRA)",
-      "Measurements (height, weight, BMI, BP)",
-      "Falls / hearing / home safety",
-      "Cognitive assessment",
+      "Encounter (AWV)",
+      "Questionnaires / HRA",
+      "Vitals and measurements",
+      "Screenings (falls, hearing, cognition)",
       "Written prevention plan",
-      "Code G0438 / G0439"
+      "Sign"
     ],
-    "keywords": ["AWV", "visita anual", "wellness", "medicare", "HRA", "prevencion"],
-    "tags": ["eCW", "preventivo", "medicare"],
-    "notes": "G0438 = first AWV (once in a lifetime); G0439 = subsequent. No copay for the patient.",
-    "reviewedAt": "2026-02-15",
+    "keywords": ["AWV", "visita anual", "wellness", "medicare", "HRA", "prevencion", "athenaOne"],
+    "tags": ["athena", "preventivo", "medicare"],
+    "notes": "First AWV G0438 / subsequent G0439; no copay for the patient.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Documentar Annual Wellness Visit (AWV)",
-        "notes": "G0438 = primera AWV (una vez en la vida); G0439 = subsecuente. Sin copago para el paciente.",
-        "path": [
-          "Chart",
-          "Hub",
-          "Encounters",
-          "New Office Visit (AWV)",
-          "Health Risk Assessment (HRA)",
-          "Mediciones (talla, peso, BMI, BP)",
-          "Caidas / oido / seguridad en casa",
-          "Evaluacion cognitiva",
-          "Plan de prevencion escrito",
-          "Codificar G0438 / G0439"
-        ]
+        "title": "Documentar una visita anual de bienestar",
+        "notes": "G0438 inicial / G0439 subsecuente; sin copago para el paciente."
       }
     }
   },
   {
     "id": "cp-patient-reminder",
     "type": "clickpath",
-    "title": "Send a Patient Appointment Reminder",
-    "module": "eCW",
-    "path": ["Hub", "Scheduler", "Appointments", "Select appointment", "Patient Reminder", "Send"],
-    "keywords": ["recordatorio", "reminder", "cita", "appointment", "confirmar cita"],
-    "tags": ["eCW", "scheduling"],
-    "reviewedAt": "2026-02-10",
+    "title": "Send an Appointment Reminder",
+    "module": "athenaOne",
+    "path": ["Schedule", "Appointments", "Select the appointment", "Communicator", "Send reminder"],
+    "keywords": ["recordatorio", "reminder", "cita", "appointment", "confirmar cita", "athenaOne"],
+    "tags": ["athena", "scheduling"],
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Recordatorio de cita al paciente",
-        "path": [
-          "Hub",
-          "Scheduler",
-          "Appointments",
-          "Seleccionar cita",
-          "Patient Reminder",
-          "Enviar"
-        ]
+        "title": "Enviar un recordatorio de cita"
       }
     }
   },
@@ -662,33 +525,22 @@
     "id": "cp-cancel-reschedule",
     "type": "clickpath",
     "title": "Cancel or Reschedule an Appointment",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
-      "Hub",
-      "Scheduler",
-      "Appointments",
+      "Schedule",
       "Find the appointment",
-      "Cancel / Reschedule",
+      "Cancel or Reschedule",
       "Reason",
       "Confirm with the patient"
     ],
-    "keywords": ["cancelar", "reprogramar", "reschedule", "cancel", "cambiar cita"],
-    "tags": ["eCW", "scheduling"],
+    "keywords": ["cancelar", "reprogramar", "reschedule", "cancel", "cambiar cita", "athenaOne"],
+    "tags": ["athena", "scheduling"],
     "notes": "Document the reason (no-show, patient request) for follow-up.",
-    "reviewedAt": "2026-02-15",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Cancelar o reprogramar una cita",
-        "notes": "Documenta el motivo (no-show, solicitud del paciente) para el seguimiento.",
-        "path": [
-          "Hub",
-          "Scheduler",
-          "Appointments",
-          "Buscar la cita",
-          "Cancel / Reschedule",
-          "Motivo",
-          "Confirmar con el paciente"
-        ]
+        "title": "Cancelar o reprogramar una cita",
+        "notes": "Documenta el motivo (no-show, solicitud del paciente) para el seguimiento."
       }
     }
   },
@@ -696,31 +548,21 @@
     "id": "cp-followup-task",
     "type": "clickpath",
     "title": "Create a Follow-up Task",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
-      "Chart",
-      "Hub",
+      "Communicator",
       "Tasks",
       "New Task",
       "Assign to user",
       "Description and due date",
       "Save"
     ],
-    "keywords": ["tarea", "task", "seguimiento", "pendiente", "follow up"],
-    "tags": ["eCW", "comunicacion"],
-    "reviewedAt": "2026-02-15",
+    "keywords": ["tarea", "task", "seguimiento", "pendiente", "follow up", "athenaOne"],
+    "tags": ["athena", "comunicacion"],
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Crear una tarea de seguimiento",
-        "path": [
-          "Chart",
-          "Hub",
-          "Tasks",
-          "New Task",
-          "Asignar a usuario",
-          "Descripcion y fecha limite",
-          "Guardar"
-        ]
+        "title": "Crear una tarea de seguimiento"
       }
     }
   },
@@ -728,27 +570,14 @@
     "id": "cp-print-summary",
     "type": "clickpath",
     "title": "Print or Share the Patient Summary",
-    "module": "eCW",
-    "path": [
-      "Chart",
-      "Hub",
-      "Documents / Clinical Summary",
-      "Generate CCD / Summary",
-      "Print or share"
-    ],
-    "keywords": ["resumen", "CCD", "clinical summary", "imprimir", "compartir expediente"],
-    "tags": ["eCW", "administrativo"],
-    "reviewedAt": "2026-02-15",
+    "module": "athenaOne",
+    "path": ["Chart", "Documents", "Clinical Summary", "Print or share"],
+    "keywords": ["resumen", "clinical summary", "imprimir", "compartir expediente", "athenaOne"],
+    "tags": ["athena", "administrativo"],
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Imprimir o compartir el resumen del paciente",
-        "path": [
-          "Chart",
-          "Hub",
-          "Documents / Clinical Summary",
-          "Generar CCD / Resumen",
-          "Imprimir o compartir"
-        ]
+        "title": "Imprimir o compartir el resumen del paciente"
       }
     }
   },
@@ -756,15 +585,14 @@
     "id": "cp-phq9-gad7",
     "type": "clickpath",
     "title": "Document PHQ-9 / GAD-7",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Progress Note / Rooming",
-      "Assessments / Questionnaires",
+      "Questionnaires",
       "Select PHQ-9 (or GAD-7)",
       "Capture answers",
-      "Save (the score is calculated automatically)",
-      "Review score and note the plan"
+      "Save (the score is calculated)",
+      "Review the score and note the plan"
     ],
     "keywords": [
       "PHQ-9",
@@ -773,24 +601,16 @@
       "cribado",
       "depresion",
       "ansiedad",
-      "assessments"
+      "assessments",
+      "athenaOne"
     ],
-    "tags": ["eCW", "salud-mental", "cribado"],
-    "notes": "Can be sent to the patient before the visit. Review PHQ-9 item 9 (suicide risk) and follow up. Document the scale at every visit (measurement-based care).",
-    "reviewedAt": "2026-02-20",
+    "tags": ["athena", "salud-mental", "cribado"],
+    "notes": "Can be sent to the patient before the visit. Review PHQ-9 item 9 (suicide risk) and follow up. Document the scale every visit (measurement-based care).",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Documentar PHQ-9 / GAD-7",
-        "notes": "Se puede enviar al paciente antes de la visita. Revisa el item 9 del PHQ-9 (riesgo suicida) y da seguimiento. Documenta la escala en cada visita (measurement-based care).",
-        "path": [
-          "Chart",
-          "Progress Note / Rooming",
-          "Assessments / Questionnaires",
-          "Seleccionar PHQ-9 (o GAD-7)",
-          "Capturar respuestas",
-          "Guardar (el puntaje se calcula solo)",
-          "Revisar puntaje y anotar el plan"
-        ]
+        "title": "Documentar PHQ-9 / GAD-7",
+        "notes": "Se puede enviar al paciente antes de la visita. Revisa el item 9 del PHQ-9 y documenta la escala en cada visita."
       }
     }
   },
@@ -798,31 +618,23 @@
     "id": "cp-cssrs",
     "type": "clickpath",
     "title": "Document C-SSRS (Suicide Risk)",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Assessments / Questionnaires",
+      "Questionnaires",
       "C-SSRS Screener",
       "Ask the 6 questions",
       "Record answers",
       "Alert the provider if there are high flags (Q4-Q6)"
     ],
-    "keywords": ["C-SSRS", "riesgo suicida", "suicidio", "screener", "crisis"],
-    "tags": ["eCW", "salud-mental", "crisis"],
-    "notes": "For Q4-Q5 (intent or plan) or recent Q6: behavioral health consultation, safety precautions and 988/911 if there is immediate risk.",
-    "reviewedAt": "2026-02-20",
+    "keywords": ["C-SSRS", "riesgo suicida", "suicidio", "screener", "crisis", "athenaOne"],
+    "tags": ["athena", "salud-mental", "crisis"],
+    "notes": "For Q4-Q5 or recent Q6: behavioral health consultation, safety precautions and 988/911 if there is immediate risk.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Documentar C-SSRS (riesgo suicida)",
-        "notes": "Ante Q4-Q5 (intencion o plan) o Q6 reciente: consulta de salud mental, precauciones de seguridad y 988/911 si hay riesgo inmediato.",
-        "path": [
-          "Chart",
-          "Assessments / Questionnaires",
-          "C-SSRS Screener",
-          "Aplicar las 6 preguntas",
-          "Registrar respuestas",
-          "Alertar al proveedor si hay banderas altas (Q4-Q6)"
-        ]
+        "title": "Documentar C-SSRS (riesgo suicida)",
+        "notes": "Ante Q4-Q5 o Q6 reciente: consulta de salud mental, precauciones y 988/911 si hay riesgo inmediato."
       }
     }
   },
@@ -830,35 +642,31 @@
     "id": "cp-bh-referral",
     "type": "clickpath",
     "title": "Referral to Behavioral Health",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Hub",
-      "Referrals",
-      "New",
+      "Create Order Group",
+      "Referral",
       "Select Behavioral Health / Psychiatry",
-      "Assign to BH / RN",
-      "Attach reason and PHQ-9 / GAD-7",
-      "Save"
+      "Attach the screening score",
+      "Send"
     ],
-    "keywords": ["salud conductual", "BH", "psiquiatria", "referral", "salud mental", "referencia"],
-    "tags": ["eCW", "salud-mental", "referrals"],
-    "notes": "Attach the screening score to the referral to speed up the evaluation. Do a warm handoff when you can.",
-    "reviewedAt": "2026-02-20",
+    "keywords": [
+      "salud conductual",
+      "BH",
+      "psiquiatria",
+      "referral",
+      "salud mental",
+      "referencia",
+      "athenaOne"
+    ],
+    "tags": ["athena", "salud-mental", "referrals"],
+    "notes": "Attach the screening score to speed up the evaluation. Do a warm handoff when you can.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Referral a salud conductual",
-        "notes": "Adjunta el puntaje del cribado al referral para agilizar la valoracion. Haz warm handoff cuando puedas.",
-        "path": [
-          "Chart",
-          "Hub",
-          "Referrals",
-          "New",
-          "Seleccionar Behavioral Health / Psiquiatria",
-          "Asignar a BH / RN",
-          "Adjuntar motivo y PHQ-9 / GAD-7",
-          "Guardar"
-        ]
+        "title": "Referral a salud conductual",
+        "notes": "Adjunta el puntaje del cribado para agilizar la valoracion. Haz warm handoff cuando puedas."
       }
     }
   },
@@ -866,63 +674,53 @@
     "id": "cp-safety-plan",
     "type": "clickpath",
     "title": "Document a Safety Plan",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Patient Documents / Notes",
+      "Documents",
       "New document: Safety Plan",
-      "List warning signs and coping strategies",
+      "Warning signs and coping strategies",
       "Support contacts and crisis line (988)",
       "Sign and save"
     ],
-    "keywords": ["plan de seguridad", "safety plan", "crisis", "suicidio", "988"],
-    "tags": ["eCW", "salud-mental", "crisis"],
+    "keywords": ["plan de seguridad", "safety plan", "crisis", "suicidio", "988", "athenaOne"],
+    "tags": ["athena", "salud-mental", "crisis"],
     "notes": "The safety plan should include concrete steps, contacts and means restriction. Give the patient a copy.",
-    "reviewedAt": "2026-02-20",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Documentar un plan de seguridad",
-        "notes": "El plan de seguridad debe incluir pasos concretos, contactos y restriccion de medios. Entregale una copia al paciente.",
-        "path": [
-          "Chart",
-          "Patient Documents / Notes",
-          "Nuevo documento: Safety Plan",
-          "Listar senales de alarma y estrategias de afrontamiento",
-          "Contactos de apoyo y linea de crisis (988)",
-          "Firmar y guardar"
-        ]
+        "title": "Documentar un plan de seguridad",
+        "notes": "El plan debe incluir pasos concretos, contactos y restriccion de medios. Entregale una copia al paciente."
       }
     }
   },
   {
     "id": "cp-telehealth-bh",
     "type": "clickpath",
-    "title": "Telehealth Behavioral Health Appointment",
-    "module": "eCW",
+    "title": "Telehealth Behavioral Health Visit",
+    "module": "athenaOne",
     "path": [
-      "Hub",
-      "Scheduler",
-      "New Appointment",
-      "Type: Telehealth / BH",
-      "Send link to the patient (healow)",
-      "Document in the Encounter and sign"
+      "Schedule",
+      "Book",
+      "Visit type: Telehealth",
+      "Send the link (athenaTelehealth)",
+      "Document the encounter and sign"
     ],
-    "keywords": ["telesalud", "telehealth", "videollamada", "salud mental", "healow"],
-    "tags": ["eCW", "salud-mental", "scheduling"],
+    "keywords": [
+      "telesalud",
+      "telehealth",
+      "videollamada",
+      "salud mental",
+      "athenaTelehealth",
+      "athenaOne"
+    ],
+    "tags": ["athena", "salud-mental", "scheduling"],
     "notes": "Confirm the patient has the link and a private place. Check the plan's telehealth requirements.",
-    "reviewedAt": "2026-02-20",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Cita de telesalud de salud mental",
-        "notes": "Confirma que el paciente tenga el enlace y un lugar privado. Verifica requisitos de telesalud del plan.",
-        "path": [
-          "Hub",
-          "Scheduler",
-          "New Appointment",
-          "Tipo: Telehealth / BH",
-          "Enviar enlace al paciente (healow)",
-          "Documentar en el Encounter y firmar"
-        ]
+        "title": "Cita de telesalud de salud mental",
+        "notes": "Confirma que el paciente tenga el enlace y un lugar privado. Verifica requisitos de telesalud del plan."
       }
     }
   },
@@ -930,33 +728,31 @@
     "id": "cp-prior-auth-psych",
     "type": "clickpath",
     "title": "Prior Auth for a Psychiatric Medication",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Hub",
-      "Prescriptions",
+      "Prescribe",
       "Select medication",
-      "Check if auth is required",
-      "Send request",
-      "Update status"
+      "Check if ePA is required",
+      "Submit ePA (CoverMyMeds)",
+      "Authorization Tracker"
     ],
-    "keywords": ["prior auth", "psiquiatrico", "antipsicotico", "medicamento", "autorizacion"],
-    "tags": ["eCW", "salud-mental", "farmacia", "administrativo"],
-    "notes": "Many antipsychotics and some antidepressants require prior authorization. Warn the patient about the delay before the change.",
-    "reviewedAt": "2026-02-20",
+    "keywords": [
+      "prior auth",
+      "psiquiatrico",
+      "antipsicotico",
+      "medicamento",
+      "autorizacion",
+      "CoverMyMeds",
+      "athenaOne"
+    ],
+    "tags": ["athena", "salud-mental", "farmacia", "administrativo"],
+    "notes": "Many antipsychotics and some antidepressants require prior authorization. Warn the patient about the delay.",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Prior auth de medicamento psiquiatrico",
-        "notes": "Muchos antipsicoticos y algunos antidepresivos requieren pre-autorizacion. Avisa al paciente de la demora antes del cambio.",
-        "path": [
-          "Chart",
-          "Hub",
-          "Prescriptions",
-          "Seleccionar medicamento",
-          "Verificar si requiere auth",
-          "Enviar solicitud",
-          "Actualizar estado"
-        ]
+        "title": "Prior auth de medicamento psiquiatrico",
+        "notes": "Muchos antipsicoticos y algunos antidepresivos requieren pre-autorizacion. Avisa al paciente de la demora."
       }
     }
   },
@@ -964,33 +760,30 @@
     "id": "cp-social-work-consult",
     "type": "clickpath",
     "title": "Social Work Consultation",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
       "Chart",
-      "Hub",
-      "Referrals / Tasks",
-      "New Consult",
+      "Create Order Group",
+      "Consult",
       "Select Social Work / Case Management",
       "Reason (resources, violence, transportation)",
       "Send"
     ],
-    "keywords": ["trabajo social", "social work", "case management", "consulta", "recursos"],
-    "tags": ["eCW", "salud-mental", "administrativo"],
+    "keywords": [
+      "trabajo social",
+      "social work",
+      "case management",
+      "consulta",
+      "recursos",
+      "athenaOne"
+    ],
+    "tags": ["athena", "salud-mental", "administrativo"],
     "notes": "Useful for IPV, access barriers, transportation or community resources.",
-    "reviewedAt": "2026-02-20",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Consulta a trabajo social",
-        "notes": "Util para IPV, barreras de acceso, transporte o recursos comunitarios.",
-        "path": [
-          "Chart",
-          "Hub",
-          "Referrals / Tasks",
-          "New Consult",
-          "Seleccionar Social Work / Case Management",
-          "Motivo (recursos, violencia, transporte)",
-          "Enviar"
-        ]
+        "title": "Consulta a trabajo social",
+        "notes": "Util para IPV, barreras de acceso, transporte o recursos comunitarios."
       }
     }
   },
@@ -998,33 +791,183 @@
     "id": "cp-crisis-documentation",
     "type": "clickpath",
     "title": "Document a Mental Health Crisis",
-    "module": "eCW",
+    "module": "athenaOne",
     "path": [
-      "Chart",
-      "Hub",
-      "Telephone Encounter (or Encounter)",
+      "Communicator",
+      "Phone Note (or Encounter)",
       "Reason: mental health crisis",
       "Document assessment, C-SSRS and plan",
       "Log 988 and resources given",
-      "Sign & Save"
+      "Sign and save"
     ],
-    "keywords": ["crisis", "documentar", "988", "salud mental", "telephone encounter"],
-    "tags": ["eCW", "salud-mental", "crisis"],
+    "keywords": ["crisis", "documentar", "988", "salud mental", "phone note", "athenaOne"],
+    "tags": ["athena", "salud-mental", "crisis"],
     "notes": "Log the time, the risk assessed, the agreed plan and follow-up. If 988/911 was called, note it with the time.",
-    "reviewedAt": "2026-02-20",
+    "reviewedAt": "2026-10-20",
     "i18n": {
       "es": {
-        "title": "Ruta de clics: Documentar una crisis de salud mental",
-        "notes": "Registra tiempo, riesgo evaluado, plan acordado y seguimiento. Si hubo llamada a 988/911, anotalo con hora.",
-        "path": [
-          "Chart",
-          "Hub",
-          "Telephone Encounter (o Encounter)",
-          "Motivo: crisis de salud mental",
-          "Documentar evaluacion, C-SSRS y plan",
-          "Registrar 988 y recursos dados",
-          "Sign & Save"
-        ]
+        "title": "Documentar una crisis de salud mental",
+        "notes": "Registra tiempo, riesgo evaluado, plan acordado y seguimiento. Si hubo llamada a 988/911, anotalo con hora."
+      }
+    }
+  },
+  {
+    "id": "cp-bh-intake",
+    "type": "clickpath",
+    "title": "Behavioral Health Intake",
+    "module": "athenaOne",
+    "path": [
+      "Schedule",
+      "Book (BH intake)",
+      "Chart",
+      "Encounter: BH intake",
+      "History, risk assessment and screeners",
+      "Care plan",
+      "Sign"
+    ],
+    "keywords": [
+      "bh intake",
+      "intake",
+      "salud conductual",
+      "primera visita",
+      "evaluacion",
+      "athenaOne"
+    ],
+    "tags": ["athena", "salud-mental", "cribado"],
+    "notes": "Complete the intake packet and screeners before the first BH visit.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Intake de salud conductual",
+        "notes": "Completa el paquete de intake y los cribados antes de la primera visita de BH."
+      }
+    }
+  },
+  {
+    "id": "cp-bh-questionnaires",
+    "type": "clickpath",
+    "title": "Send and Score BH Questionnaires",
+    "module": "athenaOne",
+    "path": [
+      "Chart",
+      "Questionnaires",
+      "Select PHQ-9, GAD-7, C-SSRS or PCL-5",
+      "Send to the patient portal",
+      "Review and score",
+      "Document the plan"
+    ],
+    "keywords": [
+      "cuestionarios",
+      "questionnaires",
+      "PHQ-9",
+      "GAD-7",
+      "PCL-5",
+      "portal",
+      "athenaOne"
+    ],
+    "tags": ["athena", "salud-mental", "cribado"],
+    "notes": "Send before the visit to save time. Repeat the same scales to measure response.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Enviar y puntuar cuestionarios de BH",
+        "notes": "Envia antes de la visita para ahorrar tiempo. Repite las mismas escalas para medir respuesta."
+      }
+    }
+  },
+  {
+    "id": "cp-bh-care-plan",
+    "type": "clickpath",
+    "title": "Create a BH Care Plan",
+    "module": "athenaOne",
+    "path": [
+      "Chart",
+      "Care Plan",
+      "Problems and goals",
+      "Interventions and responsible party",
+      "Review date",
+      "Sign"
+    ],
+    "keywords": ["care plan", "plan de cuidado", "objetivos", "salud conductual", "athenaOne"],
+    "tags": ["athena", "salud-mental", "documentacion"],
+    "notes": "Keep goals measurable and review the plan at every follow-up.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Crear un care plan de BH",
+        "notes": "Manten objetivos medibles y revisa el plan en cada seguimiento."
+      }
+    }
+  },
+  {
+    "id": "cp-bh-epcs",
+    "type": "clickpath",
+    "title": "E-prescribe a Controlled Substance (EPCS)",
+    "module": "athenaOne",
+    "path": [
+      "Chart",
+      "Prescribe",
+      "Select medication",
+      "EPCS token / two-factor",
+      "Send to pharmacy",
+      "Document the rationale"
+    ],
+    "keywords": ["EPCS", "controlado", "estupefaciente", "receta", "token", "PDMP", "athenaOne"],
+    "tags": ["athena", "salud-mental", "farmacia"],
+    "notes": "Controlled substances require EPCS and a valid visit. Check the PDMP when required.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "E-prescribir un controlado (EPCS)",
+        "notes": "Los controlados requieren EPCS y una visita valida. Consulta el PDMP cuando aplique."
+      }
+    }
+  },
+  {
+    "id": "cp-bh-med-monitoring-labs",
+    "type": "clickpath",
+    "title": "Order BH Medication Monitoring Labs",
+    "module": "athenaOne",
+    "path": [
+      "Chart",
+      "Create Order Group",
+      "Lab",
+      "Lithium level / metabolic panel",
+      "Set recurring order",
+      "Sign"
+    ],
+    "keywords": ["labs", "litio", "antipsicotico", "monitorizacion", "metabolico", "athenaOne"],
+    "tags": ["athena", "salud-mental", "laboratorio"],
+    "notes": "Lithium: level and renal/thyroid. Antipsychotics: metabolic panel and A1c.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Ordenar labs de monitorizacion de psicofarmacos",
+        "notes": "Litio: nivel y renal/tiroides. Antipsicoticos: panel metabolico y A1c."
+      }
+    }
+  },
+  {
+    "id": "cp-bh-portal-questionnaire",
+    "type": "clickpath",
+    "title": "Send a Questionnaire Through the Portal",
+    "module": "athenaOne",
+    "path": [
+      "Chart",
+      "Communicator",
+      "Patient portal",
+      "Send questionnaire",
+      "Track completion",
+      "Review in Questionnaires"
+    ],
+    "keywords": ["portal", "cuestionario", "patient portal", "screening", "athenaOne"],
+    "tags": ["athena", "salud-mental", "comunicacion"],
+    "notes": "Ideal for pre-visit screening and between-visit monitoring.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "title": "Enviar un cuestionario por el portal",
+        "notes": "Ideal para cribado previo a la visita y seguimiento entre visitas."
       }
     }
   }

@@ -29,7 +29,7 @@ export interface BaseEntry {
   title: string;
   /** Sinonimos, coloquialismos, errores frecuentes. Se indexan con peso alto. */
   keywords?: string[];
-  /** Categorias transversales (p. ej. "triage", "eCW", "cardiologia"). */
+  /** Categorias transversales (p. ej. "triage", "athena", "cardiologia"). */
   tags?: string[];
   /** Fecha ISO de ultima revision del contenido clinico. */
   reviewedAt?: string;
@@ -52,7 +52,7 @@ export interface DictionaryEntry extends BaseEntry {
 
 export interface ClickPathEntry extends BaseEntry {
   type: 'clickpath';
-  /** Modulo de eCW al que pertenece la ruta. */
+  /** Modulo de athenaOne al que pertenece la ruta. */
   module: string;
   /** Secuencia de clics. */
   path: string[];
@@ -81,10 +81,3 @@ export interface AcronymEntry extends BaseEntry {
 }
 
 export type Entry = DictionaryEntry | ClickPathEntry | ProtocolEntry | AcronymEntry;
-
-export const ENTRY_TYPE_LABEL: Record<EntryType, string> = {
-  dictionary: 'Diccionario',
-  clickpath: 'Ruta eCW',
-  protocol: 'Protocolo',
-  acronym: 'Acronimo',
-};

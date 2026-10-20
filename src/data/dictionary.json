@@ -1072,5 +1072,123 @@
         "note": "El tratamiento de primera linea del insomnio cronico es terapia cognitivo-conductual (CBT-I), no solo hipnoticos."
       }
     }
+  },
+  {
+    "id": "social-anxiety-disorder",
+    "type": "dictionary",
+    "title": "Social Anxiety Disorder",
+    "en": "Social Anxiety Disorder",
+    "es": "Trastorno de ansiedad social",
+    "pronunciation": "SOH-shul ang-ZY-uh-tee dis-OR-der",
+    "colloquial": [
+      "me da miedo hablar en publico",
+      "me pongo rojo",
+      "evito a la gente",
+      "ansiedad social"
+    ],
+    "keywords": ["social anxiety", "ansiedad social", "fobia social"],
+    "tags": ["salud-mental", "ansiedad"],
+    "note": "Screen with the GAD-7 plus specific questions about avoidance; first line is CBT and/or an SSRI.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "Criba con el GAD-7 y preguntas especificas sobre evitacion; primera linea es TCC y/o ISRS."
+      }
+    }
+  },
+  {
+    "id": "agoraphobia",
+    "type": "dictionary",
+    "title": "Agoraphobia",
+    "en": "Agoraphobia",
+    "es": "Agorafobia",
+    "pronunciation": "ag-uh-ruh-FOH-bee-uh",
+    "colloquial": ["miedo a salir", "no puedo salir de casa", "miedo a los lugares cerrados"],
+    "keywords": ["agoraphobia", "agorafobia", "miedo a salir"],
+    "tags": ["salud-mental", "ansiedad"],
+    "note": "Assess avoidance and panic attacks; CBT with exposure is first line.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "Evalua evitacion y ataques de panico; la TCC con exposicion es primera linea."
+      }
+    }
+  },
+  {
+    "id": "self-harm",
+    "type": "dictionary",
+    "title": "Self-Harm (NSSI)",
+    "en": "Non-Suicidal Self-Injury",
+    "es": "Autolesion",
+    "pronunciation": "self harm",
+    "colloquial": ["me corto", "me hago dano", "me lastimo"],
+    "keywords": ["self-harm", "autolesion", "NSSI", "cutting"],
+    "tags": ["salud-mental", "crisis", "bandera-roja"],
+    "note": "Assess suicide risk (C-SSRS) and offer a safety plan; do not dismiss it.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "Evalua riesgo suicida (C-SSRS) y ofrece un plan de seguridad; no lo minimices."
+      }
+    }
+  },
+  {
+    "id": "eating-disorder",
+    "type": "dictionary",
+    "title": "Eating Disorder",
+    "en": "Eating Disorder",
+    "es": "Trastorno de la conducta alimentaria",
+    "pronunciation": "EE-ting dis-OR-der",
+    "colloquial": [
+      "deje de comer",
+      "me doy atracones",
+      "me provoco vomito",
+      "obsesion con el peso"
+    ],
+    "keywords": ["eating disorder", "anorexia", "bulimia", "binge", "trastorno alimentario"],
+    "tags": ["salud-mental", "alimentacion"],
+    "note": "Screen for rapid weight loss, purging and body image distortion; refer urgently if medically unstable.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "Criba perdida de peso rapida, purgas y distorsion de la imagen corporal; refiere urgente si hay inestabilidad medica."
+      }
+    }
+  },
+  {
+    "id": "gambling-disorder",
+    "type": "dictionary",
+    "title": "Gambling Disorder",
+    "en": "Gambling Disorder",
+    "es": "Trastorno por juego de apuestas",
+    "pronunciation": "GAM-bling dis-OR-der",
+    "colloquial": ["no puedo dejar de apostar", "me gasto todo en el casino", "juego en linea"],
+    "keywords": ["gambling", "ludopatia", "apuestas", "juego"],
+    "tags": ["salud-mental", "adicciones"],
+    "note": "Screen with a brief gambling screen and assess financial and suicide risk.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "Criba con una escala breve de juego y evalua riesgo financiero y suicida."
+      }
+    }
+  },
+  {
+    "id": "perinatal-depression",
+    "type": "dictionary",
+    "title": "Perinatal Depression",
+    "en": "Perinatal Depression",
+    "es": "Depresion perinatal",
+    "pronunciation": "per-i-NAY-tul di-PRESH-un",
+    "colloquial": ["tristeza despues del parto", "no me siento yo", "no puedo con el bebe"],
+    "keywords": ["perinatal", "posparto", "postpartum", "EPDS", "depresion posparto"],
+    "tags": ["salud-mental", "perinatal"],
+    "note": "Screen with the EPDS; a positive self-harm item is urgent.",
+    "reviewedAt": "2026-10-20",
+    "i18n": {
+      "es": {
+        "note": "Criba con la EPDS; un item de autolesion positivo es urgente."
+      }
+    }
   }
 ]

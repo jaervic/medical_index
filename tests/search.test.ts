@@ -65,6 +65,6 @@ describe('busqueda fuzzy y ranking', () => {
     const dictionary = ENTRIES.find((entry) => entry.id === 'hypertension-htn');
     const clickpath = ENTRIES.find((entry) => entry.id === 'cp-referral');
     expect(dictionary && primaryCopyText(dictionary)).toBe('Hypertension');
-    expect(clickpath && primaryCopyText(clickpath)).toContain('Chart > Hub');
+    expect(clickpath && primaryCopyText(clickpath)).toContain('Chart > Create Order Group');
   });
 });

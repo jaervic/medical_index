@@ -24,7 +24,7 @@ const EMPTY = {
   colloquial: '',
   expansion: '',
   translation: '',
-  module: 'eCW',
+  module: 'athenaOne',
   path: '',
   appliesTo: '',
   steps: '',
@@ -112,7 +112,7 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
         candidate = {
           ...base,
           type,
-          module: form.module.trim() || 'eCW',
+          module: form.module.trim() || 'athenaOne',
           path: lines(form.path),
           notes: form.note.trim() || undefined,
         };
@@ -226,7 +226,7 @@ export function EntryEditor({ onSave, onClose }: EntryEditorProps) {
             {type === 'clickpath' && (
               <>
                 <Field label={t('editor.module')}>
-                  <Input value={form.module} onChange={set('module')} placeholder="eCW" />
+                  <Input value={form.module} onChange={set('module')} placeholder="athenaOne" />
                 </Field>
                 <Field label={t('editor.path')}>
                   <Textarea

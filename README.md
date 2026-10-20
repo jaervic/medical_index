@@ -1,7 +1,7 @@
 # Meddex
 
 Segundo cerebro clinico: un _command palette_ (estilo Spotlight / Raycast) para consultar
-**protocolos, rutas de clics de eCW, acronimos y un diccionario medico bilingue** en milisegundos,
+**protocolos, rutas de athenaOne, acronimos y un diccionario medico bilingue** en milisegundos,
 sin perder tiempo navegando menus.
 
 > Solo contiene **reglas generales y traducciones**. No guarda ni procesa datos de pacientes (cero PII).
@@ -16,7 +16,7 @@ sin perder tiempo navegando menus.
 - **Tarjetas por tipo**:
   - _Diccionario_: termino exacto EN/ES, **pronunciacion en ingles** (p. ej. `hy-per-TEN-shun`),
     como lo dice el paciente, nota clinica.
-  - _Ruta eCW_: breadcrumb de clics (`Chart › Hub › Referrals › New ...`) copiable.
+  - _Ruta AthenaOne_: breadcrumb de clics (`Chart › Create Order Group › Referral ...`) copiable.
   - _Protocolo_: nombre en ingles con su **pronunciacion**, pasos numerados y advertencias.
   - _Acronimo_: significado y traduccion.
 - **Copiar a la nota** solo de forma explicita: con el boton **Copiar** de la tarjeta o los chips
@@ -53,12 +53,14 @@ sin perder tiempo navegando menus.
 
 ## Contenido y fuentes
 
-Actualmente incluye **207 entradas**: 87 acronimos, 59 terminos de diccionario, 31 rutas de eCW y
-30 protocolos, con un **enfoque fuerte en salud mental**. Se fundamentaron en fuentes publicas:
+Actualmente incluye **236 entradas**: 93 acronimos, 65 terminos de diccionario, 37 rutas de
+athenaOne y 41 protocolos, con un **enfoque fuerte en salud mental** (25 protocolos de BH). Se
+fundamentaron en fuentes publicas:
 
 - **Acronimos y vocabulario clinico**: listas de abreviaturas de uso comun (NCI/SEER, MedicAlert).
-- **Rutas de eCW**: guias de entrenamiento de eClinicalWorks (panel DRTLA, _Treatment screen_,
-  FUTURE ORDERS, _Outgoing Referral_, inmunizaciones en 2 pasos, registro de paciente nuevo).
+- **Rutas de athenaOne**: flujos de athenaClinicals/Communicator (Create Order Group, Ordering
+  Provider, Referral, Lab/Imaging, Prescribe, ePA/CoverMyMeds, Phone Note, Questionnaires,
+  Authorization Tracker, Schedule).
 - **Protocolos (AWV)**: guia de la CMS/Medicare para la _Annual Wellness Visit_ (G0438/G0439).
 - **Triage telefonico**: banderas rojas de dolor toracico, disnea, fiebre y dolor abdominal
   (guias AHA/ACC, WHO prehospital protocols, ESI handbook, protocolos de triage telefonico).
@@ -66,7 +68,7 @@ Actualmente incluye **207 entradas**: 87 acronimos, 59 terminos de diccionario, 
   AUDIT-C, DAST-10, MDQ, PC-PTSD, EPDS — junto con SBIRT (USPSTF/NIAAA), lineas de crisis (988)
   y referencia a salud conductual.
 
-> Aviso: las rutas de clics de eCW **dependen de la configuracion de cada clinica**. Verificalas
+> Aviso: las rutas de athenaOne **dependen de la configuracion de cada clinica**. Verificalas
 > contra tu version antes de confiar en ellas. El contenido es de referencia general y no
 > sustituye el juicio clinico ni los protocolos locales. Las escalas deben usarlas personas
 > capacitadas; el C-SSRS y la evaluacion del riesgo suicida requieren entrenamiento.
@@ -120,17 +122,17 @@ Diccionario (`src/data/dictionary.json`):
 }
 ```
 
-Ruta de eCW (`src/data/clickpaths.json`):
+Ruta de athenaOne (`src/data/clickpaths.json`):
 
 ```json
 {
   "id": "cp-referral",
   "type": "clickpath",
-  "title": "Ruta de clics: Crear un Referral",
-  "module": "eCW",
-  "path": ["Chart", "Hub", "Referrals", "New", "Seleccionar Especialidad", "Asignar a RN"],
-  "keywords": ["referral", "referir", "especialista"],
-  "tags": ["eCW"]
+  "title": "Create a Referral",
+  "module": "athenaOne",
+  "path": ["Chart", "Create Order Group", "Referral", "Select specialty", "Send"],
+  "keywords": ["referral", "especialista"],
+  "tags": ["athena", "referrals"]
 }
 ```
 
