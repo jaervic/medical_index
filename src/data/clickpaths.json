@@ -23,7 +23,9 @@
         "title": "Crear un Referral",
         "notes": "Sigue la referencia en el Authorization Tracker. Asignala a la RN cuando requiera pre-autorizacion."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://www.nachc.org/wp-content/uploads/2025/08/athenaOne-CMM_PCM-Workflow.pdf"
   },
   {
     "id": "cp-refill",
@@ -31,9 +33,8 @@
     "title": "Medication Refill",
     "module": "athenaOne",
     "path": [
-      "Chart",
-      "Prescriptions",
-      "Refill Request",
+      "Clinical Inbox",
+      "Rx renewal",
       "Review dose",
       "Select pharmacy",
       "Approve or deny",
@@ -48,7 +49,8 @@
         "title": "Resurtido de medicamento",
         "notes": "Si el medicamento es controlado, NO surtir por telefono: requiere visita."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-eprescribe",
@@ -81,7 +83,9 @@
         "title": "E-prescribir un medicamento",
         "notes": "Si el plan requiere pre-autorizacion, envia el ePA desde el flujo de prescripcion y da seguimiento."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://docs.athenahealth.com/api/workflows/order-creation"
   },
   {
     "id": "cp-telephone-encounter",
@@ -89,9 +93,9 @@
     "title": "Document a Phone Note",
     "module": "athenaOne",
     "path": [
-      "Communicator",
-      "Phone Note",
-      "Select patient",
+      "Chart",
+      "Encounter",
+      "Note type: Phone",
       "Reason for call",
       "Details and instructions",
       "Save"
@@ -112,7 +116,8 @@
         "title": "Documentar un Phone Note",
         "notes": "Registrar SIEMPRE la llamada: tiempo, motivo, indicaciones dadas y firma del RN."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-order-labs",
@@ -138,7 +143,9 @@
         "title": "Ordenar laboratorios",
         "notes": "Ordena como future/standing order salvo labs en casa el mismo dia. Liga la orden a un diagnostico."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://docs.athenahealth.com/api/workflows/order-creation"
   },
   {
     "id": "cp-order-imaging",
@@ -172,7 +179,9 @@
         "title": "Ordenar diagnostico por imagen",
         "notes": "Toda orden se liga a un diagnostico (assessment)."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://docs.athenahealth.com/api/workflows/order-creation"
   },
   {
     "id": "cp-immunization",
@@ -196,7 +205,8 @@
         "title": "Administrar u ordenar una vacuna",
         "notes": "2 pasos: verifica el historial ANTES de ordenar para no duplicar dosis."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-office-visit",
@@ -218,7 +228,8 @@
       "es": {
         "title": "Documentar una visita de oficina"
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-new-patient",
@@ -250,7 +261,8 @@
         "title": "Registrar paciente nuevo",
         "notes": "SIEMPRE busca primero para evitar duplicados. Verifica ortografia, DOB y poliza antes de guardar."
       }
-    }
+    },
+    "verified": true
   },
   {
     "id": "cp-schedule-appt",
@@ -272,7 +284,8 @@
       "es": {
         "title": "Agendar una cita"
       }
-    }
+    },
+    "verified": true
   },
   {
     "id": "cp-nurse-visit",
@@ -303,7 +316,8 @@
         "title": "Agendar una visita de enfermeria",
         "notes": "Visita corta de enfermeria para controles que no requieren al proveedor."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-lab-visit",
@@ -320,7 +334,8 @@
         "title": "Agendar una visita de laboratorio",
         "notes": "Si es en ayunas, avisa al paciente que no coma antes de la toma."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-review-labs",
@@ -350,7 +365,8 @@
         "title": "Revisar resultados de labs",
         "notes": "Revisa periodicamente los pendientes y da acuse de cada resultado."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-document-upload",
@@ -365,7 +381,9 @@
       "es": {
         "title": "Subir un documento al expediente"
       }
-    }
+    },
+    "verified": true,
+    "source": "https://docs.athenahealth.com/api/docs/documents-and-forms"
   },
   {
     "id": "cp-eligibility",
@@ -396,7 +414,8 @@
         "title": "Verificar elegibilidad del seguro",
         "notes": "Verifica antes de la cita o de ordenar servicios para evitar rechazos."
       }
-    }
+    },
+    "verified": true
   },
   {
     "id": "cp-message-provider",
@@ -404,8 +423,8 @@
     "title": "Send a Message or Task",
     "module": "athenaOne",
     "path": [
-      "Communicator",
-      "New Task or Message",
+      "Clinical Inbox",
+      "New Task or Patient Case",
       "Select provider",
       "Attach note or result",
       "Set due date",
@@ -418,7 +437,9 @@
       "es": {
         "title": "Enviar un mensaje o tarea al proveedor"
       }
-    }
+    },
+    "verified": true,
+    "source": "https://docs.athenahealth.com/api/api-ref/inbox-tasks"
   },
   {
     "id": "cp-prior-auth",
@@ -451,7 +472,9 @@
         "title": "Gestionar una pre-autorizacion",
         "notes": "La coordinacion puede ser manual: lleva un registro del estado en el Authorization Tracker."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://www.athenahealth.com/sites/default/files/media_docs/athenaOne-Authorization-Management-Service-Description.pdf"
   },
   {
     "id": "cp-referral-status",
@@ -479,7 +502,8 @@
       "es": {
         "title": "Revisar el estado de un referral"
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-awv",
@@ -489,7 +513,7 @@
     "path": [
       "Chart",
       "Encounter (AWV)",
-      "Questionnaires / HRA",
+      "Screening Questionnaires",
       "Vitals and measurements",
       "Screenings (falls, hearing, cognition)",
       "Written prevention plan",
@@ -504,14 +528,20 @@
         "title": "Documentar una visita anual de bienestar",
         "notes": "G0438 inicial / G0439 subsecuente; sin copago para el paciente."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-patient-reminder",
     "type": "clickpath",
     "title": "Send an Appointment Reminder",
     "module": "athenaOne",
-    "path": ["Schedule", "Appointments", "Select the appointment", "Communicator", "Send reminder"],
+    "path": [
+      "Schedule",
+      "Appointments",
+      "Select the appointment",
+      "Send reminder via Communicator"
+    ],
     "keywords": ["recordatorio", "reminder", "cita", "appointment", "confirmar cita", "athenaOne"],
     "tags": ["athena", "scheduling"],
     "reviewedAt": "2026-10-20",
@@ -519,7 +549,8 @@
       "es": {
         "title": "Enviar un recordatorio de cita"
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-cancel-reschedule",
@@ -542,21 +573,15 @@
         "title": "Cancelar o reprogramar una cita",
         "notes": "Documenta el motivo (no-show, solicitud del paciente) para el seguimiento."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-followup-task",
     "type": "clickpath",
     "title": "Create a Follow-up Task",
     "module": "athenaOne",
-    "path": [
-      "Communicator",
-      "Tasks",
-      "New Task",
-      "Assign to user",
-      "Description and due date",
-      "Save"
-    ],
+    "path": ["Clinical Inbox", "New Task", "Assign to user", "Description and due date", "Save"],
     "keywords": ["tarea", "task", "seguimiento", "pendiente", "follow up", "athenaOne"],
     "tags": ["athena", "comunicacion"],
     "reviewedAt": "2026-10-20",
@@ -564,7 +589,9 @@
       "es": {
         "title": "Crear una tarea de seguimiento"
       }
-    }
+    },
+    "verified": true,
+    "source": "https://docs.athenahealth.com/api/api-ref/inbox-tasks"
   },
   {
     "id": "cp-print-summary",
@@ -579,7 +606,8 @@
       "es": {
         "title": "Imprimir o compartir el resumen del paciente"
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-phq9-gad7",
@@ -588,7 +616,8 @@
     "module": "athenaOne",
     "path": [
       "Chart",
-      "Questionnaires",
+      "Encounter",
+      "Screening Questionnaires",
       "Select PHQ-9 (or GAD-7)",
       "Capture answers",
       "Save (the score is calculated)",
@@ -612,7 +641,9 @@
         "title": "Documentar PHQ-9 / GAD-7",
         "notes": "Se puede enviar al paciente antes de la visita. Revisa el item 9 del PHQ-9 y documenta la escala en cada visita."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://docs.athenahealth.com/api/workflows/screening-questionnaires"
   },
   {
     "id": "cp-cssrs",
@@ -621,7 +652,8 @@
     "module": "athenaOne",
     "path": [
       "Chart",
-      "Questionnaires",
+      "Encounter",
+      "Screening Questionnaires",
       "C-SSRS Screener",
       "Ask the 6 questions",
       "Record answers",
@@ -636,7 +668,9 @@
         "title": "Documentar C-SSRS (riesgo suicida)",
         "notes": "Ante Q4-Q5 o Q6 reciente: consulta de salud mental, precauciones y 988/911 si hay riesgo inmediato."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://docs.athenahealth.com/api/workflows/screening-questionnaires"
   },
   {
     "id": "cp-bh-referral",
@@ -668,7 +702,8 @@
         "title": "Referral a salud conductual",
         "notes": "Adjunta el puntaje del cribado para agilizar la valoracion. Haz warm handoff cuando puedas."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-safety-plan",
@@ -677,8 +712,8 @@
     "module": "athenaOne",
     "path": [
       "Chart",
-      "Documents",
-      "New document: Safety Plan",
+      "Behavioral Health Treatment Plan",
+      "Safety Plan",
       "Warning signs and coping strategies",
       "Support contacts and crisis line (988)",
       "Sign and save"
@@ -692,7 +727,8 @@
         "title": "Documentar un plan de seguridad",
         "notes": "El plan debe incluir pasos concretos, contactos y restriccion de medios. Entregale una copia al paciente."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-telehealth-bh",
@@ -722,7 +758,8 @@
         "title": "Cita de telesalud de salud mental",
         "notes": "Confirma que el paciente tenga el enlace y un lugar privado. Verifica requisitos de telesalud del plan."
       }
-    }
+    },
+    "verified": true
   },
   {
     "id": "cp-prior-auth-psych",
@@ -754,7 +791,9 @@
         "title": "Prior auth de medicamento psiquiatrico",
         "notes": "Muchos antipsicoticos y algunos antidepresivos requieren pre-autorizacion. Avisa al paciente de la demora."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://www.athenahealth.com/sites/default/files/media_docs/athenaOne-Authorization-Management-Service-Description.pdf"
   },
   {
     "id": "cp-social-work-consult",
@@ -764,8 +803,8 @@
     "path": [
       "Chart",
       "Create Order Group",
-      "Consult",
-      "Select Social Work / Case Management",
+      "Ordering Provider",
+      "Care Management Referral",
       "Reason (resources, violence, transportation)",
       "Send"
     ],
@@ -785,7 +824,8 @@
         "title": "Consulta a trabajo social",
         "notes": "Util para IPV, barreras de acceso, transporte o recursos comunitarios."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-crisis-documentation",
@@ -793,8 +833,9 @@
     "title": "Document a Mental Health Crisis",
     "module": "athenaOne",
     "path": [
-      "Communicator",
-      "Phone Note (or Encounter)",
+      "Chart",
+      "Encounter",
+      "Note type: Phone (or encounter)",
       "Reason: mental health crisis",
       "Document assessment, C-SSRS and plan",
       "Log 988 and resources given",
@@ -809,7 +850,8 @@
         "title": "Documentar una crisis de salud mental",
         "notes": "Registra tiempo, riesgo evaluado, plan acordado y seguimiento. Si hubo llamada a 988/911, anotalo con hora."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-bh-intake",
@@ -841,7 +883,8 @@
         "title": "Intake de salud conductual",
         "notes": "Completa el paquete de intake y los cribados antes de la primera visita de BH."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-bh-questionnaires",
@@ -850,7 +893,8 @@
     "module": "athenaOne",
     "path": [
       "Chart",
-      "Questionnaires",
+      "Encounter",
+      "Screening Questionnaires",
       "Select PHQ-9, GAD-7, C-SSRS or PCL-5",
       "Send to the patient portal",
       "Review and score",
@@ -873,7 +917,9 @@
         "title": "Enviar y puntuar cuestionarios de BH",
         "notes": "Envia antes de la visita para ahorrar tiempo. Repite las mismas escalas para medir respuesta."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://docs.athenahealth.com/api/workflows/screening-questionnaires"
   },
   {
     "id": "cp-bh-care-plan",
@@ -882,7 +928,7 @@
     "module": "athenaOne",
     "path": [
       "Chart",
-      "Care Plan",
+      "Behavioral Health Treatment Plan",
       "Problems and goals",
       "Interventions and responsible party",
       "Review date",
@@ -897,7 +943,9 @@
         "title": "Crear un care plan de BH",
         "notes": "Manten objetivos medibles y revisa el plan en cada seguimiento."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://help.athenahealth.com/Ohelp/Content/Behavioral%20Health/9-5a-TxP_User-Guide-BH_Treatment_Plans_A.htm"
   },
   {
     "id": "cp-bh-epcs",
@@ -921,7 +969,8 @@
         "title": "E-prescribir un controlado (EPCS)",
         "notes": "Los controlados requieren EPCS y una visita valida. Consulta el PDMP cuando aplique."
       }
-    }
+    },
+    "verified": true
   },
   {
     "id": "cp-bh-med-monitoring-labs",
@@ -945,7 +994,8 @@
         "title": "Ordenar labs de monitorizacion de psicofarmacos",
         "notes": "Litio: nivel y renal/tiroides. Antipsicoticos: panel metabolico y A1c."
       }
-    }
+    },
+    "verified": false
   },
   {
     "id": "cp-bh-portal-questionnaire",
@@ -954,11 +1004,10 @@
     "module": "athenaOne",
     "path": [
       "Chart",
-      "Communicator",
-      "Patient portal",
+      "Communicator / Patient portal",
       "Send questionnaire",
       "Track completion",
-      "Review in Questionnaires"
+      "Review in Screening Questionnaires"
     ],
     "keywords": ["portal", "cuestionario", "patient portal", "screening", "athenaOne"],
     "tags": ["athena", "salud-mental", "comunicacion"],
@@ -969,6 +1018,8 @@
         "title": "Enviar un cuestionario por el portal",
         "notes": "Ideal para cribado previo a la visita y seguimiento entre visitas."
       }
-    }
+    },
+    "verified": true,
+    "source": "https://docs.athenahealth.com/api/workflows/screening-questionnaires"
   }
 ]

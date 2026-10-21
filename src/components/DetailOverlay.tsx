@@ -14,11 +14,14 @@ interface DetailOverlayProps {
   isFavorite: boolean;
   useCount: number;
   isCustom?: boolean;
+  isOverridden?: boolean;
   onToggleFavorite: (id: string) => void;
   onCopy: (text: string, label?: string) => void;
   onTagClick: (tag: string) => void;
   onKeywordClick: (keyword: string) => void;
   onPick: (entry: Entry) => void;
+  onEditRoute?: (entry: Entry) => void;
+  onRestoreRoute?: (id: string) => void;
   onDelete?: (id: string) => void;
   onClose: () => void;
 }
@@ -30,11 +33,14 @@ export function DetailOverlay({
   isFavorite,
   useCount,
   isCustom = false,
+  isOverridden = false,
   onToggleFavorite,
   onCopy,
   onTagClick,
   onKeywordClick,
   onPick,
+  onEditRoute,
+  onRestoreRoute,
   onDelete,
   onClose,
 }: DetailOverlayProps) {
@@ -77,11 +83,14 @@ export function DetailOverlay({
             useCount={useCount}
             isCustom={isCustom}
             related={related}
+            isOverridden={isOverridden}
             onToggleFavorite={onToggleFavorite}
             onCopy={onCopy}
             onTagClick={onTagClick}
             onKeywordClick={onKeywordClick}
             onPickRelated={onPick}
+            onEditRoute={onEditRoute}
+            onRestoreRoute={onRestoreRoute}
             onDelete={onDelete}
           />
         </div>

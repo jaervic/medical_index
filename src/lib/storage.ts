@@ -17,6 +17,8 @@ export const STORAGE_KEYS = {
   panelWidth: `${NS}:panel-width`,
 } as const;
 
+import { loadRouteOverrides, saveRouteOverrides, type RouteOverrides } from './routeOverrides';
+
 export type Theme = 'dark' | 'light' | 'system';
 export type Locale = 'es' | 'en';
 
@@ -162,6 +164,7 @@ export interface PersonalData {
   recents: string[];
   queries: string[];
   customEntries: unknown[];
+  routeOverrides: RouteOverrides;
   frecency: FrecencyMap;
   theme: Theme;
   locale: Locale;
@@ -175,6 +178,7 @@ export function exportPersonalData(): PersonalData {
     recents: loadRecents(),
     queries: loadQueries(),
     customEntries: loadCustomEntries(),
+    routeOverrides: loadRouteOverrides(),
     frecency: loadFrecency(),
     theme: loadTheme(),
     locale: loadLocale(),
@@ -213,6 +217,9 @@ export function importPersonalData(
   saveFrecency(data.frecency as FrecencyMap);
   if (Array.isArray(data.customEntries)) {
     saveCustomEntries(data.customEntries);
+  }
+  if (typeof data.routeOverrides === 'object' && data.routeOverrides !== null) {
+    saveRouteOverrides(data.routeOverrides);
   }
   if (data.theme === 'dark' || data.theme === 'light' || data.theme === 'system') {
     saveTheme(data.theme);

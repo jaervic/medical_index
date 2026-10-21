@@ -57,6 +57,10 @@ export interface ClickPathEntry extends BaseEntry {
   /** Secuencia de clics. */
   path: string[];
   notes?: string;
+  /** True si la ruta esta contrastada con documentacion o con la instancia. */
+  verified?: boolean;
+  /** Enlace a la documentacion que respalda la ruta. */
+  source?: string;
 }
 
 export interface ProtocolEntry extends BaseEntry {

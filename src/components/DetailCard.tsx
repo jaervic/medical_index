@@ -45,11 +45,14 @@ export interface DetailCardProps {
   useCount: number;
   isCustom?: boolean;
   related?: Entry[];
+  isOverridden?: boolean;
   onToggleFavorite: (id: string) => void;
   onCopy: (text: string, label?: string) => void;
   onTagClick: (tag: string) => void;
   onKeywordClick: (keyword: string) => void;
   onPickRelated?: (entry: Entry) => void;
+  onEditRoute?: (entry: Entry) => void;
+  onRestoreRoute?: (id: string) => void;
   onDelete?: (id: string) => void;
 }
 
@@ -59,11 +62,14 @@ export function DetailCard({
   useCount,
   isCustom = false,
   related = [],
+  isOverridden = false,
   onToggleFavorite,
   onCopy,
   onTagClick,
   onKeywordClick,
   onPickRelated,
+  onEditRoute,
+  onRestoreRoute,
   onDelete,
 }: DetailCardProps) {
   const { t, locale } = useI18n();
@@ -98,6 +104,21 @@ export function DetailCard({
                 {t('detail.custom')}
               </span>
             )}
+            {entry.type === 'clickpath' && entry.verified === true && (
+              <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[11px] font-medium text-emerald-600 ring-1 ring-inset ring-emerald-500/25 dark:text-emerald-300">
+                {t('detail.verified')}
+              </span>
+            )}
+            {entry.type === 'clickpath' && entry.verified === false && (
+              <span className="rounded-full bg-amber-500/12 px-2 py-0.5 text-[11px] font-medium text-amber-700 ring-1 ring-inset ring-amber-500/25 dark:text-amber-300">
+                {t('route.verify')}
+              </span>
+            )}
+            {entry.type === 'clickpath' && isOverridden && (
+              <span className="rounded-full bg-sky-500/12 px-2 py-0.5 text-[11px] font-medium text-sky-600 ring-1 ring-inset ring-sky-500/25 dark:text-sky-300">
+                {t('route.custom')}
+              </span>
+            )}
             {useCount > 0 && (
               <span className="text-[11px] text-muted">
                 · {t('detail.usedCount', { count: useCount })}
@@ -120,7 +141,13 @@ export function DetailCard({
       </header>
 
       <div className="flex-1 space-y-5 overflow-y-auto px-5 py-4 print:overflow-visible">
-        <EntryBody entry={entry} onCopy={onCopy} />
+        <EntryBody
+          entry={entry}
+          onCopy={onCopy}
+          isOverridden={isOverridden}
+          onEditRoute={onEditRoute}
+          onRestoreRoute={onRestoreRoute}
+        />
 
         {tags.length > 0 && (
           <Field label={t('detail.tags')}>
@@ -196,9 +223,15 @@ export function DetailCard({
 function EntryBody({
   entry,
   onCopy,
+  isOverridden,
+  onEditRoute,
+  onRestoreRoute,
 }: {
   entry: Entry;
   onCopy: (text: string, label?: string) => void;
+  isOverridden?: boolean;
+  onEditRoute?: (entry: Entry) => void;
+  onRestoreRoute?: (id: string) => void;
 }) {
   const { t, locale } = useI18n();
 
@@ -260,7 +293,41 @@ function EntryBody({
           <Field label={t('detail.routeIn', { module: entry.module })}>
             <ClickPath path={entry.path} />
           </Field>
-          <CopyChip label={t('detail.copyRoute')} value={entry.path.join(' > ')} onCopy={onCopy} />
+          <div className="flex flex-wrap items-center gap-2">
+            <CopyChip
+              label={t('detail.copyRoute')}
+              value={entry.path.join(' > ')}
+              onCopy={onCopy}
+            />
+            {onEditRoute && (
+              <button
+                type="button"
+                onClick={() => onEditRoute(entry)}
+                className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs font-medium text-ink ring-1 ring-inset ring-edge transition hover:bg-ink/5"
+              >
+                {t('route.edit')}
+              </button>
+            )}
+            {isOverridden && onRestoreRoute && (
+              <button
+                type="button"
+                onClick={() => onRestoreRoute(entry.id)}
+                className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted ring-1 ring-inset ring-edge transition hover:text-ink"
+              >
+                {t('route.restore')}
+              </button>
+            )}
+            {entry.source && (
+              <a
+                href={entry.source}
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs text-muted underline transition hover:text-ink"
+              >
+                {t('route.source')}
+              </a>
+            )}
+          </div>
           {entry.notes && <Note>{entry.notes}</Note>}
         </>
       );

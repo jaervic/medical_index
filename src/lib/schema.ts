@@ -56,6 +56,8 @@ export const clickPathSchema = baseSchema.extend({
   module: z.string().min(1),
   path: z.array(z.string().min(1)).min(1),
   notes: z.string().optional(),
+  verified: z.boolean().optional(),
+  source: z.string().optional(),
 });
 
 export const protocolSchema = baseSchema.extend({

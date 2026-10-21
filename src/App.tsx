@@ -21,6 +21,7 @@ import { EmptyPanel } from '@/components/EmptyPanel';
 import { EntryEditor } from '@/components/EntryEditor';
 import { HelpOverlay } from '@/components/HelpOverlay';
 import { ResultItem } from '@/components/ResultItem';
+import { RouteOverrideEditor } from '@/components/RouteOverrideEditor';
 import { StatusBar } from '@/components/StatusBar';
 import { Toast } from '@/components/Toast';
 import { ENTRIES } from '@/data';
@@ -32,6 +33,7 @@ import { useFocusHotkey } from '@/hooks/useFocusHotkey';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { usePanel } from '@/hooks/usePanel';
 import { PANEL_MAX, PANEL_MIN, usePanelWidth } from '@/hooks/usePanelWidth';
+import { useRouteOverrides } from '@/hooks/useRouteOverrides';
 import { useSearch } from '@/hooks/useSearch';
 import { useTheme } from '@/hooks/useTheme';
 import { useUrlState } from '@/hooks/useUrlState';
@@ -42,6 +44,7 @@ import { buildHome } from '@/lib/home';
 import { localizeEntries } from '@/lib/localize';
 import { parseQuery, removeTagToken, removeTypeToken } from '@/lib/queryFilters';
 import { findRelated } from '@/lib/related';
+import { applyRouteOverride } from '@/lib/routeOverrides';
 import { frecencyValue } from '@/lib/storage';
 import { tagMatches } from '@/lib/tagLabels';
 import type { Entry, EntryType } from '@/lib/types';
@@ -75,6 +78,7 @@ export default function App() {
   const [overlayId, setOverlayId] = useState<string | null>(null);
   const [helpOpen, setHelpOpen] = useState(false);
   const [editorOpen, setEditorOpen] = useState(false);
+  const [routeEditorId, setRouteEditorId] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { theme, cycle: cycleTheme } = useTheme();
@@ -86,17 +90,18 @@ export default function App() {
   const { favorites, recents, queries, frecencyMap, toggleFavorite, registerUse, registerQuery } =
     useUsage();
   const { customEntries, addCustomEntry, removeCustomEntry } = useCustomEntries();
+  const { overrides, setRouteOverride, clearRouteOverride } = useRouteOverrides();
   const { message, copy } = useCopy();
   useFocusHotkey(inputRef);
 
   // Entradas propias primero, para que aparezcan arriba en la vista inicial.
   const allEntries = useMemo(() => [...customEntries, ...ENTRIES], [customEntries]);
-  // Version en el idioma activo (la base esta en ingles; `i18n.es` da el espanol).
-  const localizedAll = useMemo(() => localizeEntries(allEntries, locale), [allEntries, locale]);
-  const byId = useMemo(
-    () => new Map(localizedAll.map((entry) => [entry.id, entry])),
-    [localizedAll],
+  // Version en el idioma activo + overrides locales de las rutas.
+  const displayAll = useMemo(
+    () => localizeEntries(allEntries, locale).map((entry) => applyRouteOverride(entry, overrides)),
+    [allEntries, locale, overrides],
   );
+  const byId = useMemo(() => new Map(displayAll.map((entry) => [entry.id, entry])), [displayAll]);
   const customIds = useMemo(() => new Set(customEntries.map((entry) => entry.id)), [customEntries]);
 
   /** Los resultados de busqueda llegan con la entrada base; los mostramos localizados. */
@@ -125,7 +130,7 @@ export default function App() {
 
   const browseResults = useMemo(() => {
     if (!browsingTags) return [] as Entry[];
-    return localizedAll
+    return displayAll
       .filter(
         (entry) =>
           (effectiveType === 'all' || entry.type === effectiveType) &&
@@ -134,33 +139,33 @@ export default function App() {
       .map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
       .sort((a, b) => b.value - a.value || a.entry.title.localeCompare(b.entry.title))
       .map((item) => item.entry);
-  }, [browsingTags, localizedAll, effectiveType, activeTags, frecencyMap]);
+  }, [browsingTags, displayAll, effectiveType, activeTags, frecencyMap]);
 
   const home = useMemo(
-    () => buildHome(localizedAll, favorites, recents, effectiveType),
-    [localizedAll, favorites, recents, effectiveType],
+    () => buildHome(displayAll, favorites, recents, effectiveType),
+    [displayAll, favorites, recents, effectiveType],
   );
 
   const topUsed = useMemo(
     () =>
-      localizedAll
+      displayAll
         .map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
         .filter((item) => item.value > 0)
         .sort((a, b) => b.value - a.value)
         .slice(0, 5)
         .map((item) => item.entry),
-    [localizedAll, frecencyMap],
+    [displayAll, frecencyMap],
   );
 
   const mentalHealthEntries = useMemo(
     () =>
-      localizedAll
+      displayAll
         .filter((entry) => entry.type === 'protocol' && (entry.tags ?? []).includes('salud-mental'))
         .map((entry) => ({ entry, value: frecencyValue(frecencyMap[entry.id]) }))
         .sort((a, b) => b.value - a.value || a.entry.title.localeCompare(b.entry.title))
         .slice(0, 5)
         .map((item) => item.entry),
-    [localizedAll, frecencyMap],
+    [displayAll, frecencyMap],
   );
 
   const restShown = useMemo(() => home.rest.slice(0, HOME_LIMIT), [home]);
@@ -187,10 +192,12 @@ export default function App() {
 
   const selected = activeId ? (byId.get(activeId) ?? null) : null;
   const overlayEntry = overlayId ? (byId.get(overlayId) ?? null) : null;
+  const routeEditorRaw = routeEditorId ? byId.get(routeEditorId) : undefined;
+  const routeEditorEntry = routeEditorRaw?.type === 'clickpath' ? routeEditorRaw : null;
 
   const related = useMemo(
-    () => (selected ? findRelated(selected, localizedAll, 6).map((item) => item.entry) : []),
-    [selected, localizedAll],
+    () => (selected ? findRelated(selected, displayAll, 6).map((item) => item.entry) : []),
+    [selected, displayAll],
   );
 
   const useCount = selected ? (frecencyMap[selected.id]?.count ?? 0) : 0;
@@ -498,11 +505,14 @@ export default function App() {
                     useCount={useCount}
                     isCustom={customIds.has(selected.id)}
                     related={related}
+                    isOverridden={Boolean(overrides[selected.id])}
                     onToggleFavorite={toggleFavorite}
                     onCopy={copy}
                     onTagClick={handleTagClick}
                     onKeywordClick={handleKeywordClick}
                     onPickRelated={handlePick}
+                    onEditRoute={(entry) => setRouteEditorId(entry.id)}
+                    onRestoreRoute={clearRouteOverride}
                     onDelete={handleDeleteCustom}
                   />
                 ) : (
@@ -532,15 +542,18 @@ export default function App() {
       {overlayEntry && (
         <DetailOverlay
           entry={overlayEntry}
-          entries={localizedAll}
+          entries={displayAll}
           isFavorite={favorites.includes(overlayEntry.id)}
           useCount={frecencyMap[overlayEntry.id]?.count ?? 0}
           isCustom={customIds.has(overlayEntry.id)}
+          isOverridden={Boolean(overrides[overlayEntry.id])}
           onToggleFavorite={toggleFavorite}
           onCopy={copy}
           onTagClick={handleTagClick}
           onKeywordClick={handleKeywordClick}
           onPick={handlePick}
+          onEditRoute={(entry) => setRouteEditorId(entry.id)}
+          onRestoreRoute={clearRouteOverride}
           onDelete={handleDeleteCustom}
           onClose={() => setOverlayId(null)}
         />
@@ -554,6 +567,17 @@ export default function App() {
       )}
 
       {editorOpen && <EntryEditor onSave={handleSaveCustom} onClose={() => setEditorOpen(false)} />}
+
+      {routeEditorEntry && (
+        <RouteOverrideEditor
+          entry={routeEditorEntry}
+          onSave={(override) => {
+            setRouteOverride(routeEditorEntry.id, override);
+            setRouteEditorId(null);
+          }}
+          onClose={() => setRouteEditorId(null)}
+        />
+      )}
     </div>
   );
 }

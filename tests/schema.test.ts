@@ -39,4 +39,11 @@ describe('validacion de datos (Zod)', () => {
     ).map((entry) => entry.id);
     expect(sinEs).toEqual([]);
   });
+
+  it('las rutas declaran si estan verificadas', () => {
+    const sin = ENTRIES.filter(
+      (entry) => entry.type === 'clickpath' && typeof entry.verified !== 'boolean',
+    ).map((entry) => entry.id);
+    expect(sin).toEqual([]);
+  });
 });

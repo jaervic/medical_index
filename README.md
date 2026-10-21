@@ -60,7 +60,8 @@ fundamentaron en fuentes publicas:
 - **Acronimos y vocabulario clinico**: listas de abreviaturas de uso comun (NCI/SEER, MedicAlert).
 - **Rutas de athenaOne**: flujos de athenaClinicals/Communicator (Create Order Group, Ordering
   Provider, Referral, Lab/Imaging, Prescribe, ePA/CoverMyMeds, Phone Note, Questionnaires,
-  Authorization Tracker, Schedule).
+  Authorization Tracker, Schedule). Cada ruta indica si esta **verificada** o si conviene
+  **comprobarla en tu instancia**, y se puede **editar en la app** (con "Restaurar original").
 - **Protocolos (AWV)**: guia de la CMS/Medicare para la _Annual Wellness Visit_ (G0438/G0439).
 - **Triage telefonico**: banderas rojas de dolor toracico, disnea, fiebre y dolor abdominal
   (guias AHA/ACC, WHO prehospital protocols, ESI handbook, protocolos de triage telefonico).
